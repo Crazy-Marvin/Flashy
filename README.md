@@ -5,7 +5,7 @@
 [![Latest tag](https://img.shields.io/github/tag/Crazy-Marvin/Flashy.svg?style=flat)](https://github.com/Crazy-Marvin/Flashy/tags)
 [![Issues](https://img.shields.io/github/issues/Crazy-Marvin/Flashy.svg?style=flat)](https://github.com/Crazy-Marvin/Flashy/issues)
 [![Pull requests](https://img.shields.io/github/issues-pr/Crazy-Marvin/Flashy.svg?style=flat)](https://github.com/Crazy-Marvin/Flashy/pulls)
-[![Codacy](https://api.codacy.com/project/badge/Grade/49d72132eca54aa9b68056d3dce5c019)](https://www.codacy.com/app/CrazyMarvin/Flashy?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Crazy-Marvin/Flashy&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/379c59381e784f42b5910864e574bd8e)](https://www.codacy.com/gh/Crazy-Marvin/Flashy?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Crazy-Marvin/Flashy&amp;utm_campaign=Badge_Grade)
 [![codecov](https://codecov.io/gh/Crazy-Marvin/Flashy/branch/master/graph/badge.svg)](https://codecov.io/gh/Crazy-Marvin/Flashy)
 [![Crowdin](https://d322cqt584bo4o.cloudfront.net/morse/localized.svg)](https://crowdin.com/project/morse)
 [![Known Vulnerabilities](https://snyk.io/test/github/Crazy-Marvin/Flashy/badge.svg?targetFile=app%2Fbuild.gradle)](https://snyk.io/test/github/Crazy-Marvin/Flashy?targetFile=app%2Fbuild.gradle)
