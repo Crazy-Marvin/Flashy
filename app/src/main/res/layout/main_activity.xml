@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:src="@drawable/ic_flashy_title"
+        android:layout_width="match_parent"
+        android:layout_marginTop="24dp"
+        android:layout_height="wrap_content"/>
+    <me.tankery.lib.circularseekbar.CircularSeekBar
+        android:id="@+id/progress_circular"
+        android:layout_centerInParent="true"
+        android:layout_width="200dp"
+        app:cs_circle_progress_color= "#FFB137"
+        app:cs_maintain_equal_circle = "true"
+        app:cs_circle_color = "#F3F3F7"
+
+        app:cs_circle_stroke_width = "3dp"
+        app:cs_pointer_stroke_width = "8dp"
+        app:cs_start_angle = "140"
+        app:cs_end_angle = "40"
+        app:cs_pointer_color = "#FFB137"
+        app:cs_pointer_halo_width = "4dp"
+        app:cs_pointer_halo_border_width = "4dp"
+        app:cs_pointer_halo_color = "#FFFFFF"
+        app:cs_pointer_halo_color_ontouch = "#FFFFFF"
+        android:layout_height="300dp"/>
+
+    <ImageView
+        android:id="@+id/power_center"
+        android:layout_width="72dp"
+        android:src="@drawable/ic_power_center"
+        android:background="@drawable/ripple_effect"
+        android:layout_centerInParent="true"
+        android:layout_height="72dp"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/power_icon_center"
+            android:layout_width="24dp"
+            android:src="@drawable/power_icon_center"
+            android:layout_marginTop="3dp"
+            android:layout_height="24dp"/>
+        <ImageView
+            android:id="@+id/power_icon_center_stand"
+            android:layout_width="12dp"
+            android:src="@drawable/ic_power_icon_two"
+            android:layout_marginBottom="5dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="12dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/bg_options"
+        android:background="@drawable/ic_rectangle_bg_options"
+        android:layout_width="88dp"
+        android:layout_alignBottom="@id/progress_circular"
+        android:layout_centerHorizontal="true"
+        android:layout_height="40dp">
+
+        <RelativeLayout
+            android:id="@+id/bg_option_circle"
+            android:layout_width="wrap_content"
+            android:background="@drawable/bg_option_circle"
+            android:animateLayoutChanges="true"
+            android:layout_height="wrap_content"/>
+        <ImageView
+            android:id="@+id/flash_icon"
+            android:src="@drawable/flash_icon"
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="15dp"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:id="@+id/screen_icon"
+            android:src="@drawable/screen_icon"
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="17dp"
+            android:layout_alignParentEnd="true"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+</RelativeLayout>
