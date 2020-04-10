@@ -29,7 +29,7 @@ jobs:
         uses: malinskiy/action-android/emulator-run-cmd@release/0.0.5
         with:
           cmd: ./gradlew connectedAndroidTest
-          api: 25
+          api: 29
           tag: google_apis
           abi: x86
       - name: "📤 Upload code coverage"
