@@ -17,8 +17,6 @@ jobs:
         uses: malinskiy/action-android/install-sdk@release/0.0.5
         with:
           acceptLicense: yes
-      - name: "📁 Copy local CI properties"
-        run: cp ci/local.properties ./
       - name: "🏗 Build"
         run: ./gradlew assembleDebug
       - name: "🧪 Android LINT"
