@@ -14,4 +14,37 @@
 [![Google Play](https://badgen.net/badge/icon/googleplay?icon=googleplay&label)](https://play.google.com/store/apps/details?id=rocks.poopjournal.flashy)
 
 # Flashy
-Simple &amp; Privacy-Friendly Flashlight App
+
+<b>Flashy</b> is a simple and practical <b>screen flashlight app</b> that uses your screen’s light or camera flash and converts your phone and tablet in a powerful flashlight. Enjoy a handy bright flashlight at your reach anytime and anywhere you need it. 
+
+🔦 <b>SIMPLE AND HANDY SCREEN FLASHLIGHT</b>
+
+Flashy is very easy to use, super user-friendly with numerous mobile flashlight features that offer you a bright flashlight in your pocket. Our screen torch light gives you brightness & clarity anytime you need it with just a press on your device. 
+
+☀️ <b>CONTROL AND CUSTOMIZE THE BRIGHTNESS</b>
+
+With an elegant design and its multi-functionality, this flashlight app allows you to control the brightness of the mobile flashlight. Customization of the brightness and the screen’s color to suit your preferences can be done easily with the features offered on this minimal flashlight. Just easily rotate the brightness circle and adjust it per your needs.
+
+🚫 <b>PRIVACY FRIENDLY & WITHOUT ADS</b>
+
+This fast flashlight can be a perfect choice for users with a device that doesn’t have a camera or has one but with a broken flashlight. This mobile flashlight is very privacy-friendly, your safety is guaranteed and most importantly it is an ad-free flashlight so you won’t be interrupted using it. 
+
+💡 <b>FLASHY FEATURES</b>
+
+* Easy to use and privacy-friendly
+* No ads
+* Elegant and simple design
+* Uses your screen’s light or camera flash as a source                
+* Control and customize the brightness
+
+# Contributing
+
+We use [Crowdin](https://crowdin.com/project/flashy) for translations.
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+# License
+
+[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
