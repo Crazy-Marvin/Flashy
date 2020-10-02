@@ -1,4 +1,3 @@
-<b>Flashy</b> is a simple and practical <b>screen flashlight app</b> that uses your screen’s light or camera flash and converts your phone and tablet in a powerful flashlight. Enjoy a handy bright flashlight at your reach anytime and anywhere you need it. 
 <b>Flashy</b> Est une <b>application de lampe torche</b> simple et pratique qui utilise la lumière de votre écran ou le flash de votre appareil photo et transforme votre téléphone et votre tablette en une puissante lampe de poche. Profitez d'une source de lumière pratique et brillante à votre portée à tout moment et en tout lieu. 
 
 🔦 <b>UNE TORCHE À ÉCRAN SIMPLE ET PRATIQUE</b>
@@ -20,4 +19,3 @@ Cette lampe plus rapide que la lumière peut être le choix parfait pour les uti
 * Design simple et élégant
 * Utilisez la lumière de votre écran ou votre flash comme source lumineuse             
 * Contrôlez et personnalisez la luminosité
-
