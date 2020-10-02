@@ -1,0 +1,3 @@
+Pequenas melhorias por baixo dos panos
+Fix fastlane setup
+Corrigido a configuração do fastlane
