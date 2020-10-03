@@ -1,0 +1,2 @@
+Piccoli miglioramenti sotto il cofano
+Risolto il problema con la configurazione Fastlane
