@@ -1,0 +1,2 @@
+Pár drobných vylepšení na pozadí
+Opravené nastavení fastlane
