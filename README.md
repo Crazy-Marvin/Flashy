@@ -7,7 +7,7 @@
 [![Pull requests](https://img.shields.io/github/issues-pr/Crazy-Marvin/Flashy.svg?style=flat)](https://github.com/Crazy-Marvin/Flashy/pulls)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/379c59381e784f42b5910864e574bd8e)](https://www.codacy.com/gh/Crazy-Marvin/Flashy?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Crazy-Marvin/Flashy&amp;utm_campaign=Badge_Grade)
 [![codecov](https://codecov.io/gh/Crazy-Marvin/Flashy/branch/master/graph/badge.svg)](https://codecov.io/gh/Crazy-Marvin/Flashy)
-[![Crowdin](https://badges.crowdin.net/flashy/localized.svg)](https://crowdin.com/project/flashy)
+[![Translation status](https://hosted.weblate.org/widgets/flashy/-/svg-badge.svg)](https://hosted.weblate.org/engage/flashy/)
 [![Known Vulnerabilities](https://snyk.io/test/github/Crazy-Marvin/Flashy/badge.svg?targetFile=app%2Fbuild.gradle)](https://snyk.io/test/github/Crazy-Marvin/Flashy?targetFile=app%2Fbuild.gradle)
 [![API](https://img.shields.io/badge/API-19%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=19)
 [![F-Droid](https://img.shields.io/f-droid/v/rocks.poopjournal.flashy.svg)](https://f-droid.org/en/packages/rocks.poopjournal.flashy/)
@@ -39,7 +39,7 @@ This fast flashlight can be a perfect choice for users with a device that doesnâ
 
 # Contributing
 
-We use [Crowdin](https://crowdin.com/project/flashy) for translations.
+We use [Hosted Weblate](https://hosted.weblate.org/engage/flashy/) for translations.
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
