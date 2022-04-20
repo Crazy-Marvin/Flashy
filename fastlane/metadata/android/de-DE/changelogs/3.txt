@@ -1,2 +1,2 @@
-Little improvements under the hood
-Fix fastlane setup
+Kleine Verbesserungen unter der Haube
+Fastlane-Aufbau korrigiert
