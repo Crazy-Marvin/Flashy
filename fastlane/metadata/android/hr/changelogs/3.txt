@@ -1,0 +1,2 @@
+Neka programerska poboljšanja
+Ispravljeno fastlane postavljanje
