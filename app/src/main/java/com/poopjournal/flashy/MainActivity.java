@@ -158,10 +158,8 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
             FlashDialog = DialogsUtil.showNoFlashLightDialog(this);
             powerCenter.setOnClickListener(null);
             RelativeLayout useScreen = FlashDialog.findViewById(R.id.container_use_screen);
-            useScreen.setOnClickListener(view -> {
-                FlashDialog.dismiss();
-                bg_options.callOnClick();
-            });
+            useScreen.setOnClickListener(view -> FlashDialog.dismiss());
+            FlashDialog.setOnDismissListener((dialog -> bg_options.callOnClick()));
             FlashDialog.show();
             Log.d("flashy_dial","showing for simple");
         }
