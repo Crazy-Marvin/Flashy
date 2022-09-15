@@ -20,6 +20,7 @@ public class QSTileService extends TileService {
         if (key.equals("flash_enabled")) {
             getQsTile().setState(sharedPreferences.getBoolean(key, false) ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE);
             getQsTile().updateTile();
+            Utils.updateWidgets(this);
         }
     };
 

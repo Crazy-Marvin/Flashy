@@ -1,9 +1,6 @@
 package com.poopjournal.flashy;
 
-import static android.hardware.Camera.Parameters.FLASH_MODE_AUTO;
 import static android.hardware.Camera.Parameters.FLASH_MODE_OFF;
-import static android.hardware.Camera.Parameters.FLASH_MODE_ON;
-import static android.hardware.Camera.Parameters.FLASH_MODE_TORCH;
 
 import android.animation.LayoutTransition;
 import android.app.Dialog;
@@ -33,8 +30,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.snackbar.Snackbar;
 
-import java.util.List;
-
 import me.tankery.lib.circularseekbar.CircularSeekBar;
 
 public class MainActivity extends AppCompatActivity implements Camera.AutoFocusCallback {
@@ -54,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
     private final SharedPreferences.OnSharedPreferenceChangeListener listener = (sharedPreferences, key) -> {
         if (key.equals("flash_enabled")) {
             changePowerButtonColors(sharedPreferences.getBoolean(key, false));
+            Utils.updateWidgets(this);
         }
     };
 
@@ -224,7 +220,7 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
         seekBar.setEnabled(true);
         powerCenter.setOnClickListener(null);
         changePowerButtonColors(false);
-        turnOff();
+        if (getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)) turnOff();
         seekBar.setOnSeekBarChangeListener(new CircularSeekBar.OnCircularSeekBarChangeListener() {
             @Override
             public void onProgressChanged(CircularSeekBar circularSeekBar, float progress, boolean fromUser) {
@@ -348,7 +344,7 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
             }
         } else try {
             Camera.Parameters parameters = camera.getParameters();
-            parameters.setFlashMode(getFlashOnParameter());
+            parameters.setFlashMode(Utils.getFlashOnParameter(camera));
             camera.setParameters(parameters);
             camera.setPreviewTexture(new SurfaceTexture(0));
             camera.startPreview();
@@ -357,18 +353,6 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
         } catch (Exception e) {
             // We are expecting this to happen on devices that don't support autofocus.
         }
-    }
-
-    private String getFlashOnParameter() {
-        List<String> flashModes = camera.getParameters().getSupportedFlashModes();
-        if (flashModes.contains(FLASH_MODE_TORCH)) {
-            return FLASH_MODE_TORCH;
-        } else if (flashModes.contains(FLASH_MODE_ON)) {
-            return FLASH_MODE_ON;
-        } else if (flashModes.contains(FLASH_MODE_AUTO)) {
-            return FLASH_MODE_AUTO;
-        }
-        throw new RuntimeException();
     }
 
     public void turnOff() {
