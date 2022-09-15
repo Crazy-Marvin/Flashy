@@ -25,7 +25,7 @@ public class Utils {
         } else if (flashModes.contains(FLASH_MODE_AUTO)) {
             return FLASH_MODE_AUTO;
         }
-        throw new RuntimeException();
+        throw new UnsupportedOperationException();
     }
 
     /**
