@@ -60,15 +60,15 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
         findViews();
         applyListeners();
         changePowerButtonColors(preferences.getBoolean("flash_enabled", false));
+        init();
         if (savedInstanceState != null) {
-            initSaved();
             if (preferences.getInt("default_option", 1) == 2) {
                 Log.d("flashy_test", "saved 2, " +savedInstanceState.getInt("brightness"));
-                refreshActivityForScreenLight(savedInstanceState.getInt("brightness"));
+                brightness = savedInstanceState.getInt("brightness");
+                WindowManager.LayoutParams layoutpars = window.getAttributes();
+                layoutpars.screenBrightness = (float) brightness / 100;
+                window.setAttributes(layoutpars);
             }
-        }
-        else {
-            init();
         }
     }
 
@@ -92,23 +92,12 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
         }
     }
 
-    void initSaved() {
-        if (preferences.getInt("default_option", 1) == 1) {
-            updateOptionsUI(true);
-            refreshActivityForFlashLight();
-        }
-        else {
-            updateOptionsUI(false);
-        }
-    }
-
     void refreshActivityForFlashLight() {
         //Refresh Seekbar
         seekBar.setOnSeekBarChangeListener(null);
         seekBar.setProgress(0F);
         seekBar.setEnabled(false);
         seekBar.setPointerColor(Color.parseColor("#AAAABB"));
-        //turnOff();
         boolean hasFlash = getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
         if (!hasFlash) {
             FlashDialog = DialogsUtil.showNoFlashLightDialog(this);
@@ -151,8 +140,6 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
             iconFlash.setColorFilter(Color.parseColor("#FFB137"));
             iconScreen.setColorFilter(Color.parseColor("#AAAABB"));
             seekBar.setProgress(0f);
-//            seekBar.setCircleProgressColor(Color.parseColor("#F3F3F7"));
-//            seekBar.setPointerColor(Color.parseColor("#F3F3F7"));
         }
         else {
             bg_option_circle.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
@@ -161,9 +148,6 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
             bg_option_circle.setLayoutParams(params);
             iconFlash.setColorFilter(Color.parseColor("#AAAABB"));
             iconScreen.setColorFilter(Color.parseColor("#FFB137"));
-//            seekBar.setCircleProgressColor(Color.parseColor("#FFB137"))
-//            ;
-//            seekBar.setPointerColor(Color.parseColor("#FFB137"));
         }
     }
 
@@ -177,7 +161,7 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
             public void onProgressChanged(CircularSeekBar circularSeekBar, float progress, boolean fromUser) {
                 brightness = (int) progress;
                 WindowManager.LayoutParams layoutpars = window.getAttributes();
-                layoutpars.screenBrightness = brightness / (float)100;
+                layoutpars.screenBrightness = (float) brightness / 100;
                 window.setAttributes(layoutpars);
             }
 
@@ -193,65 +177,9 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
         });
         powerCenter.setOnClickListener(view -> {
             if (brightness != 100) {
-                brightness = 100;
-                WindowManager.LayoutParams layoutpars = window.getAttributes();
-                layoutpars.screenBrightness = (float) brightness / 100;
-                window.setAttributes(layoutpars);
                 seekBar.setProgress(100);
             }
             else {
-                brightness = 0;
-                WindowManager.LayoutParams layoutpars = window.getAttributes();
-                layoutpars.screenBrightness = (float) brightness / 100;
-                window.setAttributes(layoutpars);
-                seekBar.setProgress(0);
-            }
-        });
-    }
-
-    void refreshActivityForScreenLight(int brightnessToCurrentlyUse) {
-        seekBar.setPointerColor(Color.parseColor("#FFB137"));
-        seekBar.setEnabled(true);
-        powerCenter.setOnClickListener(null);
-        if (getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)) turnOff();
-        brightness = brightnessToCurrentlyUse;
-        WindowManager.LayoutParams layoutpars = window.getAttributes();
-        layoutpars.screenBrightness = brightness / (float)100;
-        window.setAttributes(layoutpars);
-        float currentBrightness = brightness/(float) 255;
-        seekBar.setProgress(currentBrightness*100);
-        seekBar.setOnSeekBarChangeListener(new CircularSeekBar.OnCircularSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(CircularSeekBar circularSeekBar, float progress, boolean fromUser) {
-                brightness = (int) progress;
-                WindowManager.LayoutParams layoutpars = window.getAttributes();
-                layoutpars.screenBrightness = brightness / (float)100;
-                window.setAttributes(layoutpars);
-            }
-
-            @Override
-            public void onStopTrackingTouch(CircularSeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStartTrackingTouch(CircularSeekBar seekBar) {
-
-            }
-        });
-        powerCenter.setOnClickListener(view -> {
-            if (brightness == 0) {
-                brightness = 100;
-                WindowManager.LayoutParams layoutpars1 = window.getAttributes();
-                layoutpars1.screenBrightness = brightness / (float)100;
-                window.setAttributes(layoutpars1);
-                seekBar.setProgress(100);
-            }
-            else {
-                brightness = 0;
-                WindowManager.LayoutParams layoutpars1 = window.getAttributes();
-                layoutpars1.screenBrightness = brightness / (float)100;
-                window.setAttributes(layoutpars1);
                 seekBar.setProgress(0);
             }
         });
