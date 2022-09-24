@@ -24,8 +24,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.snackbar.Snackbar;
-
 import me.tankery.lib.circularseekbar.CircularSeekBar;
 
 public class MainActivity extends AppCompatActivity implements Camera.AutoFocusCallback {
@@ -33,11 +31,9 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
     CircularSeekBar seekBar;
     RelativeLayout bg_options, bg_option_circle;
     ImageView iconFlash, iconScreen, powerCenter, powerIconCenter, powerIconCenterStand;
-    Snackbar screenPermissions = null;
     Dialog FlashDialog = null;
     //Fields
     private int brightness = -999;
-    private int defaultOption =1;
     private Window window;
     private static Camera camera = null;// has to be static, otherwise onDestroy() destroys it
     private CameraManager manager;
@@ -53,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
+        window = getWindow();
         preferences = getSharedPreferences("my_prefs", MODE_PRIVATE);
         preferences.registerOnSharedPreferenceChangeListener(listener);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -65,14 +62,7 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
         changePowerButtonColors(preferences.getBoolean("flash_enabled", false));
         if (savedInstanceState != null) {
             initSaved();
-            int defaultOption = savedInstanceState.getInt("defaultOption");
-            if (defaultOption == 1) {
-                Log.d("flashy_test", "saved 1");
-                if (savedInstanceState.getBoolean("flash")) {
-                    refreshActivityForFlashLight();
-                }
-            }
-            if (defaultOption == 2) {
+            if (preferences.getInt("default_option", 1) == 2) {
                 Log.d("flashy_test", "saved 2, " +savedInstanceState.getInt("brightness"));
                 refreshActivityForScreenLight(savedInstanceState.getInt("brightness"));
             }
@@ -84,28 +74,15 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
 
     void applyListeners() {
         bg_options.setOnClickListener(view -> {
-            SharedPreferences.Editor editor = getSharedPreferences("my_prefs", MODE_PRIVATE).edit();
-            if (defaultOption==1) {
-                //Current Option is Flash, changing to screen
-                editor.putInt("default_option", 2);
-            }
-            else {
-                editor.putInt("default_option", 1);
-            }
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putInt("default_option", preferences.getInt("default_option", 1) == 1 ? 2 : 1);
             editor.apply();
             init();
         });
     }
 
     void init() {
-        window = getWindow();
-        SharedPreferences prefs = getSharedPreferences("my_prefs", MODE_PRIVATE);
-        defaultOption = prefs.getInt("default_option", 1);// 1 means flash light is selected
-        if (defaultOption == 1) {
-            if (screenPermissions != null) {
-                if (screenPermissions.isShown())
-                    screenPermissions.dismiss();
-            }
+        if (preferences.getInt("default_option", 1) == 1) {
             updateOptionsUI(true);
             refreshActivityForFlashLight();
         }
@@ -116,12 +93,7 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
     }
 
     void initSaved() {
-        window = getWindow();
-        if (defaultOption == 1) {
-            if (screenPermissions != null) {
-                if (screenPermissions.isShown())
-                    screenPermissions.dismiss();
-            }
+        if (preferences.getInt("default_option", 1) == 1) {
             updateOptionsUI(true);
             refreshActivityForFlashLight();
         }
@@ -155,7 +127,6 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
             });
         }
     }
-
 
     void changePowerButtonColors(boolean isTurnedOn) {
         if (isTurnedOn) {
@@ -200,7 +171,6 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
         seekBar.setPointerColor(Color.parseColor("#FFB137"));
         seekBar.setEnabled(true);
         powerCenter.setOnClickListener(null);
-        changePowerButtonColors(false);
         if (getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)) turnOff();
         seekBar.setOnSeekBarChangeListener(new CircularSeekBar.OnCircularSeekBarChangeListener() {
             @Override
@@ -222,17 +192,17 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
             }
         });
         powerCenter.setOnClickListener(view -> {
-            if (brightness == 0) {
+            if (brightness != 100) {
                 brightness = 100;
                 WindowManager.LayoutParams layoutpars = window.getAttributes();
-                layoutpars.screenBrightness = brightness / (float)100;
+                layoutpars.screenBrightness = (float) brightness / 100;
                 window.setAttributes(layoutpars);
                 seekBar.setProgress(100);
             }
             else {
                 brightness = 0;
                 WindowManager.LayoutParams layoutpars = window.getAttributes();
-                layoutpars.screenBrightness = brightness / (float)100;
+                layoutpars.screenBrightness = (float) brightness / 100;
                 window.setAttributes(layoutpars);
                 seekBar.setProgress(0);
             }
@@ -243,8 +213,7 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
         seekBar.setPointerColor(Color.parseColor("#FFB137"));
         seekBar.setEnabled(true);
         powerCenter.setOnClickListener(null);
-        changePowerButtonColors(false);
-        turnOff();
+        if (getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)) turnOff();
         brightness = brightnessToCurrentlyUse;
         WindowManager.LayoutParams layoutpars = window.getAttributes();
         layoutpars.screenBrightness = brightness / (float)100;
@@ -354,14 +323,8 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
                 refreshActivityForScreenLight();
             }
         }
-        if (defaultOption == 1) {
-            outState.putInt("defaultOption", defaultOption);
-            Log.d("flashy_test", "1");
-        }
-        if (defaultOption == 2) {
-            outState.putInt("defaultOption", defaultOption);
+        if (preferences.getInt("default_option", 1) == 2) {
             outState.putInt("brightness", brightness);
-            Log.d("flashy_test", "2");
         }
     }
 }
