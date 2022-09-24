@@ -1,0 +1,5 @@
+- 📷 Avoid camera permission (#41)
+- 🎨 Add quick settings tile (#10)
+- 👍 Update dependencies and translations
+
+Thank you so much to @unbiaseduser and all translators! 😘
