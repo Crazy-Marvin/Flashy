@@ -5,7 +5,6 @@ import static android.hardware.Camera.Parameters.FLASH_MODE_OFF;
 import android.animation.LayoutTransition;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
@@ -13,12 +12,9 @@ import android.graphics.SurfaceTexture;
 import android.hardware.Camera;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraManager;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.util.Log;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -115,21 +111,12 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
         }
         else {
             updateOptionsUI(false);
-            if (checkSystemWritePermission()) {
-                refreshActivityForScreenLight();
-            } else {
-                screenPermissions = Snackbar.make(findViewById(android.R.id.content), "Need system permission to access Screen brightness", Snackbar.LENGTH_INDEFINITE)
-                        .setAction("OPEN SETTINGS", view -> openAndroidPermissionsMenu())
-                        .setActionTextColor(getResources().getColor(android.R.color.holo_red_light ));
-                screenPermissions.show();
-            }
+            refreshActivityForScreenLight();
         }
     }
 
     void initSaved() {
         window = getWindow();
-//        SharedPreferences prefs = getSharedPreferences("my_prefs", MODE_PRIVATE);
-//        defaultOption = prefs.getInt("default_option", 1);// 1 means flash light is selected
         if (defaultOption == 1) {
             if (screenPermissions != null) {
                 if (screenPermissions.isShown())
@@ -140,12 +127,6 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
         }
         else {
             updateOptionsUI(false);
-            if (!checkSystemWritePermission()) {
-                screenPermissions = Snackbar.make(findViewById(android.R.id.content), "Need system permission to access Screen brightness", Snackbar.LENGTH_INDEFINITE)
-                        .setAction("OPEN SETTINGS", view -> openAndroidPermissionsMenu())
-                        .setActionTextColor(getResources().getColor(android.R.color.holo_red_light ));
-                screenPermissions.show();
-            }
         }
     }
 
@@ -203,7 +184,7 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
 //            seekBar.setPointerColor(Color.parseColor("#F3F3F7"));
         }
         else {
-            ((ViewGroup) bg_option_circle).getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
+            bg_option_circle.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
             RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) bg_option_circle.getLayoutParams();
             params.addRule(RelativeLayout.ALIGN_PARENT_END);
             bg_option_circle.setLayoutParams(params);
@@ -264,7 +245,7 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
         powerCenter.setOnClickListener(null);
         changePowerButtonColors(false);
         turnOff();
-        brightness = (int) brightnessToCurrentlyUse;
+        brightness = brightnessToCurrentlyUse;
         WindowManager.LayoutParams layoutpars = window.getAttributes();
         layoutpars.screenBrightness = brightness / (float)100;
         window.setAttributes(layoutpars);
@@ -316,21 +297,6 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
         powerCenter = findViewById(R.id.power_center);
         powerIconCenter = findViewById(R.id.power_icon_center);
         powerIconCenterStand = findViewById(R.id.power_icon_center_stand);
-    }
-
-    private boolean checkSystemWritePermission() {
-        boolean retVal = true;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            retVal = Settings.System.canWrite(this);
-          //  Log.d("flashy_test", "Can Write Settings: " + retVal);
-        }
-        return retVal;
-    }
-
-    private void openAndroidPermissionsMenu() {
-        Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS);
-        intent.setData(Uri.parse("package:" + getPackageName()));
-        startActivity(intent);
     }
 
     public void turnOn() {
@@ -398,19 +364,4 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
             Log.d("flashy_test", "2");
         }
     }
-
-
-   /* @Override
-    public void onConfigurationChanged(@NonNull Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-
-        if (camera!=null)
-            turnOn();
-
-        if (defaultOption==2){
-            refreshActivityForScreenLight(brightness);
-        }
-    }*/
-
-
 }
