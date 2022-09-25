@@ -61,14 +61,12 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
         applyListeners();
         changePowerButtonColors(preferences.getBoolean("flash_enabled", false));
         init();
-        if (savedInstanceState != null) {
-            if (preferences.getInt("default_option", 1) == 2) {
-                Log.d("flashy_test", "saved 2, " +savedInstanceState.getInt("brightness"));
-                brightness = savedInstanceState.getInt("brightness");
-                WindowManager.LayoutParams layoutpars = window.getAttributes();
-                layoutpars.screenBrightness = (float) brightness / 100;
-                window.setAttributes(layoutpars);
-            }
+        if (savedInstanceState != null && preferences.getInt("default_option", 1) == 2) {
+            Log.d("flashy_test", "saved 2, " + savedInstanceState.getInt("brightness"));
+            brightness = savedInstanceState.getInt("brightness");
+            WindowManager.LayoutParams layoutpars = window.getAttributes();
+            layoutpars.screenBrightness = (float) brightness / 100;
+            window.setAttributes(layoutpars);
         }
     }
 
@@ -85,8 +83,7 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
         if (preferences.getInt("default_option", 1) == 1) {
             updateOptionsUI(true);
             refreshActivityForFlashLight();
-        }
-        else {
+        } else {
             updateOptionsUI(false);
             refreshActivityForScreenLight();
         }
@@ -106,9 +103,8 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
             useScreen.setOnClickListener(view -> FlashDialog.dismiss());
             FlashDialog.setOnDismissListener((dialog -> bg_options.callOnClick()));
             FlashDialog.show();
-            Log.d("flashy_dial","showing for simple");
-        }
-        else {
+            Log.d("flashy_dial", "showing for simple");
+        } else {
             powerCenter.setOnClickListener(view -> {
                 if (!preferences.getBoolean("flash_enabled", false))
                     turnOn();
@@ -122,8 +118,7 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
             powerCenter.setColorFilter(Color.parseColor("#28FFB137"));
             powerIconCenter.setColorFilter(Color.parseColor("#FFB137"));
             powerIconCenterStand.setColorFilter(Color.parseColor("#FFB137"));
-        }
-        else {
+        } else {
             //Refresh Power Button
             powerCenter.setColorFilter(Color.parseColor("#F3F3F7"));
             powerIconCenter.setColorFilter(Color.parseColor("#AAAABB"));
@@ -140,8 +135,7 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
             iconFlash.setColorFilter(Color.parseColor("#FFB137"));
             iconScreen.setColorFilter(Color.parseColor("#AAAABB"));
             seekBar.setProgress(0f);
-        }
-        else {
+        } else {
             bg_option_circle.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
             RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) bg_option_circle.getLayoutParams();
             params.addRule(RelativeLayout.ALIGN_PARENT_END);
@@ -178,8 +172,7 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
         powerCenter.setOnClickListener(view -> {
             if (brightness != 100) {
                 seekBar.setProgress(100);
-            }
-            else {
+            } else {
                 seekBar.setProgress(0);
             }
         });
@@ -243,7 +236,7 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
     }
 
     @Override
-    protected void onSaveInstanceState (@NonNull Bundle outState) {
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         if (FlashDialog != null) {
             if (FlashDialog.isShowing()) {
