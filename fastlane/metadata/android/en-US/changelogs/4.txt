@@ -1,5 +1,7 @@
 - 📷 Avoid camera permission (#41)
 - 🎨 Add quick settings tile (#10)
+- 🎨 Support Themed Icon on Android 13+ (#53)
+- 💁🏽 Add basic widget (#27)
 - 👍 Update dependencies and translations
 
-Thank you so much to @unbiaseduser and all translators! 😘
+Thank you so much to @unbiaseduser, @FahadSaleem and all translators! 😘
