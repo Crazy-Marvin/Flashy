@@ -39,11 +39,16 @@ This fast flashlight can be a perfect choice for users with a device that doesnâ
 
 # Contributing
 
-We use [Hosted Weblate](https://hosted.weblate.org/engage/flashy/) for translations.
+The ```development``` or a feature branch is used while developing the code, and pushed into the master branch ```trunk``` afterwards for releases.
+PRs to the ```trunk``` need at least one approving review before getting merged.
+
+Help translate the app at [Hosted Weblate](https://hosted.weblate.org/engage/flashy/).
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
+
+Check out the [contribution guidelines](https://github.com/Crazy-Marvin/Flashy/blob/trunk/.github/CONTRIBUTING.md) for details please.
 
 # License
 
