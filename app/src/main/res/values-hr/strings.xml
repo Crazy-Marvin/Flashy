@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Flashy</string>
+    <string name="flashlight">Svjetiljka</string>
+    <string name="no_camera">Nema kamere</string>
+    <string name="cannot_access_camera">Nije moguće pristupiti kameri. Koristi li ju jedna druga aplikacija\?</string>
 </resources>

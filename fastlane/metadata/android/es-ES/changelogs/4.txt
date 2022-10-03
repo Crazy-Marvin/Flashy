@@ -1,0 +1,7 @@
+- 📷 Evitar el permiso de la cámara (#41)
+- 🎨 Añadir baldosa de ajustes rápidos (#10)
+- 🎨 Apoyar el icono temático en Android 13+ (#53)
+- 💁🏽 Añadir widget básico (#27)
+- 👍 Actualizar dependencias y traducciones
+
+¡Muchas gracias a @unbiaseduser, @FahadSaleem y a todos los traductores! 😘
