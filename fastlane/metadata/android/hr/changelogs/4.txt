@@ -1,0 +1,7 @@
+- 📷 Izbjegni dozvolu kamere (#41)
+- 🎨 Dodaj ploču brzih postavki (#10)
+- 🎨 Podrška tematske ikone na Androidu 13+ (#53)
+- 💁🏽 Dodaj osnovni widget (#27)
+- 👍 Aktualiziraj ovisnosti i prijevode
+
+Puno hvala @unbiaseduser, @FahadSaleem i svim prevoditeljima! 😘
