@@ -33,7 +33,8 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
     //Views
     TextView appName;
     CircularSeekBar seekBar;
-    RelativeLayout bg_options, bg_option_circle, rootLayout;
+    RelativeLayout bg_options, bg_option_circle;
+    RelativeLayout rootLayout;
     ImageView iconFlash, iconScreen, powerCenter, powerIconCenter, powerIconCenterStand;
     Dialog FlashDialog = null;
     //Fields
