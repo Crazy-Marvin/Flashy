@@ -19,17 +19,21 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.color.MaterialColors;
+
 import me.tankery.lib.circularseekbar.CircularSeekBar;
 
 public class MainActivity extends AppCompatActivity implements Camera.AutoFocusCallback {
     //Views
+    TextView appName;
     CircularSeekBar seekBar;
-    RelativeLayout bg_options, bg_option_circle;
+    RelativeLayout bg_options, bg_option_circle, rootLayout;
     ImageView iconFlash, iconScreen, powerCenter, powerIconCenter, powerIconCenterStand;
     Dialog FlashDialog = null;
     //Fields
@@ -95,6 +99,9 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
         seekBar.setProgress(0F);
         seekBar.setEnabled(false);
         seekBar.setPointerColor(Color.parseColor("#AAAABB"));
+        rootLayout.setBackgroundColor(Color.parseColor("#00000000")); //transparent
+        if (MaterialColors.getColor(this, android.R.attr.textColor, Color.BLUE) == Color.parseColor("#FFFFFF")) //are we using dark theme?
+            appName.setTextColor(Color.parseColor("#FFFFFF")); //if so, set app name to white
         boolean hasFlash = getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
         if (!hasFlash) {
             FlashDialog = DialogsUtil.showNoFlashLightDialog(this);
@@ -150,6 +157,8 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
         seekBar.setEnabled(true);
         powerCenter.setOnClickListener(null);
         if (getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)) turnOff();
+        rootLayout.setBackgroundColor(Color.parseColor("#FFFFFF")); //force set white, because it does not make sense for the app to be dark when using screen light
+        appName.setTextColor(Color.parseColor("#000000")); //black
         seekBar.setOnSeekBarChangeListener(new CircularSeekBar.OnCircularSeekBarChangeListener() {
             @Override
             public void onProgressChanged(CircularSeekBar circularSeekBar, float progress, boolean fromUser) {
@@ -179,6 +188,7 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
     }
 
     void findViews() {
+        appName = findViewById(R.id.app_name);
         seekBar = findViewById(R.id.progress_circular);
         bg_options = findViewById(R.id.bg_options);
         bg_option_circle = findViewById(R.id.bg_option_circle);
@@ -187,6 +197,7 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
         powerCenter = findViewById(R.id.power_center);
         powerIconCenter = findViewById(R.id.power_icon_center);
         powerIconCenterStand = findViewById(R.id.power_icon_center_stand);
+        rootLayout = findViewById(R.id.root_layout);
     }
 
     public void turnOn() {
