@@ -1,2 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="flashlight">El feneri</string>
+    <string name="no_camera">Kamera yok</string>
+    <string name="cannot_access_camera">Kameraya erişilemiyor, acaba başka bir uygulama tarafından mı kullanılıyor\?</string>
+    <string name="app_name">Göz Kamaştırıcı</string>
+</resources>
