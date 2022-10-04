@@ -34,9 +34,9 @@ public class FlashlightWidgetProvider extends AppWidgetProvider {
             } else {
                 preferences = context.getSharedPreferences("my_prefs", MODE_PRIVATE);
                 if (preferences.getBoolean("flash_enabled", false)) {
-                    remoteViews.setImageViewResource(R.id.img, R.drawable.flash_icon);
+                    remoteViews.setImageViewResource(R.id.img, R.drawable.flashlight_on);
                 } else
-                    remoteViews.setImageViewResource(R.id.img, R.drawable.flash_icon_inactive);
+                    remoteViews.setImageViewResource(R.id.img, R.drawable.flashlight_off);
                 Intent intent = new Intent(context, FlashlightWidgetProvider.class)
                         .setAction(ACTION_TOGGLE);
                 PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 69, intent, PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
