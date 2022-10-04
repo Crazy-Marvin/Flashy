@@ -33,6 +33,14 @@ public class QSTileService extends TileService {
     }
 
     @Override
+    public void onStartListening() {
+        super.onStartListening();
+        getQsTile().setState(preferences.getBoolean("flash_enabled", false) ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE);
+        getQsTile().updateTile();
+        Utils.updateWidgets(this);
+    }
+
+    @Override
     public void onTileAdded() {
         super.onTileAdded();
         if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)) {
