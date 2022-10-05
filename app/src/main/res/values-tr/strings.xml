@@ -4,4 +4,10 @@
     <string name="no_camera">Kamera yok</string>
     <string name="cannot_access_camera">Kameraya erişilemiyor, acaba başka bir uygulama tarafından mı kullanılıyor\?</string>
     <string name="app_name">Göz Kamaştırıcı</string>
+    <string name="grant_permission">İzin ver</string>
+    <string name="maximize_screen_brightness">Ekran parlaklığını en üst düzeye çıkar</string>
+    <string name="system_settings_permission_notice">Widget aracılığıyla ekran parlaklığını değiştirmek için uygulamaya özel bir izin verilmesi gerekir. Bunu yapmak için lütfen aşağıdaki düğmeye basın.
+\n
+\nİzin verilmeden çıkılması widget\'ın eklenmemesine neden olacaktır.</string>
+    <string name="system_settings_permission_granted">İzin verildi. Artık bu ekrandan çıkabilirsiniz.</string>
 </resources>
