@@ -3,4 +3,8 @@
     <string name="flashlight">Flashlight</string>
     <string name="no_camera">No camera</string>
     <string name="cannot_access_camera">Cannot access camera, is it being used by another app?</string>
+    <string name="grant_permission">Grant permission</string>
+    <string name="maximize_screen_brightness">Maximize screen brightness</string>
+    <string name="system_settings_permission_notice">To change screen brightness through the widget, a special permission needs to be granted to the app. Please press the button below to do so.\n\nExiting without granting the permission will cause the widget to not be added.</string>
+    <string name="system_settings_permission_granted">Permission granted. You can exit this screen now.</string>
 </resources>

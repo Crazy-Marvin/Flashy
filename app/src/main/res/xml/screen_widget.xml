@@ -8,9 +8,10 @@
     android:resizeMode="none"
     android:updatePeriodMillis="0"
     android:widgetCategory="home_screen"
-    android:previewImage="@drawable/widget_flashlight_preview"
-    android:initialLayout="@layout/widget_flashlight"
-    android:previewLayout="@layout/widget_flashlight"
-    android:description="@string/flashlight"
+    android:previewImage="@drawable/widget_screen_preview"
+    android:initialLayout="@layout/widget_screen"
+    android:previewLayout="@layout/widget_screen"
+    android:description="@string/maximize_screen_brightness"
+    android:configure="com.poopjournal.flashy.GrantSystemWritePermissionActivity"
     tools:ignore="UnusedAttribute">
 </appwidget-provider>
