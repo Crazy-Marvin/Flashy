@@ -1,2 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="flashlight">Lanterna</string>
+    <string name="no_camera">Sem câmera</string>
+    <string name="app_name">Flashy</string>
+    <string name="cannot_access_camera">Não foi possível acessar a câmera, ela está sendo usada por outro app\?</string>
+</resources>
