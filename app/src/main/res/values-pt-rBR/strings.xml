@@ -4,4 +4,6 @@
     <string name="no_camera">Sem câmera</string>
     <string name="app_name">Flashy</string>
     <string name="cannot_access_camera">Não foi possível acessar a câmera, ela está sendo usada por outro app\?</string>
+    <string name="maximize_screen_brightness">Maximizar o brilho da tela</string>
+    <string name="grant_permission">Conceder permissão</string>
 </resources>
