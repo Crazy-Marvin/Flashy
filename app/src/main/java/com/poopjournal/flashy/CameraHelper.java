@@ -16,8 +16,8 @@ import java.io.IOException;
 
 public class CameraHelper {
     private static CameraHelper instance;
-    private static CameraManager manager;
-    private static Camera camera;
+    private CameraManager manager;
+    private Camera camera;
     public static final MutableLiveData<Boolean> isFlashOn = new MutableLiveData<>(false);
 
     private CameraHelper(Context context) {
