@@ -1,17 +1,12 @@
 package com.poopjournal.flashy;
 
-import static android.hardware.Camera.Parameters.FLASH_MODE_OFF;
-
 import android.animation.LayoutTransition;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.graphics.SurfaceTexture;
 import android.hardware.Camera;
 import android.hardware.camera2.CameraAccessException;
-import android.hardware.camera2.CameraManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -40,31 +35,22 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
     //Fields
     private int brightness = -999;
     private Window window;
-    private static Camera camera = null;// has to be static, otherwise onDestroy() destroys it
-    private CameraManager manager;
     private SharedPreferences preferences;
-    private final SharedPreferences.OnSharedPreferenceChangeListener listener = (sharedPreferences, key) -> {
-        if (key.equals("flash_enabled")) {
-            changePowerButtonColors(sharedPreferences.getBoolean(key, false));
-            Utils.updateWidgets(this);
-        }
-    };
+    private CameraHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
+        helper = CameraHelper.getInstance(this);
         window = getWindow();
         preferences = getSharedPreferences("my_prefs", MODE_PRIVATE);
-        preferences.registerOnSharedPreferenceChangeListener(listener);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            manager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
-        } else {
-            camera = Camera.open();
-        }
         findViews();
         applyListeners();
-        changePowerButtonColors(preferences.getBoolean("flash_enabled", false));
+        CameraHelper.isFlashOn.observe(this, (isOn -> {
+            changePowerButtonColors(isOn);
+            Utils.updateWidgets(this);
+        }));
         init();
         if (savedInstanceState != null && preferences.getInt("default_option", 1) == 2) {
             Log.d("flashy_test", "saved 2, " + savedInstanceState.getInt("brightness"));
@@ -113,11 +99,7 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
             FlashDialog.show();
             Log.d("flashy_dial", "showing for simple");
         } else {
-            powerCenter.setOnClickListener(view -> {
-                if (!preferences.getBoolean("flash_enabled", false))
-                    turnOn();
-                else turnOff();
-            });
+            powerCenter.setOnClickListener(view -> toggle());
         }
     }
 
@@ -201,44 +183,27 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
         rootLayout = findViewById(R.id.root_layout);
     }
 
-    public void turnOn() {
+    public void toggle() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             try {
-                manager.setTorchMode(manager.getCameraIdList()[0], true);
-                preferences.edit().putBoolean("flash_enabled", true).apply();
+                helper.toggleMarshmallow();
             } catch (CameraAccessException e) {
                 Toast.makeText(this, R.string.cannot_access_camera, Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
             }
-        } else try {
-            Camera.Parameters parameters = camera.getParameters();
-            parameters.setFlashMode(Utils.getFlashOnParameter(camera));
-            camera.setParameters(parameters);
-            camera.setPreviewTexture(new SurfaceTexture(0));
-            camera.startPreview();
-            camera.autoFocus(this);
-            preferences.edit().putBoolean("flash_enabled", true).apply();
-        } catch (Exception e) {
-            // We are expecting this to happen on devices that don't support autofocus.
-        }
+        } else helper.toggleLollipop();
     }
 
     public void turnOff() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && Boolean.TRUE.equals(CameraHelper.isFlashOn.getValue())) {
             try {
-                manager.setTorchMode(manager.getCameraIdList()[0], false);
-                preferences.edit().putBoolean("flash_enabled", false).apply();
+                helper.toggleMarshmallow();
             } catch (CameraAccessException e) {
                 Toast.makeText(this, R.string.cannot_access_camera, Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
             }
-        } else try {
-            Camera.Parameters parameters = camera.getParameters();
-            parameters.setFlashMode(FLASH_MODE_OFF);
-            camera.setParameters(parameters);
-            preferences.edit().putBoolean("flash_enabled", false).apply();
-        } catch (Exception e) {
-            // This will happen if the camera fails to turn on.
+        } else if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.LOLLIPOP_MR1 && Boolean.TRUE.equals(CameraHelper.isFlashOn.getValue())) {
+            helper.toggleLollipop();
         }
     }
 
