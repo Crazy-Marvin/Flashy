@@ -5,6 +5,7 @@ import static android.hardware.Camera.Parameters.FLASH_MODE_OFF;
 import android.animation.LayoutTransition;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
@@ -15,23 +16,23 @@ import android.hardware.camera2.CameraManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.android.material.color.MaterialColors;
+import androidx.appcompat.widget.Toolbar;
+import androidx.preference.PreferenceManager;
 
 import me.tankery.lib.circularseekbar.CircularSeekBar;
 
 public class MainActivity extends AppCompatActivity implements Camera.AutoFocusCallback {
     //Views
-    TextView appName;
     CircularSeekBar seekBar;
     RelativeLayout bg_options, bg_option_circle;
     RelativeLayout rootLayout;
@@ -52,8 +53,15 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        PreferenceManager.setDefaultValues(this, R.xml.root_preferences, false);
+        SharedPreferences defaultPref = PreferenceManager.getDefaultSharedPreferences(this);
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P && defaultPref.getString("theme", "system").equals("system"))
+            defaultPref.edit().putString("theme", "light").apply();
+        Utils.applyThemeFromSettings(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         window = getWindow();
         preferences = getSharedPreferences("my_prefs", MODE_PRIVATE);
         preferences.registerOnSharedPreferenceChangeListener(listener);
@@ -73,6 +81,22 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
             layoutpars.screenBrightness = (float) brightness / 100;
             window.setAttributes(layoutpars);
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.settings_menu_item) {
+            startActivity(new Intent(this, SettingsActivity.class));
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     void applyListeners() {
@@ -101,8 +125,6 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
         seekBar.setEnabled(false);
         seekBar.setPointerColor(Color.parseColor("#AAAABB"));
         rootLayout.setBackgroundColor(Color.parseColor("#00000000")); //transparent
-        if (MaterialColors.getColor(this, android.R.attr.textColor, Color.BLUE) == Color.parseColor("#FFFFFF")) //are we using dark theme?
-            appName.setTextColor(Color.parseColor("#FFFFFF")); //if so, set app name to white
         boolean hasFlash = getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
         if (!hasFlash) {
             FlashDialog = DialogsUtil.showNoFlashLightDialog(this);
@@ -157,9 +179,10 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
         seekBar.setPointerColor(Color.parseColor("#FFB137"));
         seekBar.setEnabled(true);
         powerCenter.setOnClickListener(null);
-        if (getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)) turnOff();
+        SharedPreferences defaultPref = PreferenceManager.getDefaultSharedPreferences(this);
+        if (defaultPref.getBoolean("no_flash_when_screen", true) && getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH))
+            turnOff();
         rootLayout.setBackgroundColor(Color.parseColor("#FFFFFF")); //force set white, because it does not make sense for the app to be dark when using screen light
-        appName.setTextColor(Color.parseColor("#000000")); //black
         seekBar.setOnSeekBarChangeListener(new CircularSeekBar.OnCircularSeekBarChangeListener() {
             @Override
             public void onProgressChanged(CircularSeekBar circularSeekBar, float progress, boolean fromUser) {
@@ -189,7 +212,6 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
     }
 
     void findViews() {
-        appName = findViewById(R.id.app_name);
         seekBar = findViewById(R.id.progress_circular);
         bg_options = findViewById(R.id.bg_options);
         bg_option_circle = findViewById(R.id.bg_option_circle);

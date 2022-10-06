@@ -20,6 +20,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false"
+            android:label="@string/settings"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
 
         <service
             android:name=".QSTileService"
@@ -43,7 +52,6 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/flashlight_widget" />
         </receiver>
-
         <receiver
             android:name=".ScreenBrightnessWidgetProvider"
             android:exported="false">
@@ -60,21 +68,22 @@
             android:name=".GrantSystemWritePermissionActivity"
             android:exported="false">
             <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
             </intent-filter>
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
-        <!--<activity
+        <!--
+<activity
             android:name=".AboutActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity>-->
-
+        </activity>
+        -->
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation"
