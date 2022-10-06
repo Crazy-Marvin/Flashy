@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AboutActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar_about"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:title="@string/about"/>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:src="@drawable/rect"/>
+
+            <ImageView
+                android:id="@+id/app_icon"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_marginTop="30dp"
+                android:src="@mipmap/ic_launcher"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/app_name"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/app_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/gray"/>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:contentPadding="10dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/fahadsaleem_img"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/fahadsaleem"
+                    app:layout_constraintBottom_toBottomOf="@+id/fahadsaleem_github"
+                    app:layout_constraintTop_toTopOf="@+id/fahadsaleem_github" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/fahadsaleem"
+                    app:layout_constraintBottom_toTopOf="@+id/dev_string_fahadsaleem"
+                    app:layout_constraintStart_toEndOf="@+id/fahadsaleem_img"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/dev_string_fahadsaleem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/dev"
+                    android:textColor="@color/gray"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/fahadsaleem_img"
+                    app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+                <ImageView
+                    android:id="@+id/fahadsaleem_github"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginVertical="10dp"
+                    android:foreground="@drawable/ripple_effect"
+                    android:padding="12dp"
+                    android:src="@drawable/github"
+                    app:layout_constraintBottom_toTopOf="@id/crazymarvin_github"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:contentPadding="10dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/crazymarvin_img"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/crazymarvin"
+                    app:layout_constraintBottom_toBottomOf="@+id/crazymarvin_github"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/crazymarvin_github" />
+
+                <TextView
+                    android:id="@+id/crazymarvin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/crazymarvin"
+                    app:layout_constraintBottom_toTopOf="@+id/dev_string_crazymarvin"
+                    app:layout_constraintStart_toEndOf="@+id/crazymarvin_img"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/dev_string_crazymarvin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/dev"
+                    android:textColor="@color/gray"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/crazymarvin_img"
+                    app:layout_constraintTop_toBottomOf="@+id/crazymarvin" />
+
+                <ImageView
+                    android:id="@+id/crazymarvin_github"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:foreground="@drawable/ripple_effect"
+                    android:padding="12dp"
+                    android:src="@drawable/github"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/fahadsaleem_github" />
+
+                <ImageView
+                    android:id="@+id/crazymarvin_twitter"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:foreground="@drawable/ripple_effect"
+                    android:padding="12dp"
+                    android:src="@drawable/twitter"
+                    app:layout_constraintBottom_toBottomOf="@+id/crazymarvin_github"
+                    app:layout_constraintEnd_toStartOf="@+id/crazymarvin_github"
+                    app:layout_constraintTop_toTopOf="@+id/crazymarvin_github" />
+
+                <ImageView
+                    android:id="@+id/crazymarvin_email"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:foreground="@drawable/ripple_effect"
+                    android:padding="12dp"
+                    android:src="@drawable/mail"
+                    app:layout_constraintBottom_toBottomOf="@+id/crazymarvin_twitter"
+                    app:layout_constraintEnd_toStartOf="@+id/crazymarvin_twitter"
+                    app:layout_constraintTop_toTopOf="@+id/crazymarvin_twitter" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:text="@string/contribute"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/gray"/>
+
+        <TextView
+            android:id="@+id/source_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/source_code"
+            app:drawableStartCompat="@drawable/code"
+            android:drawablePadding="20dp"
+            android:padding="20dp"
+            android:foreground="?attr/selectableItemBackground"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="60dp"
+            android:background="@color/gray"/>
+
+        <TextView
+            android:id="@+id/report_problem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/report_problem"
+            app:drawableStartCompat="@drawable/alert_circle"
+            android:drawablePadding="20dp"
+            android:padding="20dp"
+            android:foreground="?attr/selectableItemBackground"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="60dp"
+            android:background="@color/gray"/>
+
+        <TextView
+            android:id="@+id/translate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/translate"
+            app:drawableStartCompat="@drawable/globe"
+            android:drawablePadding="20dp"
+            android:padding="20dp"
+            android:foreground="?attr/selectableItemBackground"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:text="@string/oss_licenses"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/gray"/>
+
+        <LinearLayout
+            android:id="@+id/feather_icons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="20dp"
+            android:paddingVertical="10dp"
+            android:orientation="vertical"
+            android:foreground="?attr/selectableItemBackground">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/feather_icons"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mit"
+                android:textColor="@color/gray"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="20dp"
+            android:background="@color/gray"/>
+
+        <LinearLayout
+            android:id="@+id/md_icons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="20dp"
+            android:paddingVertical="10dp"
+            android:orientation="vertical"
+            android:foreground="?attr/selectableItemBackground">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/md_icons"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/apache2"
+                android:textColor="@color/gray"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="20dp"
+            android:background="@color/gray"/>
+
+        <LinearLayout
+            android:id="@+id/jetpack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="20dp"
+            android:paddingVertical="10dp"
+            android:orientation="vertical"
+            android:foreground="?attr/selectableItemBackground">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/android_jetpack"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/apache2"
+                android:textColor="@color/gray"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="20dp"
+            android:background="@color/gray"/>
+
+        <LinearLayout
+            android:id="@+id/circular_seekbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="20dp"
+            android:paddingVertical="10dp"
+            android:orientation="vertical"
+            android:foreground="?attr/selectableItemBackground">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/circular_seekbar"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/apache2"
+                android:textColor="@color/gray"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="20dp"
+            android:background="@color/gray"/>
+
+        <LinearLayout
+            android:id="@+id/kotlin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="20dp"
+            android:paddingVertical="10dp"
+            android:orientation="vertical"
+            android:foreground="?attr/selectableItemBackground">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/kotlin"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/apache2"
+                android:textColor="@color/gray"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="20dp"
+            android:background="@color/gray"/>
+
+        <LinearLayout
+            android:id="@+id/java"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="20dp"
+            android:paddingVertical="10dp"
+            android:orientation="vertical"
+            android:foreground="?attr/selectableItemBackground">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/java"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/gpl2_ce"
+                android:textColor="@color/gray"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

@@ -24,7 +24,7 @@ public class QSTileService extends TileService {
         super.onStartListening();
         getQsTile().setState(Boolean.TRUE.equals(CameraHelper.isFlashOn.getValue()) ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE);
         getQsTile().updateTile();
-        Utils.updateWidgets(this);
+        Utils.updateFlashlightWidgets(this);
     }
 
     @Override
@@ -47,7 +47,7 @@ public class QSTileService extends TileService {
         if (Boolean.TRUE.equals(CameraHelper.isFlashOn.getValue())) {
             try {
                 helper.toggleMarshmallow();
-                Utils.updateWidgets(this);
+                Utils.updateFlashlightWidgets(this);
             } catch (CameraAccessException e) {
                 Toast.makeText(this, R.string.cannot_access_camera, Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
@@ -60,7 +60,7 @@ public class QSTileService extends TileService {
         super.onClick();
         try {
             helper.toggleMarshmallow();
-            Utils.updateWidgets(this);
+            Utils.updateFlashlightWidgets(this);
             getQsTile().setState(Boolean.TRUE.equals(CameraHelper.isFlashOn.getValue()) ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE);
             getQsTile().updateTile();
         } catch (CameraAccessException e) {

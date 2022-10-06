@@ -33,9 +33,11 @@ public class Utils {
     }
 
     /**
-     * Must be called after changing the "flash_enabled" value in shared preferences to update the widget UI.
+     * Must be called after toggling flashlight to update the widget UI.
+     * @see CameraHelper#toggleMarshmallow()
+     * @see CameraHelper#toggleLollipop()
      */
-    public static void updateWidgets(Context context) {
+    public static void updateFlashlightWidgets(Context context) {
         AppWidgetManager manager = AppWidgetManager.getInstance(context);
         int[] widgetIds = manager.getAppWidgetIds(new ComponentName(context, FlashlightWidgetProvider.class));
         if (widgetIds.length > 0) {
