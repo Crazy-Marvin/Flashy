@@ -1,4 +1,4 @@
-package com.poopjournal.flashy;
+package rocks.poopjournal.flashy;
 
 import android.os.Build;
 import android.os.Bundle;
