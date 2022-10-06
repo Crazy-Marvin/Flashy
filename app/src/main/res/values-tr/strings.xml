@@ -10,4 +10,9 @@
 \n
 \nİzin verilmeden çıkılması widget\'ın eklenmemesine neden olacaktır.</string>
     <string name="system_settings_permission_granted">İzin verildi. Artık bu ekrandan çıkabilirsiniz.</string>
+    <string name="no_flash_when_screen">Ekran modunda el fenerini kapat</string>
+    <string name="appearance">Görünüm</string>
+    <string name="settings">Ayarlar</string>
+    <string name="general">Genel</string>
+    <string name="theme">Tema</string>
 </resources>
