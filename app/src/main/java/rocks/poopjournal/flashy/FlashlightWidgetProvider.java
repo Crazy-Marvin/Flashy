@@ -1,4 +1,4 @@
-package com.poopjournal.flashy;
+package rocks.poopjournal.flashy;
 
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
@@ -13,7 +13,7 @@ import android.widget.RemoteViews;
 import android.widget.Toast;
 
 public class FlashlightWidgetProvider extends AppWidgetProvider {
-    private static final String ACTION_TOGGLE = "com.poopjournal.flashy.TOGGLE_FLASH";
+    private static final String ACTION_TOGGLE = "rocks.poopjournal.flashy.TOGGLE_FLASH";
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {

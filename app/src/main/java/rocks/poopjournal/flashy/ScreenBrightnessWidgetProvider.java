@@ -1,4 +1,4 @@
-package com.poopjournal.flashy;
+package rocks.poopjournal.flashy;
 
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
@@ -9,7 +9,7 @@ import android.provider.Settings;
 import android.widget.RemoteViews;
 
 public class ScreenBrightnessWidgetProvider extends AppWidgetProvider {
-    private static final String ACTION_MAX_SCREEN_BRIGHTNESS = "com.poopjournal.flashy.MAXIMIZE_SCREEN_BRIGHTNESS";
+    private static final String ACTION_MAX_SCREEN_BRIGHTNESS = "rocks.poopjournal.flashy.MAXIMIZE_SCREEN_BRIGHTNESS";
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {

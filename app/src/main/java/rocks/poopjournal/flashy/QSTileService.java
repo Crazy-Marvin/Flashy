@@ -1,4 +1,4 @@
-package com.poopjournal.flashy;
+package rocks.poopjournal.flashy;
 
 import android.content.pm.PackageManager;
 import android.hardware.camera2.CameraAccessException;

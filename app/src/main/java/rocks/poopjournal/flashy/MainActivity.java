@@ -1,4 +1,4 @@
-package com.poopjournal.flashy;
+package rocks.poopjournal.flashy;
 
 import android.animation.LayoutTransition;
 import android.app.Dialog;

@@ -1,15 +1,10 @@
-package com.poopjournal.flashy;
+package rocks.poopjournal.flashy;
 
 import android.app.Activity;
 import android.app.Dialog;
-import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
-import android.util.Log;
-import android.view.Display;
 import android.view.Gravity;
 import android.view.Window;
-import android.view.WindowManager;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 public class DialogsUtil {

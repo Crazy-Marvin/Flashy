@@ -12,6 +12,6 @@
     android:initialLayout="@layout/widget_screen"
     android:previewLayout="@layout/widget_screen"
     android:description="@string/maximize_screen_brightness"
-    android:configure="com.poopjournal.flashy.GrantSystemWritePermissionActivity"
+    android:configure="rocks.poopjournal.flashy.GrantSystemWritePermissionActivity"
     tools:ignore="UnusedAttribute">
 </appwidget-provider>
