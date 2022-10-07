@@ -14,28 +14,23 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.preference.PreferenceManager;
 
 import me.tankery.lib.circularseekbar.CircularSeekBar;
+import rocks.poopjournal.flashy.databinding.MainActivityBinding;
 
 public class MainActivity extends AppCompatActivity implements Camera.AutoFocusCallback {
-    //Views
-    CircularSeekBar seekBar;
-    RelativeLayout bg_options, bg_option_circle;
-    RelativeLayout rootLayout;
-    ImageView iconFlash, iconScreen, powerCenter, powerIconCenter, powerIconCenterStand;
     //Fields
     private int brightness = -999;
     private Window window;
     private SharedPreferences preferences;
     private CameraHelper helper;
+    private MainActivityBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,13 +40,12 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
             defaultPref.edit().putString("theme", "light").apply();
         Utils.applyThemeFromSettings(this);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_activity);
+        binding = MainActivityBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         helper = CameraHelper.getInstance(this);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setSupportActionBar(binding.toolbar);
         window = getWindow();
         preferences = getSharedPreferences("my_prefs", MODE_PRIVATE);
-        findViews();
         applyListeners();
         CameraHelper.isFlashOn.observe(this, (isOn -> {
             changePowerButtonColors(isOn);
@@ -66,7 +60,8 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
             window.setAttributes(layoutpars);
         }
 
-        getSupportFragmentManager().setFragmentResultListener(NoFlashlightDialog.NO_FLASH_DIALOG_DISMISSED, this, ((requestKey, result) -> bg_options.callOnClick()));
+        if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH))
+            getSupportFragmentManager().setFragmentResultListener(NoFlashlightDialog.NO_FLASH_DIALOG_DISMISSED, this, ((requestKey, result) -> binding.bgOptions.callOnClick()));
     }
 
     @Override
@@ -89,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
     }
 
     void applyListeners() {
-        bg_options.setOnClickListener(view -> {
+        binding.bgOptions.setOnClickListener(view -> {
             SharedPreferences.Editor editor = preferences.edit();
             editor.putInt("default_option", preferences.getInt("default_option", 1) == 1 ? 2 : 1);
             editor.apply();
@@ -109,61 +104,61 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
 
     void refreshActivityForFlashLight() {
         //Refresh Seekbar
-        seekBar.setOnSeekBarChangeListener(null);
-        seekBar.setProgress(0F);
-        seekBar.setEnabled(false);
-        seekBar.setPointerColor(Color.parseColor("#AAAABB"));
-        rootLayout.setBackgroundColor(Color.parseColor("#00000000")); //transparent
+        binding.progressCircular.setOnSeekBarChangeListener(null);
+        binding.progressCircular.setProgress(0F);
+        binding.progressCircular.setEnabled(false);
+        binding.progressCircular.setPointerColor(Color.parseColor("#AAAABB"));
+        binding.rootLayout.setBackgroundColor(Color.parseColor("#00000000")); //transparent
         boolean hasFlash = getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
         if (!hasFlash) {
-            powerCenter.setOnClickListener(null);
+            binding.powerCenter.setOnClickListener(null);
             new NoFlashlightDialog().show(getSupportFragmentManager(), null);
         } else {
-            powerCenter.setOnClickListener(view -> toggle());
+            binding.powerCenter.setOnClickListener(view -> toggle());
         }
     }
 
     void changePowerButtonColors(boolean isTurnedOn) {
         if (isTurnedOn) {
-            powerCenter.setColorFilter(Color.parseColor("#28FFB137"));
-            powerIconCenter.setColorFilter(Color.parseColor("#FFB137"));
-            powerIconCenterStand.setColorFilter(Color.parseColor("#FFB137"));
+            binding.powerCenter.setColorFilter(Color.parseColor("#28FFB137"));
+            binding.powerIconCenter.setColorFilter(Color.parseColor("#FFB137"));
+            binding.powerIconCenterStand.setColorFilter(Color.parseColor("#FFB137"));
         } else {
             //Refresh Power Button
-            powerCenter.setColorFilter(Color.parseColor("#F3F3F7"));
-            powerIconCenter.setColorFilter(Color.parseColor("#AAAABB"));
-            powerIconCenterStand.setColorFilter(Color.parseColor("#AAAABB"));
+            binding.powerCenter.setColorFilter(Color.parseColor("#F3F3F7"));
+            binding.powerIconCenter.setColorFilter(Color.parseColor("#AAAABB"));
+            binding.powerIconCenterStand.setColorFilter(Color.parseColor("#AAAABB"));
         }
     }
 
     void updateOptionsUI(boolean isFlash) {
         if (isFlash) {
             //Change UI for options
-            RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) bg_option_circle.getLayoutParams();
+            RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) binding.bgOptionCircle.getLayoutParams();
             params.removeRule(RelativeLayout.ALIGN_PARENT_END);
-            bg_option_circle.setLayoutParams(params);
-            iconFlash.setColorFilter(Color.parseColor("#FFB137"));
-            iconScreen.setColorFilter(Color.parseColor("#AAAABB"));
-            seekBar.setProgress(0f);
+            binding.bgOptionCircle.setLayoutParams(params);
+            binding.flashIcon.setColorFilter(Color.parseColor("#FFB137"));
+            binding.screenIcon.setColorFilter(Color.parseColor("#AAAABB"));
+            binding.progressCircular.setProgress(0f);
         } else {
-            bg_option_circle.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
-            RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) bg_option_circle.getLayoutParams();
+            binding.bgOptionCircle.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
+            RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) binding.bgOptionCircle.getLayoutParams();
             params.addRule(RelativeLayout.ALIGN_PARENT_END);
-            bg_option_circle.setLayoutParams(params);
-            iconFlash.setColorFilter(Color.parseColor("#AAAABB"));
-            iconScreen.setColorFilter(Color.parseColor("#FFB137"));
+            binding.bgOptionCircle.setLayoutParams(params);
+            binding.flashIcon.setColorFilter(Color.parseColor("#AAAABB"));
+            binding.screenIcon.setColorFilter(Color.parseColor("#FFB137"));
         }
     }
 
     void refreshActivityForScreenLight() {
-        seekBar.setPointerColor(Color.parseColor("#FFB137"));
-        seekBar.setEnabled(true);
-        powerCenter.setOnClickListener(null);
+        binding.progressCircular.setPointerColor(Color.parseColor("#FFB137"));
+        binding.progressCircular.setEnabled(true);
+        binding.powerCenter.setOnClickListener(null);
         SharedPreferences defaultPref = PreferenceManager.getDefaultSharedPreferences(this);
         if (defaultPref.getBoolean("no_flash_when_screen", true) && getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH))
             turnOff();
-        rootLayout.setBackgroundColor(Color.parseColor("#FFFFFF")); //force set white, because it does not make sense for the app to be dark when using screen light
-        seekBar.setOnSeekBarChangeListener(new CircularSeekBar.OnCircularSeekBarChangeListener() {
+        binding.rootLayout.setBackgroundColor(Color.parseColor("#FFFFFF")); //force set white, because it does not make sense for the app to be dark when using screen light
+        binding.progressCircular.setOnSeekBarChangeListener(new CircularSeekBar.OnCircularSeekBarChangeListener() {
             @Override
             public void onProgressChanged(CircularSeekBar circularSeekBar, float progress, boolean fromUser) {
                 brightness = (int) progress;
@@ -182,25 +177,7 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
 
             }
         });
-        powerCenter.setOnClickListener(view -> {
-            if (brightness != 100) {
-                seekBar.setProgress(100);
-            } else {
-                seekBar.setProgress(0);
-            }
-        });
-    }
-
-    void findViews() {
-        seekBar = findViewById(R.id.progress_circular);
-        bg_options = findViewById(R.id.bg_options);
-        bg_option_circle = findViewById(R.id.bg_option_circle);
-        iconFlash = findViewById(R.id.flash_icon);
-        iconScreen = findViewById(R.id.screen_icon);
-        powerCenter = findViewById(R.id.power_center);
-        powerIconCenter = findViewById(R.id.power_icon_center);
-        powerIconCenterStand = findViewById(R.id.power_icon_center_stand);
-        rootLayout = findViewById(R.id.root_layout);
+        binding.powerCenter.setOnClickListener(view -> binding.progressCircular.setProgress(brightness != 100 ? 100 : 0));
     }
 
     public void toggle() {
