@@ -12,5 +12,25 @@
     <string name="appearance">Appearance</string>
     <string name="theme">Theme</string>
     <string name="no_flash_when_screen">Turn off flashlight on screen mode</string>
+    <string name="about">About</string>
+    <string name="version_license">Version %s · Apache License 2.0</string>
+    <string name="fahadsaleem" translatable="false">FahadSaleem</string>
+    <string name="crazymarvin" translatable="false">Crazy Marvin</string>
+    <string name="contribute">Contribute</string>
+    <string name="source_code">Source code</string>
+    <string name="report_problem">Report a problem</string>
+    <string name="translate">Translate</string>
+    <string name="dev">Developer</string>
+    <string name="oss_licenses">Open-source licenses</string>
+    <string name="apache2">Apache License 2.0</string>
+    <string name="gpl2_ce">GNU General Public License, version 2, with the Classpath Exception</string>
+    <string name="mit">MIT License</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="java">Java</string>
+    <string name="circular_seekbar">CircularSeekBar</string>
+    <string name="md_icons">Material Design Icons</string>
+    <string name="feather_icons">Feather Icons</string>
+    <string name="android_jetpack">Android Jetpack</string>
+    <string name="no_app_can_handle">No app can handle this action.</string>
 
 </resources>

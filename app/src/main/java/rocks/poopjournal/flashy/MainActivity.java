@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
         applyListeners();
         CameraHelper.isFlashOn.observe(this, (isOn -> {
             changePowerButtonColors(isOn);
-            Utils.updateWidgets(this);
+            Utils.updateFlashlightWidgets(this);
         }));
         init();
         if (savedInstanceState != null && preferences.getInt("default_option", 1) == 2) {
@@ -80,6 +80,9 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
         int id = item.getItemId();
         if (id == R.id.settings_menu_item) {
             startActivity(new Intent(this, SettingsActivity.class));
+            return true;
+        } else if (id == R.id.about_menu_item) {
+            startActivity(new Intent(this, AboutActivity.class));
             return true;
         }
         return super.onOptionsItemSelected(item);

@@ -2,9 +2,8 @@
     android:width="24dp"
     android:height="24dp"
     android:viewportWidth="48"
-    android:viewportHeight="48"
-    android:tint="?attr/colorControlNormal">
+    android:viewportHeight="48">
   <path
-      android:fillColor="@android:color/white"
+      android:fillColor="#A6A6A6"
       android:pathData="M32.05,25.3 L26.7,19.95H35.25ZM26.95,20.25 L13.2,6.5V2.15H35.1ZM19.2,47.15V27.4H13.2V16.5L2.8,6.15L5.35,3.6L43.4,41.7L40.9,44.2L28.35,31.65Z"/>
 </vector>
