@@ -1,7 +1,6 @@
 package rocks.poopjournal.flashy;
 
 import android.animation.LayoutTransition;
-import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -32,7 +31,6 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
     RelativeLayout bg_options, bg_option_circle;
     RelativeLayout rootLayout;
     ImageView iconFlash, iconScreen, powerCenter, powerIconCenter, powerIconCenterStand;
-    Dialog FlashDialog = null;
     //Fields
     private int brightness = -999;
     private Window window;
@@ -67,6 +65,8 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
             layoutpars.screenBrightness = (float) brightness / 100;
             window.setAttributes(layoutpars);
         }
+
+        getSupportFragmentManager().setFragmentResultListener(NoFlashlightDialog.NO_FLASH_DIALOG_DISMISSED, this, ((requestKey, result) -> bg_options.callOnClick()));
     }
 
     @Override
@@ -116,13 +116,8 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
         rootLayout.setBackgroundColor(Color.parseColor("#00000000")); //transparent
         boolean hasFlash = getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
         if (!hasFlash) {
-            FlashDialog = DialogsUtil.showNoFlashLightDialog(this);
             powerCenter.setOnClickListener(null);
-            RelativeLayout useScreen = FlashDialog.findViewById(R.id.container_use_screen);
-            useScreen.setOnClickListener(view -> FlashDialog.dismiss());
-            FlashDialog.setOnDismissListener((dialog -> bg_options.callOnClick()));
-            FlashDialog.show();
-            Log.d("flashy_dial", "showing for simple");
+            new NoFlashlightDialog().show(getSupportFragmentManager(), null);
         } else {
             powerCenter.setOnClickListener(view -> toggle());
         }
@@ -240,12 +235,6 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        if (FlashDialog != null) {
-            if (FlashDialog.isShowing()) {
-                FlashDialog.dismiss();
-                refreshActivityForScreenLight();
-            }
-        }
         if (preferences.getInt("default_option", 1) == 2) {
             outState.putInt("brightness", brightness);
         }
