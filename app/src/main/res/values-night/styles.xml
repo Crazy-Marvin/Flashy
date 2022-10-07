@@ -8,6 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:statusBarColor" tools:targetApi="lollipop">?attr/colorPrimary</item>
+        <item name="bottomSheetDialogTheme">@style/RoundedCornersBottomSheetTheme</item>
     </style>
 
 </resources>

@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:id="@+id/container"
-    android:background="#FFFFFF"
-    android:layout_gravity="bottom"
-    android:gravity="bottom"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/pill"
+        android:layout_width="50dp"
+        android:layout_height="6dp"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/pill"/>
 
     <ImageView
         android:id="@+id/tv_options"
@@ -13,13 +17,14 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pill"/>
 
-
-
-    <ImageView
+    <TextView
         android:id="@+id/no_flashlight"
-        android:src="@drawable/ic_no_flashlight"
+        android:text="@string/no_flashlight"
+        android:textSize="18sp"
+        android:textStyle="bold"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/tv_options"
         android:layout_marginTop="30dp"
@@ -34,13 +39,14 @@
        android:layout_marginTop="20dp"
        android:background="@drawable/bg_use_screen"
        android:layout_centerHorizontal="true"
-
        android:layout_height="36dp">
-       <ImageView
-           android:src="@drawable/ic_use_screen"
+
+       <TextView
+           android:text="@string/use_screen"
            android:layout_width="wrap_content"
            android:layout_centerInParent="true"
            android:layout_height="wrap_content"/>
+
    </RelativeLayout>
 
 </RelativeLayout>
