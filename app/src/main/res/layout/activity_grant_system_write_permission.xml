@@ -10,7 +10,7 @@
         android:id="@+id/notice_grant_permission"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
+        android:paddingHorizontal="10dp"
         app:layout_constraintBottom_toTopOf="@id/button_grant_permission"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

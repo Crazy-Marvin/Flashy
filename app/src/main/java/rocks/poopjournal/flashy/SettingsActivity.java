@@ -4,9 +4,10 @@ import android.os.Build;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.preference.ListPreference;
 import androidx.preference.PreferenceFragmentCompat;
+
+import rocks.poopjournal.flashy.databinding.SettingsActivityBinding;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -14,15 +15,15 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         Utils.applyThemeFromSettings(this);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.settings_activity);
+        SettingsActivityBinding binding = SettingsActivityBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         if (savedInstanceState == null) {
             getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.settings, new SettingsFragment())
                     .commit();
         }
-        Toolbar toolbar = findViewById(R.id.toolbar_settings);
-        setSupportActionBar(toolbar);
+        setSupportActionBar(binding.toolbarSettings);
         if (getSupportActionBar() != null)
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
