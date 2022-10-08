@@ -99,4 +99,65 @@
             android:layout_height="wrap_content"/>
     </RelativeLayout>
 
+    <ImageView
+        android:id="@+id/sos_button"
+        android:layout_width="72dp"
+        android:src="@drawable/ic_power_center"
+        android:background="@drawable/ripple_effect"
+        android:layout_below="@id/bg_options"
+        android:layout_toStartOf="@id/bg_options"
+        android:layout_marginTop="30dp"
+        android:layout_height="72dp"/>
+
+    <ImageView
+        android:id="@+id/sos_icon"
+        android:layout_width="48dp"
+        android:src="@drawable/sos"
+        android:background="@drawable/ripple_effect"
+        android:layout_below="@id/bg_options"
+        android:layout_toStartOf="@id/bg_options"
+        android:layout_marginTop="42dp"
+        android:layout_marginEnd="11dp"
+        android:layout_height="48dp"/>
+
+    <ImageView
+        android:id="@+id/stroboscope_button"
+        android:layout_width="72dp"
+        android:src="@drawable/ic_power_center"
+        android:background="@drawable/ripple_effect"
+        android:layout_below="@id/bg_options"
+        android:layout_toEndOf="@id/bg_options"
+        android:layout_marginTop="30dp"
+        android:layout_height="72dp"/>
+
+    <ImageView
+        android:id="@+id/stroboscope_icon"
+        android:layout_width="48dp"
+        android:src="@drawable/loader"
+        android:background="@drawable/ripple_effect"
+        android:layout_below="@id/bg_options"
+        android:layout_toEndOf="@id/bg_options"
+        android:layout_marginTop="42dp"
+        android:layout_marginStart="13dp"
+        android:layout_height="48dp"/>
+
+    <TextView
+        android:id="@+id/stroboscope_interval"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/stroboscope_button"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:text="@string/stroboscope_interval"/>
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/stroboscope_interval_slider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/stroboscope_interval"
+        android:layout_marginHorizontal="6dp"
+        android:valueFrom="0.1"
+        android:valueTo="1"
+        android:stepSize="0.1"/>
+
 </RelativeLayout>

@@ -6,20 +6,21 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.hardware.Camera;
-import android.hardware.camera2.CameraAccessException;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
+
+import com.google.android.material.slider.Slider;
 
 import me.tankery.lib.circularseekbar.CircularSeekBar;
 import rocks.poopjournal.flashy.databinding.MainActivityBinding;
@@ -28,16 +29,20 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
     //Fields
     private int brightness = -999;
     private Window window;
-    private SharedPreferences preferences;
+    private SharedPreferences legacyPreferences; //kept for legacy reasons
+    private SharedPreferences defaultPreferences;
     private CameraHelper helper;
     private MainActivityBinding binding;
+    private enum FlashlightMode {
+        NORMAL, SOS, STROBOSCOPE
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         PreferenceManager.setDefaultValues(this, R.xml.root_preferences, false);
-        SharedPreferences defaultPref = PreferenceManager.getDefaultSharedPreferences(this);
-        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P && defaultPref.getString("theme", "system").equals("system"))
-            defaultPref.edit().putString("theme", "light").apply();
+        defaultPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P && defaultPreferences.getString("theme", "system").equals("system"))
+            defaultPreferences.edit().putString("theme", "light").apply();
         Utils.applyThemeFromSettings(this);
         super.onCreate(savedInstanceState);
         binding = MainActivityBinding.inflate(getLayoutInflater());
@@ -45,14 +50,10 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
         helper = CameraHelper.getInstance(this);
         setSupportActionBar(binding.toolbar);
         window = getWindow();
-        preferences = getSharedPreferences("my_prefs", MODE_PRIVATE);
+        legacyPreferences = getSharedPreferences("my_prefs", MODE_PRIVATE);
         applyListeners();
-        CameraHelper.isFlashOn.observe(this, (isOn -> {
-            changePowerButtonColors(isOn);
-            Utils.updateFlashlightWidgets(this);
-        }));
         init();
-        if (savedInstanceState != null && preferences.getInt("default_option", 1) == 2) {
+        if (savedInstanceState != null && legacyPreferences.getInt("default_option", 1) == 2) {
             Log.d("flashy_test", "saved 2, " + savedInstanceState.getInt("brightness"));
             brightness = savedInstanceState.getInt("brightness");
             WindowManager.LayoutParams layoutpars = window.getAttributes();
@@ -60,8 +61,45 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
             window.setAttributes(layoutpars);
         }
 
-        if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH))
+        if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)) {
             getSupportFragmentManager().setFragmentResultListener(NoFlashlightDialog.NO_FLASH_DIALOG_DISMISSED, this, ((requestKey, result) -> binding.bgOptions.callOnClick()));
+            binding.sosButton.setVisibility(View.GONE);
+            binding.sosIcon.setVisibility(View.GONE);
+            binding.stroboscopeButton.setVisibility(View.GONE);
+            binding.stroboscopeIcon.setVisibility(View.GONE);
+            binding.stroboscopeInterval.setVisibility(View.GONE);
+            binding.stroboscopeIntervalSlider.setVisibility(View.GONE);
+        } else {
+            helper.getNormalFlashStatus().observe(this, (isOn -> changeButtonColors(FlashlightMode.NORMAL, isOn)));
+            helper.getSosStatus().observe(this, (isOn -> changeButtonColors(FlashlightMode.SOS, isOn)));
+            helper.getStroboscopeStatus().observe(this, (isOn -> {
+                changeButtonColors(FlashlightMode.STROBOSCOPE, isOn);
+                binding.stroboscopeInterval.setVisibility(isOn ? View.VISIBLE : View.GONE);
+                binding.stroboscopeIntervalSlider.setVisibility(isOn ? View.VISIBLE : View.GONE);
+            }));
+            binding.sosButton.setOnClickListener(v -> helper.toggleSos(this));
+            binding.stroboscopeButton.setOnClickListener(v -> helper.toggleStroboscope(this));
+            float stroboscopeIntervalInPreferences = defaultPreferences.getFloat("stroboscope_interval", -1);
+            helper.setStroboscopeInterval(stroboscopeIntervalInPreferences != -1 ? (int) (stroboscopeIntervalInPreferences * 1000) : 500);
+            binding.stroboscopeIntervalSlider.setValue(stroboscopeIntervalInPreferences != -1 ? stroboscopeIntervalInPreferences : 0.5F);
+            binding.stroboscopeIntervalSlider.addOnSliderTouchListener(new Slider.OnSliderTouchListener() {
+                @Override
+                public void onStartTrackingTouch(@NonNull Slider slider) {
+
+                }
+
+                @Override
+                public void onStopTrackingTouch(@NonNull Slider slider) {
+                    helper.setStroboscopeInterval((int) (slider.getValue() * 1000));
+                }
+            });
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        defaultPreferences.edit().putFloat("stroboscope_interval", binding.stroboscopeIntervalSlider.getValue()).apply();
     }
 
     @Override
@@ -85,15 +123,15 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
 
     void applyListeners() {
         binding.bgOptions.setOnClickListener(view -> {
-            SharedPreferences.Editor editor = preferences.edit();
-            editor.putInt("default_option", preferences.getInt("default_option", 1) == 1 ? 2 : 1);
+            SharedPreferences.Editor editor = legacyPreferences.edit();
+            editor.putInt("default_option", legacyPreferences.getInt("default_option", 1) == 1 ? 2 : 1);
             editor.apply();
             init();
         });
     }
 
     void init() {
-        if (preferences.getInt("default_option", 1) == 1) {
+        if (legacyPreferences.getInt("default_option", 1) == 1) {
             updateOptionsUI(true);
             refreshActivityForFlashLight();
         } else {
@@ -109,25 +147,27 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
         binding.progressCircular.setEnabled(false);
         binding.progressCircular.setPointerColor(Color.parseColor("#AAAABB"));
         binding.rootLayout.setBackgroundColor(Color.parseColor("#00000000")); //transparent
-        boolean hasFlash = getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
-        if (!hasFlash) {
-            binding.powerCenter.setOnClickListener(null);
+        if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH))
             new NoFlashlightDialog().show(getSupportFragmentManager(), null);
-        } else {
-            binding.powerCenter.setOnClickListener(view -> toggle());
-        }
+        else binding.powerCenter.setOnClickListener(v -> helper.toggleNormalFlash(this));
     }
 
-    void changePowerButtonColors(boolean isTurnedOn) {
-        if (isTurnedOn) {
-            binding.powerCenter.setColorFilter(Color.parseColor("#28FFB137"));
-            binding.powerIconCenter.setColorFilter(Color.parseColor("#FFB137"));
-            binding.powerIconCenterStand.setColorFilter(Color.parseColor("#FFB137"));
-        } else {
-            //Refresh Power Button
-            binding.powerCenter.setColorFilter(Color.parseColor("#F3F3F7"));
-            binding.powerIconCenter.setColorFilter(Color.parseColor("#AAAABB"));
-            binding.powerIconCenterStand.setColorFilter(Color.parseColor("#AAAABB"));
+    private void changeButtonColors(FlashlightMode mode, boolean isTurnedOn) {
+        switch (mode) {
+            case NORMAL:
+                binding.powerCenter.setColorFilter(isTurnedOn ? Color.parseColor("#28FFB137") : Color.parseColor("#F3F3F7"));
+                binding.powerIconCenter.setColorFilter(isTurnedOn ? Color.parseColor("#FFB137") : Color.parseColor("#AAAABB"));
+                binding.powerIconCenterStand.setColorFilter(isTurnedOn ? Color.parseColor("#FFB137") : Color.parseColor("#AAAABB"));
+                break;
+            case SOS:
+                binding.sosButton.setColorFilter(isTurnedOn ? Color.parseColor("#28FFB137") : Color.parseColor("#F3F3F7"));
+                binding.sosIcon.setColorFilter(isTurnedOn ? Color.parseColor("#FFB137") : Color.parseColor("#AAAABB"));
+                break;
+            case STROBOSCOPE:
+                binding.stroboscopeButton.setColorFilter(isTurnedOn ? Color.parseColor("#28FFB137") : Color.parseColor("#F3F3F7"));
+                binding.stroboscopeIcon.setColorFilter(isTurnedOn ? Color.parseColor("#FFB137") : Color.parseColor("#AAAABB"));
+                break;
+            default: throw new IllegalArgumentException();
         }
     }
 
@@ -153,9 +193,7 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
     void refreshActivityForScreenLight() {
         binding.progressCircular.setPointerColor(Color.parseColor("#FFB137"));
         binding.progressCircular.setEnabled(true);
-        binding.powerCenter.setOnClickListener(null);
-        SharedPreferences defaultPref = PreferenceManager.getDefaultSharedPreferences(this);
-        if (defaultPref.getBoolean("no_flash_when_screen", true) && getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH))
+        if (defaultPreferences.getBoolean("no_flash_when_screen", true) && getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH))
             turnOff();
         binding.rootLayout.setBackgroundColor(Color.parseColor("#FFFFFF")); //force set white, because it does not make sense for the app to be dark when using screen light
         binding.progressCircular.setOnSeekBarChangeListener(new CircularSeekBar.OnCircularSeekBarChangeListener() {
@@ -180,27 +218,15 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
         binding.powerCenter.setOnClickListener(view -> binding.progressCircular.setProgress(brightness != 100 ? 100 : 0));
     }
 
-    public void toggle() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            try {
-                helper.toggleMarshmallow();
-            } catch (CameraAccessException e) {
-                Toast.makeText(this, R.string.cannot_access_camera, Toast.LENGTH_SHORT).show();
-                e.printStackTrace();
-            }
-        } else helper.toggleLollipop();
-    }
-
     public void turnOff() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && Boolean.TRUE.equals(CameraHelper.isFlashOn.getValue())) {
-            try {
-                helper.toggleMarshmallow();
-            } catch (CameraAccessException e) {
-                Toast.makeText(this, R.string.cannot_access_camera, Toast.LENGTH_SHORT).show();
-                e.printStackTrace();
-            }
-        } else if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.LOLLIPOP_MR1 && Boolean.TRUE.equals(CameraHelper.isFlashOn.getValue())) {
-            helper.toggleLollipop();
+        if (Boolean.TRUE.equals(helper.getNormalFlashStatus().getValue())) {
+            helper.toggleNormalFlash(this);
+        }
+        if (Boolean.TRUE.equals(helper.getSosStatus().getValue())) {
+            helper.toggleSos(this);
+        }
+        if (Boolean.TRUE.equals(helper.getStroboscopeStatus().getValue())) {
+            helper.toggleStroboscope(this);
         }
     }
 
@@ -212,7 +238,7 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        if (preferences.getInt("default_option", 1) == 2) {
+        if (legacyPreferences.getInt("default_option", 1) == 2) {
             outState.putInt("brightness", brightness);
         }
     }

@@ -34,5 +34,7 @@
     <string name="no_app_can_handle">No app can handle this action.</string>
     <string name="no_flashlight">No flashlight</string>
     <string name="use_screen">Use screen</string>
+    <string name="sos">SOS</string>
+    <string name="stroboscope_interval">Stroboscope interval</string>
 
 </resources>
