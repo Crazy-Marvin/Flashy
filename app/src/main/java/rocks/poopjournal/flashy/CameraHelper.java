@@ -102,15 +102,11 @@ public class CameraHelper {
     private void toggleNormalFlashLollipop() {
         if (Boolean.TRUE.equals(isSosOn.getValue())) {
             isSosOn.setValue(false);
-            try {
-                Thread.sleep(750); // to make sure SOS has completely stopped running before turning on normal flashlight
-            } catch (InterruptedException ignored) {}
+            while (isStroboscopeFlashOn) doNothing();
         }
         if (Boolean.TRUE.equals(isStroboscopeOn.getValue())) {
             isStroboscopeOn.setValue(false);
-            try {
-                Thread.sleep(stroboscopeInterval.get()); // to make sure stroboscope has completely stopped running before turning on normal flashlight
-            } catch (InterruptedException ignored) {}
+            while (isStroboscopeFlashOn) doNothing();
         }
         if (Boolean.TRUE.equals(isNormalFlashOn.getValue())) {
             Camera.Parameters parameters = camera.getParameters();
@@ -134,15 +130,11 @@ public class CameraHelper {
     private void toggleNormalFlashMarshmallow() throws CameraAccessException {
         if (Boolean.TRUE.equals(isSosOn.getValue())) {
             isSosOn.setValue(false);
-            try {
-                Thread.sleep(750); // to make sure SOS has completely stopped running before turning on normal flashlight
-            } catch (InterruptedException ignored) {}
+            while (isStroboscopeFlashOn) doNothing();
         }
         if (Boolean.TRUE.equals(isStroboscopeOn.getValue())) {
             isStroboscopeOn.setValue(false);
-            try {
-                Thread.sleep(stroboscopeInterval.get()); // to make sure stroboscope has completely stopped running before turning on normal flashlight
-            } catch (InterruptedException ignored) {}
+            while (isStroboscopeFlashOn) doNothing();
         }
         if (Boolean.TRUE.equals(isNormalFlashOn.getValue())) {
             manager.setTorchMode(manager.getCameraIdList()[0], false);
@@ -159,9 +151,7 @@ public class CameraHelper {
             if (Boolean.TRUE.equals(isNormalFlashOn.getValue())) toggleNormalFlashMarshmallow();
             if (Boolean.TRUE.equals(isStroboscopeOn.getValue())) {
                 toggleStroboscopeModeMarshmallow();
-                try {
-                    Thread.sleep(stroboscopeInterval.get()); // to make sure stroboscope has completely stopped running before turning on SOS
-                } catch (InterruptedException ignored) {}
+                while (isStroboscopeFlashOn) doNothing();
             }
             isSosOn.setValue(true);
             AtomicInteger sosIndex = new AtomicInteger(0);
@@ -186,9 +176,7 @@ public class CameraHelper {
             if (Boolean.TRUE.equals(isNormalFlashOn.getValue())) toggleNormalFlashLollipop();
             if (Boolean.TRUE.equals(isStroboscopeOn.getValue())) {
                 toggleStroboscopeModeLollipop();
-                try {
-                    Thread.sleep(stroboscopeInterval.get()); // to make sure stroboscope has completely stopped running before turning on SOS
-                } catch (InterruptedException ignored) {}
+                while (isStroboscopeFlashOn) doNothing();
             }
             isSosOn.setValue(true);
             AtomicInteger sosIndex = new AtomicInteger(0);
@@ -214,9 +202,7 @@ public class CameraHelper {
             if (Boolean.TRUE.equals(isNormalFlashOn.getValue())) toggleNormalFlashMarshmallow();
             if (Boolean.TRUE.equals(isSosOn.getValue())) {
                 toggleSosMarshmallow();
-                try {
-                    Thread.sleep(750); // to make sure SOS has completely stopped running before turning on stroboscope
-                } catch (InterruptedException ignored) {}
+                while (isStroboscopeFlashOn) doNothing();
             }
             isStroboscopeOn.setValue(true);
             new Thread(() -> {
@@ -240,9 +226,7 @@ public class CameraHelper {
             if (Boolean.TRUE.equals(isNormalFlashOn.getValue())) toggleNormalFlashLollipop();
             if (Boolean.TRUE.equals(isSosOn.getValue())) {
                 toggleSosLollipop();
-                try {
-                    Thread.sleep(750); // to make sure SOS has completely stopped running before turning on stroboscope
-                } catch (InterruptedException ignored) {}
+                while (isStroboscopeFlashOn) doNothing();
             }
             isStroboscopeOn.setValue(true);
             new Thread(() -> {
@@ -284,5 +268,9 @@ public class CameraHelper {
     private void toggleStroboscopeFlashMarshmallow() throws CameraAccessException {
         manager.setTorchMode(manager.getCameraIdList()[0], !isStroboscopeFlashOn);
         isStroboscopeFlashOn = !isStroboscopeFlashOn;
+    }
+    
+    private void doNothing() {
+        //empty method to suppress android studio warnings
     }
 }
