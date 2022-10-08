@@ -270,5 +270,7 @@ public class CameraHelper {
         isStroboscopeFlashOn = !isStroboscopeFlashOn;
     }
     
-    private void doNothing() {}
+    private void doNothing() {
+        //empty method to suppress android studio warnings
+    }
 }
