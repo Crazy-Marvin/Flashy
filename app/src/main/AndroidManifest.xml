@@ -43,7 +43,8 @@
 
         <receiver
             android:name=".FlashlightWidgetProvider"
-            android:exported="false">
+            android:exported="false"
+            android:label="@string/flashlight">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -54,7 +55,8 @@
         </receiver>
         <receiver
             android:name=".ScreenBrightnessWidgetProvider"
-            android:exported="false">
+            android:exported="false"
+            android:label="@string/maximize_screen_brightness">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -65,7 +67,8 @@
         </receiver>
         <receiver
             android:name=".SOSWidgetProvider"
-            android:exported="false">
+            android:exported="false"
+            android:label="@string/sos">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -90,7 +93,8 @@
         <activity
             android:name=".AboutActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            android:label="@string/about">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
