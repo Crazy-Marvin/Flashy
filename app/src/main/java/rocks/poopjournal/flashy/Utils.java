@@ -34,16 +34,24 @@ public class Utils {
 
     /**
      * Must be called after toggling flashlight to update the widget UI.
-     * @see CameraHelper#toggleMarshmallow()
-     * @see CameraHelper#toggleLollipop()
+     * @see CameraHelper#toggleNormalFlash(Context)
+     * @see CameraHelper#toggleSos(Context)
+     * @see CameraHelper#toggleStroboscope(Context)
      */
-    public static void updateFlashlightWidgets(Context context) {
+    public static void updateWidgets(Context context) {
         AppWidgetManager manager = AppWidgetManager.getInstance(context);
-        int[] widgetIds = manager.getAppWidgetIds(new ComponentName(context, FlashlightWidgetProvider.class));
-        if (widgetIds.length > 0) {
+        int[] flashlightWidgetIds = manager.getAppWidgetIds(new ComponentName(context, FlashlightWidgetProvider.class));
+        if (flashlightWidgetIds.length > 0) {
             Intent intent = new Intent(AppWidgetManager.ACTION_APPWIDGET_UPDATE)
-                    .putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, widgetIds)
+                    .putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, flashlightWidgetIds)
                     .setClass(context, FlashlightWidgetProvider.class);
+            context.sendBroadcast(intent);
+        }
+        int[] sosWidgetIds = manager.getAppWidgetIds(new ComponentName(context, SOSWidgetProvider.class));
+        if (sosWidgetIds.length > 0) {
+            Intent intent = new Intent(AppWidgetManager.ACTION_APPWIDGET_UPDATE)
+                    .putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, sosWidgetIds)
+                    .setClass(context, SOSWidgetProvider.class);
             context.sendBroadcast(intent);
         }
     }
