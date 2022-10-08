@@ -63,6 +63,12 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
 
         if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)) {
             getSupportFragmentManager().setFragmentResultListener(NoFlashlightDialog.NO_FLASH_DIALOG_DISMISSED, this, ((requestKey, result) -> binding.bgOptions.callOnClick()));
+            binding.sosButton.setVisibility(View.GONE);
+            binding.sosIcon.setVisibility(View.GONE);
+            binding.stroboscopeButton.setVisibility(View.GONE);
+            binding.stroboscopeIcon.setVisibility(View.GONE);
+            binding.stroboscopeInterval.setVisibility(View.GONE);
+            binding.stroboscopeIntervalSlider.setVisibility(View.GONE);
         } else {
             helper.getNormalFlashStatus().observe(this, (isOn -> changeButtonColors(FlashlightMode.NORMAL, isOn)));
             helper.getSosStatus().observe(this, (isOn -> changeButtonColors(FlashlightMode.SOS, isOn)));
