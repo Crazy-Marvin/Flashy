@@ -3,6 +3,7 @@ package rocks.poopjournal.flashy;
 import static android.hardware.Camera.Parameters.FLASH_MODE_OFF;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.SurfaceTexture;
 import android.hardware.Camera;
 import android.hardware.camera2.CameraAccessException;
@@ -13,8 +14,10 @@ import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+import androidx.preference.PreferenceManager;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -26,7 +29,8 @@ public class CameraHelper {
     private static final MutableLiveData<Boolean> isNormalFlashOn = new MutableLiveData<>(false);
     private static final MutableLiveData<Boolean> isSosOn = new MutableLiveData<>(false);
     private static final MutableLiveData<Boolean> isStroboscopeOn = new MutableLiveData<>(false);
-    private final List<Integer> sos = Arrays.asList(250, 250, 250, 250, 250, 250, 750, 250, 750, 250, 750, 250, 250, 250, 250, 250, 250, 1000);
+    private final List<Integer> sosReference = Arrays.asList(250, 250, 250, 250, 250, 750, 750, 250, 750, 250, 750, 750, 250, 250, 250, 250, 250, 1750);
+    private final List<Integer> actualSos = new ArrayList<>();
     private final AtomicInteger stroboscopeInterval = new AtomicInteger(500);
     /**
      * It is an error to use this boolean for anything other than SOS and Stroboscope functions.
@@ -76,6 +80,7 @@ public class CameraHelper {
     }
 
     public void toggleSos(Context context) {
+        applySosLengthsFromSettings(context);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             try {
                 toggleSosMarshmallow();
@@ -159,9 +164,9 @@ public class CameraHelper {
                 while (Boolean.TRUE.equals(isSosOn.getValue())) {
                     try {
                         toggleStroboscopeFlashMarshmallow();
-                        Thread.sleep(sos.get(sosIndex.getAndIncrement() % sos.size()));
+                        Thread.sleep(actualSos.get(sosIndex.getAndIncrement() % actualSos.size()));
                         toggleStroboscopeFlashMarshmallow();
-                        Thread.sleep(sos.get(sosIndex.getAndIncrement() % sos.size()));
+                        Thread.sleep(actualSos.get(sosIndex.getAndIncrement() % actualSos.size()));
                     } catch (CameraAccessException | InterruptedException e) {
                         isSosOn.postValue(false);
                         e.printStackTrace();
@@ -184,9 +189,9 @@ public class CameraHelper {
                 while (Boolean.TRUE.equals(isSosOn.getValue())) {
                     try {
                         toggleStroboscopeFlashLollipop();
-                        Thread.sleep(sos.get(sosIndex.getAndIncrement() % sos.size()));
+                        Thread.sleep(actualSos.get(sosIndex.getAndIncrement() % actualSos.size()));
                         toggleStroboscopeFlashLollipop();
-                        Thread.sleep(sos.get(sosIndex.getAndIncrement() % sos.size()));
+                        Thread.sleep(actualSos.get(sosIndex.getAndIncrement() % actualSos.size()));
                     } catch (InterruptedException e) {
                         isSosOn.postValue(false);
                         e.printStackTrace();
@@ -268,6 +273,34 @@ public class CameraHelper {
     private void toggleStroboscopeFlashMarshmallow() throws CameraAccessException {
         manager.setTorchMode(manager.getCameraIdList()[0], !isStroboscopeFlashOn);
         isStroboscopeFlashOn = !isStroboscopeFlashOn;
+    }
+
+    private void applySosLengthsFromSettings(Context context) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        int ditDuration = getCurrentDitLength(context);
+        actualSos.clear();
+        actualSos.addAll(sosReference);
+        actualSos.replaceAll(duration -> duration == 750 ? ditDuration * 3 : 250);
+        actualSos.replaceAll(duration -> duration == 250 ? ditDuration : duration);
+        actualSos.set(actualSos.size() - 1, ditDuration * 7);
+        if (preferences.getBoolean("use_farnsworth", false)) {
+            int farnsworthUnitLength = Integer.parseInt(preferences.getString("farnsworth_unit", ""));
+            actualSos.set(5, farnsworthUnitLength * 3);
+            actualSos.set(11, farnsworthUnitLength * 3);
+            actualSos.set(actualSos.size() - 1, farnsworthUnitLength * 7);
+        }
+    }
+
+    /**
+     * @return The current length of a <code>dit</code> in milliseconds
+     */
+    public int getCurrentDitLength(Context context) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        return Math.round(((float) 60 / (50 * Integer.parseInt(preferences.getString("words_per_min", "5")))) * 1000);
+    }
+
+    public int getCurrentDitLength(SharedPreferences preferences) {
+        return Math.round(((float) 60 / (50 * Integer.parseInt(preferences.getString("words_per_min", "5")))) * 1000);
     }
     
     private void doNothing() {

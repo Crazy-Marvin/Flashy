@@ -25,4 +25,33 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory app:title="@string/sos"
+        app:iconSpaceReserved="false">
+
+        <EditTextPreference
+            app:key="words_per_min"
+            app:title="@string/words_per_min"
+            app:dialogMessage="@string/words_per_min_explanation"
+            app:iconSpaceReserved="false"
+            app:defaultValue="5"
+            app:useSimpleSummaryProvider="true"/>
+
+        <SwitchPreferenceCompat
+            app:key="use_farnsworth"
+            app:title="@string/use_farnsworth"
+            app:iconSpaceReserved="false"
+            app:defaultValue="false"/>
+
+        <EditTextPreference
+            app:key="farnsworth_unit"
+            app:title="@string/farnsworth_unit_length"
+            app:iconSpaceReserved="false" />
+
+        <Preference
+            app:key="learn_more_morse_timing"
+            app:title="@string/learn_more_morse_timing"
+            app:iconSpaceReserved="false"/>
+
+    </PreferenceCategory>
+
 </PreferenceScreen>

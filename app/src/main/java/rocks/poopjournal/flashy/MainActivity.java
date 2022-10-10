@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.hardware.Camera;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,7 +24,7 @@ import com.google.android.material.slider.Slider;
 import me.tankery.lib.circularseekbar.CircularSeekBar;
 import rocks.poopjournal.flashy.databinding.MainActivityBinding;
 
-public class MainActivity extends AppCompatActivity implements Camera.AutoFocusCallback {
+public class MainActivity extends AppCompatActivity {
     //Fields
     private int brightness = -999;
     private Window window;
@@ -228,11 +227,6 @@ public class MainActivity extends AppCompatActivity implements Camera.AutoFocusC
         if (Boolean.TRUE.equals(helper.getStroboscopeStatus().getValue())) {
             helper.toggleStroboscope(this);
         }
-    }
-
-    @Override
-    public void onAutoFocus(boolean b, Camera camera) {
-
     }
 
     @Override

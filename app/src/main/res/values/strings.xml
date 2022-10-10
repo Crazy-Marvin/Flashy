@@ -36,5 +36,13 @@
     <string name="use_screen">Use screen</string>
     <string name="sos">SOS</string>
     <string name="stroboscope_interval">Stroboscope interval</string>
-
+    <string name="words_per_min">Words per minute</string>
+    <string name="words_per_min_error">Invalid number of words</string>
+    <string name="words_per_min_explanation">Words per minute is how many times the standard word \"PARIS\" can be sent per minute.\nThe higher the value, the shorter the length of each \"dit\".\nEnter your desired number below.</string>
+    <string name="use_farnsworth">Use Farnsworth timing</string>
+    <string name="turn_on_sos_now">Turn on SOS now</string>
+    <string name="farnsworth_unit_length">Farnsworth unit length</string>
+    <string name="farnsworth_unit_length_error">Farnsworth unit duration must be longer than a normal unit</string>
+    <string name="farnsworth_unit_length_explanation">"Farnsworth" timing makes recognizing the sound patterns easier by increasing the gaps between the characters and words to give more recognition time.\nA Farnsworth unit is longer than a basic unit.\nEnter your desired length of a Farnsworth unit below (must be longer than a basic unit: %d milliseconds).\nLeave blank to use the length of the basic unit plus an additional 25 percent of it.</string>
+    <string name="learn_more_morse_timing">Learn more about Morse code timing</string>
 </resources>
