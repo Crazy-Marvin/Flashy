@@ -38,7 +38,7 @@
     <string name="stroboscope_interval">Stroboscope interval</string>
     <string name="words_per_min">Words per minute</string>
     <string name="words_per_min_error">Invalid number of words</string>
-    <string name="words_per_min_explanation">Words per minute is how many times the standard word \"PARIS\" can be sent per minute.\nThe higher the value, the shorter the length of each \"dit\".\nEnter your desired number below.</string>
+    <string name="words_per_min_explanation">Words per minute is how many times the standard word \"PARIS\" can be sent per minute.\nThe higher the value, the shorter the length of each \"dit\".\nNote that this setting does not take Farnsworth timing into account.\nEnter your desired number below.</string>
     <string name="use_farnsworth">Use Farnsworth timing</string>
     <string name="turn_on_sos_now">Turn on SOS now</string>
     <string name="farnsworth_unit_length">Farnsworth unit length</string>

@@ -59,6 +59,7 @@ public class SettingsActivity extends AppCompatActivity {
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
             preferences.registerOnSharedPreferenceChangeListener(listener);
             helper = CameraHelper.getInstance(requireContext());
+            if (Boolean.TRUE.equals(helper.getSosStatus().getValue())) helper.toggleSos(requireContext());
 
             ListPreference themePref = findPreference("theme");
             assert themePref != null;
