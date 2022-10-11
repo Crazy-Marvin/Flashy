@@ -1,4 +1,4 @@
-package rocks.poopjournal.flashy;
+package rocks.poopjournal.flashy.activities;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -10,12 +10,16 @@ import android.widget.Toast;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import rocks.poopjournal.flashy.BuildConfig;
+import rocks.poopjournal.flashy.R;
 import rocks.poopjournal.flashy.databinding.ActivityAboutBinding;
+import rocks.poopjournal.flashy.utils.Utils;
 
 public class AboutActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Utils.applyThemeFromSettings(this);
         super.onCreate(savedInstanceState);
         ActivityAboutBinding binding = ActivityAboutBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());

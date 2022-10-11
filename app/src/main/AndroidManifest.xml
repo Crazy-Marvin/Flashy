@@ -21,10 +21,10 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".SettingsActivity"
+            android:name=".activities.SettingsActivity"
             android:exported="false"
             android:label="@string/settings"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".activities.MainActivity">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -42,7 +42,7 @@
         </service>
 
         <receiver
-            android:name=".FlashlightWidgetProvider"
+            android:name=".widgets.FlashlightWidgetProvider"
             android:exported="false"
             android:label="@string/flashlight">
             <intent-filter>
@@ -54,7 +54,7 @@
                 android:resource="@xml/flashlight_widget" />
         </receiver>
         <receiver
-            android:name=".ScreenBrightnessWidgetProvider"
+            android:name=".widgets.ScreenBrightnessWidgetProvider"
             android:exported="false"
             android:label="@string/maximize_screen_brightness">
             <intent-filter>
@@ -66,7 +66,7 @@
                 android:resource="@xml/screen_widget" />
         </receiver>
         <receiver
-            android:name=".SOSWidgetProvider"
+            android:name=".widgets.SOSWidgetProvider"
             android:exported="false"
             android:label="@string/sos">
             <intent-filter>
@@ -79,7 +79,7 @@
         </receiver>
 
         <activity
-            android:name=".GrantSystemWritePermissionActivity"
+            android:name=".activities.GrantSystemWritePermissionActivity"
             android:exported="false">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
@@ -91,9 +91,9 @@
         </activity>
 
         <activity
-            android:name=".AboutActivity"
+            android:name=".activities.AboutActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".activities.MainActivity"
             android:label="@string/about">
             <meta-data
                 android:name="android.app.lib_name"
@@ -101,7 +101,7 @@
         </activity>
 
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:configChanges="orientation"
             android:exported="true">
             <intent-filter>

@@ -1,4 +1,4 @@
-package rocks.poopjournal.flashy;
+package rocks.poopjournal.flashy.activities;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -18,7 +18,10 @@ import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
 import androidx.preference.SwitchPreferenceCompat;
 
+import rocks.poopjournal.flashy.R;
 import rocks.poopjournal.flashy.databinding.SettingsActivityBinding;
+import rocks.poopjournal.flashy.utils.CameraHelper;
+import rocks.poopjournal.flashy.utils.Utils;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -59,7 +62,7 @@ public class SettingsActivity extends AppCompatActivity {
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
             preferences.registerOnSharedPreferenceChangeListener(listener);
             helper = CameraHelper.getInstance(requireContext());
-            if (Boolean.TRUE.equals(helper.getSosStatus().getValue())) helper.toggleSos(requireContext());
+            if (Boolean.TRUE.equals(CameraHelper.getSosStatus().getValue())) helper.toggleSos(requireContext());
 
             ListPreference themePref = findPreference("theme");
             assert themePref != null;
@@ -67,10 +70,17 @@ public class SettingsActivity extends AppCompatActivity {
                 themePref.setEntries(R.array.theme_entries_p);
                 themePref.setEntryValues(R.array.theme_values_p);
             }
-            themePref.setOnPreferenceChangeListener(((preference, newValue) -> {
+            themePref.setOnPreferenceChangeListener((preference, newValue) -> {
                 requireActivity().recreate();
                 return true;
-            }));
+            });
+
+            SwitchPreferenceCompat md3Pref = findPreference("md3");
+            assert md3Pref != null;
+            md3Pref.setOnPreferenceChangeListener((preference, newValue) -> {
+                requireActivity().recreate();
+                return true;
+            });
 
             EditTextPreference wordsPerMin = findPreference("words_per_min");
             assert wordsPerMin != null;

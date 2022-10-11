@@ -1,4 +1,4 @@
-package rocks.poopjournal.flashy;
+package rocks.poopjournal.flashy.widgets;
 
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
@@ -9,12 +9,15 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.widget.RemoteViews;
 
+import rocks.poopjournal.flashy.utils.CameraHelper;
+import rocks.poopjournal.flashy.R;
+import rocks.poopjournal.flashy.activities.MainActivity;
+
 public class FlashlightWidgetProvider extends AppWidgetProvider {
     private static final String ACTION_TOGGLE = "rocks.poopjournal.flashy.TOGGLE_FLASH";
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
-        CameraHelper helper = CameraHelper.getInstance(context);
         for (int appWidgetId : appWidgetIds) {
             RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_flashlight);
             if (!context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)) {
@@ -23,7 +26,7 @@ public class FlashlightWidgetProvider extends AppWidgetProvider {
                 PendingIntent pendingIntent = PendingIntent.getActivity(context, 42, intent, PendingIntent.FLAG_IMMUTABLE);
                 remoteViews.setOnClickPendingIntent(R.id.img, pendingIntent);
             } else {
-                if (Boolean.TRUE.equals(helper.getNormalFlashStatus().getValue())) {
+                if (Boolean.TRUE.equals(CameraHelper.getNormalFlashStatus().getValue())) {
                     remoteViews.setImageViewResource(R.id.img, R.drawable.flashlight_on);
                 } else
                     remoteViews.setImageViewResource(R.id.img, R.drawable.flashlight_off);

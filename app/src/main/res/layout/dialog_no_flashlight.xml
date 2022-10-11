@@ -9,7 +9,8 @@
         android:layout_height="6dp"
         android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/pill"/>
+        android:src="@drawable/pill"
+        android:importantForAccessibility="no"/>
 
     <ImageView
         android:id="@+id/tv_options"
@@ -27,26 +28,17 @@
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/tv_options"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
-   <RelativeLayout
-       android:id="@+id/container_use_screen"
-       android:layout_below="@id/no_flashlight"
-       android:layout_width="114dp"
-       android:layout_marginBottom="20dp"
-       android:layout_marginTop="20dp"
-       android:background="@drawable/bg_use_screen"
-       android:layout_centerHorizontal="true"
-       android:layout_height="36dp">
-
-       <TextView
-           android:text="@string/use_screen"
-           android:layout_width="wrap_content"
-           android:layout_centerInParent="true"
-           android:layout_height="wrap_content"/>
-
-   </RelativeLayout>
+    <Button
+        android:id="@+id/container_use_screen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/no_flashlight"
+        android:layout_centerHorizontal="true"
+        android:layout_marginVertical="20dp"
+        android:text="@string/use_screen"/>
 
 </RelativeLayout>
