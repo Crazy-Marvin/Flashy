@@ -12,6 +12,13 @@
             app:defaultValue="system"
             app:useSimpleSummaryProvider="true"/>
 
+        <SwitchPreferenceCompat
+            app:key="md3"
+            app:title="@string/md3"
+            app:iconSpaceReserved="false"
+            app:summary="@string/md3_subtext"
+            app:defaultValue="false"/>
+
     </PreferenceCategory>
 
     <PreferenceCategory app:title="@string/general"

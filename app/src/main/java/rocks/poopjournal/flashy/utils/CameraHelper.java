@@ -1,4 +1,4 @@
-package rocks.poopjournal.flashy;
+package rocks.poopjournal.flashy.utils;
 
 import static android.hardware.Camera.Parameters.FLASH_MODE_OFF;
 
@@ -22,6 +22,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import rocks.poopjournal.flashy.R;
+
 public class CameraHelper {
     private static CameraHelper instance;
     private CameraManager manager;
@@ -37,15 +39,15 @@ public class CameraHelper {
      */
     private boolean isStroboscopeFlashOn = false;
 
-    public LiveData<Boolean> getNormalFlashStatus() {
+    public static LiveData<Boolean> getNormalFlashStatus() {
         return isNormalFlashOn;
     }
 
-    public LiveData<Boolean> getSosStatus() {
+    public static LiveData<Boolean> getSosStatus() {
         return isSosOn;
     }
 
-    public LiveData<Boolean> getStroboscopeStatus() {
+    public static LiveData<Boolean> getStroboscopeStatus() {
         return isStroboscopeOn;
     }
 

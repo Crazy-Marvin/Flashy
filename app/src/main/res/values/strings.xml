@@ -45,4 +45,6 @@
     <string name="farnsworth_unit_length_error">Farnsworth unit duration must be longer than a normal unit</string>
     <string name="farnsworth_unit_length_explanation">"Farnsworth" timing makes recognizing the sound patterns easier by increasing the gaps between the characters and words to give more recognition time.\nA Farnsworth unit is longer than a basic unit.\nEnter your desired length of a Farnsworth unit below (must be longer than a basic unit: %d milliseconds).\nLeave blank to use the length of the basic unit plus an additional 25 percent of it.</string>
     <string name="learn_more_morse_timing">Learn more about Morse code timing</string>
+    <string name="md3_subtext">Use Android 12 look and feel</string>
+    <string name="md3">Material Design 3</string>
 </resources>

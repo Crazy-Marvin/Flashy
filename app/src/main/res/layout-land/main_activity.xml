@@ -48,24 +48,12 @@
         android:layout_centerInParent="true"
         android:layout_height="72dp"/>
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_height="wrap_content">
-        <ImageView
-            android:id="@+id/power_icon_center"
-            android:layout_width="24dp"
-            android:src="@drawable/power_icon_center"
-            android:layout_marginTop="3dp"
-            android:layout_height="24dp"/>
-        <ImageView
-            android:id="@+id/power_icon_center_stand"
-            android:layout_width="12dp"
-            android:src="@drawable/ic_power_icon_two"
-            android:layout_marginBottom="5dp"
-            android:layout_centerHorizontal="true"
-            android:layout_height="12dp"/>
-    </RelativeLayout>
+    <ImageView
+        android:id="@+id/power_icon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/power"
+        android:layout_centerInParent="true"/>
 
     <RelativeLayout
         android:id="@+id/bg_options"

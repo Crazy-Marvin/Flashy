@@ -11,4 +11,10 @@
         <item name="bottomSheetDialogTheme">@style/RoundedCornersBottomSheetTheme</item>
     </style>
 
+    <style name="AppTheme.Material3" parent="Theme.Material3.DynamicColors.DayNight">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
 </resources>

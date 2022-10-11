@@ -7,6 +7,8 @@ import android.service.quicksettings.TileService;
 
 import androidx.annotation.RequiresApi;
 
+import rocks.poopjournal.flashy.utils.CameraHelper;
+
 @RequiresApi(api = Build.VERSION_CODES.N)
 public class QSTileService extends TileService {
     private CameraHelper helper;
@@ -20,7 +22,7 @@ public class QSTileService extends TileService {
     @Override
     public void onStartListening() {
         super.onStartListening();
-        getQsTile().setState(Boolean.TRUE.equals(helper.getNormalFlashStatus().getValue()) ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE);
+        getQsTile().setState(Boolean.TRUE.equals(CameraHelper.getNormalFlashStatus().getValue()) ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE);
         getQsTile().updateTile();
     }
 
@@ -32,7 +34,7 @@ public class QSTileService extends TileService {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                 getQsTile().setSubtitle(getString(R.string.no_camera));
             }
-        } else if (Boolean.TRUE.equals(helper.getNormalFlashStatus().getValue())) {
+        } else if (Boolean.TRUE.equals(CameraHelper.getNormalFlashStatus().getValue())) {
             getQsTile().setState(Tile.STATE_ACTIVE);
         }
         getQsTile().updateTile();
@@ -41,7 +43,7 @@ public class QSTileService extends TileService {
     @Override
     public void onTileRemoved() {
         super.onTileRemoved();
-        if (Boolean.TRUE.equals(helper.getNormalFlashStatus().getValue())) {
+        if (Boolean.TRUE.equals(CameraHelper.getNormalFlashStatus().getValue())) {
             helper.toggleNormalFlash(this);
         }
     }

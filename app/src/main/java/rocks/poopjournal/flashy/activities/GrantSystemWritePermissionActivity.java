@@ -1,4 +1,4 @@
-package rocks.poopjournal.flashy;
+package rocks.poopjournal.flashy.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,13 +9,16 @@ import android.provider.Settings;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import rocks.poopjournal.flashy.R;
 import rocks.poopjournal.flashy.databinding.ActivityGrantSystemWritePermissionBinding;
+import rocks.poopjournal.flashy.utils.Utils;
 
 public class GrantSystemWritePermissionActivity extends AppCompatActivity {
     private ActivityGrantSystemWritePermissionBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Utils.applyThemeFromSettings(this);
         super.onCreate(savedInstanceState);
         binding = ActivityGrantSystemWritePermissionBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());

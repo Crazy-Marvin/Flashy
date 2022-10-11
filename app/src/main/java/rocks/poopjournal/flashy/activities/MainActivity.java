@@ -1,4 +1,4 @@
-package rocks.poopjournal.flashy;
+package rocks.poopjournal.flashy.activities;
 
 import android.animation.LayoutTransition;
 import android.content.Intent;
@@ -22,6 +22,10 @@ import androidx.preference.PreferenceManager;
 import com.google.android.material.slider.Slider;
 
 import me.tankery.lib.circularseekbar.CircularSeekBar;
+import rocks.poopjournal.flashy.utils.CameraHelper;
+import rocks.poopjournal.flashy.NoFlashlightDialog;
+import rocks.poopjournal.flashy.R;
+import rocks.poopjournal.flashy.utils.Utils;
 import rocks.poopjournal.flashy.databinding.MainActivityBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -35,11 +39,15 @@ public class MainActivity extends AppCompatActivity {
     private enum FlashlightMode {
         NORMAL, SOS, STROBOSCOPE
     }
+    private final SharedPreferences.OnSharedPreferenceChangeListener material3Listener = (sharedPreferences, key) -> {
+        if (key.equals("md3")) recreate();
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         PreferenceManager.setDefaultValues(this, R.xml.root_preferences, false);
         defaultPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        defaultPreferences.registerOnSharedPreferenceChangeListener(material3Listener);
         if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P && defaultPreferences.getString("theme", "system").equals("system"))
             defaultPreferences.edit().putString("theme", "light").apply();
         Utils.applyThemeFromSettings(this);
@@ -69,9 +77,9 @@ public class MainActivity extends AppCompatActivity {
             binding.stroboscopeInterval.setVisibility(View.GONE);
             binding.stroboscopeIntervalSlider.setVisibility(View.GONE);
         } else {
-            helper.getNormalFlashStatus().observe(this, (isOn -> changeButtonColors(FlashlightMode.NORMAL, isOn)));
-            helper.getSosStatus().observe(this, (isOn -> changeButtonColors(FlashlightMode.SOS, isOn)));
-            helper.getStroboscopeStatus().observe(this, (isOn -> {
+            CameraHelper.getNormalFlashStatus().observe(this, (isOn -> changeButtonColors(FlashlightMode.NORMAL, isOn)));
+            CameraHelper.getSosStatus().observe(this, (isOn -> changeButtonColors(FlashlightMode.SOS, isOn)));
+            CameraHelper.getStroboscopeStatus().observe(this, (isOn -> {
                 changeButtonColors(FlashlightMode.STROBOSCOPE, isOn);
                 binding.stroboscopeInterval.setVisibility(isOn ? View.VISIBLE : View.GONE);
                 binding.stroboscopeIntervalSlider.setVisibility(isOn ? View.VISIBLE : View.GONE);
@@ -155,8 +163,7 @@ public class MainActivity extends AppCompatActivity {
         switch (mode) {
             case NORMAL:
                 binding.powerCenter.setColorFilter(isTurnedOn ? Color.parseColor("#28FFB137") : Color.parseColor("#F3F3F7"));
-                binding.powerIconCenter.setColorFilter(isTurnedOn ? Color.parseColor("#FFB137") : Color.parseColor("#AAAABB"));
-                binding.powerIconCenterStand.setColorFilter(isTurnedOn ? Color.parseColor("#FFB137") : Color.parseColor("#AAAABB"));
+                binding.powerIcon.setColorFilter(isTurnedOn ? Color.parseColor("#FFB137") : Color.parseColor("#AAAABB"));
                 break;
             case SOS:
                 binding.sosButton.setColorFilter(isTurnedOn ? Color.parseColor("#28FFB137") : Color.parseColor("#F3F3F7"));
@@ -218,13 +225,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void turnOff() {
-        if (Boolean.TRUE.equals(helper.getNormalFlashStatus().getValue())) {
+        if (Boolean.TRUE.equals(CameraHelper.getNormalFlashStatus().getValue())) {
             helper.toggleNormalFlash(this);
         }
-        if (Boolean.TRUE.equals(helper.getSosStatus().getValue())) {
+        if (Boolean.TRUE.equals(CameraHelper.getSosStatus().getValue())) {
             helper.toggleSos(this);
         }
-        if (Boolean.TRUE.equals(helper.getStroboscopeStatus().getValue())) {
+        if (Boolean.TRUE.equals(CameraHelper.getStroboscopeStatus().getValue())) {
             helper.toggleStroboscope(this);
         }
     }

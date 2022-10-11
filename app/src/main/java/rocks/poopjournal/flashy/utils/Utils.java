@@ -1,4 +1,4 @@
-package rocks.poopjournal.flashy;
+package rocks.poopjournal.flashy.utils;
 
 import static android.hardware.Camera.Parameters.FLASH_MODE_AUTO;
 import static android.hardware.Camera.Parameters.FLASH_MODE_ON;
@@ -15,6 +15,11 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.preference.PreferenceManager;
 
 import java.util.List;
+
+import rocks.poopjournal.flashy.R;
+import rocks.poopjournal.flashy.utils.CameraHelper;
+import rocks.poopjournal.flashy.widgets.FlashlightWidgetProvider;
+import rocks.poopjournal.flashy.widgets.SOSWidgetProvider;
 
 public class Utils {
 
@@ -69,6 +74,7 @@ public class Utils {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
                 break;
         }
+        context.setTheme(preferences.getBoolean("md3", false) ? R.style.AppTheme_Material3 : R.style.AppTheme);
     }
 
 }
