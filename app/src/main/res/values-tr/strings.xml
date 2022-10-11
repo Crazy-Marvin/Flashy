@@ -15,4 +15,41 @@
     <string name="settings">Ayarlar</string>
     <string name="general">Genel</string>
     <string name="theme">Tema</string>
+    <string name="learn_more_morse_timing">Mors kodu zamanlaması hakkında daha fazla bilgi edinin</string>
+    <string name="oss_licenses">Açık kaynak lisansları</string>
+    <string name="farnsworth_unit_length_error">Farnsworth birim süresi normal bir birimden daha uzun olmalıdır</string>
+    <string name="words_per_min">Dakika başına sözcükler</string>
+    <string name="use_farnsworth">Farnsworth zamanlamasını kullan</string>
+    <string name="android_jetpack">Android Jetpack</string>
+    <string name="turn_on_sos_now">SOS\'u şimdi aç</string>
+    <string name="farnsworth_unit_length">Farnsworth birim uzunluğu</string>
+    <string name="no_app_can_handle">Bu eylemi gerçekleştirecek uygulama yok.</string>
+    <string name="words_per_min_error">Geçersiz sözcük sayısı</string>
+    <string name="farnsworth_unit_length_explanation">Farnsworth zamanlaması, daha fazla tanıma süresi sağlamak için karakterler ve sözcükler arasındaki boşlukları artırarak ses modellerini tanımayı kolaylaştırır.
+\nBir Farnsworth birimi temel birimden daha uzundur.
+\nİstediğiniz Farnsworth birimi uzunluğunu aşağıya girin (temel birimden daha uzun olmalıdır: %d milisaniye).
+\nTemel birimin uzunluğuna ek olarak yüzde 25\'ini kullanmak için boş bırakın.</string>
+    <string name="sos">SOS</string>
+    <string name="stroboscope_interval">Stroboskop aralığı</string>
+    <string name="about">Hakkında</string>
+    <string name="version_license">Sürüm %s - Apache Lisansı 2.0</string>
+    <string name="contribute">Katkıda bulun</string>
+    <string name="source_code">Kaynak kodu</string>
+    <string name="report_problem">Sorun bildir</string>
+    <string name="translate">Çevir</string>
+    <string name="dev">Geliştirici</string>
+    <string name="apache2">Apache Lisansı 2.0</string>
+    <string name="gpl2_ce">GNU Genel Kamu Lisansı, sürüm 2, Classpath İstisnası ile</string>
+    <string name="mit">MIT Lisansı</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="java">Java</string>
+    <string name="circular_seekbar">CircularSeekBar</string>
+    <string name="md_icons">Material Tasarım Simgeleri</string>
+    <string name="feather_icons">Feather Simgeleri</string>
+    <string name="no_flashlight">El feneri yok</string>
+    <string name="use_screen">Ekranı kullan</string>
+    <string name="words_per_min_explanation">Dakika başına sözcükler, standart \"PARIS\" sözcüğünün dakikada kaç kez gönderilebileceğidir.
+\nDeğer ne kadar yüksek olursa, her \"dit\" uzunluğu o kadar kısa olur.
+\nBu ayarın Farnsworth zamanlamasını dikkate almadığını unutmayın.
+\nİstediğiniz sayıyı aşağıya girin.</string>
 </resources>
