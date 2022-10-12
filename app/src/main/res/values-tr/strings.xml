@@ -52,4 +52,6 @@
 \nDeğer ne kadar yüksek olursa, her \"dit\" uzunluğu o kadar kısa olur.
 \nBu ayarın Farnsworth zamanlamasını dikkate almadığını unutmayın.
 \nİstediğiniz sayıyı aşağıya girin.</string>
+    <string name="md3_subtext">Android 12 görünümünü kullan</string>
+    <string name="md3">Material Tasarım 3</string>
 </resources>
