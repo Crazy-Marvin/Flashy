@@ -205,7 +205,8 @@ public class MainActivity extends AppCompatActivity {
         binding.progressCircular.setOnSeekBarChangeListener(new CircularSeekBar.OnCircularSeekBarChangeListener() {
             @Override
             public void onProgressChanged(CircularSeekBar circularSeekBar, float progress, boolean fromUser) {
-                brightness = (int) progress;
+                if (progress != 0) brightness = (int) progress;
+                else brightness = -1;
                 WindowManager.LayoutParams layoutpars = window.getAttributes();
                 layoutpars.screenBrightness = (float) brightness / 100;
                 window.setAttributes(layoutpars);
