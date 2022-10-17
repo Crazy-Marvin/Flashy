@@ -1,0 +1,3 @@
+- Pridėtas tamsios temos palaikymas 🧛 (#60)
+Pastaba: programa priverstinai persijungia į šviesią temą, kai naudojamas ekrano apšvietimas. Tai yra dizaino dalis, nes nėra prasmės naudoti tamsų foną ekranui apšviesti.
+Didelis ačiū @unbiaseduser už šią funkciją.

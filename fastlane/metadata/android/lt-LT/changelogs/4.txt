@@ -1,0 +1,7 @@
+- 📷 Išvengtas fotoaparato leidimas (#41)
+- 🎨 Pridėta greitųjų nustatymų plytelė (#10)
+- 🎨 Teminės piktogramos palaikymas „Android 13“ ir naujesnėse versijose (#53)
+- 💁🏽 Pridėtas paprastas valdiklis (#27)
+- 👍 Atnaujintos priklausomybes ir vertimai
+
+Labai ačiū @unbiaseduser, @FahadSaleem ir visiems vertėjams! 😘
