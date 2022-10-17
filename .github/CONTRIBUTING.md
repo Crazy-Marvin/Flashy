@@ -51,3 +51,10 @@ Hooray! You have successfully contributed to Flashy!
 Please send me an e-mail to [marvin@poopjournal.rocks](mailto:marvin@poopjournal.rocks?subject=Flashy%20Security%20Vulnerability). I may give you information how to community encrypted. More details may be found in the [`SECURITY.md`](https://github.com/Crazy-Marvin/Flashy/blob/trunk/.github/SECURITY.md)
 
 Hooray! You have successfully contributed to Flashy!
+
+## How to Contribute Money
+
+Please send an e-mail to [marvin@poopjournal.rocks](mailto:marvin@poopjournal.rocks?subject=Flashy%20Donation) to discuss the details.
+You may find some options on [this page](https://poopjournal.rocks/blog/donate/) too.
+
+Hooray! You have successfully contributed to Flashy!
