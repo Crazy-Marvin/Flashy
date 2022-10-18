@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.graphics.SurfaceTexture;
 import android.hardware.Camera;
 import android.hardware.camera2.CameraAccessException;
+import android.hardware.camera2.CameraCharacteristics;
 import android.hardware.camera2.CameraManager;
 import android.os.Build;
 import android.widget.Toast;
@@ -33,10 +34,9 @@ public class CameraHelper {
     private static final MutableLiveData<Boolean> isStroboscopeOn = new MutableLiveData<>(false);
     private final List<Integer> sosReference = Arrays.asList(250, 250, 250, 250, 250, 750, 750, 250, 750, 250, 750, 750, 250, 250, 250, 250, 250, 1750);
     private final List<Integer> actualSos = new ArrayList<>();
-    private final AtomicInteger stroboscopeInterval = new AtomicInteger(500);
-    /**
-     * It is an error to use this boolean for anything other than SOS and Stroboscope functions.
-     */
+    private static final AtomicInteger stroboscopeInterval = new AtomicInteger(500);
+    @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
+    private static final AtomicInteger flashlightStrength = new AtomicInteger(1);
     private boolean isStroboscopeFlashOn = false;
 
     public static LiveData<Boolean> getNormalFlashStatus() {
@@ -51,9 +51,15 @@ public class CameraHelper {
         return isStroboscopeOn;
     }
 
-    public void setStroboscopeInterval(int interval) {
+    public static void setStroboscopeInterval(int interval) {
         stroboscopeInterval.set(interval);
     }
+
+    @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
+    public static int getFlashlightStrength() {return flashlightStrength.get();}
+
+    @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
+    public static void setFlashlightStrength(int strength) {flashlightStrength.set(strength);}
 
     private CameraHelper(Context context) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -69,8 +75,26 @@ public class CameraHelper {
         return instance;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
+    public void turnOnFlashWithStrength(Context context) {
+        try {
+            manager.turnOnTorchWithStrengthLevel(manager.getCameraIdList()[0], flashlightStrength.get());
+        } catch (CameraAccessException e) {
+            Toast.makeText(context, R.string.cannot_access_camera, Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        }
+    }
+
     public void toggleNormalFlash(Context context) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            try {
+                applyFlashlightStrengthFromSettings(context);
+                toggleNormalFlashWithStrength();
+            } catch (CameraAccessException e) {
+                Toast.makeText(context, R.string.cannot_access_camera, Toast.LENGTH_SHORT).show();
+                e.printStackTrace();
+            }
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             try {
                 toggleNormalFlashMarshmallow();
             } catch (CameraAccessException e) {
@@ -83,7 +107,15 @@ public class CameraHelper {
 
     public void toggleSos(Context context) {
         applySosLengthsFromSettings(context);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            try {
+                applyFlashlightStrengthFromSettings(context);
+                toggleSosWithStrength();
+            } catch (CameraAccessException e) {
+                Toast.makeText(context, R.string.cannot_access_camera, Toast.LENGTH_SHORT).show();
+                e.printStackTrace();
+            }
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             try {
                 toggleSosMarshmallow();
             } catch (CameraAccessException e) {
@@ -95,7 +127,15 @@ public class CameraHelper {
     }
 
     public void toggleStroboscope(Context context) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            try {
+                applyFlashlightStrengthFromSettings(context);
+                toggleStroboscopeModeWithStrength();
+            } catch (CameraAccessException e) {
+                Toast.makeText(context, R.string.cannot_access_camera, Toast.LENGTH_SHORT).show();
+                e.printStackTrace();
+            }
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             try {
                 toggleStroboscopeModeMarshmallow();
             } catch (CameraAccessException e) {
@@ -152,6 +192,25 @@ public class CameraHelper {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
+    private void toggleNormalFlashWithStrength() throws CameraAccessException {
+        if (Boolean.TRUE.equals(isSosOn.getValue())) {
+            isSosOn.setValue(false);
+            while (isStroboscopeFlashOn) doNothing();
+        }
+        if (Boolean.TRUE.equals(isStroboscopeOn.getValue())) {
+            isStroboscopeOn.setValue(false);
+            while (isStroboscopeFlashOn) doNothing();
+        }
+        if (Boolean.TRUE.equals(isNormalFlashOn.getValue())) {
+            manager.setTorchMode(manager.getCameraIdList()[0], false);
+            isNormalFlashOn.setValue(false);
+        } else {
+            manager.turnOnTorchWithStrengthLevel(manager.getCameraIdList()[0], flashlightStrength.get());
+            isNormalFlashOn.setValue(true);
+        }
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.M)
     private void toggleSosMarshmallow() throws CameraAccessException {
         if (Boolean.FALSE.equals(isSosOn.getValue())) {
@@ -168,6 +227,32 @@ public class CameraHelper {
                         toggleStroboscopeFlashMarshmallow();
                         Thread.sleep(actualSos.get(sosIndex.getAndIncrement() % actualSos.size()));
                         toggleStroboscopeFlashMarshmallow();
+                        Thread.sleep(actualSos.get(sosIndex.getAndIncrement() % actualSos.size()));
+                    } catch (CameraAccessException | InterruptedException e) {
+                        isSosOn.postValue(false);
+                        e.printStackTrace();
+                    }
+                }
+            }).start();
+        } else isSosOn.setValue(false);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
+    private void toggleSosWithStrength() throws CameraAccessException {
+        if (Boolean.FALSE.equals(isSosOn.getValue())) {
+            if (Boolean.TRUE.equals(isNormalFlashOn.getValue())) toggleNormalFlashWithStrength();
+            if (Boolean.TRUE.equals(isStroboscopeOn.getValue())) {
+                toggleStroboscopeModeWithStrength();
+                while (isStroboscopeFlashOn) doNothing();
+            }
+            isSosOn.setValue(true);
+            AtomicInteger sosIndex = new AtomicInteger(0);
+            new Thread(() -> {
+                while (Boolean.TRUE.equals(isSosOn.getValue())) {
+                    try {
+                        toggleStroboscopeFlashWithStrength();
+                        Thread.sleep(actualSos.get(sosIndex.getAndIncrement() % actualSos.size()));
+                        toggleStroboscopeFlashWithStrength();
                         Thread.sleep(actualSos.get(sosIndex.getAndIncrement() % actualSos.size()));
                     } catch (CameraAccessException | InterruptedException e) {
                         isSosOn.postValue(false);
@@ -228,6 +313,31 @@ public class CameraHelper {
         } else isStroboscopeOn.setValue(false);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
+    private void toggleStroboscopeModeWithStrength() throws CameraAccessException {
+        if (Boolean.FALSE.equals(isStroboscopeOn.getValue())) {
+            if (Boolean.TRUE.equals(isNormalFlashOn.getValue())) toggleNormalFlashWithStrength();
+            if (Boolean.TRUE.equals(isSosOn.getValue())) {
+                toggleSosWithStrength();
+                while (isStroboscopeFlashOn) doNothing();
+            }
+            isStroboscopeOn.setValue(true);
+            new Thread(() -> {
+                while (Boolean.TRUE.equals(isStroboscopeOn.getValue())) {
+                    try {
+                        toggleStroboscopeFlashWithStrength();
+                        Thread.sleep(stroboscopeInterval.get());
+                        toggleStroboscopeFlashWithStrength();
+                        Thread.sleep(stroboscopeInterval.get());
+                    } catch (CameraAccessException | InterruptedException e) {
+                        isStroboscopeOn.postValue(false);
+                        e.printStackTrace();
+                    }
+                }
+            }).start();
+        } else isStroboscopeOn.setValue(false);
+    }
+
     private void toggleStroboscopeModeLollipop() {
         if (Boolean.FALSE.equals(isStroboscopeOn.getValue())) {
             if (Boolean.TRUE.equals(isNormalFlashOn.getValue())) toggleNormalFlashLollipop();
@@ -277,6 +387,14 @@ public class CameraHelper {
         isStroboscopeFlashOn = !isStroboscopeFlashOn;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
+    private void toggleStroboscopeFlashWithStrength() throws CameraAccessException {
+        if (isStroboscopeFlashOn)
+            manager.setTorchMode(manager.getCameraIdList()[0], false);
+        else manager.turnOnTorchWithStrengthLevel(manager.getCameraIdList()[0], flashlightStrength.get());
+        isStroboscopeFlashOn = !isStroboscopeFlashOn;
+    }
+
     private void applySosLengthsFromSettings(Context context) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         int ditDuration = getCurrentDitLength(context);
@@ -303,6 +421,25 @@ public class CameraHelper {
 
     public int getCurrentDitLength(SharedPreferences preferences) {
         return Math.round(((float) 60 / (50 * Integer.parseInt(preferences.getString("words_per_min", "5")))) * 1000);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
+    public int getFlashlightStrengthLevel(Context context) {
+        try {
+            return manager.getCameraCharacteristics(manager.getCameraIdList()[0]).get(CameraCharacteristics.FLASH_INFO_STRENGTH_MAXIMUM_LEVEL);
+        } catch (CameraAccessException e) {
+            Toast.makeText(context, R.string.cannot_access_camera, Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+            return 1;
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
+    private void applyFlashlightStrengthFromSettings(Context context) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        int strength = preferences.getInt("flashlight_strength", -1);
+        if (strength != -1) flashlightStrength.set(strength);
+        else flashlightStrength.set(getFlashlightStrengthLevel(context));
     }
     
     private void doNothing() {
