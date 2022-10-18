@@ -52,5 +52,7 @@ public class QSTileService extends TileService {
     public void onClick() {
         super.onClick();
         helper.toggleNormalFlash(this);
+        getQsTile().setState(Boolean.TRUE.equals(CameraHelper.getNormalFlashStatus().getValue()) ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE);
+        getQsTile().updateTile();
     }
 }

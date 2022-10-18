@@ -16,17 +16,18 @@ import android.view.WindowManager;
 import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
 import com.google.android.material.slider.Slider;
 
 import me.tankery.lib.circularseekbar.CircularSeekBar;
-import rocks.poopjournal.flashy.utils.CameraHelper;
 import rocks.poopjournal.flashy.NoFlashlightDialog;
 import rocks.poopjournal.flashy.R;
-import rocks.poopjournal.flashy.utils.Utils;
 import rocks.poopjournal.flashy.databinding.MainActivityBinding;
+import rocks.poopjournal.flashy.utils.CameraHelper;
+import rocks.poopjournal.flashy.utils.Utils;
 
 public class MainActivity extends AppCompatActivity {
     //Fields
@@ -55,13 +56,21 @@ public class MainActivity extends AppCompatActivity {
         binding = MainActivityBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         helper = CameraHelper.getInstance(this);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
+                helper.getFlashlightStrengthLevel(this) > 1 &&
+                defaultPreferences.getInt("flashlight_strength", -1) == -1) { //if flash brightness is not saved into preferences
+            CameraHelper.setFlashlightStrength(helper.getFlashlightStrengthLevel(this)); //then set brightness to max
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
+                helper.getFlashlightStrengthLevel(this) > 1 &&
+                defaultPreferences.getInt("flashlight_strength", -1) != -1) { //if flash brightness is saved into preferences
+            CameraHelper.setFlashlightStrength(defaultPreferences.getInt("flashlight_strength", -1)); //then set brightness from there
+        }
         setSupportActionBar(binding.toolbar);
         window = getWindow();
         legacyPreferences = getSharedPreferences("my_prefs", MODE_PRIVATE);
         applyListeners();
         init();
         if (savedInstanceState != null && legacyPreferences.getInt("default_option", 1) == 2) {
-            Log.d("flashy_test", "saved 2, " + savedInstanceState.getInt("brightness"));
             brightness = savedInstanceState.getInt("brightness");
             WindowManager.LayoutParams layoutpars = window.getAttributes();
             layoutpars.screenBrightness = (float) brightness / 100;
@@ -87,17 +96,14 @@ public class MainActivity extends AppCompatActivity {
             binding.sosButton.setOnClickListener(v -> helper.toggleSos(this));
             binding.stroboscopeButton.setOnClickListener(v -> helper.toggleStroboscope(this));
             float stroboscopeIntervalInPreferences = defaultPreferences.getFloat("stroboscope_interval", -1);
-            helper.setStroboscopeInterval(stroboscopeIntervalInPreferences != -1 ? (int) (stroboscopeIntervalInPreferences * 1000) : 500);
+            CameraHelper.setStroboscopeInterval(stroboscopeIntervalInPreferences != -1 ? (int) (stroboscopeIntervalInPreferences * 1000) : 500);
             binding.stroboscopeIntervalSlider.setValue(stroboscopeIntervalInPreferences != -1 ? stroboscopeIntervalInPreferences : 0.5F);
             binding.stroboscopeIntervalSlider.addOnSliderTouchListener(new Slider.OnSliderTouchListener() {
                 @Override
-                public void onStartTrackingTouch(@NonNull Slider slider) {
-
-                }
-
+                public void onStartTrackingTouch(@NonNull Slider slider) {}
                 @Override
                 public void onStopTrackingTouch(@NonNull Slider slider) {
-                    helper.setStroboscopeInterval((int) (slider.getValue() * 1000));
+                    CameraHelper.setStroboscopeInterval((int) (slider.getValue() * 1000));
                 }
             });
         }
@@ -148,15 +154,38 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void refreshActivityForFlashLight() {
-        //Refresh Seekbar
-        binding.progressCircular.setOnSeekBarChangeListener(null);
-        binding.progressCircular.setProgress(0F);
-        binding.progressCircular.setEnabled(false);
-        binding.progressCircular.setPointerColor(Color.parseColor("#AAAABB"));
-        binding.rootLayout.setBackgroundColor(Color.parseColor("#00000000")); //transparent
         if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH))
             new NoFlashlightDialog().show(getSupportFragmentManager(), null);
-        else binding.powerCenter.setOnClickListener(v -> helper.toggleNormalFlash(this));
+        else if (getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH) &&
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
+                helper.getFlashlightStrengthLevel(this) > 1) {
+            binding.progressCircular.setProgress(0F);
+            binding.progressCircular.setMax(helper.getFlashlightStrengthLevel(this) - 1);
+            binding.progressCircular.setOnSeekBarChangeListener(new CircularSeekBar.OnCircularSeekBarChangeListener() {
+                @Override
+                public void onProgressChanged(@Nullable CircularSeekBar circularSeekBar, float v, boolean b) {
+                    CameraHelper.setFlashlightStrength(Math.round(v + 1));
+                    if (Boolean.TRUE.equals(CameraHelper.getNormalFlashStatus().getValue()))
+                        helper.turnOnFlashWithStrength(MainActivity.this);
+                }
+                @Override
+                public void onStopTrackingTouch(@Nullable CircularSeekBar circularSeekBar) {
+                    if (circularSeekBar != null)
+                        defaultPreferences.edit().putInt("flashlight_strength", Math.round(circularSeekBar.getProgress() + 1)).apply();
+                }
+                @Override
+                public void onStartTrackingTouch(@Nullable CircularSeekBar circularSeekBar) {}
+            });
+            binding.progressCircular.setProgress(CameraHelper.getFlashlightStrength() - 1);
+            binding.powerCenter.setOnClickListener(v -> helper.toggleNormalFlash(this));
+        } else if (getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)) {
+            binding.progressCircular.setOnSeekBarChangeListener(null);
+            binding.progressCircular.setProgress(0F);
+            binding.progressCircular.setEnabled(false);
+            binding.progressCircular.setPointerColor(Color.parseColor("#AAAABB"));
+            binding.powerCenter.setOnClickListener(v -> helper.toggleNormalFlash(this));
+        }
+        binding.rootLayout.setBackgroundColor(Color.parseColor("#00000000")); //transparent
     }
 
     private void changeButtonColors(FlashlightMode mode, boolean isTurnedOn) {
@@ -202,6 +231,11 @@ public class MainActivity extends AppCompatActivity {
         if (defaultPreferences.getBoolean("no_flash_when_screen", true) && getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH))
             turnOff();
         binding.rootLayout.setBackgroundColor(Color.parseColor("#FFFFFF")); //force set white, because it does not make sense for the app to be dark when using screen light
+        if (binding.progressCircular.getProgress() > 0) {
+            binding.progressCircular.setOnSeekBarChangeListener(null);
+            binding.progressCircular.setProgress(0f);
+        }
+        binding.progressCircular.setMax(100);
         binding.progressCircular.setOnSeekBarChangeListener(new CircularSeekBar.OnCircularSeekBarChangeListener() {
             @Override
             public void onProgressChanged(CircularSeekBar circularSeekBar, float progress, boolean fromUser) {
@@ -211,16 +245,10 @@ public class MainActivity extends AppCompatActivity {
                 layoutpars.screenBrightness = (float) brightness / 100;
                 window.setAttributes(layoutpars);
             }
-
             @Override
-            public void onStopTrackingTouch(CircularSeekBar seekBar) {
-
-            }
-
+            public void onStopTrackingTouch(CircularSeekBar seekBar) {}
             @Override
-            public void onStartTrackingTouch(CircularSeekBar seekBar) {
-
-            }
+            public void onStartTrackingTouch(CircularSeekBar seekBar) {}
         });
         binding.powerCenter.setOnClickListener(view -> binding.progressCircular.setProgress(brightness != 100 ? 100 : 0));
     }
