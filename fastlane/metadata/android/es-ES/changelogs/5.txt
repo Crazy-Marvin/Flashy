@@ -1,0 +1,3 @@
+- Añadir tema oscuro 🧛 (#60)
+Nota: La aplicación cambia forzosamente al tema claro cuando se utiliza la luz de pantalla. Esto es por diseño, ya que no tiene sentido utilizar un fondo oscuro para iluminar la pantalla.
+Muchas gracias a @unbiaseduser por esta característica.
