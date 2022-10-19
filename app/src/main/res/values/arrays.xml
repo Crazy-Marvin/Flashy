@@ -1,8 +1,8 @@
 <resources>
-    <string-array name="theme_entries">
-        <item>Light</item>
-        <item>Dark</item>
-        <item>Follow system</item>
+    <string-array name="theme_entries" translatable="false">
+        <item>@string/light</item>
+        <item>@string/dark</item>
+        <item>@string/follow_system</item>
     </string-array>
 
     <string-array name="theme_values" translatable="false">
@@ -11,9 +11,9 @@
         <item>system</item>
     </string-array>
 
-    <string-array name="theme_entries_p">
-        <item>Light</item>
-        <item>Dark</item>
+    <string-array name="theme_entries_p" translatable="false">
+        <item>@string/light</item>
+        <item>@string/dark</item>
     </string-array>
 
     <string-array name="theme_values_p" translatable="false">
