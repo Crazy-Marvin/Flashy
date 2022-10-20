@@ -28,6 +28,16 @@
         <item name="android:textColor">@android:color/black</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="alertDialogTheme">@style/AlertDialogTheme.Material3</item>
+        <item name="switchPreferenceCompatStyle">@style/Preference.MaterialSwitchPreference</item>
+    </style>
+
+    <style name="AlertDialogTheme.Material3" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="dialogCornerRadius">36dp</item>
+    </style>
+
+    <style name="Preference.MaterialSwitchPreference" parent="Preference.SwitchPreferenceCompat.Material">
+        <item name="android:widgetLayout">@layout/preferences_material_switch</item>
     </style>
 
 </resources>
