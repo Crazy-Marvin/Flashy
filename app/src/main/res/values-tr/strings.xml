@@ -54,4 +54,7 @@
 \nİstediğiniz sayıyı aşağıya girin.</string>
     <string name="md3_subtext">Android 12 görünümünü kullan</string>
     <string name="md3">Material Tasarım 3</string>
+    <string name="follow_system">Sistemi takip et</string>
+    <string name="light">Açık</string>
+    <string name="dark">Koyu</string>
 </resources>
