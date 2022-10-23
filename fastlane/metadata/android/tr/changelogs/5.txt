@@ -1,0 +1,3 @@
+- Koyu Tema Eklendi 🧛 (#60)
+Not: Uygulama, ekran ışığını kullanırken zorla açık temaya geçer. Bu tasarım gereğidir, çünkü ekranı aydınlatmak için koyu bir arka plan kullanmak mantıklı değildir.
+Bu özellik için çok teşekkürler @unbiaseduser.

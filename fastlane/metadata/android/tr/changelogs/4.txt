@@ -1,0 +1,7 @@
+- 📷 Kamera izninden kaçınıldı (#41)
+- 🎨 Hızlı ayarlar kutucuğu eklendi (#10)
+- 🎨 Android 13 sonrasında Temalı Simge Desteği (#53)
+- 💁🏽 Temel widget eklendi (#27)
+- 👍 Bağımlılıklar ve çeviriler güncellendi
+
+@unbiaseduser, @FahadSaleem ve tüm çevirmenlere çok teşekkürler! 😘
