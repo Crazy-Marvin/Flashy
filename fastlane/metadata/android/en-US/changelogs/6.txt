@@ -1,0 +1,8 @@
+- Material 3 Support 🎨
+- Widgets Support 🎨
+- Change Screen Colour Support 🎨
+- Support Flashlight Brightness Control On Supported Android 13+ Devices 📸
+- Add SOS Option 🆘
+- Add Stroboscope Option 🚨
+- Bugfixes 🐛
+- Translation Updates 🗺️
