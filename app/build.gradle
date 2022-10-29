@@ -10,6 +10,7 @@ android {
         versionName "1.5"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
+        resConfigs "en", "cs", "hr", "lt", "nb-rNO", "pt-rBR", "tr"
     }
     buildTypes {
         release {
