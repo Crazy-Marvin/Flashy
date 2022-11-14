@@ -113,13 +113,11 @@
                         android:id="@+id/fahadsaleem_github"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
-                        android:layout_marginVertical="10dp"
                         android:foreground="@drawable/ripple_effect_gray"
                         android:padding="12dp"
                         android:src="@drawable/github"
-                        app:layout_constraintBottom_toTopOf="@id/crazymarvin_github"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView" />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -175,8 +173,7 @@
                         android:padding="12dp"
                         android:src="@drawable/github"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/fahadsaleem_github" />
+                        app:layout_constraintEnd_toEndOf="parent" />
 
                     <ImageView
                         android:id="@+id/crazymarvin_twitter"
