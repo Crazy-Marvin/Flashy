@@ -1,2 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="flashlight">El feneri</string>
+    <string name="no_camera">Kamera yok</string>
+    <string name="cannot_access_camera">Kameraya erişilemiyor, acaba başka bir uygulama tarafından mı kullanılıyor\?</string>
+    <string name="app_name">Göz Kamaştırıcı</string>
+    <string name="grant_permission">İzin ver</string>
+    <string name="maximize_screen_brightness">Ekran parlaklığını en üst düzeye çıkar</string>
+    <string name="system_settings_permission_notice">Widget aracılığıyla ekran parlaklığını değiştirmek için uygulamaya özel bir izin verilmesi gerekir. Bunu yapmak için lütfen aşağıdaki düğmeye basın.
+\n
+\nİzin verilmeden çıkılması widget\'ın eklenmemesine neden olacaktır.</string>
+    <string name="system_settings_permission_granted">İzin verildi. Artık bu ekrandan çıkabilirsiniz.</string>
+    <string name="no_flash_when_screen">Ekran modunda el fenerini kapat</string>
+    <string name="appearance">Görünüm</string>
+    <string name="settings">Ayarlar</string>
+    <string name="general">Genel</string>
+    <string name="theme">Tema</string>
+    <string name="learn_more_morse_timing">Mors kodu zamanlaması hakkında daha fazla bilgi edinin</string>
+    <string name="oss_licenses">Açık kaynak lisansları</string>
+    <string name="farnsworth_unit_length_error">Farnsworth birim süresi normal bir birimden daha uzun olmalıdır</string>
+    <string name="words_per_min">Dakika başına sözcükler</string>
+    <string name="use_farnsworth">Farnsworth zamanlamasını kullan</string>
+    <string name="android_jetpack">Android Jetpack</string>
+    <string name="turn_on_sos_now">SOS\'u şimdi aç</string>
+    <string name="farnsworth_unit_length">Farnsworth birim uzunluğu</string>
+    <string name="no_app_can_handle">Bu eylemi gerçekleştirecek uygulama yok.</string>
+    <string name="words_per_min_error">Geçersiz sözcük sayısı</string>
+    <string name="farnsworth_unit_length_explanation">Farnsworth zamanlaması, daha fazla tanıma süresi sağlamak için karakterler ve sözcükler arasındaki boşlukları artırarak ses modellerini tanımayı kolaylaştırır.
+\nBir Farnsworth birimi temel birimden daha uzundur.
+\nİstediğiniz Farnsworth birimi uzunluğunu aşağıya girin (temel birimden daha uzun olmalıdır: %d milisaniye).
+\nTemel birimin uzunluğuna ek olarak yüzde 25\'ini kullanmak için boş bırakın.</string>
+    <string name="sos">SOS</string>
+    <string name="stroboscope_interval">Stroboskop aralığı</string>
+    <string name="about">Hakkında</string>
+    <string name="version_license">Sürüm %s - Apache Lisansı 2.0</string>
+    <string name="contribute">Katkıda bulun</string>
+    <string name="source_code">Kaynak kodu</string>
+    <string name="report_problem">Sorun bildir</string>
+    <string name="translate">Çevir</string>
+    <string name="dev">Geliştirici</string>
+    <string name="apache2">Apache Lisansı 2.0</string>
+    <string name="gpl2_ce">GNU Genel Kamu Lisansı, sürüm 2, Classpath İstisnası ile</string>
+    <string name="mit">MIT Lisansı</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="java">Java</string>
+    <string name="circular_seekbar">CircularSeekBar</string>
+    <string name="md_icons">Material Tasarım Simgeleri</string>
+    <string name="feather_icons">Feather Simgeleri</string>
+    <string name="no_flashlight">El feneri yok</string>
+    <string name="use_screen">Ekranı kullan</string>
+    <string name="words_per_min_explanation">Dakika başına sözcükler, standart \"PARIS\" sözcüğünün dakikada kaç kez gönderilebileceğidir.
+\nDeğer ne kadar yüksek olursa, her \"dit\" uzunluğu o kadar kısa olur.
+\nBu ayarın Farnsworth zamanlamasını dikkate almadığını unutmayın.
+\nİstediğiniz sayıyı aşağıya girin.</string>
+    <string name="md3_subtext">Android 12 görünümünü kullan</string>
+    <string name="md3">Material Tasarım 3</string>
+    <string name="follow_system">Sistemi takip et</string>
+    <string name="light">Açık</string>
+    <string name="dark">Koyu</string>
+</resources>

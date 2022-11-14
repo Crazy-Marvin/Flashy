@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:minWidth="40dp"
+    android:minHeight="40dp"
+    android:targetCellHeight="1"
+    android:targetCellWidth="1"
+    android:resizeMode="none"
+    android:updatePeriodMillis="0"
+    android:widgetCategory="home_screen"
+    android:previewImage="@drawable/widget_sos_preview"
+    android:initialLayout="@layout/widget_sos"
+    android:previewLayout="@layout/widget_sos"
+    android:description="@string/sos"
+    tools:ignore="UnusedAttribute">
+
+</appwidget-provider>

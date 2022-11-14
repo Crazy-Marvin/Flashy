@@ -1,0 +1,2 @@
+Arka plandaki küçük iyileştirmeler
+Fastlane kurulumu düzeltildi

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="md3_subtext">Naudoti „Android 12“ išvaizdą</string>
+    <string name="about">Apie</string>
+    <string name="dev">Programuotojas</string>
+    <string name="android_jetpack">Android Jetpack</string>
+    <string name="md3">Material Design 3</string>
+    <string name="no_flash_when_screen">Išjunkite žibintuvėlio ekrano režimą</string>
+    <string name="app_name">Flashy</string>
+    <string name="cannot_access_camera">Kamera nepasiekiama, ar ją naudoja kita programa\?</string>
+    <string name="maximize_screen_brightness">Maksimaliai padidinti ekrano ryškumą</string>
+    <string name="system_settings_permission_granted">Leidimas suteiktas. Dabar galite išeiti iš šio lango.</string>
+    <string name="settings">Nustatymai</string>
+    <string name="general">Bendras</string>
+    <string name="contribute">Prisidėti</string>
+    <string name="source_code">Pirminis kodas</string>
+    <string name="gpl2_ce">GNU bendroji viešoji licencija, 2 versija, su Classpath išimtimi</string>
+    <string name="mit">MIT licencija</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="java">Java</string>
+    <string name="feather_icons">Feather piktogramos</string>
+    <string name="no_app_can_handle">Jokia programa negali atlikti šio veiksmo.</string>
+    <string name="no_flashlight">Nėra žibintuvėlio</string>
+    <string name="stroboscope_interval">Stroboskopo intervalas</string>
+    <string name="words_per_min_explanation">Žodžiai per minutę – tai, kiek kartų per minutę galima išsiųsti standartinį žodį „PARIS“.
+\nKuo didesnė reikšmė, tuo trumpesnis kiekvieno „sukritimo“ ilgis.
+\nAtminkite, kad šis nustatymas neatsižvelgia į Farnsworth laiką.
+\nŽemiau įveskite norimą numerį.</string>
+    <string name="turn_on_sos_now">Įjungti SOS dabar</string>
+    <string name="learn_more_morse_timing">Sužinokite daugiau apie Morzės kodo laiką</string>
+    <string name="flashlight">Žibintuvėlis</string>
+    <string name="no_camera">Nėra kameros</string>
+    <string name="grant_permission">Suteikti prieigą</string>
+    <string name="words_per_min_error">Neteisingas žodžių skaičius</string>
+    <string name="use_farnsworth">Naudoti Farnsworth laiką</string>
+    <string name="farnsworth_unit_length">Farnsworth vieneto ilgis</string>
+    <string name="appearance">Išvaizda</string>
+    <string name="theme">Tema</string>
+    <string name="translate">Išversti</string>
+    <string name="md_icons">Material Design piktogramos</string>
+    <string name="farnsworth_unit_length_error">Farnsworth vieneto veikimo trukmė turi būti ilgesnė nei įprasto vieneto</string>
+    <string name="system_settings_permission_notice">Norėdami pakeisti ekrano ryškumą naudodami valdiklį, programai reikia suteikti specialų leidimą. Norėdami tai padaryti, paspauskite žemiau esantį mygtuką.
+\n
+\nIšėjus nesuteikus leidimo, valdiklis nebus pridėtas.</string>
+    <string name="report_problem">Pranešti apie problemą</string>
+    <string name="oss_licenses">Atvirojo kodo licencijos</string>
+    <string name="apache2">Apache licencija 2.0</string>
+    <string name="version_license">Versija %s · Apache licencija 2.0</string>
+    <string name="circular_seekbar">CircularSeekBar</string>
+    <string name="use_screen">Naudoti ekraną</string>
+    <string name="sos">SOS</string>
+    <string name="words_per_min">Žodžiai per minutę</string>
+    <string name="farnsworth_unit_length_explanation">Farnsworth laikas palengvina garso modelių atpažinimą, nes padidina tarpus tarp simbolių ir žodžių, kad atpažinimui būtų suteikta daugiau laiko.
+\nFarnsworth vienetas yra ilgesnis nei pagrindinis.
+\nToliau įveskite norimą Farnsworth vieneto ilgį (turi būti ilgesnis nei pagrindinis vienetas: %d milisekundės).
+\nPalikite tuščią, jei norite naudoti pagrindinio vieneto ilgį ir papildomus 25 procentus.</string>
+</resources>

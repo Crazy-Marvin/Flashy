@@ -6,15 +6,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/app_name"
-        android:layout_width="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_centerHorizontal="true"
-        android:textSize="24sp"
-        android:textStyle="bold"
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/app_name"/>
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:title="@string/app_name"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
     <me.tankery.lib.circularseekbar.CircularSeekBar
         android:id="@+id/progress_circular"
         android:layout_centerInParent="true"
@@ -42,24 +48,12 @@
         android:layout_centerInParent="true"
         android:layout_height="72dp"/>
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_height="wrap_content">
-        <ImageView
-            android:id="@+id/power_icon_center"
-            android:layout_width="24dp"
-            android:src="@drawable/power_icon_center"
-            android:layout_marginTop="3dp"
-            android:layout_height="24dp"/>
-        <ImageView
-            android:id="@+id/power_icon_center_stand"
-            android:layout_width="12dp"
-            android:src="@drawable/ic_power_icon_two"
-            android:layout_marginBottom="5dp"
-            android:layout_centerHorizontal="true"
-            android:layout_height="12dp"/>
-    </RelativeLayout>
+    <ImageView
+        android:id="@+id/power_icon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/power"
+        android:layout_centerInParent="true"/>
 
     <RelativeLayout
         android:id="@+id/bg_options"
@@ -92,5 +86,67 @@
             android:layout_alignParentEnd="true"
             android:layout_height="wrap_content"/>
     </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/sos_button"
+        android:layout_width="72dp"
+        android:src="@drawable/ic_power_center"
+        android:background="@drawable/ripple_effect"
+        android:layout_toStartOf="@id/progress_circular"
+        android:layout_marginEnd="30dp"
+        android:layout_centerVertical="true"
+        android:layout_height="72dp"/>
+
+    <ImageView
+        android:id="@+id/sos_icon"
+        android:layout_width="48dp"
+        android:src="@drawable/sos"
+        android:background="@drawable/ripple_effect"
+        android:layout_toStartOf="@id/progress_circular"
+        android:layout_marginEnd="42dp"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="42dp"
+        android:layout_height="48dp"/>
+
+    <ImageView
+        android:id="@+id/stroboscope_button"
+        android:layout_width="72dp"
+        android:src="@drawable/ic_power_center"
+        android:background="@drawable/ripple_effect"
+        android:layout_toEndOf="@id/progress_circular"
+        android:layout_marginStart="30dp"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="30dp"
+        android:layout_height="72dp"/>
+
+    <ImageView
+        android:id="@+id/stroboscope_icon"
+        android:layout_width="48dp"
+        android:src="@drawable/loader"
+        android:background="@drawable/ripple_effect"
+        android:layout_toEndOf="@id/progress_circular"
+        android:layout_marginStart="42dp"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="42dp"
+        android:layout_height="48dp"/>
+
+    <TextView
+        android:id="@+id/stroboscope_interval"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bg_options"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:text="@string/stroboscope_interval"/>
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/stroboscope_interval_slider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/stroboscope_interval"
+        android:layout_marginHorizontal="6dp"
+        android:valueFrom="0.1"
+        android:valueTo="1"
+        android:stepSize="0.1"/>
 
 </RelativeLayout>

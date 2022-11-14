@@ -1,12 +1,43 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColor">@android:color/black</item>
+        <item name="android:statusBarColor" tools:targetApi="lollipop">?attr/colorPrimary</item>
+        <item name="bottomSheetDialogTheme">@style/RoundedCornersBottomSheetTheme</item>
+    </style>
+
+    <style name="RoundedCornersBottomSheetTheme" parent="ThemeOverlay.MaterialComponents.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/RoundedCornersBottomSheetStyle</item>
+    </style>
+
+    <style name="RoundedCornersBottomSheetStyle" parent="Widget.MaterialComponents.BottomSheet.Modal">
+        <item name="shapeAppearanceOverlay">@style/RoundedCornersShapeOverlay</item>
+    </style>
+
+    <style name="RoundedCornersShapeOverlay" parent="ShapeAppearanceOverlay.MaterialComponents.BottomSheet">
+        <item name="cornerSizeTopLeft">24dp</item>
+        <item name="cornerSizeTopRight">24dp</item>
+    </style>
+
+    <style name="AppTheme.Material3" parent="Theme.Material3.DynamicColors.DayNight">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="alertDialogTheme">@style/AlertDialogTheme.Material3</item>
+        <item name="switchPreferenceCompatStyle">@style/Preference.MaterialSwitchPreference</item>
+    </style>
+
+    <style name="AlertDialogTheme.Material3" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="dialogCornerRadius">36dp</item>
+    </style>
+
+    <style name="Preference.MaterialSwitchPreference" parent="Preference.SwitchPreferenceCompat.Material">
+        <item name="android:widgetLayout">@layout/preferences_material_switch</item>
     </style>
 
 </resources>

@@ -1,0 +1,8 @@
+- Material 3 Desteği 🎨
+- Widget Desteği 🎨
+- Ekran Rengini Değiştirme Desteği 🎨
+- Desteklenen Android 13+ Aygıtlarda El Feneri Parlaklık Denetimi Desteği 📸
+- SOS Seçeneği Eklendi 🆘
+- Stroboskop Seçeneği Eklendi 🚨
+- Hata Düzeltmeleri 🐛
+- Çeviri Güncellemeleri 🗺️

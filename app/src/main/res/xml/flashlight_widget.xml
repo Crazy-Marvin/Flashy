@@ -8,6 +8,7 @@
     android:resizeMode="none"
     android:updatePeriodMillis="0"
     android:widgetCategory="home_screen"
+    android:previewImage="@drawable/widget_flashlight_preview"
     android:initialLayout="@layout/widget_flashlight"
     android:previewLayout="@layout/widget_flashlight"
     android:description="@string/flashlight"

@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <uses-permission android:name="android.permission.WRITE_SETTINGS"
+
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS"
         tools:ignore="ProtectedPermissions" />
-    <uses-permission android:name="android.permission.CAMERA"
-        android:maxSdkVersion="23"/>
+    <uses-permission
+        android:name="android.permission.CAMERA"
+        android:maxSdkVersion="23" />
+
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -14,7 +19,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:localeConfig="@xml/locales_config"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity
+            android:name=".activities.SettingsActivity"
+            android:exported="false"
+            android:label="@string/settings"
+            android:parentActivityName=".activities.MainActivity">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
         <service
             android:name=".QSTileService"
             android:exported="true"
@@ -25,17 +41,69 @@
                 <action android:name="android.service.quicksettings.action.QS_TILE" />
             </intent-filter>
         </service>
+
         <receiver
-            android:name=".FlashlightWidgetProvider"
-            android:exported="false">
+            android:name=".widgets.FlashlightWidgetProvider"
+            android:exported="false"
+            android:label="@string/flashlight">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
+
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/flashlight_widget" />
         </receiver>
-        <activity android:name=".MainActivity" android:configChanges="orientation"
+        <receiver
+            android:name=".widgets.ScreenBrightnessWidgetProvider"
+            android:exported="false"
+            android:label="@string/maximize_screen_brightness">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/screen_widget" />
+        </receiver>
+        <receiver
+            android:name=".widgets.SOSWidgetProvider"
+            android:exported="false"
+            android:label="@string/sos">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/sos_widget" />
+        </receiver>
+
+        <activity
+            android:name=".activities.GrantSystemWritePermissionActivity"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <activity
+            android:name=".activities.AboutActivity"
+            android:exported="false"
+            android:parentActivityName=".activities.MainActivity"
+            android:label="@string/about">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <activity
+            android:name=".activities.MainActivity"
+            android:configChanges="orientation"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
