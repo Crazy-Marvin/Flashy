@@ -39,4 +39,7 @@
     <string name="appearance">Izgled</string>
     <string name="theme">Tema</string>
     <string name="use_screen">Koristi ekran</string>
+    <string name="system_settings_permission_notice">Za mijenjanje svjetline ekrana putem widgeta, aplikacija treba posebnu dozvolu. Za to pritisni donji gumb.
+\n
+\nIzlaz bez davanja dozvole neće dodati widget.</string>
 </resources>
