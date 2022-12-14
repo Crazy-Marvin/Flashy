@@ -1,1 +1,1 @@
-Little improvements under the hood
+Pequeñas mejoras en el motor
