@@ -1,0 +1,3 @@
+- Dodaj tamnu temu 🧛 (#60)
+Napomena: aplikacija se prisilno prebacuje na svijetlu temu kada se koristi svjetlo ekrana. To je namjerno, jer nema smisla koristiti tamnu pozadinu za osvjetljavanje ekrana.
+Puno hvala @unbiaseduser za ovu funkciju.

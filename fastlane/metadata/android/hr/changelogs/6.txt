@@ -1,0 +1,8 @@
+- Podrška za Material 3 🎨
+- Podrška za Widgete 🎨
+- Podrška za mijenjanje boje ekrana 🎨
+- Podrška za upravljanje svjetlosti bljeskalice za podržane Android 13+ uređaje 📸
+- Dodana je opcija za SOS 🆘
+- Dodana je opcija za Stroboscope 🚨
+- Ispravljanje grešaka 🐛
+- Auktualiziranje prijevoda 🗺️
