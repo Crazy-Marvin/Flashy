@@ -1,2 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">Flashy</string>
+    <string name="theme">Тема</string>
+    <string name="follow_system">Системная</string>
+    <string name="system_settings_permission_granted">Разрешение предоставлено. Теперь вы можете выйти из этого экрана.</string>
+    <string name="settings">Настройки</string>
+    <string name="general">Общий</string>
+    <string name="appearance">Внешний вид</string>
+    <string name="dark">Тёмная</string>
+    <string name="about">О программе</string>
+    <string name="version_license">Версия %s - Лицензия Apache 2.0</string>
+    <string name="report_problem">Сообщить о проблеме</string>
+    <string name="mit">Лицензия MIT</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="java">Java</string>
+    <string name="feather_icons">Feather Icons</string>
+    <string name="android_jetpack">Android Jetpack</string>
+    <string name="no_app_can_handle">Ни одно приложение не может обработать это действие.</string>
+    <string name="no_flashlight">Нет фонарика</string>
+    <string name="sos">SOS</string>
+    <string name="stroboscope_interval">Интервал стробоскопа</string>
+    <string name="words_per_min_error">Недопустимое количество слов</string>
+    <string name="use_farnsworth">Использовать время Фарнсворта</string>
+    <string name="turn_on_sos_now">Включить SOS сейчас</string>
+    <string name="farnsworth_unit_length">Единица длины Фарнсворта</string>
+    <string name="farnsworth_unit_length_error">Длительность единицы Фарнсворта должна быть больше, чем обычная единица</string>
+    <string name="learn_more_morse_timing">Узнайте больше о синхронизации азбуки Морзе</string>
+    <string name="grant_permission">Дать разрешение</string>
+    <string name="flashlight">Фонарик</string>
+    <string name="no_camera">Нет камеры</string>
+    <string name="cannot_access_camera">Не удается получить доступ к камере, она используется другим приложением\?</string>
+    <string name="maximize_screen_brightness">Максимально увеличить яркость экрана</string>
+    <string name="light">Светлая</string>
+    <string name="no_flash_when_screen">Выключение фонарика в режиме экрана</string>
+    <string name="contribute">Вклад</string>
+    <string name="gpl2_ce">GNU General Public License, версия 2, с исключением Classpath Exception</string>
+    <string name="circular_seekbar">CircularSeekBar</string>
+    <string name="md_icons">Иконки Material Design</string>
+    <string name="source_code">Исходный код</string>
+    <string name="translate">Перевести</string>
+    <string name="dev">Разработчик</string>
+    <string name="oss_licenses">Лицензии с открытым исходным кодом</string>
+    <string name="apache2">Лицензия Apache 2.0</string>
+    <string name="use_screen">Использовать экран</string>
+    <string name="words_per_min">Слов в минуту</string>
+    <string name="words_per_min_explanation">Количество слов в минуту - это то, сколько раз в минуту может быть отправлено стандартное слово \"PARIS\".
+\nЧем выше значение, тем короче длина каждого \"dit\".
+\nОбратите внимание, что этот параметр не учитывает время Фарнсворта.
+\nВведите желаемое число ниже.</string>
+    <string name="system_settings_permission_notice">Для изменения яркости экрана с помощью виджета необходимо предоставить приложению специальное разрешение. Для этого нажмите кнопку ниже.
+\n
+\nВыход из приложения без предоставления разрешения приведет к тому, что виджет не будет добавлен.</string>
+    <string name="md3_subtext">Используйте внешний вид и функциональность Android 12</string>
+    <string name="farnsworth_unit_length_explanation">Время Фарнсворта облегчает распознавание звуковых моделей за счет увеличения промежутков между символами и словами, что дает больше времени на распознавание.
+\nЕдиница Фарнсворта длиннее базовой единицы.
+\nВведите желаемую длительность единицы Фарнсворта ниже (она должна быть больше, чем базовая единица: %d миллисекунд).
+\nОставьте пустым, чтобы использовать длину базовой единицы плюс еще 25 процентов от нее.</string>
+    <string name="md3">Material Design 3</string>
+</resources>
