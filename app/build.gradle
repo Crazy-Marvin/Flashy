@@ -1,11 +1,11 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 33
+    compileSdk 33
     defaultConfig {
         applicationId "rocks.poopjournal.flashy"
-        minSdkVersion 19
-        targetSdkVersion 33
+        minSdk 19
+        targetSdk 33
         versionCode 6
         versionName "1.5"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -20,6 +20,7 @@ android {
     }
     buildFeatures {
         viewBinding true
+        buildConfig true
     }
     compileOptions {
         // Flag to enable support for the new language APIs
@@ -32,6 +33,10 @@ android {
 }
 
 dependencies {
+
+    configurations.all {
+        exclude([group: "org.jetbrains.kotlin", module: "kotlin-stdlib-jdk8"])
+    }
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
@@ -41,11 +46,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.google.android.material:material:1.8.0'
-    coreLibraryDesugaring ('com.android.tools:desugar_jdk_libs') {
-        version {
-            strictly ("1.2.0") //2.0.0 requires gradle 7.4.0-alpha10
-        }
-    }
+    coreLibraryDesugaring ('com.android.tools:desugar_jdk_libs:2.0.3')
 
     implementation 'me.tankery.lib:circularSeekBar:1.4.2'
     //to resolve dependency conflicts
