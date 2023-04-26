@@ -7,7 +7,6 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,6 +26,7 @@ import rocks.poopjournal.flashy.NoFlashlightDialog;
 import rocks.poopjournal.flashy.R;
 import rocks.poopjournal.flashy.databinding.MainActivityBinding;
 import rocks.poopjournal.flashy.utils.CameraHelper;
+import rocks.poopjournal.flashy.utils.Shortcuts;
 import rocks.poopjournal.flashy.utils.Utils;
 
 public class MainActivity extends AppCompatActivity {
@@ -52,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P && defaultPreferences.getString("theme", "system").equals("system"))
             defaultPreferences.edit().putString("theme", "light").apply();
         Utils.applyThemeFromSettings(this);
+        Shortcuts.createNormalToggleShortcut(this);
+        Shortcuts.createSosToggleShortcut(this);
         super.onCreate(savedInstanceState);
         binding = MainActivityBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
