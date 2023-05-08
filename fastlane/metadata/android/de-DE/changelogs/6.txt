@@ -1,0 +1,8 @@
+- Material 3 Unterstützung 🎨
+- Widgets Unterstützung 🎨
+- Bildschirmfarben-Unterstützung geändert 🎨
+- Taschenlampen-Helligkeitskontrolle auf unterstützten Android 13+ Geräten 📸
+- SOS Option hinzugefügt 🆘
+- Stroboskop-Option hinzugefügt 🚨
+- Fehlerbehebungen 🐛
+- Aktualisierung der Übersetzungen 🗺️
