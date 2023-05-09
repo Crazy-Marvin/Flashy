@@ -1,2 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="no_flashlight">Keine Taschenlampe</string>
+    <string name="app_name">Flashy</string>
+    <string name="flashlight">Taschenlampe</string>
+    <string name="cannot_access_camera">Kann nicht auf Kamera zugreifen. Wird sie von einer anderen App verwendet\?</string>
+    <string name="maximize_screen_brightness">Volle Bildschirmhelligkeit</string>
+    <string name="system_settings_permission_granted">Berechtigung erteilt. Sie können diese Meldung jetzt schließen.</string>
+    <string name="settings">Einstellungen</string>
+    <string name="general">Allgemein</string>
+    <string name="appearance">Erscheinungsbild</string>
+    <string name="theme">Thema</string>
+    <string name="version_license">Version %s · Apache Lizenz 2.0</string>
+    <string name="apache2">Apache Lizenz 2.0</string>
+    <string name="gpl2_ce">GNU General Public License, Version 2, mit der Classpath Exception</string>
+    <string name="mit">MIT Lizenz</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="java">Java</string>
+    <string name="stroboscope_interval">Stroboskop-Intervall</string>
+    <string name="words_per_min">Wörter pro Minute</string>
+    <string name="turn_on_sos_now">SOS jetzt einschalten</string>
+    <string name="use_farnsworth">Farnsworth-Timing verwenden</string>
+    <string name="md3">Material Design 3</string>
+    <string name="no_camera">Keine Kamera</string>
+    <string name="grant_permission">Zugriff erlauben</string>
+    <string name="light">Hell</string>
+    <string name="system_settings_permission_notice">Um die Bildschirmhelligkeit über das Widget ändern zu können, benötigt die App spezielle Berechtigungen. Benutzen Sie dazu die Schaltfläche unten.
+\n
+\nDas Widget wird nicht hinzugefügt ohne die Erteilung der Berechtigung.</string>
+    <string name="learn_more_morse_timing">Erfahren Sie mehr über die Zeitmessung im Morsecode</string>
+    <string name="dark">Dunkel</string>
+    <string name="follow_system">Wie System</string>
+    <string name="report_problem">Ein Problem melden</string>
+    <string name="translate">Übersetzen</string>
+    <string name="no_flash_when_screen">Taschenlampe ausschalten im Bildschirmmodus</string>
+    <string name="oss_licenses">Open-Source Lizenen</string>
+    <string name="md_icons">Material Design Symbole</string>
+    <string name="sos">SOS</string>
+    <string name="about">Über</string>
+    <string name="contribute">Unterstützen</string>
+    <string name="source_code">Quellcode</string>
+    <string name="dev">Entwickler</string>
+    <string name="circular_seekbar">CircularSeekBar</string>
+    <string name="feather_icons">Feather Symbole</string>
+    <string name="words_per_min_error">Ungültige Anzahl an Worten</string>
+    <string name="android_jetpack">Android Jetpack</string>
+    <string name="use_screen">Bildschirm benutzen</string>
+    <string name="no_app_can_handle">Keine App kann diese Aktion verarbeiten.</string>
+    <string name="words_per_min_explanation">Worte pro Minute heißt, wie oft das Standardwort \"Paris\" pro Minute gesendet werden kann.
+\nJe höher der Wert, desto kürzer die Länge jedes \"dit\".
+\nBeachten Sie, dass diese Einstellung das Farnsworth timing nicht berücksichtigt.
+\nGeben Sie unten Ihre gewünschte Nummer ein.</string>
+    <string name="farnsworth_unit_length">Länge der Farnsworth-Einheit</string>
+    <string name="farnsworth_unit_length_error">Dauer der Farnsworth-Einheit muss länger als eine normale Einheit sein</string>
+    <string name="farnsworth_unit_length_explanation">Das Farnsworth-Timing erleichtert das Erkennen von Klangmustern, indem es die Lücken zwischen den Zeichen und Wörtern vergrößert, um mehr Erkennungszeit zu gewinnen.
+\nEine Farnsworth-Einheit ist länger als eine Grundeinheit.
+\nGeben Sie unten die gewünschte Länge einer Farnsworth-Einheit ein (sie muss länger sein als eine Grundeinheit: %d milliseconds).
+\nLassen Sie das Feld leer, um die Länge der Grundeinheit plus 25 Prozent davon zu verwenden.</string>
+    <string name="md3_subtext">Verwenden Sie das Aussehen und Verhalten von Android 12</string>
+</resources>
