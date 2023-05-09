@@ -1,0 +1,3 @@
+- Dunkles Thema hinzugefügt 🧛 (#60)
+Hinweis: Die App schaltet zwangsweise auf das helle Thema um, wenn der Bildschirm leuchtet. Das ist so gewollt, da es keinen Sinn macht, einen dunklen Hintergrund zu verwenden, um den Bildschirm zu beleuchten.
+Ein großes Dankeschön geht an @unbiaseduser für diese Funktion.

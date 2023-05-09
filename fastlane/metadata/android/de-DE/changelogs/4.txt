@@ -1,0 +1,7 @@
+- 📷 Kamera-Berechtigung vermeiden (#41)
+- 🎨 Kachel für Schnelleinstellungen hinzugefügt (#10)
+- 🎨 Unterstützung von Themensymbolen auf Android 13+ (#53)
+- 💁🏽 Basis-Widget hinzugefügt (#27)
+- 👍 Abhängigkeiten und Übersetzungen aktualisiert
+
+Vielen Dank an @unbiaseduser, @FahadSaleem und alle Übersetzer! 😘
