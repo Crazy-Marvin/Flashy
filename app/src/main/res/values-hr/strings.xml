@@ -42,7 +42,7 @@
     <string name="system_settings_permission_notice">Za mijenjanje svjetline ekrana putem widgeta, aplikacija treba posebnu dozvolu. Za to pritisni donji gumb.
 \n
 \nIzlaz bez davanja dozvole neće dodati widget.</string>
-    <string name="no_flash_when_screen">Isključi bljeskalicu u modusu ekrana</string>
+    <string name="no_flash_when_screen">Isključi svjetiljku u modusu ekrana</string>
     <string name="stroboscope_interval">Stroboscope interval</string>
     <string name="farnsworth_unit_length">Duljina Farnsworth jedinice</string>
     <string name="farnsworth_unit_length_explanation">Farnsworth ritam olakšava prepoznavanje zvučnih uzoraka povećanjem razmaka između znakova i riječi kako bi se dobilo više vremena za prepoznavanje.
@@ -56,5 +56,5 @@
 \nDolje upiši željeni broj.</string>
     <string name="farnsworth_unit_length_error">Duljina Farnsworth jedinice ne smije biti duža od normalne jedinice</string>
     <string name="learn_more_morse_timing">Saznaj više o ritmu Morseov koda</string>
-    <string name="no_flashlight">Bez bljeskalice</string>
+    <string name="no_flashlight">Nema svjetiljke</string>
 </resources>
