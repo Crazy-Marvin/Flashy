@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     private SharedPreferences defaultPreferences;
     private CameraHelper helper;
     private MainActivityBinding binding;
-    private final BroadcastReceiver turnOffFlashlightOnScreenOffReceiver = new ScreenOffBroadcastReceiver();
+    private final ScreenOffBroadcastReceiver turnOffFlashlightOnScreenOffReceiver = new ScreenOffBroadcastReceiver();
     private enum FlashlightMode {
         NORMAL, SOS, STROBOSCOPE
     }
@@ -52,9 +52,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case "no_flash_on_device_screen_off":
                 if (sharedPreferences.getBoolean("no_flash_on_device_screen_off", false)) {
-                    registerReceiver(turnOffFlashlightOnScreenOffReceiver, new IntentFilter(Intent.ACTION_SCREEN_OFF));
+                    turnOffFlashlightOnScreenOffReceiver.registerWith(this);
                 } else {
-                    unregisterReceiver(turnOffFlashlightOnScreenOffReceiver);
+                    turnOffFlashlightOnScreenOffReceiver.unregisterWith(this);
                 }
                 break;
             default:
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         PreferenceManager.setDefaultValues(this, R.xml.root_preferences, false);
         defaultPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         if (defaultPreferences.getBoolean("no_flash_on_device_screen_off", false)) {
-            registerReceiver(turnOffFlashlightOnScreenOffReceiver, new IntentFilter(Intent.ACTION_SCREEN_OFF));
+            turnOffFlashlightOnScreenOffReceiver.registerWith(this);
         }
         defaultPreferences.registerOnSharedPreferenceChangeListener(material3Listener);
         if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P && defaultPreferences.getString("theme", "system").equals("system"))
@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        unregisterReceiver(turnOffFlashlightOnScreenOffReceiver);
+        turnOffFlashlightOnScreenOffReceiver.unregisterWith(this);
     }
 
     @Override
