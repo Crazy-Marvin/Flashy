@@ -50,4 +50,6 @@
     <string name="learn_more_morse_timing">Learn more about Morse code timing</string>
     <string name="md3_subtext">Use Android 12 look and feel</string>
     <string name="md3">Material Design 3</string>
+    <string name="no_flash_on_device_screen_off">Turn off flashlight when turning off device screen</string>
+    <string name="no_flash_on_device_screen_off_subtext">Only works when the app is open</string>
 </resources>

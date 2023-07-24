@@ -26,7 +26,7 @@ public class SOSWidgetProvider extends AppWidgetProvider {
                 PendingIntent pendingIntent = PendingIntent.getActivity(context, 42, intent, PendingIntent.FLAG_IMMUTABLE);
                 remoteViews.setOnClickPendingIntent(R.id.img_sos, pendingIntent);
             } else {
-                if (Boolean.TRUE.equals(CameraHelper.getSosStatus().getValue())) {
+                if (Boolean.TRUE.equals(CameraHelper.getInstance(context).getSosStatus().getValue())) {
                     remoteViews.setImageViewResource(R.id.img_sos, R.drawable.sos_on);
                 } else
                     remoteViews.setImageViewResource(R.id.img_sos, R.drawable.sos);

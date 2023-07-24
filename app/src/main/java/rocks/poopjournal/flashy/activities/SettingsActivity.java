@@ -62,7 +62,7 @@ public class SettingsActivity extends AppCompatActivity {
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
             preferences.registerOnSharedPreferenceChangeListener(listener);
             helper = CameraHelper.getInstance(requireContext());
-            if (Boolean.TRUE.equals(CameraHelper.getSosStatus().getValue())) helper.toggleSos(requireContext());
+            if (Boolean.TRUE.equals(helper.getSosStatus().getValue())) helper.toggleSos(requireContext());
 
             ListPreference themePref = findPreference("theme");
             assert themePref != null;
@@ -92,11 +92,14 @@ public class SettingsActivity extends AppCompatActivity {
             assert learnMoreAboutMorseTiming != null;
             SwitchPreferenceCompat noFlashWhenScreen = findPreference("no_flash_when_screen");
             assert noFlashWhenScreen != null;
+            SwitchPreferenceCompat noFlashOnDeviceScreenOff = findPreference("no_flash_on_device_screen_off");
+            assert noFlashOnDeviceScreenOff != null;
             if (!requireContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)) {
                 wordsPerMin.setVisible(false);
                 useFarnsworth.setVisible(false);
                 farnsworthUnitLength.setVisible(false);
                 noFlashWhenScreen.setVisible(false);
+                noFlashOnDeviceScreenOff.setVisible(false);
                 learnMoreAboutMorseTiming.setVisible(false);
             } else {
                 wordsPerMin.setOnBindEditTextListener(editText -> editText.setInputType(InputType.TYPE_CLASS_NUMBER));
