@@ -6,8 +6,8 @@ android {
         applicationId "rocks.poopjournal.flashy"
         minSdk 19
         targetSdk 33
-        versionCode 6
-        versionName "1.5"
+        versionCode 7
+        versionName "1.6"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
         resConfigs "en", "cs", "hr", "lt", "nb-rNO", "pt-rBR", "tr"
