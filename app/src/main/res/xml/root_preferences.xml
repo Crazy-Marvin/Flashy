@@ -30,6 +30,13 @@
             app:iconSpaceReserved="false"
             app:defaultValue="true"/>
 
+        <SwitchPreferenceCompat
+            app:key="no_flash_on_device_screen_off"
+            app:title="@string/no_flash_on_device_screen_off"
+            app:summary="@string/no_flash_on_device_screen_off_subtext"
+            app:iconSpaceReserved="false"
+            app:defaultValue="false"/>
+
     </PreferenceCategory>
 
     <PreferenceCategory app:title="@string/sos"

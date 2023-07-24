@@ -26,7 +26,7 @@ public class FlashlightWidgetProvider extends AppWidgetProvider {
                 PendingIntent pendingIntent = PendingIntent.getActivity(context, 42, intent, PendingIntent.FLAG_IMMUTABLE);
                 remoteViews.setOnClickPendingIntent(R.id.img, pendingIntent);
             } else {
-                if (Boolean.TRUE.equals(CameraHelper.getNormalFlashStatus().getValue())) {
+                if (Boolean.TRUE.equals(CameraHelper.getInstance(context).getNormalFlashStatus().getValue())) {
                     remoteViews.setImageViewResource(R.id.img, R.drawable.flashlight_on);
                 } else
                     remoteViews.setImageViewResource(R.id.img, R.drawable.flashlight_off);
