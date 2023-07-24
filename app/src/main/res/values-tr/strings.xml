@@ -57,4 +57,6 @@
     <string name="follow_system">Sistemi takip et</string>
     <string name="light">Açık</string>
     <string name="dark">Koyu</string>
+    <string name="no_flash_on_device_screen_off_subtext">Yalnızca uygulama açıkken çalışır</string>
+    <string name="no_flash_on_device_screen_off">Aygıt ekranını kapatırken el fenerini kapat</string>
 </resources>
