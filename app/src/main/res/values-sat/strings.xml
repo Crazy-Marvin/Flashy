@@ -1,2 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="cannot_access_camera">ᱠᱮᱢᱨᱟ ᱟᱫᱮᱨ ᱵᱟᱭ ᱜᱚᱱᱚᱜ ᱠᱟᱱᱟ, ᱱᱚᱶᱟ ᱫᱚ ᱮᱴᱟᱜ ᱮᱯ ᱮ ᱵᱮᱵᱷᱟᱨ ᱮᱫᱟ \?</string>
+    <string name="grant_permission">ᱦᱚᱠ ᱮᱢᱚᱜ ᱢᱮ</string>
+    <string name="dark">ᱧᱩᱛ</string>
+    <string name="maximize_screen_brightness">ᱥᱠᱨᱤᱱ ᱨᱮᱭᱟᱜ ᱡᱷᱟᱞᱠᱟᱣ ᱡᱟᱹᱥᱛᱤ ᱢᱮ</string>
+    <string name="dev">ᱰᱮᱵᱞᱚᱯᱟᱹᱨ</string>
+    <string name="version_license">ᱦᱟᱹᱞᱤᱭᱟᱹᱠ %s ᱾ ᱟᱯᱟᱪᱮ ᱞᱟᱭᱥᱮᱱᱥ 2.0</string>
+    <string name="contribute">ᱜᱚᱲᱚ ᱮᱢᱚᱜ ᱢᱮ</string>
+    <string name="no_flashlight">ᱡᱷᱟᱞᱠᱟᱣᱞᱟᱹᱭᱤᱴ ᱵᱟᱹᱱᱩᱜᱼᱟ</string>
+    <string name="learn_more_morse_timing">ᱢᱳᱨᱥ ᱠᱳᱰ ᱚᱠᱛᱚ ᱨᱮᱭᱟᱜ ᱵᱟᱲᱛᱤ ᱵᱟᱰᱟᱭ ᱧᱟᱢ ᱢᱮ</string>
+    <string name="md3_subtext">Android ᱑᱒ ᱧᱮᱞ ᱟᱨ ᱵᱩᱡᱷᱟ.ᱣ ᱵᱮᱵᱷᱟᱨ ᱢᱮ</string>
+    <string name="about">ᱵᱟᱵᱚᱛ</string>
+    <string name="no_flash_when_screen">ᱥᱠᱨᱤᱱ ᱢᱳᱰ ᱨᱮ ᱫᱷᱩᱯᱫᱷᱟᱯᱞᱟᱹᱭᱤᱴ ᱵᱚᱸᱫᱚᱭ ᱢᱮ</string>
+    <string name="follow_system">ᱥᱭᱥᱴᱚᱢ ᱯᱟᱧᱡᱟᱭ ᱢᱮ</string>
+    <string name="light">ᱟᱨᱥᱟᱞ</string>
+    <string name="settings">ᱥᱟᱡᱟᱣᱠᱚ</string>
+    <string name="theme">ᱛᱷᱤᱢ</string>
+    <string name="appearance">ᱧᱮᱞᱚᱜ</string>
+    <string name="general">ᱥᱟᱱᱟᱢ</string>
+    <string name="system_settings_permission_granted">ᱟᱫᱮᱨ ᱮᱢ ᱪᱷᱟ ᱦᱩᱭᱮᱱᱟ ᱾ ᱱᱤᱛᱚᱜ ᱥᱠᱨᱤᱱ ᱵᱚᱸᱫ ᱫᱟᱲᱮᱭᱟᱜᱼᱟᱢ ᱾</string>
+    <string name="flashlight">ᱫᱷᱩᱯᱫᱷᱟᱯᱞᱟᱹᱭᱤᱴ</string>
+    <string name="no_camera">ᱠᱮᱢᱨᱟ ᱵᱟᱹᱱᱩᱜ ᱠᱟᱫᱟ</string>
+    <string name="app_name">ᱯᱷᱞᱟᱥᱤ</string>
+    <string name="circular_seekbar">CircularSeekBar</string>
+    <string name="apache2">ᱟᱯᱟᱪᱮ ᱞᱟᱭᱥᱮᱱᱥ ᱒.᱐</string>
+    <string name="source_code">ᱥᱨᱚᱛ ᱠᱳᱰ</string>
+    <string name="report_problem">ᱢᱤᱫᱴᱟᱹᱝ ᱦᱩᱰᱟᱹᱜ ᱠᱷᱚᱵᱚᱨ ᱢᱮ</string>
+    <string name="translate">ᱛᱚᱨᱡᱚᱢᱟ</string>
+    <string name="mit">MIT ᱞᱟᱭᱥᱮᱱᱥ</string>
+    <string name="kotlin">ᱠᱳᱴᱞᱤᱱ</string>
+    <string name="feather_icons">ᱯᱷᱟᱹᱠᱬᱟᱹᱜ ᱪᱤᱱᱦᱟᱹᱠᱚ</string>
+    <string name="android_jetpack">Android ᱡᱮᱴᱯᱮᱠ</string>
+    <string name="use_screen">ᱥᱠᱨᱤᱱ ᱵᱮᱵᱷᱟᱨ ᱢᱮ</string>
+    <string name="sos">SOS</string>
+    <string name="stroboscope_interval">ᱥᱴᱨᱚᱵᱚᱥᱠᱚᱯ ᱤᱱᱴᱚᱨᱵᱷᱟᱞ</string>
+    <string name="words_per_min">ᱴᱤᱯᱤᱡ ᱦᱤᱥᱟᱹᱵᱛᱮ ᱟᱹᱲᱟᱹ</string>
+    <string name="use_farnsworth">ᱯᱷᱟᱨᱱᱣᱚᱨᱛᱷ ᱚᱠᱛᱚ ᱵᱮᱵᱷᱟᱨ ᱢᱮ</string>
+    <string name="turn_on_sos_now">ᱱᱤᱛᱚᱜ SOS ᱮᱢᱪᱷᱚᱭ ᱢᱮ</string>
+    <string name="words_per_min_error">ᱵᱷᱩᱞ ᱟᱹᱲᱟᱹ ᱨᱮᱱᱟᱜ ᱮᱞ ᱢᱮᱱᱟᱜᱼᱟ</string>
+    <string name="no_flash_on_device_screen_off_subtext">ᱮᱯ ᱠᱷᱩᱞᱟᱹ ᱡᱷᱚᱜ ᱜᱮ ᱱᱚᱶᱟ ᱠᱟᱹᱢᱤᱭᱟᱭ</string>
+    <string name="no_flash_on_device_screen_off">ᱥᱟᱫᱷᱚᱱ ᱥᱠᱨᱤᱱ ᱵᱚᱫᱚᱞ ᱚᱠᱛᱚ ᱨᱮ ᱯᱷᱞᱟᱥᱞᱟᱹᱭᱤᱴ ᱵᱚᱸᱫᱚᱭ ᱢᱮ</string>
+    <string name="oss_licenses">ᱠᱷᱩᱞᱟᱹ ᱥᱨᱚᱛ ᱞᱟᱭᱥᱮᱱᱥ</string>
+    <string name="gpl2_ce">GNU ᱡᱮᱱᱮᱨᱟᱞ ᱯᱟᱹᱵᱞᱤᱠ ᱞᱟᱭᱥᱮᱱᱥ, ᱵᱟᱚᱨᱥᱚᱱ ᱒, ᱠᱞᱟᱥᱯᱟᱛᱷ ᱮᱠᱥᱮᱯᱥᱚᱱ ᱥᱟᱶᱛᱮ</string>
+    <string name="java">Java</string>
+    <string name="md_icons">ᱢᱮᱴᱟᱨᱤᱭᱟᱞ ᱰᱤᱡᱟᱭᱤᱱ ᱪᱤᱱᱦᱟᱹᱠᱚ</string>
+    <string name="no_app_can_handle">ᱡᱟᱦᱟᱸ ᱮᱯ ᱱᱚᱶᱟ ᱠᱟᱹᱢᱤ ᱦᱚᱨᱟ ᱵᱟᱭ ᱦᱟᱛᱟᱣ ᱫᱟᱲᱮᱭᱟᱜᱼᱟ ᱾</string>
+    <string name="farnsworth_unit_length">ᱯᱷᱟᱨᱱᱥᱣᱚᱨᱛᱷ ᱭᱩᱱᱤᱴ ᱡᱤᱞᱤᱧ</string>
+    <string name="md3">ᱢᱮᱴᱟᱨᱤᱭᱟᱞ ᱰᱤᱡᱟᱭᱤᱱ ᱓</string>
+    <string name="system_settings_permission_notice">ᱣᱤᱡᱮᱴ ᱦᱚᱛᱮᱛᱮ ᱥᱠᱨᱤᱱ ᱪᱚᱢᱠᱟᱣ ᱵᱚᱫᱚᱞ ᱞᱟᱹᱜᱤᱫ, ᱢᱤᱫ ᱵᱤᱥᱮᱥ ᱮᱯᱞᱤᱠᱮᱥᱚᱱ ᱮᱢ ᱞᱟᱹᱠᱛᱤ ᱠᱟᱱᱟ ᱾ ᱱᱚᱶᱟ ᱞᱟᱹᱜᱤᱫ ᱞᱟᱛᱟᱨ ᱨᱮᱭᱟᱜ ᱵᱩᱛᱟᱹᱢ ᱚᱛᱟᱭ ᱢᱮ ᱾
+\n
+\nᱫᱟᱣ ᱵᱟᱝ ᱮᱢ ᱠᱟᱛᱮ ᱪᱟᱞᱟᱜ ᱠᱷᱟᱱ ᱣᱤᱡᱮᱴ ᱫᱚ ᱵᱟᱝ ᱥᱮᱞᱮᱫᱚᱜᱼᱟ ᱾</string>
+    <string name="words_per_min_explanation">Words per minute ᱫᱚ ᱦᱩᱭᱩᱜ ᱠᱟᱱᱟ ᱥᱴᱟᱰᱟᱨᱰ ᱟᱹᱲᱟᱹ \"PARIS\" ᱫᱚ ᱢᱤᱫ ᱴᱤᱯᱤᱡ ᱨᱮ ᱛᱤᱱᱟᱹᱜ ᱜᱟᱱ ᱫᱷᱟᱣ ᱠᱚ ᱦᱟᱛᱟᱣ ᱫᱟᱲᱮᱭᱟᱜᱼᱟ ᱾
+\nᱡᱟᱦᱟᱸ ᱛᱤᱱᱟᱹᱜ ᱢᱟᱨᱟᱝ, ᱚᱱᱟ ᱞᱮᱠᱟ ᱜᱮ \"dit\" ᱨᱮᱱᱟᱜ ᱡᱤᱞᱤᱧ ᱠᱚᱢᱚᱜᱼᱟ ᱾
+\nᱱᱚᱣᱟ ᱧᱮᱞ ᱢᱮ ᱡᱮ ᱱᱚᱣᱟ ᱥᱟᱡᱟᱣ ᱨᱮ ᱯᱷᱟᱨᱱᱥᱣᱚᱨᱛᱷ ᱴᱟᱭᱤᱝ ᱵᱟᱭ ᱦᱟᱛᱟᱣᱜᱼᱟ ᱾
+\nᱞᱟᱛᱟᱨ ᱨᱮ ᱟᱢᱟᱜ ᱞᱟᱹᱠᱛᱤᱭᱟᱱ ᱮᱞ ᱮᱢ ᱢᱮ ᱾</string>
+    <string name="farnsworth_unit_length_error">ᱯᱷᱟᱨᱱᱥᱣᱚᱨᱛᱷ ᱭᱩᱱᱤᱴ ᱨᱮᱱᱟᱜ ᱚᱠᱛᱚ ᱢᱤᱫᱴᱟᱹᱝ ᱥᱟᱫᱷᱚᱱ ᱭᱩᱱᱤᱴ ᱠᱷᱚᱱ ᱰᱷᱮᱨ ᱦᱩᱭᱩᱜ ᱢᱟ</string>
+    <string name="farnsworth_unit_length_explanation">ᱯᱟᱨᱱᱥᱣᱚᱨᱛᱷ ᱴᱟᱭᱢᱮᱱᱴ ᱫᱚ ᱪᱤᱠᱤ ᱟᱨ ᱟᱹᱲᱟᱹ ᱠᱚ ᱛᱟᱞᱟ ᱨᱮ ᱵᱷᱮᱜᱟᱨ ᱵᱷᱮᱜᱟᱨ ᱚᱞ ᱠᱟᱛᱮ ᱨᱟᱦᱟ ᱟᱲᱟᱝ ᱪᱤᱠᱤ ᱠᱚ ᱵᱟᱰᱟᱭ ᱦᱚᱪᱚᱭ ᱟ ᱾
+\nᱢᱤᱫ ᱯᱷᱟᱨᱱᱥᱣᱚᱨᱛ ᱭᱩᱱᱤᱴ ᱢᱤᱫ ᱢᱩᱞ ᱭᱩᱱᱤᱴ ᱠᱷᱚᱱ ᱡᱤᱞᱤᱧ ᱜᱮᱭᱟ ᱾
+\nᱞᱟᱛᱟᱨ ᱨᱮ ᱢᱤᱫ ᱯᱷᱟᱨᱱᱥᱣᱚᱨᱛᱷ ᱭᱩᱱᱤᱴ ᱨᱮᱱᱟᱜ ᱟᱢᱟᱜ ᱞᱟᱹᱠᱛᱤᱭᱟᱱ ᱡᱤᱞᱤᱧ ᱟᱫᱮᱨ ᱢᱮ (ᱡᱟᱦᱟᱸ ᱫᱚ ᱢᱤᱫ ᱢᱩᱞ ᱭᱩᱱᱤᱴ ᱠᱷᱚᱱ ᱡᱤᱞᱤᱧ ᱟ ᱺ %d ᱢᱤᱞᱤᱴᱤᱡ) ᱾
+\nᱵᱮᱥᱤᱠ ᱭᱩᱱᱤᱴ ᱵᱮᱵᱷᱟᱨ ᱞᱟᱹᱜᱤᱫ ᱛᱮ ᱡᱟᱭᱜᱟ ᱟᱲᱟᱜ ᱢᱮ ᱥᱟᱶᱛᱮ ᱵᱟᱹᱲᱛᱤ 25 ᱥᱟᱭᱟᱠ ᱾</string>
+</resources>
