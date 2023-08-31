@@ -1,0 +1,7 @@
+- 📷 Hindari izin kamera (#41) 
+- 🎨 Tambahan ubin pengaturan cepat (#10) 
+- 🎨 Mendukung Ikon Bertema di Android 13+ (#53) 
+- 💁🏽 Tambahan widget dasar (#27) 
+- 👍 Perbarui dependencies dan terjemahan
+
+Terima kasih banyak kepada @unbiaseduser, @FahadSaleem dan semua penerjemah! 😘

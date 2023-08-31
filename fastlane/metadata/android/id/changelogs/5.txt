@@ -1,0 +1,3 @@
+- Tema Gelap 🧛 (#60)
+Catatan: Aplikasi secara paksa beralih ke tema terang saat menggunakan cahaya layar. Ini adalah desain, karena tidak masuk akal untuk menggunakan latar belakang gelap untuk menerangi layar. 
+Terima kasih banyak kepada @unbiaseduser untuk fitur ini.
