@@ -53,3 +53,10 @@ Check out the [contribution guidelines](https://github.com/Crazy-Marvin/Flashy/b
 # License
 
 [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+
+# Contributors
+
+<a href="https://github.com/Crazy-Marvin/Flashy/graphs/contributors">
+  <img alt="List of contributors to this repository" src="https://contrib.rocks/image?repo=Crazy-Marvin/Flashy" />
+</a>
+
