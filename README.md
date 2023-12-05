@@ -1,5 +1,7 @@
 <div align="center">
 
+<img width="200" src="https://github.com/Crazy-Marvin/Flashy/blob/development/fastlane/metadata/android/en-US/images/icon.png" alt="Flashy icon" align="center">
+      
 # Flashy
 
 ### Simple & Privacy-Friendly Flashlight App
@@ -18,7 +20,7 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/Crazy-Marvin/Flashy/badge.svg?targetFile=app%2Fbuild.gradle)](https://snyk.io/test/github/Crazy-Marvin/Flashy?targetFile=app%2Fbuild.gradle)
 [![codecov](https://codecov.io/gh/Crazy-Marvin/Flashy/branch/master/graph/badge.svg)](https://codecov.io/gh/Crazy-Marvin/Flashy)
 
-<a href="https://f-droid.org/en/packages/com.rocks.poopjournal.flashy/">
+<a href="https://f-droid.org/en/packages/rocks.poopjournal.flashy">
       <img alt="Get it on F-Droid" src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" height="100">
 </a>
 <a href="https://play.google.com/store/apps/details?id=rocks.poopjournal.flashy">
