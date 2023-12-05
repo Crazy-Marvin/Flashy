@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdk 33
+    compileSdk 34
     defaultConfig {
         applicationId "rocks.poopjournal.flashy"
         minSdk 19
-        targetSdk 33
-        versionCode 7
-        versionName "1.6"
+        targetSdk 34
+        versionCode 8
+        versionName "1.7"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
         resConfigs "en", "cs", "hr", "lt", "nb-rNO", "pt-rBR", "tr"
