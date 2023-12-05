@@ -18,11 +18,11 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/Crazy-Marvin/Flashy/badge.svg?targetFile=app%2Fbuild.gradle)](https://snyk.io/test/github/Crazy-Marvin/Flashy?targetFile=app%2Fbuild.gradle)
 [![codecov](https://codecov.io/gh/Crazy-Marvin/Flashy/branch/master/graph/badge.svg)](https://codecov.io/gh/Crazy-Marvin/Flashy)
 
-<a href="https://play.google.com/store/apps/details?id=rocks.poopjournal.flashy">
-      <img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" height="100">
-</a>
 <a href="https://f-droid.org/en/packages/com.rocks.poopjournal.flashy/">
       <img alt="Get it on F-Droid" src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" height="100">
+</a>
+<a href="https://play.google.com/store/apps/details?id=rocks.poopjournal.flashy">
+      <img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" height="100">
 </a>
 <a href="https://github.com/Crazy-Marvin/Flashy/releases/latest">
       <img alt="Get it on GitHub" src="https://raw.githubusercontent.com/deckerst/common/main/assets/get-it-on-github.png" height="100">
