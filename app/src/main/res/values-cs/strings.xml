@@ -1,2 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="android_jetpack">Android Jetpack</string>
+    <string name="translate">Překládat</string>
+    <string name="theme">Motiv</string>
+    <string name="grant_permission">Udělit povolení</string>
+    <string name="appearance">Vzhled</string>
+    <string name="no_flash_on_device_screen_off_subtext">Funguje jenom, když je aplikace otevřená</string>
+    <string name="source_code">Zdrojový kód</string>
+    <string name="light">Světlý</string>
+    <string name="mit">MIT Licence</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="turn_on_sos_now">Zapnout teď SOS</string>
+    <string name="md3">Material Design 3</string>
+    <string name="md_icons">Material Design ikony</string>
+    <string name="no_flash_when_screen">Vypnout svítilnu na screen mode</string>
+    <string name="about">O aplikaci</string>
+    <string name="dev">Vývojář</string>
+    <string name="report_problem">Nahlásit problém</string>
+    <string name="sos">SOS</string>
+    <string name="version_license">Verze %s · Apache Licence 2.0</string>
+    <string name="java">Java</string>
+    <string name="dark">Tmavý</string>
+    <string name="general">Obecné</string>
+    <string name="no_flash_on_device_screen_off">Vypnout svítilnu, když turning off obrazovky zařízení</string>
+    <string name="words_per_min">Slov za minutu</string>
+    <string name="apache2">Apache Licence 2.0</string>
+    <string name="flashlight">Svítilna</string>
+    <string name="words_per_min_error">Neplatné množství slov</string>
+    <string name="settings">Nastavení</string>
+    <string name="app_name">Flashy</string>
+    <string name="oss_licenses">Open-source licence</string>
+    <string name="contribute">Přispět</string>
+</resources>
