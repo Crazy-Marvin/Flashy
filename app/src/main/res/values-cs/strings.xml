@@ -22,7 +22,7 @@
     <string name="java">Java</string>
     <string name="dark">Tmavý</string>
     <string name="general">Obecné</string>
-    <string name="no_flash_on_device_screen_off">Vypnout svítilnu, když turning off obrazovky zařízení</string>
+    <string name="no_flash_on_device_screen_off">Vypnout svítilnu při vypnutí obrazovky zařízení</string>
     <string name="words_per_min">Slov za minutu</string>
     <string name="apache2">Apache Licence 2.0</string>
     <string name="flashlight">Svítilna</string>
@@ -31,4 +31,9 @@
     <string name="app_name">Flashy</string>
     <string name="oss_licenses">Open-source licence</string>
     <string name="contribute">Přispět</string>
+    <string name="stroboscope_interval">Interval stroboskopu</string>
+    <string name="md3_subtext">Použít vzhled a chování Androidu 12</string>
+    <string name="learn_more_morse_timing">Zjistěte více o Morse code timing</string>
+    <string name="no_flashlight">Žádná svítilna</string>
+    <string name="no_camera">Žádná kamera</string>
 </resources>
