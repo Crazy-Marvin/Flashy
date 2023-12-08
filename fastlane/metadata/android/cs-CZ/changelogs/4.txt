@@ -1,0 +1,7 @@
+- 📷 Avoid kamera permission (#41)
+- 🎨 Přidána quick nastavení tile (#10)
+- 🎨 Podpora Themed ikon na Androidu 13+ (#53)
+- 💁🏽 Přidán basic widget (#27)
+- 👍 Update dependencies a překlady
+
+Thank you so much to @unbiaseduser, @FahadSaleem a všem překladatelům! 😘
