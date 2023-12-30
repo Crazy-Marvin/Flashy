@@ -1,2 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="android_jetpack">Android Jetpack</string>
+    <string name="translate">Překládat</string>
+    <string name="theme">Motiv</string>
+    <string name="grant_permission">Udělit oprávnění</string>
+    <string name="appearance">Vzhled</string>
+    <string name="no_flash_on_device_screen_off_subtext">Funguje jenom, když je aplikace otevřená</string>
+    <string name="source_code">Zdrojový kód</string>
+    <string name="light">Světlý</string>
+    <string name="mit">MIT Licence</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="turn_on_sos_now">Zapnout teď SOS</string>
+    <string name="md3">Material Design 3</string>
+    <string name="md_icons">Material Design ikony</string>
+    <string name="no_flash_when_screen">Vypnout svítilnu na screen mode</string>
+    <string name="about">O aplikaci</string>
+    <string name="dev">Vývojář</string>
+    <string name="report_problem">Nahlásit problém</string>
+    <string name="sos">SOS</string>
+    <string name="version_license">Verze %s · Apache Licence 2.0</string>
+    <string name="java">Java</string>
+    <string name="dark">Tmavý</string>
+    <string name="general">Obecné</string>
+    <string name="no_flash_on_device_screen_off">Vypnout svítilnu při vypnutí obrazovky zařízení</string>
+    <string name="words_per_min">Slov za minutu</string>
+    <string name="apache2">Apache Licence 2.0</string>
+    <string name="flashlight">Svítilna</string>
+    <string name="words_per_min_error">Neplatné množství slov</string>
+    <string name="settings">Nastavení</string>
+    <string name="app_name">Flashy</string>
+    <string name="oss_licenses">Open-source licence</string>
+    <string name="contribute">Přispět</string>
+    <string name="stroboscope_interval">Interval stroboskopu</string>
+    <string name="md3_subtext">Použít vzhled a chování Androidu 12</string>
+    <string name="learn_more_morse_timing">Zjistěte více o Morse code timing</string>
+    <string name="no_flashlight">Žádná svítilna</string>
+    <string name="no_camera">Žádná kamera</string>
+    <string name="cannot_access_camera">Nejde získat přístup ke kameře, je používaná jinou aplikací?</string>
+    <string name="maximize_screen_brightness">Maximalizovat jas obrazovky</string>
+    <string name="gpl2_ce">GNU obecná veřejná licence, verze 2, s Classpath výjimkou</string>
+    <string name="system_settings_permission_granted">Oprávnění uděleno. Můžete teď opusit tuto obrazovku.</string>
+</resources>
