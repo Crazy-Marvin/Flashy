@@ -8,7 +8,7 @@
 
 [![Last commit](https://img.shields.io/github/last-commit/Crazy-Marvin/Flashy.svg?style=flat)](https://github.com/Crazy-Marvin/Flashy/commits)
 [![Latest tag](https://img.shields.io/github/tag/Crazy-Marvin/Flashy.svg?style=flat)](https://github.com/Crazy-Marvin/Flashy/tags)
-[![Releases](https://img.shields.io/github/downloads/Crazy-Marvin/Flashy/total.svg?style=flat)](https://github.com/Crazy-Marvin/Flashy/releases)
+[![Downloads](https://img.shields.io/github/downloads/Crazy-Marvin/Flashy/total.svg?style=flat)](https://github.com/Crazy-Marvin/Flashy/releases)
 [![API](https://img.shields.io/badge/API-19%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=19)
 [![License](https://img.shields.io/github/license/Crazy-Marvin/Flashy.svg)](https://github.com/Crazy-Marvin/Flashy/blob/development/LICENSE)
 
