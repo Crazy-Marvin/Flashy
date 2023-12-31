@@ -47,7 +47,7 @@ This fast flashlight can be a perfect choice for users with a device that doesnâ
 
 * Easy to use and privacy-friendly
 * No ads
-* Elegant and simple design
+* Elegant and simple design with different themes
 * Uses your screenâ€™s light or camera flash as a source                
 * Control and customize the brightness
 
