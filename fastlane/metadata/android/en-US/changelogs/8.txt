@@ -1,0 +1,7 @@
+- Option to choose a flashlight screen color 🌈
+- Target Android 14 🤖
+- Bugfixes 🐛
+- Translation Updates 🌎
+- Dependency Updates ⚙️
+
+Thank you so much to all users and contributors! 😍
