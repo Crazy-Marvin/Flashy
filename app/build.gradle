@@ -10,7 +10,7 @@ android {
         versionName "1.7"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
-        resConfigs "en", "cs", "de", "es", "hr", "lt", "nb-rNO", "pt-rBR", "ru", "sat", "tr", "zh-rCN"
+        resConfigs "en", "cs", "de", "es", "hr", "lt", "nb-rNO", "pt", "pt-rBR", "ru", "sat", "tr", "zh-rCN"
     }
     buildTypes {
         release {
