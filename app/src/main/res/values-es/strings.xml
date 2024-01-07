@@ -1,2 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="flashlight">Linterna</string>
+    <string name="no_camera">Sin cámara</string>
+    <string name="grant_permission">Conceder el permiso</string>
+    <string name="maximize_screen_brightness">Maximizar el brillo de la pantalla</string>
+    <string name="system_settings_permission_granted">Permiso concedido. Ya puede salir de esta pantalla.</string>
+    <string name="settings">Ajustes</string>
+    <string name="general">General</string>
+    <string name="appearance">Apariencia</string>
+    <string name="theme">Tema</string>
+    <string name="light">Claro</string>
+    <string name="dark">Oscuro</string>
+    <string name="follow_system">Del sistema</string>
+    <string name="no_flash_when_screen">Apagar la linterna en modo pantalla</string>
+    <string name="about">Acerca de</string>
+    <string name="version_license">Versión %s - Licencia Apache 2.0</string>
+    <string name="source_code">Código fuente</string>
+    <string name="report_problem">Informar de un problema</string>
+    <string name="translate">Traducir</string>
+    <string name="oss_licenses">Licencias de código abierto</string>
+    <string name="apache2">Licencia Apache 2.0</string>
+    <string name="mit">Licencia MIT</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="java">Java</string>
+    <string name="circular_seekbar">CircularSeekBar</string>
+    <string name="md_icons">Iconos para Material Design</string>
+    <string name="android_jetpack">Jetpack para Android</string>
+    <string name="no_flashlight">Sin linterna</string>
+    <string name="use_screen">Usar la pantalla</string>
+    <string name="sos">SOS</string>
+    <string name="stroboscope_interval">Intervalo del estroboscopio</string>
+    <string name="words_per_min">Palabras por minuto</string>
+    <string name="words_per_min_error">Número de palabras no válido</string>
+    <string name="use_farnsworth">Utiliza el ritmo de Farnsworth</string>
+    <string name="turn_on_sos_now">Activar el SOS ahora</string>
+    <string name="farnsworth_unit_length">Unidad de longitud Farnsworth</string>
+    <string name="farnsworth_unit_length_error">La duración de la unidad Farnsworth debe ser superior a la de una unidad normal</string>
+    <string name="learn_more_morse_timing">Más información sobre la sincronización del código Morse</string>
+    <string name="md3_subtext">Usar el aspecto de Android 12</string>
+    <string name="md3">Material Design 3</string>
+    <string name="no_flash_on_device_screen_off">Apagar la linterna al apagar la pantalla del dispositivo</string>
+    <string name="feather_icons">Feather Icons</string>
+    <string name="no_flash_on_device_screen_off_subtext">Sólo funciona cuando la aplicación está abierta</string>
+    <string name="app_name">Flashy</string>
+    <string name="cannot_access_camera">No puedo acceder a la cámara, ¿está siendo utilizada por otra aplicación?</string>
+    <string name="system_settings_permission_notice">Para cambiar el brillo de la pantalla a través del widget, es necesario conceder un permiso especial a la aplicación. Pulsa el botón de abajo para hacerlo.
+\n
+\nSalir sin conceder el permiso hará que no se añada el widget.</string>
+    <string name="words_per_min_explanation">Palabras por minuto es el número de veces que se puede enviar la palabra estándar \"PARÍS\" por minuto.
+\nCuanto mayor sea el valor, menor será la duración de cada \"dit\".
+\nTenga en cuenta que este ajuste no tiene en cuenta la sincronización Farnsworth.
+\nIntroduzca a continuación el número deseado.</string>
+    <string name="no_app_can_handle">Ninguna aplicación puede gestionar esta acción.</string>
+    <string name="contribute">Contribuir</string>
+    <string name="dev">Desarrollador</string>
+    <string name="gpl2_ce">Licencia pública general de GNU, versión 2, con la excepción Classpath</string>
+    <string name="farnsworth_unit_length_explanation">La sincronización Farnsworth facilita el reconocimiento de los patrones de sonido aumentando los espacios entre los caracteres y las palabras para dar más tiempo de reconocimiento.
+\nUna unidad Farnsworth es más larga que una unidad básica.
+\nIntroduzca a continuación la longitud deseada de una unidad Farnsworth (debe ser mayor que una unidad básica: %d milisegundos).
+\nDéjelo en blanco para utilizar la longitud de la unidad básica más un 25 por ciento adicional de la misma.</string>
+</resources>
