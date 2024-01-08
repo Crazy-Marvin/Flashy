@@ -1,0 +1,9 @@
+- Opción para elegir el color de la pantalla de la linterna 🌈
+- Compatible con Wear OS de Google smartwatches ⌚.
+- Objetivo Android 14 🤖
+- Corrección de errores 🐛
+- Actualizaciones de traducción 🌎
+- Actualizaciones de dependencias ⚙️
+
+¡Muchas gracias a todos los usuarios y colaboradores! 😍
+Siéntete bienvenido a añadir o actualizar traducciones en https://hosted.weblate.org/engage/flashy/. 🗣️
