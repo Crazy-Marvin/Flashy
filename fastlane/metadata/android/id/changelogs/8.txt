@@ -1,0 +1,9 @@
+- Opsi untuk memilih warna layar senter 🌈 
+- Dukungan Wear OS oleh jam tangan pintar Google ⌚ 
+- Target Android 14 🤖 
+- Perbaikan bug 🐛
+ - Pembaruan Terjemahan 🌎 
+- Pembaruan Ketergantungan ⚙️
+
+Terima kasih banyak kepada semua pengguna dan kontributor! 😍 
+Silakan menambahkan atau memperbarui terjemahan di https://hosted.weblate.org/engage/flashy/. 🗣️
