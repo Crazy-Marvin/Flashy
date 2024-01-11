@@ -1,0 +1,4 @@
+Pembaruan Terjemahan 🌎 
+Pembaruan Dependency ⚙️ 
+Tambahkan Opsi Agar Senter Mati Saat Layar Dimatikan 🛋️ 
+Perbaikan Bug 🐛
