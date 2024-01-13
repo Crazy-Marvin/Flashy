@@ -1,2 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">Flashy</string>
+    <string name="flashlight">懐中電灯</string>
+    <string name="grant_permission">許可を与えてください</string>
+    <string name="no_camera">カメラがありません</string>
+    <string name="cannot_access_camera">カメラにアクセスできません。別のアプリで使用されていますか？</string>
+</resources>
