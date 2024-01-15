@@ -1,3 +1,11 @@
+<div align="center">
+
+<img width="200" src="https://github.com/Crazy-Marvin/Flashy/blob/development/fastlane/metadata/android/en-US/images/icon.png" alt="Flashy icon" align="center">
+      
+# Flashy
+
+### Simple & Privacy-Friendly Flashlight App
+
 [![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/Crazy-Marvin/Flashy/CI/development)](https://github.com/Crazy-Marvin/Flashy/actions)
 [![License](https://img.shields.io/github/license/Crazy-Marvin/Flashy.svg)](https://github.com/Crazy-Marvin/Flashy/blob/development/LICENSE)
 [![Last commit](https://img.shields.io/github/last-commit/Crazy-Marvin/Flashy.svg?style=flat)](https://github.com/Crazy-Marvin/Flashy/commits)
@@ -13,7 +21,13 @@
 [![F-Droid](https://img.shields.io/f-droid/v/rocks.poopjournal.flashy.svg)](https://f-droid.org/en/packages/rocks.poopjournal.flashy/)
 [![Google Play](https://badgen.net/badge/icon/googleplay?icon=googleplay&label)](https://play.google.com/store/apps/details?id=rocks.poopjournal.flashy)
 
-# Flashy
+<a href="https://f-droid.org/en/packages/rocks.poopjournal.flashy">
+      <img alt="Get it on F-Droid" src="https://user-images.githubusercontent.com/15004217/36919296-19b8524e-1e5d-11e8-8962-48463b1cec8a.png" height="100">
+</a>
+<a href="https://play.google.com/store/apps/details?id=rocks.poopjournal.flashy">
+      <img alt="Get it on Google Play" src="https://user-images.githubusercontent.com/15004217/36810046-fa306856-1cc9-11e8-808e-6eb8a81783c7.png" height="100">
+
+</div>
 
 <b>Flashy</b> is a simple and practical <b>screen flashlight app</b> that uses your screen’s light or camera flash and converts your phone and tablet in a powerful flashlight. Enjoy a handy bright flashlight at your reach anytime and anywhere you need it. 
 
@@ -33,11 +47,11 @@ This fast flashlight can be a perfect choice for users with a device that doesn�
 
 * Easy to use and privacy-friendly
 * No ads
-* Elegant and simple design
+* Elegant and simple design with different themes
 * Uses your screen’s light or camera flash as a source                
 * Control and customize the brightness
 
-# Contributing
+# 🔨 Contributing
 
 The ```development``` or a feature branch is used while developing the code, and pushed into the master branch ```trunk``` afterwards for releases.
 PRs to the ```trunk``` need at least one approving review before getting merged.
@@ -50,6 +64,12 @@ Please make sure to update tests as appropriate.
 
 Check out the [contribution guidelines](https://github.com/Crazy-Marvin/Flashy/blob/trunk/.github/CONTRIBUTING.md) for details please.
 
-# License
+# 📜 License
 
 [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+
+# 💙 Contributors
+
+<a href="https://github.com/Crazy-Marvin/Flashy/graphs/contributors">
+  <img alt="List of contributors to this repository" src="https://contrib.rocks/image?repo=Crazy-Marvin/Flashy" />
+</a>

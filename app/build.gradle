@@ -1,16 +1,16 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdk 33
+    compileSdk 34
     defaultConfig {
         applicationId "rocks.poopjournal.flashy"
         minSdk 19
-        targetSdk 33
-        versionCode 7
-        versionName "1.6"
+        targetSdk 34
+        versionCode 8
+        versionName "1.7"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
-        resConfigs "en", "cs", "hr", "lt", "nb-rNO", "pt-rBR", "tr"
+        resConfigs "en", "cs", "de", "es", "hr", "lt", "nb-rNO", "pt", "pt-rBR", "ru", "sat", "tr", "zh-rCN"
     }
     buildTypes {
         release {
@@ -40,16 +40,16 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'androidx.preference:preference:1.2.0'
+    implementation 'androidx.preference:preference:1.2.1'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'com.google.android.material:material:1.9.0'
-    coreLibraryDesugaring ('com.android.tools:desugar_jdk_libs:2.0.3')
+    implementation 'com.google.android.material:material:1.11.0'
+    coreLibraryDesugaring ('com.android.tools:desugar_jdk_libs:2.0.4')
 
     implementation 'me.tankery.lib:circularSeekBar:1.4.2'
     //to resolve dependency conflicts
-    implementation 'androidx.lifecycle:lifecycle-viewmodel:2.6.1'
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"
+    implementation 'androidx.lifecycle:lifecycle-viewmodel:2.6.2'
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2"
 }

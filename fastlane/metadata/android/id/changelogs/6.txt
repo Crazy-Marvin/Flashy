@@ -1,0 +1,8 @@
+- Dukungan Material 3 🎨 
+- Dukungan Widget 🎨 
+- Dukungan Perubahan Warna Layar 🎨 
+- Dukungan Kontrol Kecerahan Senter Pada Perangkat Android 13+ yang Didukung 📸 
+- Tambahkan Opsi SOS 🆘 
+- Tambahkan Opsi Stroboscope 🚨 
+- Perbaikan Bug 🐛 
+- Pembaruan Terjemahan 🗺️

@@ -1,2 +1,2 @@
-Pár drobných vylepšení na pozadí
+Little vylepšení under the hood
 Opravené nastavení fastlane

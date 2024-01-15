@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mit">MIT 许可证</string>
+    <string name="system_settings_permission_notice">要通过小部件更改屏幕亮度，需要向应用程序授予特殊权限。请按下面的按钮。
+\n
+\n在未授予权限的情况下退出将导致无法添加小部件。</string>
+    <string name="apache2">Apache 许可证 2.0</string>
+    <string name="gpl2_ce">GNU 通用公共许可证，版本 2，带有 Classpath 例外</string>
+    <string name="use_screen">使用屏幕</string>
+    <string name="words_per_min_explanation">单词/分钟是指每分钟可以发送多少个标准单词“PARIS”。
+\n该值越高，每个“dit”的长度越短。
+\n请注意，此设置不考虑法恩斯沃斯时间。
+\n在下面输入您想要的数字。</string>
+    <string name="farnsworth_unit_length_explanation">法恩斯沃斯计时法通过增加字符和单词之间的间隔来给予更多的识别时间，从而使识别声音模式更容易。
+\n法恩斯沃斯单位比基本单位长。
+\n在下面输入您想要的法恩斯沃斯单位长度(必须大于基本单位：%d 毫秒)。
+\n留空，使用基本单位的长度加上额外的 25%。</string>
+    <string name="flashlight">手电筒</string>
+    <string name="no_camera">没有摄像头</string>
+    <string name="cannot_access_camera">无法访问摄像头，摄像头是否被其他应用程序使用？</string>
+    <string name="grant_permission">授予权限</string>
+    <string name="maximize_screen_brightness">最大屏幕亮度</string>
+    <string name="system_settings_permission_granted">授予许可。您现在可以退出此屏幕。</string>
+    <string name="settings">设置</string>
+    <string name="general">一般</string>
+    <string name="appearance">外观</string>
+    <string name="theme">主题</string>
+    <string name="light">亮色</string>
+    <string name="dark">暗色</string>
+    <string name="follow_system">跟随系统</string>
+    <string name="no_flash_when_screen">在屏幕模式下关闭手电筒</string>
+    <string name="about">关于</string>
+    <string name="version_license">版本 %s · Apache License 2.0</string>
+    <string name="contribute">贡献</string>
+    <string name="source_code">源代码</string>
+    <string name="report_problem">报告问题</string>
+    <string name="translate">翻译</string>
+    <string name="dev">开发者</string>
+    <string name="oss_licenses">开源许可证</string>
+    <string name="no_app_can_handle">没有应用程序可以处理这个操作。</string>
+    <string name="no_flashlight">没有手电筒</string>
+    <string name="words_per_min_error">无效的字数</string>
+    <string name="use_farnsworth">使用范斯沃斯计时法</string>
+    <string name="turn_on_sos_now">现在打开 SOS</string>
+    <string name="farnsworth_unit_length">范斯沃斯单位长度</string>
+    <string name="farnsworth_unit_length_error">法恩斯沃斯单位持续时间必须大于正常单位</string>
+    <string name="learn_more_morse_timing">了解更多关于摩尔斯电码计时</string>
+    <string name="md3_subtext">使用 Android 12 的外观和感觉</string>
+    <string name="no_flash_on_device_screen_off">关闭设备屏幕时，请关闭手电筒</string>
+    <string name="no_flash_on_device_screen_off_subtext">只有当应用程序打开时才有效</string>
+</resources>

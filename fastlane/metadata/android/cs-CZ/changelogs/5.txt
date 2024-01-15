@@ -1,0 +1,3 @@
+- Přidán Tmavá motiv 🧛 (#60)
+Note: The app forcibly switches to light theme when using screen light. This is by design, since it does not make sense to use a dark background to light up the screen.
+Velké poděkování jde @unbiaseduser pro tuto funkci.

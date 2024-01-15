@@ -1,0 +1,8 @@
+- Podpora Material 3 🎨
+- Podpora widgetů 🎨
+- Podpora změny barvy obrazovky 🎨
+- Podpora Svítlny Brightness Control On Supported Android 13+ zařízeních📸
+- Přidána SOS Option 🆘
+- Přidána Stroboskop Option 🚨
+- Oprava chyb 🐛
+- Aktualizován překlad 🗺️

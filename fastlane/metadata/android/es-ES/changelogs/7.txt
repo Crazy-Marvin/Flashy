@@ -1,0 +1,4 @@
+Actualizaciones de traducción 🌎
+Actualizaciones de dependencias ⚙️
+Añadir opción para que la linterna se apague al apagar la pantalla 🛋️
+Corrección de errores 🐛

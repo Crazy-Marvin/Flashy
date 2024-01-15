@@ -1,0 +1,4 @@
+Translation Updates 🌎
+Dependency Updates ⚙️
+Add Option For The Flashlight To Turn Off When The Screen Is Turned Off 🛋️
+Bugfixes 🐛

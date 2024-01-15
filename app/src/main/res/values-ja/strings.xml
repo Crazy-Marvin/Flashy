@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Flashy</string>
+    <string name="flashlight">懐中電灯</string>
+    <string name="grant_permission">許可を与えてください</string>
+    <string name="no_camera">カメラがありません</string>
+    <string name="cannot_access_camera">カメラにアクセスできません。別のアプリで使用されていますか？</string>
+    <string name="maximize_screen_brightness">画面の明るさを最大にする</string>
+    <string name="system_settings_permission_granted">許可が付与されました。 この画面はすぐに終了出来ます。</string>
+    <string name="settings">設定</string>
+    <string name="follow_system">システムに合わせる</string>
+    <string name="no_flash_when_screen">画面モードで懐中電灯をオフ</string>
+    <string name="about">詳細</string>
+    <string name="version_license">バージョン %s ・Apache License 2.0</string>
+    <string name="contribute">貢献する</string>
+    <string name="source_code">ソースコード</string>
+    <string name="report_problem">問題を報告</string>
+    <string name="translate">翻訳</string>
+    <string name="dev">開発者</string>
+    <string name="oss_licenses">オープンソースライセンス</string>
+    <string name="apache2">Apache License 2.0</string>
+    <string name="gpl2_ce">GNU 一般公衆利用許諾書、バージョン 2、クラスパス例外付き</string>
+    <string name="md_icons">Material Designアイコン</string>
+    <string name="feather_icons">羽のアイコン</string>
+    <string name="android_jetpack">Android Jetpack</string>
+    <string name="no_app_can_handle">このアクションを処理出来るアプリはありません。</string>
+    <string name="no_flashlight">懐中電灯無し</string>
+    <string name="use_screen">画面を使用</string>
+    <string name="sos">SOS</string>
+    <string name="stroboscope_interval">ストロボスコープ間隔</string>
+    <string name="words_per_min">１分あたりの単語数</string>
+    <string name="words_per_min_explanation">１分あたりの単語数は、標準単語「PARIS」を 1 分間に何回送信できるかを表します。
+\n値が大きいほど、「点」の長さが短くなります。
+\nこの設定はファーンズワースのタイミングは考慮されていないので注意してください。
+\n以下に番号を入力してください。</string>
+    <string name="use_farnsworth">ファーンズワースのタイミングを使用</string>
+    <string name="turn_on_sos_now">今すぐSOSをオン</string>
+    <string name="farnsworth_unit_length">ファンズワース単位の長さ</string>
+    <string name="farnsworth_unit_length_error">ファーンズワースユニットの持続時間は通常のユニットより長くなければなりません</string>
+    <string name="farnsworth_unit_length_explanation">ファンズワースタイミングでは、文字と単語の間のギャップを増やして認識時間を長くすることで、音声パターンの認識が容易になります。
+\nファンズワース ユニットは基本ユニットよりも長くなります。
+\n以下に希望するファンズワース単位の長さを入力します （単位： %d ミリ秒より長くなければなりません）。
+\n基本単位の長さにその２５％を加えた長さを使用するには、空白のままにします。</string>
+    <string name="learn_more_morse_timing">モールス信号のタイミングについて詳しく見る</string>
+    <string name="md3_subtext">Android 12のlook and feelを使用</string>
+    <string name="md3">Material Design 3</string>
+    <string name="no_flash_on_device_screen_off">デバイスの画面をオフにする時に懐中電灯をオフ</string>
+    <string name="no_flash_on_device_screen_off_subtext">アプリが開いているときにのみ機能します</string>
+    <string name="system_settings_permission_notice">ウィジェットを通じて画面の明るさを変更するには、アプリに特別な権限を付与する必要があります。 下のボタンを押してください。
+\n
+\n許可を与えずに終了すると、ウィジェットは追加されません。</string>
+    <string name="general">一般</string>
+    <string name="light">ライト</string>
+    <string name="circular_seekbar">円形シークバー</string>
+    <string name="appearance">外観</string>
+    <string name="mit">MITライセンス</string>
+    <string name="java">Java</string>
+    <string name="theme">テーマ</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="dark">ダーク</string>
+    <string name="words_per_min_error">単語数が無効です</string>
+</resources>
