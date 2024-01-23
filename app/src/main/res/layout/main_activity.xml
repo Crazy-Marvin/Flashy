@@ -2,9 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/root_layout"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -17,28 +17,28 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            app:title="@string/app_name"/>
+            app:title="@string/app_name" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
     <me.tankery.lib.circularseekbar.CircularSeekBar
         android:id="@+id/progress_circular"
-        android:layout_centerInParent="true"
         android:layout_width="200dp"
-        app:cs_circle_progress_color= "#FFB137"
-        app:cs_maintain_equal_circle = "true"
-        app:cs_circle_color = "#F3F3F7"
-
-        app:cs_circle_stroke_width = "3dp"
-        app:cs_pointer_stroke_width = "8dp"
-        app:cs_start_angle = "140"
-        app:cs_end_angle = "40"
-        app:cs_pointer_color = "#FFB137"
-        app:cs_pointer_halo_width = "4dp"
-        app:cs_pointer_halo_border_width = "4dp"
-        app:cs_pointer_halo_color = "#FFFFFF"
-        app:cs_pointer_halo_color_ontouch = "#FFFFFF"
-        android:layout_height="300dp"/>
+        android:layout_height="300dp"
+        android:layout_marginTop="30dp"
+        android:layout_centerInParent="true"
+        app:cs_circle_color="#F3F3F7"
+        app:cs_circle_progress_color="#FFB137"
+        app:cs_circle_stroke_width="3dp"
+        app:cs_end_angle="40"
+        app:cs_maintain_equal_circle="true"
+        app:cs_pointer_color="#FFB137"
+        app:cs_pointer_halo_border_width="4dp"
+        app:cs_pointer_halo_color="#FFFFFF"
+        app:cs_pointer_halo_color_ontouch="#FFFFFF"
+        app:cs_pointer_halo_width="4dp"
+        app:cs_pointer_stroke_width="8dp"
+        app:cs_start_angle="140" />
 
     <ImageView
         android:id="@+id/power_center"
@@ -52,91 +52,94 @@
         android:id="@+id/power_icon"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:src="@drawable/power"
-        android:layout_centerInParent="true"/>
+        android:layout_centerInParent="true"
+        android:src="@drawable/power" />
 
     <RelativeLayout
         android:id="@+id/bg_options"
-        android:background="@drawable/ic_rectangle_bg_options"
         android:layout_width="88dp"
+        android:layout_height="40dp"
         android:layout_alignBottom="@id/progress_circular"
         android:layout_centerHorizontal="true"
-        android:layout_height="40dp">
+        android:background="@drawable/ic_rectangle_bg_options">
 
         <RelativeLayout
             android:id="@+id/bg_option_circle"
             android:layout_width="wrap_content"
-            android:background="@drawable/bg_option_circle"
+            android:layout_height="wrap_content"
             android:animateLayoutChanges="true"
-            android:layout_height="wrap_content"/>
+            android:background="@drawable/bg_option_circle" />
+
         <ImageView
             android:id="@+id/flash_icon"
-            android:src="@drawable/flash_icon"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginStart="15dp"
-            android:layout_height="wrap_content"/>
+            android:src="@drawable/flash_icon" />
 
         <ImageView
             android:id="@+id/screen_icon"
-            android:src="@drawable/screen_icon"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="17dp"
-            android:layout_alignParentEnd="true"
-            android:layout_height="wrap_content"/>
+            android:src="@drawable/screen_icon" />
     </RelativeLayout>
 
     <ImageView
         android:id="@+id/sos_button"
         android:layout_width="72dp"
-        android:src="@drawable/ic_power_center"
-        android:background="@drawable/ripple_effect"
+        android:layout_height="72dp"
         android:layout_below="@id/bg_options"
-        android:layout_toStartOf="@id/bg_options"
         android:layout_marginTop="30dp"
-        android:layout_height="72dp"/>
+        android:layout_toStartOf="@id/bg_options"
+        android:background="@drawable/ripple_effect"
+        android:src="@drawable/ic_power_center" />
 
     <ImageView
         android:id="@+id/sos_icon"
         android:layout_width="48dp"
-        android:src="@drawable/sos"
-        android:background="@drawable/ripple_effect"
+        android:layout_height="48dp"
         android:layout_below="@id/bg_options"
-        android:layout_toStartOf="@id/bg_options"
-        android:layout_marginTop="42dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="11dp"
-        android:layout_height="48dp"/>
+        android:layout_toStartOf="@id/bg_options"
+        android:background="@drawable/ripple_effect"
+        android:src="@drawable/sos" />
 
     <ImageView
         android:id="@+id/stroboscope_button"
         android:layout_width="72dp"
-        android:src="@drawable/ic_power_center"
-        android:background="@drawable/ripple_effect"
+        android:layout_height="72dp"
         android:layout_below="@id/bg_options"
-        android:layout_toEndOf="@id/bg_options"
         android:layout_marginTop="30dp"
-        android:layout_height="72dp"/>
+        android:layout_toEndOf="@id/bg_options"
+        android:background="@drawable/ripple_effect"
+        android:src="@drawable/ic_power_center" />
 
     <ImageView
         android:id="@+id/stroboscope_icon"
         android:layout_width="48dp"
-        android:src="@drawable/loader"
-        android:background="@drawable/ripple_effect"
+        android:layout_height="48dp"
         android:layout_below="@id/bg_options"
-        android:layout_toEndOf="@id/bg_options"
-        android:layout_marginTop="42dp"
         android:layout_marginStart="13dp"
-        android:layout_height="48dp"/>
+        android:layout_marginTop="40dp"
+        android:layout_toEndOf="@id/bg_options"
+        android:background="@drawable/ripple_effect"
+        android:src="@drawable/loader" />
+
+
 
     <TextView
         android:id="@+id/stroboscope_interval"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/stroboscope_button"
-        android:layout_marginTop="16dp"
+        android:layout_below="@id/colorPickerView"
         android:layout_centerHorizontal="true"
-        android:text="@string/stroboscope_interval"/>
+        android:layout_marginTop="5dp"
+        android:text="@string/stroboscope_interval" />
 
     <com.google.android.material.slider.Slider
         android:id="@+id/stroboscope_interval_slider"
@@ -145,8 +148,18 @@
         android:layout_below="@id/stroboscope_interval"
         android:layout_marginHorizontal="6dp"
         android:importantForAccessibility="no"
+        android:stepSize="0.1"
         android:valueFrom="0.1"
-        android:valueTo="1"
-        android:stepSize="0.1"/>
+        android:valueTo="1" />
+
+    <com.skydoves.colorpickerview.ColorPickerView
+        android:id="@+id/colorPickerView"
+        android:layout_margin="10dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        />
+
 
 </RelativeLayout>

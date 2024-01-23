@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
@@ -23,6 +24,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
 import com.google.android.material.slider.Slider;
+import com.skydoves.colorpickerview.ColorPickerView;
+import com.skydoves.colorpickerview.listeners.ColorListener;
 
 import me.tankery.lib.circularseekbar.CircularSeekBar;
 import rocks.poopjournal.flashy.NoFlashlightDialog;
@@ -35,6 +38,7 @@ import rocks.poopjournal.flashy.utils.Utils;
 
 public class MainActivity extends AppCompatActivity {
     //Fields
+    RelativeLayout  root_layout ;
     private int brightness = -999;
     private Window window;
     private SharedPreferences legacyPreferences; //kept for legacy reasons
@@ -42,9 +46,11 @@ public class MainActivity extends AppCompatActivity {
     private CameraHelper helper;
     private MainActivityBinding binding;
     private final ScreenOffBroadcastReceiver turnOffFlashlightOnScreenOffReceiver = new ScreenOffBroadcastReceiver();
+
     private enum FlashlightMode {
         NORMAL, SOS, STROBOSCOPE
     }
+
     private final SharedPreferences.OnSharedPreferenceChangeListener material3Listener = (sharedPreferences, key) -> {
         switch (key) {
             case "md3":
@@ -64,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         PreferenceManager.setDefaultValues(this, R.xml.root_preferences, false);
         defaultPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         if (defaultPreferences.getBoolean("no_flash_on_device_screen_off", false)) {
@@ -123,13 +130,24 @@ public class MainActivity extends AppCompatActivity {
             binding.stroboscopeIntervalSlider.setValue(stroboscopeIntervalInPreferences != -1 ? stroboscopeIntervalInPreferences : 0.5F);
             binding.stroboscopeIntervalSlider.addOnSliderTouchListener(new Slider.OnSliderTouchListener() {
                 @Override
-                public void onStartTrackingTouch(@NonNull Slider slider) {}
+                public void onStartTrackingTouch(@NonNull Slider slider) {
+                }
+
                 @Override
                 public void onStopTrackingTouch(@NonNull Slider slider) {
                     helper.setStroboscopeInterval((int) (slider.getValue() * 1000));
                 }
             });
         }
+        root_layout = findViewById(R.id.root_layout);
+        ColorPickerView colorPickerView = findViewById(R.id.colorPickerView);
+        colorPickerView.setColorListener(new ColorListener() {
+            @Override
+            public void onColorSelected(int color, boolean fromUser) {
+
+                root_layout.setBackgroundColor(color);
+            }
+        });
     }
 
     @Override
@@ -197,13 +215,16 @@ public class MainActivity extends AppCompatActivity {
                     if (Boolean.TRUE.equals(helper.getNormalFlashStatus().getValue()))
                         helper.turnOnFlashWithStrength(MainActivity.this);
                 }
+
                 @Override
                 public void onStopTrackingTouch(@Nullable CircularSeekBar circularSeekBar) {
                     if (circularSeekBar != null)
                         defaultPreferences.edit().putInt("flashlight_strength", Math.round(circularSeekBar.getProgress() + 1)).apply();
                 }
+
                 @Override
-                public void onStartTrackingTouch(@Nullable CircularSeekBar circularSeekBar) {}
+                public void onStartTrackingTouch(@Nullable CircularSeekBar circularSeekBar) {
+                }
             });
             binding.progressCircular.setProgress(helper.getFlashlightStrength() - 1);
             binding.powerCenter.setOnClickListener(v -> helper.toggleNormalFlash(this));
@@ -231,7 +252,8 @@ public class MainActivity extends AppCompatActivity {
                 binding.stroboscopeButton.setColorFilter(isTurnedOn ? Color.parseColor("#28FFB137") : Color.parseColor("#F3F3F7"));
                 binding.stroboscopeIcon.setColorFilter(isTurnedOn ? Color.parseColor("#FFB137") : Color.parseColor("#AAAABB"));
                 break;
-            default: throw new IllegalArgumentException();
+            default:
+                throw new IllegalArgumentException();
         }
     }
 
@@ -274,10 +296,14 @@ public class MainActivity extends AppCompatActivity {
                 layoutpars.screenBrightness = (float) brightness / 100;
                 window.setAttributes(layoutpars);
             }
+
             @Override
-            public void onStopTrackingTouch(CircularSeekBar seekBar) {}
+            public void onStopTrackingTouch(CircularSeekBar seekBar) {
+            }
+
             @Override
-            public void onStartTrackingTouch(CircularSeekBar seekBar) {}
+            public void onStartTrackingTouch(CircularSeekBar seekBar) {
+            }
         });
         binding.powerCenter.setOnClickListener(view -> binding.progressCircular.setProgress(brightness != 100 ? 100 : 0));
     }
