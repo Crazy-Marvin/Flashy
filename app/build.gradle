@@ -6,8 +6,8 @@ android {
         applicationId "rocks.poopjournal.flashy"
         minSdk 19
         targetSdk 34
-        versionCode 8
-        versionName "1.7"
+        versionCode 10
+        versionName "1.8"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
         resConfigs "en", "cs", "de", "es", "hr", "lt", "nb-rNO", "pt", "pt-rBR", "ru", "sat", "tr", "zh-rCN"
@@ -47,9 +47,10 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.google.android.material:material:1.11.0'
     coreLibraryDesugaring ('com.android.tools:desugar_jdk_libs:2.0.4')
+    implementation "com.github.skydoves:colorpickerview:2.3.0"
 
     implementation 'me.tankery.lib:circularSeekBar:1.4.2'
     //to resolve dependency conflicts
-    implementation 'androidx.lifecycle:lifecycle-viewmodel:2.7.0'
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0"
+    implementation 'androidx.lifecycle:lifecycle-viewmodel:2.6.2'
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2"
 }
