@@ -56,7 +56,7 @@
 \nDolje upiši željeni broj.</string>
     <string name="farnsworth_unit_length_error">Duljina Farnsworth jedinice ne smije biti duža od normalne jedinice</string>
     <string name="learn_more_morse_timing">Saznaj više o ritmu Morseov koda</string>
-    <string name="no_flashlight">Nema svjetiljke</string>
+    <string name="no_flashlight">Bez svjetiljke</string>
     <string name="no_flash_on_device_screen_off">Isključi svjetiljku kada isključiš ekran uređaja</string>
     <string name="no_flash_on_device_screen_off_subtext">Radi samo kada je aplikacija otvorena</string>
 </resources>
