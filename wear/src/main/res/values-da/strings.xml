@@ -1,2 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">Flashy</string>
+    <string name="to_turn_off_the_flash_light_tap_any_where">Tryk hvor som helst for å slukke lommelygten.</string>
+</resources>
