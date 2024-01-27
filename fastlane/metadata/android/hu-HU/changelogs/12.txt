@@ -1,0 +1,9 @@
+- Lehetőség a zseblámpa képernyőszínének kiválasztására 🌈
+- A Wear OS by Google okosórák támogatása ⌚
+- Cél az Android 14 🤖
+- Hibajavítások 🐛
+- Fordítási frissítések 🌎
+- Függőségi frissítések ⚙️
+
+Köszönöm szépen minden felhasználónak és közreműködőnek! 😍
+Fordítások hozzáadása vagy frissítése a https://hosted.weblate.org/engage/flashy/ oldalon. 🗣️
