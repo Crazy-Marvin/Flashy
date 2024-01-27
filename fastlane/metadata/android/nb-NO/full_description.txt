@@ -26,3 +26,4 @@ Din trygghet garanteres, og det er reklamefritt, så du vil ikke bli forstyrret 
 * Elegant og enkelt design.
 * Bruker skjermlyset eller kamerablitz som lyskilde.
 * Kontroller og tilpass lysstyrken.
+* Kjører på WearOS, som er å finne på Google-smartklokker.
