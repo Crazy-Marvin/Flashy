@@ -1,0 +1,9 @@
+- Bir el feneri ekranı rengi seçme seçeneği 🌈
+- Wear OS by Google akıllı saatlerini destekleyin ⌚
+- Android 14'ü hedefleyin 🤖
+- Hata düzeltmeleri 🐛
+- Çeviri Güncellemeleri 🌎
+- Bağımlılık Güncellemeleri ⚙️
+
+Tüm kullanıcılara ve katkıda bulunanlara çok teşekkür ederiz! 😍
+https://hosted.weblate.org/engage/flashy/ adresinde çevirileri ekleyebilir veya güncelleyebilirsiniz. 🗣️

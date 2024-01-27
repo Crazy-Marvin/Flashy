@@ -26,3 +26,4 @@ Güvenliğiniz garantilidir ve reklamsızdır, bu nedenle onu kullanırken kesin
 * Zarif ve sade tasarım.
 * Ekranınızın ışığını veya kamera flaşını ışık kaynağı olarak kullanır.
 * Parlaklığı denetleyin ve özelleştirin.
+* Wear OS by Google akıllı saatlerinde çalışır.
