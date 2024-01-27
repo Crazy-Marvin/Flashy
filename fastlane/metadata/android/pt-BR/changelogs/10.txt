@@ -1,0 +1,9 @@
+- Opção para escolher a cor da tela da lanterna 🌈
+- Suporte para smartwatches Wear OS by Google ⌚
+- Alvo Android 14 🤖
+- Correções de bugs 🐛
+- Atualizações de tradução 🌎
+- Atualizações de dependências ⚙️
+
+Muito obrigado a todos os usuários e colaboradores! 😍
+Sinta-se à vontade para adicionar ou atualizar traduções em https://hosted.weblate.org/engage/flashy/. 🗣️
