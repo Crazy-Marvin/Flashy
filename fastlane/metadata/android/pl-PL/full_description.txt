@@ -20,3 +20,4 @@ Ta aplikacja może być idealnym wyborem dla użytkowników posiadających urzą
 * Uses your screen’s light or camera flash as a source                
 * Jako źródła używa światła ekranu lub lampy błyskowej
 * Kontroluj i dostosowuj jasność
+* Działa na smartwatchach Wear OS by Google
