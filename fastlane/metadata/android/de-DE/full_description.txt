@@ -26,3 +26,4 @@ Dein Datenschutz ist garantiert und es gibt keine Werbung, die dich bei der Nutz
 * Elegantes und einfaches Design.
 * Benutze den Bildschirm oder Kamerablitz als Taschenlampe.
 * Verändere und passe die Helligkeit an.
+* Läuft auf Wear OS by Google Smartwatches.
