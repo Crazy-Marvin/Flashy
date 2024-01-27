@@ -26,3 +26,4 @@ Keamanan Anda terjamin dan bebas iklan, sehingga Anda tidak akan terganggu saat 
 * Desain yang elegan dan sederhana dengan tema yang berbeda. 
 * Menggunakan cahaya layar atau lampu kilat kamera sebagai sumber cahaya. 
 * Mengontrol dan menyesuaikan kecerahan.
+* Berjalan di jam tangan pintar Wear OS by Google.
