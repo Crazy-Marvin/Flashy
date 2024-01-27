@@ -1,0 +1,9 @@
+- Mulighet for å velge en lommelyktskjermfarge 🌈
+- Støtt Wear OS by Google smartklokker ⌚
+- Målrett Android 14 🤖
+- Feilrettinger 🐛
+- Oversettelsesoppdateringer 🌎
+- Avhengighetsoppdateringer ⚙️
+
+Tusen takk til alle brukere og bidragsytere! 😍
+Føl deg velkommen til å legge til eller oppdatere oversettelser på https://hosted.weblate.org/engage/flashy/. 🗣️

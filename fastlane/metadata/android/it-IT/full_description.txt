@@ -19,3 +19,4 @@ Questa rapida torcia può essere una scelta perfetta per utenti che non hanno un
 * Design semplice e elegante
 * Uses your screen’s light or camera flash as a source
 * Controlla e modifica la luminosità
+* Funziona su Wear OS degli smartwatch Google

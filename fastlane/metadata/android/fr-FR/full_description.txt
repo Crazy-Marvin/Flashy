@@ -26,3 +26,4 @@ Votre sécurité est garantie et sans la moindre publicité, vous permettant de 
 * Design simple et élégant.
 * Utilisez la lumière de votre écran ou votre flash comme source lumineuse.
 * Contrôlez et personnalisez la luminosité.
+* Fonctionne sur les montres intelligentes Wear OS de Google.

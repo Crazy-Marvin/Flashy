@@ -1,0 +1,9 @@
+- 选择手电筒屏幕颜色的选项🌈
+- 支持Wear OS by Google智能手表⌚
+- 目标 Android 14 🤖
+- 错误修复🐛
+- 翻译更新🌎
+- 依赖项更新⚙️
+
+非常感谢所有用户和贡献者！ 😍
+欢迎在 https://hosted.weblate.org/engage/flashy/ 上添加或更新翻译。 🗣️

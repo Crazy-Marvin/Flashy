@@ -1,0 +1,9 @@
+- Pagpipilian upang pumili ng kulay ng screen ng flashlight 🌈
+- Suportahan ang Wear OS ng Google smartwatches ⌚
+- I-target ang Android 14 🤖
+- Mga pag-aayos ng bug 🐛
+- Mga Update sa Pagsasalin 🌎
+- Mga Update sa Dependency ⚙️
+
+Maraming salamat sa lahat ng user at contributor! 😍
+Malugod na tinatanggap na magdagdag o mag-update ng mga pagsasalin sa https://hosted.weblate.org/engage/flashy/. 🗣️

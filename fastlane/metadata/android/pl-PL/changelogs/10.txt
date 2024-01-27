@@ -1,0 +1,9 @@
+- Możliwość wyboru koloru ekranu latarki 🌈
+- Obsługa inteligentnych zegarków Wear OS by Google ⌚
+- Kieruj na Androida 14 🤖
+- Poprawki błędów 🐛
+- Aktualizacje tłumaczeń 🌎
+- Aktualizacje zależności ⚙️
+
+Dziękuję bardzo wszystkim użytkownikom i współpracownikom! 😍
+Zachęcamy do dodawania lub aktualizowania tłumaczeń na https://hosted.weblate.org/engage/flashy/. 🗣️

@@ -1,0 +1,9 @@
+- Possibilité de choisir une couleur d'écran de lampe de poche 🌈
+- Prise en charge des montres intelligentes Wear OS by Google ⌚
+- Cibler Android 14 🤖
+- Corrections de bugs 🐛
+- Mises à jour de traduction 🌎
+- Mises à jour des dépendances ⚙️
+
+Merci beaucoup à tous les utilisateurs et contributeurs ! 😍
+N'hésitez pas à ajouter ou à mettre à jour les traductions sur https://hosted.weblate.org/engage/flashy/. 🗣️

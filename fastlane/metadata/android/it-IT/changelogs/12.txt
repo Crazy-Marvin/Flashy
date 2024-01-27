@@ -1,0 +1,9 @@
+- Opzione per scegliere il colore dello schermo della torcia 🌈
+- Supporta il sistema operativo Wear degli smartwatch Google ⌚
+- Obiettivo Android 14 🤖
+- Correzioni di bug 🐛
+- Aggiornamenti della traduzione 🌎
+- Aggiornamenti sulle dipendenze ⚙️
+
+Grazie mille a tutti gli utenti e collaboratori! 😍
+Sentiti libero di aggiungere o aggiornare le traduzioni su https://hosted.weblate.org/engage/flashy/. 🗣️
