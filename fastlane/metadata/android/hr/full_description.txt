@@ -26,3 +26,4 @@ Tvoja je sigurnost zajamčena, nema oglasa, i ništa te neće ometati tijekom up
 * Elegantan i jednostavan dizajn.
 * Koristi svjetlo tvog ekrana ili bljeskalicu kamere kao izvor svjetla.
 * Kontroliraj i prilagodi svjetlinu.
+* Radi na Wear OS by Google pametnim satovima.
