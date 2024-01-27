@@ -1,0 +1,9 @@
+- Možnost výběru barvy obrazovky baterky 🌈
+- Podpora chytrých hodinek Wear OS by Google ⌚
+- Cílový Android 14 🤖
+- Opravy chyb 🐛
+- Aktualizace překladu 🌎
+- Aktualizace závislostí ⚙️
+
+Všem uživatelům a přispěvatelům mnohokrát děkujeme! 😍
+Můžete přidat nebo aktualizovat překlady na https://hosted.weblate.org/engage/flashy/. 🗣️
