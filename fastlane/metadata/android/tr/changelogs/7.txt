@@ -1,0 +1,4 @@
+Çeviri Güncellemeleri 🌎
+Bağımlılık Güncellemeleri ⚙️
+Ekran Kapatıldığında El Fenerinin Kapanması İçin Seçenek Eklendi 🛋️
+Hata Düzeltmeleri 🐛
