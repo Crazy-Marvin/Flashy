@@ -1,2 +1,3 @@
 include ':app'
+include ':wear'
 rootProject.name='Flashy'
