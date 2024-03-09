@@ -6,8 +6,8 @@ android {
         applicationId "rocks.poopjournal.flashy"
         minSdk 19
         targetSdk 34
-        versionCode 12
-        versionName "2.0"
+        versionCode 11
+        versionName "1.9"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
         resConfigs "en", "cs", "de", "es", "hr", "lt", "nb-rNO", "pt", "pt-rBR", "ru", "sat", "tr", "zh-rCN"
@@ -51,6 +51,6 @@ dependencies {
 
     implementation 'me.tankery.lib:circularSeekBar:1.4.2'
     //to resolve dependency conflicts
-    implementation 'androidx.lifecycle:lifecycle-viewmodel:2.7.0'
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0"
+    implementation 'androidx.lifecycle:lifecycle-viewmodel:2.6.2'
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2"
 }

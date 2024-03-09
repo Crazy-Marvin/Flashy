@@ -19,4 +19,3 @@ Esta rápida lanterna pode ser uma escolha perfeita para usuário com um disposi
 * Design simples e elegante
 * Use a luz da sua tela ou o flash da câmera como fonte de luz               
 * Controle e customize o brilho
-* Funciona em smartwatches Wear OS by Google

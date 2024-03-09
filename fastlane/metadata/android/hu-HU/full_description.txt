@@ -19,4 +19,3 @@ Ez a gyors zseblámpa tökéletes választás lehet azoknak a felhasználóknak,
 * Elegáns és egyszerű kialakítás
 * Forrásként a képernyő fényét vagy a vakut használja                
 * A fényerő szabályozása és testreszabása
-* Wear OS by Google okosórákon fut.

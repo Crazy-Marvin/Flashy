@@ -20,4 +20,3 @@ Ang mabilis na flashlight na ito ay maaaring maging isang perpektong pagpipilian
 * Uses your screen’s light or camera flash as a source      
 * Ginagamit ang inyong screen light o camera flash bilang pagkukunan          
 * Kontrolin at ipasadya ang ningning
-* Tumatakbo sa Wear OS by Google smartwatches.

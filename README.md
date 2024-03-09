@@ -50,7 +50,6 @@ This fast flashlight can be a perfect choice for users with a device that doesn�
 * Elegant and simple design with different themes
 * Uses your screen’s light or camera flash as a source                
 * Control and customize the brightness
-* Runs on Wear OS by Google smartwatches
 
 # 🔨 Contributing
 

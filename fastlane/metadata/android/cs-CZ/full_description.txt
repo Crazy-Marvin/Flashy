@@ -19,4 +19,3 @@ Tato rychlá kapesní svítilna může být skvělou volbou pro uživatele se za
 * Elegantní a jednoduchý design
 * Používá světlo obrazovky nebo blesk fotoaparátu jako zdroj světla
 * Ovládání a přizpůsobení svítivosti
-* Běží na chytrých hodinkách Wear OS by Google.

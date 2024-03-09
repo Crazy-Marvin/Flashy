@@ -26,4 +26,3 @@ Jūsų saugumas garantuojamas ir nėra jokių reklamų, todėl galite nesutrukdo
 * Elegantiškas ir paprastas dizainas.
 * Kaip šaltinį naudoja jūsų ekrano šviesą arba fotoaparato blykstę.
 * Valdykite ir nustatykite ryškumo lygį.
-* Veikia naudojant „Wear OS by Google“ išmaniuosius laikrodžius.

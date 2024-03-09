@@ -10,13 +10,13 @@ Ova baterijska lampa osvjetljava okolinu i postavlja ugođaj jednostavnim pritis
 ☀️ <b>Upravljaj i prilagodi svjetlinu</b>
 
 Prilagodi svjetlinu i boju ekrana svojim željama pomoću ove minimalističke svjetiljke.
-Okreći krug svjetline i prilagodi je svojim potrebama.
+Okreći krug svjetline i prilagodi ga svojim potrebama.
 Postavljanje niže vrijednosti omogućuje dužu upotrebu bez oštećenja tvog uređaja.
 
 🚫 <b>Besplatni softver i bez oglasa</b>
 
 Ova svjetiljka štiti privatnost.
-Savršen izbor za korisnike s uređajem koji nema kameru ili čija je bljeskalica pokvarena.
+Savršen izbor za korisnike s uređajem koji nema kameru ili čija je svjetiljka pokvarena.
 Tvoja je sigurnost zajamčena, nema oglasa, i ništa te neće ometati tijekom upotrebe.
 
 💡 <b>Značajke</b>
@@ -26,4 +26,3 @@ Tvoja je sigurnost zajamčena, nema oglasa, i ništa te neće ometati tijekom up
 * Elegantan i jednostavan dizajn.
 * Koristi svjetlo tvog ekrana ili bljeskalicu kamere kao izvor svjetla.
 * Kontroliraj i prilagodi svjetlinu.
-* Radi na Wear OS by Google pametnim satovima.

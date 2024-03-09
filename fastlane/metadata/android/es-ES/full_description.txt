@@ -4,8 +4,8 @@ Práctica <b>aplicación de linterna de pantalla</b> que utiliza la luz de la pa
 🔦 <b>Simple y manejable</b>
 
 Diseño multifuncional que ahorra energía.
-Elegante linterna de fácil uso y brillo en tu bolsillo.
-Esta luz antorcha de pantalla aporta claridad y crea ambiente con sólo pulsar un botón.
+Elegante brillo de linterna fácil de usar en su bolsillo.
+Esta luz de la antorcha de la pantalla da trae claridad y establece el estado de ánimo al pulsar un botón.
 
 ☀️ <b>Controlar y ajustar el brillo</b>
 
@@ -26,4 +26,3 @@ Tu seguridad está garantizada y no tiene anuncios, por lo que no te interrumpir
 * Diseño elegante y sencillo con diferentes temas.
 * Utiliza la luz de la pantalla o el flash de la cámara como fuente de luz.
 * Controla y personaliza el brillo.
-* Funciona con los relojes inteligentes Wear OS de Google.
