@@ -1,2 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">Flashy</string>
+    <string name="flashlight">Senter</string>
+    <string name="no_camera">Tidak ada kamera</string>
+    <string name="cannot_access_camera">Tidak dapat mengakses kamera, apakah sedang digunakan oleh aplikasi lain?</string>
+    <string name="maximize_screen_brightness">Memaksimalkan kecerahan layar</string>
+    <string name="grant_permission">Beri izin</string>
+    <string name="system_settings_permission_notice">Untuk mengubah kecerahan layar melalui widget, izin khusus harus diberikan kepada aplikasi. Tekan tombol di bawah ini untuk melakukannya.
+\n
+\nKeluar tanpa memberikan izin akan menyebabkan widget tidak ditambahkan.</string>
+    <string name="system_settings_permission_granted">Izin diberikan. Anda dapat keluar dari layar ini sekarang.</string>
+    <string name="settings">Pengaturan</string>
+    <string name="general">Umum</string>
+    <string name="appearance">Tampilan</string>
+    <string name="theme">Tema</string>
+    <string name="light">Terang</string>
+    <string name="dark">Gelap</string>
+    <string name="follow_system">Ikuti Sistem</string>
+</resources>
