@@ -221,7 +221,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void changeButtonColors(FlashlightMode mode, boolean isTurnedOn) {
-        int defaultOption = legacyPreferences.getInt("default_option", 1);
         switch (mode) {
             case NORMAL:
                 binding.powerCenter.setColorFilter(isTurnedOn ? Color.parseColor("#28FFB137") : Color.parseColor("#F3F3F7"));
