@@ -1,21 +1,18 @@
 package rocks.poopjournal.flashy.activities;
 
 import android.animation.LayoutTransition;
-import android.content.BroadcastReceiver;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
@@ -29,6 +26,7 @@ import com.skydoves.colorpickerview.ColorPickerView;
 import com.skydoves.colorpickerview.listeners.ColorListener;
 
 import me.tankery.lib.circularseekbar.CircularSeekBar;
+
 import rocks.poopjournal.flashy.NoFlashlightDialog;
 import rocks.poopjournal.flashy.R;
 import rocks.poopjournal.flashy.databinding.MainActivityBinding;
@@ -39,7 +37,6 @@ import rocks.poopjournal.flashy.utils.Utils;
 
 public class MainActivity extends AppCompatActivity {
     //Fields
-    RelativeLayout  root_layout ;
     private int brightness = -999;
     private Window window;
     private SharedPreferences legacyPreferences; //kept for legacy reasons
@@ -101,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         legacyPreferences = getSharedPreferences("my_prefs", MODE_PRIVATE);
         applyListeners();
         init();
-        if (savedInstanceState != null && legacyPreferences.getInt("default_option", 1) == 2) {
+        if (savedInstanceState != null && !isFlashOption()) {
             brightness = savedInstanceState.getInt("brightness");
             WindowManager.LayoutParams layoutpars = window.getAttributes();
             layoutpars.screenBrightness = (float) brightness / 100;
@@ -136,14 +133,12 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
-        root_layout = findViewById(R.id.root_layout);
         ColorPickerView colorPickerView = findViewById(R.id.colorPickerView);
         colorPickerView.setColorListener(new ColorListener() {
             @Override
             public void onColorSelected(int color, boolean fromUser) {
 
-                root_layout.setBackgroundColor(color);
-                window.setStatusBarColor(color);
+                updateUIColors(color);
             }
         });
     }
@@ -163,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
     void applyListeners() {
         binding.bgOptions.setOnClickListener(view -> {
             SharedPreferences.Editor editor = legacyPreferences.edit();
-            editor.putInt("default_option", legacyPreferences.getInt("default_option", 1) == 1 ? 2 : 1);
+            editor.putInt("default_option", isFlashOption() ? 2 : 1);
             editor.apply();
             init();
         });
@@ -176,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void init() {
-        if (legacyPreferences.getInt("default_option", 1) == 1) {
+        if (isFlashOption()) {
             updateOptionsUI(true);
             refreshActivityForFlashLight();
         } else {
@@ -222,11 +217,11 @@ public class MainActivity extends AppCompatActivity {
         }
         binding.colorPickerView.setEnabled(false);
         binding.colorPickerView.setVisibility(View.GONE);
-        binding.rootLayout.setBackgroundColor(Color.parseColor("#00000000")); //transparent
-        window.setStatusBarColor(Color.parseColor("#00000000")); //transparent
+        updateUIColors(Color.parseColor("#00000000")); //transparent
     }
 
     private void changeButtonColors(FlashlightMode mode, boolean isTurnedOn) {
+        int defaultOption = legacyPreferences.getInt("default_option", 1);
         switch (mode) {
             case NORMAL:
                 binding.powerCenter.setColorFilter(isTurnedOn ? Color.parseColor("#28FFB137") : Color.parseColor("#F3F3F7"));
@@ -269,8 +264,6 @@ public class MainActivity extends AppCompatActivity {
             helper.turnOffAll(this);
         binding.colorPickerView.setEnabled(true);
         binding.colorPickerView.setVisibility(View.VISIBLE);
-        binding.rootLayout.setBackgroundColor(Color.parseColor("#FFFFFF")); //force set white, because it does not make sense for the app to be dark when using screen light
-        window.setStatusBarColor(Color.parseColor("#FFFFFF")); //force set white, because it does not make sense for the app to be dark when using screen light
         if (binding.progressCircular.getProgress() > 0) {
             binding.progressCircular.setOnSeekBarChangeListener(null);
             binding.progressCircular.setProgress(0f);
@@ -295,12 +288,34 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         binding.powerCenter.setOnClickListener(view -> binding.progressCircular.setProgress(brightness != 100 ? 100 : 0));
+        updateUIColors(Color.parseColor("#FFFFFF")); //force set white, because it does not make sense for the app to be dark when using screen light
+    }
+
+    void updateUIColors(int backgroundColor) {
+        int invertedColor = Utils.invertColor(isFlashOption() ? MaterialColors.getColor(this, android.R.attr.colorBackground, 0) : backgroundColor);
+        PorterDuffColorFilter colorFilter = new PorterDuffColorFilter(invertedColor, PorterDuff.Mode.SRC_ATOP);
+        binding.toolbar.setTitleTextColor(invertedColor);
+        binding.powerCenter.setColorFilter(colorFilter);
+        binding.bgOptions.getBackground().setColorFilter(colorFilter);
+        binding.bgFlashlightMode.getBackground().setColorFilter(colorFilter);
+        binding.aboutIcon.setColorFilter(colorFilter);
+        binding.settingsIcon.setColorFilter(colorFilter);
+
+        binding.rootLayout.setBackgroundColor(backgroundColor);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            window.setStatusBarColor(backgroundColor);
+            window.setNavigationBarColor(backgroundColor);
+        }
+    }
+
+    boolean isFlashOption() {
+        return legacyPreferences.getInt("default_option", 1) == 1;
     }
 
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        if (legacyPreferences.getInt("default_option", 1) == 2) {
+        if (!isFlashOption()) {
             outState.putInt("brightness", brightness);
         }
     }

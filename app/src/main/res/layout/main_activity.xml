@@ -158,7 +158,6 @@
         android:layout_marginStart="20dp"
         android:layout_marginBottom="20dp"
         android:layout_alignParentBottom="true"
-        android:tint="?attr/colorControlNormal"
         android:src="@drawable/ic_info" />
 
     <ImageView
@@ -169,7 +168,6 @@
         android:layout_marginBottom="20dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:tint="?attr/colorControlNormal"
         android:src="@drawable/ic_settings" />
 
 

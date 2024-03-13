@@ -1,5 +1,6 @@
 package rocks.poopjournal.flashy.utils;
 
+import android.graphics.Color;
 import static android.hardware.Camera.Parameters.FLASH_MODE_AUTO;
 import static android.hardware.Camera.Parameters.FLASH_MODE_ON;
 import static android.hardware.Camera.Parameters.FLASH_MODE_TORCH;
@@ -12,6 +13,7 @@ import android.content.SharedPreferences;
 import android.hardware.Camera;
 
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.graphics.ColorUtils;
 import androidx.preference.PreferenceManager;
 
 import java.util.List;
@@ -77,4 +79,10 @@ public class Utils {
         context.setTheme(preferences.getBoolean("md3", false) ? R.style.AppTheme_Material3 : R.style.AppTheme);
     }
 
+    public static int invertColor(int color) {
+        int red = 255 - Color.red(color);
+        int green = 255 - Color.green(color);
+        int blue = 255 - Color.blue(color);
+        return Color.rgb(red, green, blue);
+    }
 }
