@@ -37,6 +37,7 @@ import rocks.poopjournal.flashy.utils.Utils;
 
 public class MainActivity extends AppCompatActivity {
     //Fields
+    private int invertedBackgroundColor = 0;
     private int brightness = -999;
     private Window window;
     private SharedPreferences legacyPreferences; //kept for legacy reasons
@@ -162,12 +163,8 @@ public class MainActivity extends AppCompatActivity {
             editor.apply();
             init();
         });
-        binding.aboutIcon.setOnClickListener(view -> {
-            startActivity(new Intent(this, AboutActivity.class));
-        });
-        binding.settingsIcon.setOnClickListener(view -> {
-            startActivity(new Intent(this, SettingsActivity.class));
-        });
+        binding.aboutIcon.setOnClickListener(view -> startActivity(new Intent(this, AboutActivity.class)));
+        binding.settingsIcon.setOnClickListener(view -> startActivity(new Intent(this, SettingsActivity.class)));
     }
 
     void init() {
@@ -223,7 +220,7 @@ public class MainActivity extends AppCompatActivity {
     private void changeButtonColors(FlashlightMode mode, boolean isTurnedOn) {
         switch (mode) {
             case NORMAL:
-                binding.powerCenter.setColorFilter(isTurnedOn ? Color.parseColor("#28FFB137") : Color.parseColor("#F3F3F7"));
+                binding.powerCenter.setColorFilter(isTurnedOn ? Color.parseColor("#28FFB137") : invertedBackgroundColor);
                 binding.powerIcon.setColorFilter(isTurnedOn ? Color.parseColor("#FFB137") : Color.parseColor("#AAAABB"));
                 break;
             case SOS:
@@ -291,9 +288,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void updateUIColors(int backgroundColor) {
-        int invertedColor = Utils.invertColor(isFlashOption() ? MaterialColors.getColor(this, android.R.attr.colorBackground, 0) : backgroundColor);
-        PorterDuffColorFilter colorFilter = new PorterDuffColorFilter(invertedColor, PorterDuff.Mode.SRC_ATOP);
-        binding.toolbar.setTitleTextColor(invertedColor);
+        invertedBackgroundColor  = Utils.invertColor(isFlashOption() ? MaterialColors.getColor(this, android.R.attr.colorBackground, 0) : backgroundColor);
+        PorterDuffColorFilter colorFilter = new PorterDuffColorFilter(invertedBackgroundColor, PorterDuff.Mode.SRC_ATOP);
+        binding.toolbar.setTitleTextColor(invertedBackgroundColor);
         binding.powerCenter.setColorFilter(colorFilter);
         binding.bgOptions.getBackground().setColorFilter(colorFilter);
         binding.bgFlashlightMode.getBackground().setColorFilter(colorFilter);
