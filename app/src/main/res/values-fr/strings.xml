@@ -1,2 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="appearance">Apparence</string>
+    <string name="stroboscope_interval">Intervalle stroboscopique</string>
+    <string name="flashlight">Lampe torche</string>
+    <string name="cannot_access_camera">Impossible d\'accéder à la caméra, est-elle utilisée par une autre application ?</string>
+    <string name="no_camera">Pas de caméra</string>
+    <string name="grant_permission">Accorder l\'autorisation</string>
+    <string name="maximize_screen_brightness">Maximiser la luminosité de l\'écran</string>
+    <string name="system_settings_permission_notice">Pour changer la luminosité de l\'écran via le widget, une permission spéciale doit être accordée à l\'application. Veuillez appuyer sur le bouton ci-dessous pour le faire.
+\n
+\nSi vous quittez l\'application sans accorder l\'autorisation, le widget ne sera pas ajouté.</string>
+    <string name="system_settings_permission_granted">Permission accordée. Vous pouvez quitter cet écran maintenant.</string>
+    <string name="settings">Paramètres</string>
+    <string name="general">Général</string>
+    <string name="theme">Thème</string>
+    <string name="light">Clair</string>
+    <string name="dark">Sombre</string>
+    <string name="follow_system">Suivre le système</string>
+    <string name="about">À propos</string>
+    <string name="contribute">Contribuer</string>
+    <string name="source_code">Code source</string>
+    <string name="dev">Développeur</string>
+    <string name="report_problem">Signaler un problème</string>
+    <string name="translate">Traduire</string>
+    <string name="oss_licenses">Licences open source</string>
+    <string name="md_icons">Icônes Material Design</string>
+    <string name="feather_icons">Icônes Feather</string>
+    <string name="no_app_can_handle">Aucune application ne peut gérer cette action.</string>
+    <string name="no_flashlight">Pas de lampe torche</string>
+    <string name="use_screen">Utiliser l\'écran</string>
+    <string name="words_per_min">Mots par minute</string>
+    <string name="words_per_min_error">Nombre de mots invalide</string>
+    <string name="words_per_min_explanation">Les mots par minute représentent le nombre de fois que le mot standard \"PARIS\" peut être envoyé par minute.
+\nPlus la valeur est haute, plus la durée de chaque \"dit\" est courte.
+\nNotez que ce paramètre ne prend pas en compte le minutage de Farnsworth.
+\nSaisissez le nombre souhaité ci-dessous.</string>
+    <string name="use_farnsworth">Utiliser le minutage de Farnsworth</string>
+    <string name="turn_on_sos_now">Activer le SOS maintenant</string>
+    <string name="farnsworth_unit_length">Unité de longueur de Farnsworth</string>
+    <string name="no_flash_on_device_screen_off">Désactiver la lampe torche lorsque l\'on éteint l\'écran de l\'appareil</string>
+    <string name="no_flash_on_device_screen_off_subtext">Ne fonctionne que lorsque l\'application est ouverte</string>
+</resources>
