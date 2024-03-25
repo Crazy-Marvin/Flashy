@@ -8,7 +8,16 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColor">@android:color/black</item>
         <item name="android:statusBarColor" tools:targetApi="lollipop">?attr/colorPrimary</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="lollipop">true</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">true</item>
         <item name="bottomSheetDialogTheme">@style/RoundedCornersBottomSheetTheme</item>
+    </style>
+
+    <style name="TextAppearance.ToolbarTitle" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textSize">18dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">center</item>
+        <item name="fontFamily">@font/lexenddeca_variablefont_wght</item>
     </style>
 
     <style name="RoundedCornersBottomSheetTheme" parent="ThemeOverlay.MaterialComponents.BottomSheetDialog">
@@ -26,6 +35,8 @@
 
     <style name="AppTheme.Material3" parent="Theme.Material3.DynamicColors.DayNight">
         <item name="android:textColor">@android:color/black</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="lollipop">true</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">true</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="alertDialogTheme">@style/AlertDialogTheme.Material3</item>

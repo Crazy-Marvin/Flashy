@@ -9,26 +9,28 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        android:background="@android:color/transparent"
+        app:elevation="0dp">
 
-        <androidx.appcompat.widget.Toolbar
+        <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            app:title="@string/app_name" />
+            android:background="@android:color/transparent"
+            app:titleTextAppearance="@style/TextAppearance.ToolbarTitle"
+            app:title="@string/app_name"
+            app:titleCentered="true" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
     <me.tankery.lib.circularseekbar.CircularSeekBar
         android:id="@+id/progress_circular"
-        android:layout_width="200dp"
-        android:layout_height="300dp"
+        android:layout_width="270dp"
+        android:layout_height="400dp"
+        android:layout_marginTop="30dp"
         android:layout_centerInParent="true"
         app:cs_circle_color="#F3F3F7"
         app:cs_circle_progress_color="#FFB137"
-
         app:cs_circle_stroke_width="3dp"
         app:cs_end_angle="40"
         app:cs_maintain_equal_circle="true"
@@ -55,89 +57,79 @@
         android:layout_centerInParent="true"
         android:src="@drawable/power" />
 
-    <RelativeLayout
-        android:id="@+id/bg_options"
-        android:layout_width="88dp"
+    <LinearLayout
+        android:id="@+id/flashlight_options"
+        android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_alignBottom="@id/progress_circular"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/ic_rectangle_bg_options">
+        android:orientation="horizontal">
 
         <RelativeLayout
-            android:id="@+id/bg_option_circle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:animateLayoutChanges="true"
-            android:background="@drawable/bg_option_circle" />
+            android:id="@+id/bg_options"
+            android:layout_width="88dp"
+            android:layout_height="40dp"
+            android:background="@drawable/ic_rectangle_bg_options">
 
-        <ImageView
-            android:id="@+id/flash_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="15dp"
-            android:src="@drawable/flash_icon" />
+            <RelativeLayout
+                android:id="@+id/bg_option_circle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:background="@drawable/bg_option_circle" />
 
-        <ImageView
-            android:id="@+id/screen_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="17dp"
-            android:src="@drawable/screen_icon" />
-    </RelativeLayout>
+            <ImageView
+                android:id="@+id/flash_icon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="8dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/flash_icon" />
 
-    <ImageView
-        android:id="@+id/sos_button"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
-        android:layout_centerVertical="true"
-        android:layout_marginEnd="30dp"
-        android:layout_toStartOf="@id/progress_circular"
-        android:background="@drawable/ripple_effect"
-        android:src="@drawable/ic_power_center" />
+            <ImageView
+                android:id="@+id/screen_icon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="12dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/screen_icon" />
+        </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/sos_icon"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="42dp"
-        android:layout_marginEnd="42dp"
-        android:layout_toStartOf="@id/progress_circular"
-        android:background="@drawable/ripple_effect"
-        android:src="@drawable/sos" />
+        <RelativeLayout
+            android:id="@+id/bg_flashlight_mode"
+            android:layout_width="88dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/ic_rectangle_bg_options">
 
-    <ImageView
-        android:id="@+id/stroboscope_button"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_toEndOf="@id/progress_circular"
-        android:background="@drawable/ripple_effect"
-        android:src="@drawable/ic_power_center" />
+            <ImageView
+                android:id="@+id/sos_icon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="8dp"
+                android:src="@drawable/sos" />
 
-    <ImageView
-        android:id="@+id/stroboscope_icon"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="42dp"
-        android:layout_marginTop="42dp"
-        android:layout_toEndOf="@id/progress_circular"
-        android:background="@drawable/ripple_effect"
-        android:src="@drawable/loader" />
+            <ImageView
+                android:id="@+id/stroboscope_icon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="12dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/loader" />
+        </RelativeLayout>
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/stroboscope_interval"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/bg_options"
+        android:layout_below="@id/colorPickerView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:text="@string/stroboscope_interval" />
 
     <com.google.android.material.slider.Slider
@@ -146,16 +138,37 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/stroboscope_interval"
         android:layout_marginHorizontal="6dp"
+        android:importantForAccessibility="no"
         android:stepSize="0.1"
         android:valueFrom="0.1"
         android:valueTo="1" />
 
     <com.skydoves.colorpickerview.ColorPickerView
         android:id="@+id/colorPickerView"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_margin="10dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true" />
+
+    <ImageView
+        android:id="@+id/about_icon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/ic_info" />
+
+    <ImageView
+        android:id="@+id/settings_icon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_margin="10dp" />
+        android:src="@drawable/ic_settings" />
+
 
 </RelativeLayout>
