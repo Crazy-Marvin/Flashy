@@ -40,4 +40,10 @@
     <string name="farnsworth_unit_length">Unité de longueur de Farnsworth</string>
     <string name="no_flash_on_device_screen_off">Désactiver la lampe torche lorsque l\'on éteint l\'écran de l\'appareil</string>
     <string name="no_flash_on_device_screen_off_subtext">Ne fonctionne que lorsque l\'application est ouverte</string>
+    <string name="mit">Licence MIT</string>
+    <string name="app_name">Flashy</string>
+    <string name="version_license">Version %s · Licence Apache 2.0</string>
+    <string name="apache2">Licence Apache 2.0</string>
+    <string name="gpl2_ce">Licence publique générale GNU, version 2, avec exception Classpath</string>
+    <string name="kotlin">Kotlin</string>
 </resources>
