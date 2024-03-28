@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="to_turn_off_the_flash_light_tap_any_where">Pour éteindre la lampe torche appuyez n\'importe où.</string>
+    <string name="app_name">Flashy</string>
 </resources>
