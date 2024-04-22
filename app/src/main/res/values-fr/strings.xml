@@ -14,7 +14,7 @@
     <string name="settings">Paramètres</string>
     <string name="general">Général</string>
     <string name="theme">Thème</string>
-    <string name="light">Clair</string>
+    <string name="light">Éclairer</string>
     <string name="dark">Sombre</string>
     <string name="follow_system">Suivre le système</string>
     <string name="about">À propos</string>
@@ -25,7 +25,7 @@
     <string name="translate">Traduire</string>
     <string name="oss_licenses">Licences open source</string>
     <string name="md_icons">Icônes Material Design</string>
-    <string name="feather_icons">Icônes Feather</string>
+    <string name="feather_icons">Icônes plume</string>
     <string name="no_app_can_handle">Aucune application ne peut gérer cette action.</string>
     <string name="no_flashlight">Pas de lampe torche</string>
     <string name="use_screen">Utiliser l\'écran</string>
@@ -39,9 +39,9 @@
     <string name="turn_on_sos_now">Activer le SOS maintenant</string>
     <string name="farnsworth_unit_length">Unité de longueur de Farnsworth</string>
     <string name="no_flash_on_device_screen_off">Désactiver la lampe torche lorsque l\'on éteint l\'écran de l\'appareil</string>
-    <string name="no_flash_on_device_screen_off_subtext">Ne fonctionne que lorsque l\'application est ouverte</string>
+    <string name="no_flash_on_device_screen_off_subtext">Ne fonctionne seulement quand l\'application est ouverte</string>
     <string name="mit">Licence MIT</string>
-    <string name="app_name">Flashy</string>
+    <string name="app_name">Flashé</string>
     <string name="version_license">Version %s · Licence Apache 2.0</string>
     <string name="apache2">Licence Apache 2.0</string>
     <string name="gpl2_ce">Licence publique générale GNU, version 2, avec exception Classpath</string>
