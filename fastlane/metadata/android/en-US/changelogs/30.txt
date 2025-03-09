@@ -1,0 +1,9 @@
+- Improved UX 🎨
+- Prevent screen from turning off 🚨
+- Bugfixes 🐛
+- Translation updates 🌎
+- Dependency updates ⚙️
+- Target Android 16 🤖
+
+Thank you so much to all users and contributors! 😍
+Feel welcome to add or update translations on https://hosted.weblate.org/engage/flashy/. 🗣️
