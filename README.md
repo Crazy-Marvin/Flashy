@@ -8,6 +8,7 @@
 
 [![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/Crazy-Marvin/Flashy/ci.yml?branch=development)](https://github.com/Crazy-Marvin/Flashy/actions)
 [![License](https://img.shields.io/github/license/Crazy-Marvin/Flashy.svg)](https://github.com/Crazy-Marvin/Flashy/blob/development/LICENSE)
+[![Figma Mockups](https://img.shields.io/badge/Figma-black?logo=figma)](https://www.figma.com/file/KVIWgF61t85hjMB4gMdS6I/Flashy?type=design&node-id=0-1&mode=design)
 [![Last commit](https://img.shields.io/github/last-commit/Crazy-Marvin/Flashy.svg?style=flat)](https://github.com/Crazy-Marvin/Flashy/commits)
 [![Releases](https://img.shields.io/github/downloads/Crazy-Marvin/Flashy/total.svg?style=flat)](https://github.com/Crazy-Marvin/Flashy/releases)
 [![Latest tag](https://img.shields.io/github/tag/Crazy-Marvin/Flashy.svg?style=flat)](https://github.com/Crazy-Marvin/Flashy/tags)
