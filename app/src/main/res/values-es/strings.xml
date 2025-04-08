@@ -40,7 +40,7 @@
     <string name="md3_subtext">Usar el aspecto de Android 12</string>
     <string name="md3">Material Design 3</string>
     <string name="no_flash_on_device_screen_off">Apagar la linterna al apagar la pantalla del dispositivo</string>
-    <string name="feather_icons">Feather Icons</string>
+    <string name="feather_icons">Iconos de Feather</string>
     <string name="no_flash_on_device_screen_off_subtext">Sólo funciona cuando la aplicación está abierta</string>
     <string name="app_name">Flashy</string>
     <string name="cannot_access_camera">No se puede acceder a la cámara. ¿Está siendo utilizado por otra aplicación?</string>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="use_farnsworth">Empregar o ritmo de Farnsworth</string>
+    <string name="no_camera">Sen cámara</string>
+    <string name="dark">Escuro</string>
+    <string name="follow_system">Do sistema</string>
+    <string name="system_settings_permission_notice">Para cambiar o brillo da pantalla a través do widget, é necesario conceder un permiso especial á aplicación. Pulsa o botón de abaixo para facelo.\n\nSaír sen conceder o permiso fará que non se engada o widget.</string>
+    <string name="system_settings_permission_granted">Permiso concedido. Xa podes saír desta pantalla.</string>
+    <string name="general">Xeral</string>
+    <string name="no_flashlight">Sen lanterna</string>
+    <string name="light">Claro</string>
+    <string name="contribute">Contribuír</string>
+    <string name="no_flash_when_screen">Apagar a lanterna no modo pantalla</string>
+    <string name="maximize_screen_brightness">Maximizar o brillo da pantalla</string>
+    <string name="app_name">Flashy</string>
+    <string name="flashlight">Lanterna</string>
+    <string name="cannot_access_camera">Non se pode acceder á cámara. Está en uso por outra aplicación?</string>
+    <string name="grant_permission">Conceder o permiso</string>
+    <string name="settings">Configuración</string>
+    <string name="appearance">Aparencia</string>
+    <string name="theme">Tema</string>
+    <string name="about">Acerca de</string>
+    <string name="version_license">Versión %s · Licenza Apache 2.0</string>
+    <string name="source_code">Código fonte</string>
+    <string name="report_problem">Informar dun problema</string>
+    <string name="translate">Traducir</string>
+    <string name="dev">Desenvolvedor</string>
+    <string name="oss_licenses">Licenzas de código aberto</string>
+    <string name="sos">SOS</string>
+    <string name="no_app_can_handle">Ningunha aplicación pode xestionar esta acción.</string>
+    <string name="turn_on_sos_now">Activar SOS agora</string>
+    <string name="farnsworth_unit_length">Unidade de lonxitude Farnsworth</string>
+    <string name="farnsworth_unit_length_error">A duración da unidade Farnsworth debe ser maior ca dunha unidade normal</string>
+    <string name="md3_subtext">Empregar o aspecto de Android 12</string>
+    <string name="no_flash_on_device_screen_off_subtext">Só funciona cando a aplicación está aberta</string>
+    <string name="words_per_min">Palabras por minuto</string>
+    <string name="md_icons">Iconas de Material Design</string>
+    <string name="feather_icons">Iconas de Feather</string>
+    <string name="use_screen">Usar pantalla</string>
+    <string name="stroboscope_interval">Intervalo do estroboscopio</string>
+    <string name="words_per_min_error">Número de palabras inválido</string>
+    <string name="words_per_min_explanation">Palabras por minuto é o número de veces que se pode enviar a palabra estándar «PARIS» por minuto.\nCanto maior sexa o valor, menor será a duración de cada «dit».\nTen en conta que esta configuración non ten en conta a sincronización Farnsworth.\nIntroduce a continuación o número desexado.</string>
+    <string name="learn_more_morse_timing">Máis información acerca da sincronización do código Morse</string>
+    <string name="farnsworth_unit_length_explanation">A sincronización Farnsworth facilita o recoñecemento dos patróns de son aumentando os espazos entre os caracteres e as palabras para dar máis tempo de recoñecemento.\nUnha unidade Farnsworth é máis longa que unha unidade básica.\nIntroduce a continuación a lonxitude desexada dunha unidade Farnsworth (debe ser maior que unha unidade básica: %d milisegundos).\nDéixao en branco para utilizar a lonxitude da unidade básica máis un 25% adicional da mesma.</string>
+    <string name="no_flash_on_device_screen_off">Apagar a lanterna ao apagar a pantalla do dispositivo</string>
+</resources>
