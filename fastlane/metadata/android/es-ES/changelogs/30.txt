@@ -1,0 +1,9 @@
+- UX mejorada 🎨
+- Evitar que la pantalla se apague 🚨
+- Corrección de errores 🐛
+- Actualizaciones de traducciones 🌎
+- Actualizaciones de dependencias ⚙️
+- Objetivo Android 16 🤖
+
+¡Muchas gracias a todos los usuarios y colaboradores! 😍
+Siéntete bienvenido a añadir o actualizar traducciones en https://hosted.weblate.org/engage/flashy/. 🗣️
