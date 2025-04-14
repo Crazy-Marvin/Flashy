@@ -1,0 +1,4 @@
+Actualización de traducións 🌎
+Actualización de dependencias ⚙️
+Engadida a opción para que a lanterna se apague ao apagar a pantalla 🛋️
+Corrección de erros 🐛

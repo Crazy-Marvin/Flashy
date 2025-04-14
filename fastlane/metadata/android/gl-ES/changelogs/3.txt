@@ -1,0 +1,2 @@
+Melloras internas pequenas
+Configuración de fastlane arranxada

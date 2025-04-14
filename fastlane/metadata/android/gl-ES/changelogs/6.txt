@@ -1,0 +1,8 @@
+- Soporte para Material 3 🎨
+- Soporte para widgets 🎨
+- Soporte para cambio da cor da pantalla 🎨
+- Soporte para o control do brillo da lanterna nos dispositivos Android 13+ soportados 📸
+- Engadida a opción SOS 🆘
+- Engadida a opción estroboscopio 🚨
+- Corrección de erros 🐛
+- Actualización de traducións 🗺️
