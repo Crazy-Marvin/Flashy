@@ -1,0 +1,7 @@
+- 📷 Evitar o permiso de cámara (#41)
+- 🎨 Engadido menú de configuracións rápidas (#10)
+- 🎨 Apoio á icona temática en Android 13+ (#53)
+- 💁🏽 Engadido widget básico (#27)
+- 👍 Dependencias e traducións actualizadas
+
+Moitas grazas a @unbiaseduser, @FahadSaleem e todos os tradutores! 😘

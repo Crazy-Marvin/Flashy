@@ -1,0 +1,3 @@
+- Engadido tema escuro 🧛 (#60)
+Nota: A aplicación cambia forzosamente ao tema claro cando se emprega a luz da pantalla. Isto é por deseño, xa que non ten sentido utilizar un fondo escuro para iluminar a pantalla.
+Moitas grazas a @unbiaseduser por esta característica.

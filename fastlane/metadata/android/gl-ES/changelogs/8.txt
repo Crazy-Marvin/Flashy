@@ -1,0 +1,9 @@
+- Opción para elixir unha cor de pantalla lanterna 🌈
+- Soporte Wear OS para reloxos intelixentes de Google ⌚
+- Obxectivo Android 14 🤖
+- Corrección de erros 🐛
+- Actualización de traducións 🌎
+- Actualización de dependencias ⚙️
+
+Moitas grazas a todos os usuarios e colaboradores! 😍
+Síntete benvido a engadir ou actualizar traducións en https://hosted.weblate.org/engage/flashy/. 🗣️
