@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Flashy</string>
-    <string name="to_turn_off_the_flash_light_tap_any_where">任意点击以关闭手电筒。</string>
+    <string name="to_turn_off_the_flash_light_tap_any_where">点击任意位置即可关闭手电筒。</string>
 </resources>
