@@ -1,2 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="flashlight">ไฟฉาย</string>
+    <string name="no_camera">ไม่มีกล้อง</string>
+    <string name="grant_permission">อนุญาติ</string>
+    <string name="maximize_screen_brightness">เพิ่มความสว่างหน้าจอสูงสุด</string>
+    <string name="system_settings_permission_granted">ได้รับอนุญาตแล้ว คุณสามารถออกจากหน้าจอนี้ได้</string>
+    <string name="settings">ตั้งค่า</string>
+    <string name="general">ทั่วไป</string>
+    <string name="appearance">รูปร่าง</string>
+    <string name="cannot_access_camera">ไม่สามารถเข้าถึงกล้องได้ มีแอปอื่นใช้งานอยู่?</string>
+    <string name="app_name">Flashy</string>
+    <string name="system_settings_permission_notice">หากต้องการเปลี่ยนความสว่างหน้าจอผ่านวิดเจ็ต จะต้องได้รับอนุญาตพิเศษจากแอป โปรดกดปุ่มด้านล่างเพื่อดำเนินการ\nหากออกโดยไม่ได้ให้การอนุญาต วิดเจ็ตจะไม่ได้ถูกเพิ่ม</string>
+</resources>
