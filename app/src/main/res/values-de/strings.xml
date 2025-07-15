@@ -10,7 +10,7 @@
     <string name="general">Allgemein</string>
     <string name="appearance">Erscheinungsbild</string>
     <string name="theme">Thema</string>
-    <string name="version_license">Version %s · Apache Lizenz 2.0</string>
+    <string name="version_license">Apache Lizenz 2.0</string>
     <string name="apache2">Apache Lizenz 2.0</string>
     <string name="gpl2_ce">GNU General Public License, Version 2, mit der Classpath Exception</string>
     <string name="mit">MIT Lizenz</string>

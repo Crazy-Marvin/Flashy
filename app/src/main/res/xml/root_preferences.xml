@@ -37,6 +37,12 @@
             app:iconSpaceReserved="false"
             app:defaultValue="false"/>
 
+        <Preference
+            app:key="set_as_digital_assistant"
+            app:title="@string/assitant_title"
+            app:summary="@string/assitant_summary"
+            app:iconSpaceReserved="false" />
+
     </PreferenceCategory>
 
     <PreferenceCategory app:title="@string/sos"

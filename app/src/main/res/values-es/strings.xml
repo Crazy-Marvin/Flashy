@@ -14,7 +14,7 @@
     <string name="follow_system">Del sistema</string>
     <string name="no_flash_when_screen">Apagar la linterna en modo pantalla</string>
     <string name="about">Acerca de</string>
-    <string name="version_license">Versión %s - Licencia Apache 2.0</string>
+    <string name="version_license">Licencia Apache 2.0</string>
     <string name="source_code">Código fuente</string>
     <string name="report_problem">Informar de un problema</string>
     <string name="translate">Traducir</string>

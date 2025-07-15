@@ -12,7 +12,7 @@
     <string name="light">Jasny</string>
     <string name="dark">Ciemny</string>
     <string name="follow_system">Zgodny z systemowym</string>
-    <string name="version_license">Wersja %s - Licencja Apache 2.0</string>
+    <string name="version_license">Licencja Apache 2.0</string>
     <string name="dev">Deweloper</string>
     <string name="report_problem">Zgłoś problem</string>
     <string name="oss_licenses">Licencje typu open source</string>

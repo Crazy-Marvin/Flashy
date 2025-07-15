@@ -9,7 +9,7 @@
     <string name="appearance">Внешний вид</string>
     <string name="dark">Тёмная</string>
     <string name="about">О программе</string>
-    <string name="version_license">Версия %s - Лицензия Apache 2.0</string>
+    <string name="version_license">Лицензия Apache 2.0</string>
     <string name="report_problem">Сообщить о проблеме</string>
     <string name="mit">Лицензия MIT</string>
     <string name="kotlin">Kotlin</string>

@@ -35,7 +35,7 @@
     <string name="follow_system">Seguir o sistema</string>
     <string name="no_flash_when_screen">Desligar o flash no modo de ecrã</string>
     <string name="about">Sobre</string>
-    <string name="version_license">Versão %s · Licença Apache 2.0</string>
+    <string name="version_license">Licença Apache 2.0</string>
     <string name="use_screen">Usar ecrã</string>
     <string name="sos">SOS</string>
     <string name="stroboscope_interval">Intervalo do estroboscópio</string>

@@ -10,7 +10,9 @@ import android.graphics.PorterDuffColorFilter;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
@@ -45,6 +47,10 @@ public class MainActivity extends AppCompatActivity {
     private CameraHelper helper;
     private MainActivityBinding binding;
     private final ScreenOffBroadcastReceiver turnOffFlashlightOnScreenOffReceiver = new ScreenOffBroadcastReceiver();
+
+    private View[] colorViews;
+    private View selectedColorView = null;
+    private int selectedScreenColor = Color.WHITE; // default
 
     private enum FlashlightMode {
         NORMAL, SOS, STROBOSCOPE
@@ -84,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = MainActivityBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         helper = CameraHelper.getInstance(this);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
                 helper.getFlashlightStrengthLevel(this) > 1 &&
@@ -134,11 +141,40 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
+        View colorWhite = findViewById(R.id.color_white);
+        View colorRed = findViewById(R.id.color_red);
+        View colorGreen = findViewById(R.id.color_green);
+        View colorBlue = findViewById(R.id.color_blue);
+
+        colorWhite.setTag(Color.parseColor("#ffffff"));
+        colorRed.setTag(Color.parseColor("#EF4444"));
+        colorGreen.setTag(Color.parseColor("#23C760"));
+        colorBlue.setTag(Color.parseColor("#3A86F7"));
+
+        colorViews = new View[]{colorWhite, colorRed, colorGreen, colorBlue};
+
+        for (View colorView : colorViews) {
+            colorView.setOnClickListener(v -> onColorCircleSelected(colorView));
+        }
+
+        binding.rootLayout.post(() -> onColorCircleSelected(colorWhite));
+        findViewById(R.id.show_palette_icon).setOnClickListener(v -> {
+            binding.colorPickerView.setVisibility(View.VISIBLE);
+            if (selectedColorView != null) {
+                ViewGroup.LayoutParams shrinkParams = selectedColorView.getLayoutParams();
+                shrinkParams.width = (int) TypedValue.applyDimension(
+                        TypedValue.COMPLEX_UNIT_DIP, 20, getResources().getDisplayMetrics());
+                shrinkParams.height = (int) TypedValue.applyDimension(
+                        TypedValue.COMPLEX_UNIT_DIP, 20, getResources().getDisplayMetrics());
+                selectedColorView.setLayoutParams(shrinkParams);
+                selectedColorView = null;
+            }
+        });
         ColorPickerView colorPickerView = findViewById(R.id.colorPickerView);
         colorPickerView.setColorListener(new ColorListener() {
             @Override
             public void onColorSelected(int color, boolean fromUser) {
-
+                selectedScreenColor = color;
                 updateUIColors(color);
             }
         });
@@ -177,6 +213,57 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
+
+    private void changeButtonColors(FlashlightMode mode, boolean isTurnedOn) {
+        boolean isWhiteBackground = selectedScreenColor == Color.WHITE;
+
+        int onIconColor = isWhiteBackground ? Color.parseColor("#FFB137") : Color.WHITE;
+        int offIconColor = Color.parseColor("#AAAABB");
+        int centerOnColor = isWhiteBackground ? Color.parseColor("#28FFB137") : Color.WHITE; // for powerCenter
+        int overlayColor = isWhiteBackground
+                ? Color.parseColor("#FFB137")
+                : withAlpha(selectedScreenColor, 0.75f);
+
+
+        switch (mode) {
+            case NORMAL:
+                binding.powerCenter.setColorFilter(isTurnedOn ? centerOnColor :overlayColor);
+                binding.powerIcon.clearColorFilter(); // Clear any previous filters
+                binding.powerIcon.setColorFilter(isTurnedOn ? onIconColor : offIconColor);
+
+                break;
+            case SOS:
+                binding.sosIcon.setColorFilter(isTurnedOn ? onIconColor : offIconColor);
+                break;
+            case STROBOSCOPE:
+                binding.stroboscopeIcon.setColorFilter(isTurnedOn ? onIconColor : offIconColor);
+                break;
+            default:
+                throw new IllegalArgumentException();
+        }
+    }
+
+
+    void updateOptionsUI(boolean isFlash) {
+        boolean isWhite = selectedScreenColor == Color.WHITE;
+        if (isFlash) {
+            //Change UI for options
+            RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) binding.bgOptionCircle.getLayoutParams();
+            params.removeRule(RelativeLayout.ALIGN_PARENT_END);
+            binding.bgOptionCircle.setLayoutParams(params);
+            binding.flashIcon.setColorFilter(isWhite ? Color.parseColor("#FFB137") : selectedScreenColor);
+            binding.screenIcon.setColorFilter(isWhite ? Color.parseColor("#AAAABB") : Color.WHITE);
+            binding.progressCircular.setProgress(0f);
+        } else {
+            binding.bgOptionCircle.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
+            RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) binding.bgOptionCircle.getLayoutParams();
+            params.addRule(RelativeLayout.ALIGN_PARENT_END);
+            binding.bgOptionCircle.setLayoutParams(params);
+            binding.flashIcon.setColorFilter(isWhite ? Color.parseColor("#AAAABB") : Color.WHITE);
+            binding.screenIcon.setColorFilter(isWhite ? Color.parseColor("#FFB137") : selectedScreenColor);
+        }
+    }
     void refreshActivityForFlashLight() {
         if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH))
             new NoFlashlightDialog().show(getSupportFragmentManager(), null);
@@ -214,52 +301,29 @@ public class MainActivity extends AppCompatActivity {
         }
         binding.colorPickerView.setEnabled(false);
         binding.colorPickerView.setVisibility(View.GONE);
-        updateUIColors(Color.parseColor("#00000000")); //transparent
-    }
+        findViewById(R.id.color_option_row).setVisibility(View.GONE);
 
-    private void changeButtonColors(FlashlightMode mode, boolean isTurnedOn) {
-        switch (mode) {
-            case NORMAL:
-                binding.powerCenter.setColorFilter(isTurnedOn ? Color.parseColor("#28FFB137") : invertedBackgroundColor);
-                binding.powerIcon.setColorFilter(isTurnedOn ? Color.parseColor("#FFB137") : Color.parseColor("#AAAABB"));
-                break;
-            case SOS:
-                binding.sosIcon.setColorFilter(isTurnedOn ? Color.parseColor("#FFB137") : Color.parseColor("#AAAABB"));
-                break;
-            case STROBOSCOPE:
-                binding.stroboscopeIcon.setColorFilter(isTurnedOn ? Color.parseColor("#FFB137") : Color.parseColor("#AAAABB"));
-                break;
-            default:
-                throw new IllegalArgumentException();
-        }
     }
-
-    void updateOptionsUI(boolean isFlash) {
-        if (isFlash) {
-            //Change UI for options
-            RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) binding.bgOptionCircle.getLayoutParams();
-            params.removeRule(RelativeLayout.ALIGN_PARENT_END);
-            binding.bgOptionCircle.setLayoutParams(params);
-            binding.flashIcon.setColorFilter(Color.parseColor("#FFB137"));
-            binding.screenIcon.setColorFilter(Color.parseColor("#AAAABB"));
-            binding.progressCircular.setProgress(0f);
-        } else {
-            binding.bgOptionCircle.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
-            RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) binding.bgOptionCircle.getLayoutParams();
-            params.addRule(RelativeLayout.ALIGN_PARENT_END);
-            binding.bgOptionCircle.setLayoutParams(params);
-            binding.flashIcon.setColorFilter(Color.parseColor("#AAAABB"));
-            binding.screenIcon.setColorFilter(Color.parseColor("#FFB137"));
-        }
-    }
-
     void refreshActivityForScreenLight() {
-        binding.progressCircular.setPointerColor(Color.parseColor("#FFB137"));
+        boolean isWhiteBackground = selectedScreenColor == Color.WHITE;
+        int inactiveProgressColor = isWhiteBackground
+                ? Color.parseColor("#F3F3F7") // light gray for white
+                : dimColor(selectedScreenColor, 0.9f); // simulate alpha by dimming
+
+        int activeProgressColor = isWhiteBackground
+                ? Color.parseColor("#FFB137") // yellow
+                : Color.WHITE; // white on colored background
+        int pointerColor = isWhiteBackground ? Color.parseColor("#FFB137") : Color.WHITE;
+        binding.progressCircular.setPointerColor(pointerColor);
+        binding.progressCircular.setCircleProgressColor(activeProgressColor);
+        binding.progressCircular.setCircleColor(inactiveProgressColor);
         binding.progressCircular.setEnabled(true);
         if (defaultPreferences.getBoolean("no_flash_when_screen", true) && getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH))
             helper.turnOffAll(this);
+        findViewById(R.id.color_option_row).setVisibility(View.VISIBLE);
+        binding.colorPickerView.setVisibility(View.GONE);
+
         binding.colorPickerView.setEnabled(true);
-        binding.colorPickerView.setVisibility(View.VISIBLE);
         if (binding.progressCircular.getProgress() > 0) {
             binding.progressCircular.setOnSeekBarChangeListener(null);
             binding.progressCircular.setProgress(0f);
@@ -284,25 +348,40 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         binding.powerCenter.setOnClickListener(view -> binding.progressCircular.setProgress(brightness != 100 ? 100 : 0));
-        updateUIColors(Color.parseColor("#FFFFFF")); //force set white, because it does not make sense for the app to be dark when using screen light
     }
 
     void updateUIColors(int backgroundColor) {
-        invertedBackgroundColor  = Utils.invertColor(isFlashOption() ? MaterialColors.getColor(this, android.R.attr.colorBackground, 0) : backgroundColor);
-        PorterDuffColorFilter colorFilter = new PorterDuffColorFilter(invertedBackgroundColor, PorterDuff.Mode.SRC_ATOP);
+        selectedScreenColor = backgroundColor;
+
+        boolean isWhite = selectedScreenColor == Color.WHITE;
+
+        // Fallback color for white background
+        int overlayColor = isWhite
+                ? Color.parseColor("#EFEFF1")
+                : withAlpha(selectedScreenColor, 0.75f); // Apply alpha for other colors
+
+        // Use contrast for text/icons
+
+
+        invertedBackgroundColor = isWhite ? Color.BLACK : Color.WHITE;
+
+        PorterDuffColorFilter colorFilter = new PorterDuffColorFilter(overlayColor, PorterDuff.Mode.SRC_ATOP);
+
+        // Apply filters
         binding.toolbar.setTitleTextColor(invertedBackgroundColor);
-        binding.powerCenter.setColorFilter(colorFilter);
         binding.bgOptions.getBackground().setColorFilter(colorFilter);
         binding.bgFlashlightMode.getBackground().setColorFilter(colorFilter);
-        binding.aboutIcon.setColorFilter(colorFilter);
-        binding.settingsIcon.setColorFilter(colorFilter);
+        binding.aboutIcon.setColorFilter(invertedBackgroundColor);
+        binding.settingsIcon.setColorFilter(invertedBackgroundColor);
 
+        // Set background and system bars
         binding.rootLayout.setBackgroundColor(backgroundColor);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             window.setStatusBarColor(backgroundColor);
             window.setNavigationBarColor(backgroundColor);
         }
     }
+
 
     boolean isFlashOption() {
         return legacyPreferences.getInt("default_option", 1) == 1;
@@ -314,5 +393,60 @@ public class MainActivity extends AppCompatActivity {
         if (!isFlashOption()) {
             outState.putInt("brightness", brightness);
         }
+    }
+
+    private void onColorCircleSelected(View selectedView) {
+        // Shrink previously selected view
+        if (selectedColorView != null) {
+            ViewGroup.LayoutParams shrinkParams = selectedColorView.getLayoutParams();
+            shrinkParams.width = (int) TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP, 20, getResources().getDisplayMetrics());
+            shrinkParams.height = (int) TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP, 20, getResources().getDisplayMetrics());
+            selectedColorView.setLayoutParams(shrinkParams);
+        }
+
+        // Enlarge newly selected view
+        ViewGroup.LayoutParams enlargeParams = selectedView.getLayoutParams();
+        enlargeParams.width = (int) TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP, 32, getResources().getDisplayMetrics());
+        enlargeParams.height = (int) TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP, 32, getResources().getDisplayMetrics());
+        selectedView.setLayoutParams(enlargeParams);
+
+        selectedColorView = selectedView;
+
+        // Get background color from tag or fallback
+        int color = getViewColor(selectedView);
+        selectedScreenColor = color;
+        updateUIColors(color);
+
+        if (!isFlashOption()) {
+            refreshActivityForScreenLight();
+            updateOptionsUI(false);
+        }
+
+        // Hide color picker
+        binding.colorPickerView.setVisibility(View.GONE);
+    }
+
+
+    int getViewColor(View view) {
+        Object tag = view.getTag();
+        return (tag instanceof Integer) ? (Integer) tag : Color.WHITE;
+    }
+
+    private int withAlpha(int color, float alpha) {
+        int r = Color.red(color);
+        int g = Color.green(color);
+        int b = Color.blue(color);
+        return Color.argb((int) (alpha * 255), r, g, b);
+    }
+
+    private int dimColor(int color, float factor) {
+        int r = (int)(Color.red(color) * factor);
+        int g = (int)(Color.green(color) * factor);
+        int b = (int)(Color.blue(color) * factor);
+        return Color.rgb(r, g, b); // No alpha, fully opaque
     }
 }

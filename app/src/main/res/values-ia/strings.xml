@@ -8,7 +8,7 @@
     <string name="dark">Obscur</string>
     <string name="follow_system">Sequer le systema</string>
     <string name="about">A proposito de</string>
-    <string name="version_license">Version %s - Licentia Apache 2.0</string>
+    <string name="version_license">Licentia Apache 2.0</string>
     <string name="contribute">Contribuer</string>
     <string name="source_code">Codice fonte</string>
     <string name="report_problem">Signalar un defecto</string>

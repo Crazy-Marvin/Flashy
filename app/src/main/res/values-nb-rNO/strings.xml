@@ -27,7 +27,7 @@
     <string name="oss_licenses">Frie lisenser</string>
     <string name="no_flashlight">Mangler lommelykt</string>
     <string name="use_screen">Bruk skjerm</string>
-    <string name="version_license">Versjon %s · Apache 2.0-lisens</string>
+    <string name="version_license">Apache 2.0-lisens</string>
     <string name="no_app_can_handle">Ingen installerte programmer kan utføre denne handlingen.</string>
     <string name="stroboscope_interval">Stroboskop-intervall</string>
     <string name="farnsworth_unit_length">Farnsworth-enhetslengde</string>

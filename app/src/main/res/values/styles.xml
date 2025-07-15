@@ -3,12 +3,12 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/white</item>
         <item name="colorPrimaryDark">@color/colorPrimary</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorOnPrimary">@color/white</item>
         <item name="android:textColor">@android:color/black</item>
-        <item name="android:statusBarColor" tools:targetApi="lollipop">?attr/colorPrimary</item>
-        <item name="android:windowLightStatusBar" tools:targetApi="lollipop">true</item>
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@color/white</item>
         <item name="android:windowLightNavigationBar" tools:targetApi="27">true</item>
         <item name="bottomSheetDialogTheme">@style/RoundedCornersBottomSheetTheme</item>
     </style>
@@ -51,4 +51,8 @@
         <item name="android:widgetLayout">@layout/preferences_material_switch</item>
     </style>
 
+    <style name="CircleImage" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
 </resources>

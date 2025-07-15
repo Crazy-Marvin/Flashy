@@ -26,7 +26,7 @@
     <string name="follow_system">அமைப்பைப் பின்தொடரவும்</string>
     <string name="no_flash_when_screen">திரை பயன்முறையில் ஒளிரும் விளக்கை அணைக்கவும்</string>
     <string name="about">பற்றி</string>
-    <string name="version_license">பதிப்பு %s · அப்பாச்சி உரிமம் 2.0</string>
+    <string name="version_license">அப்பாச்சி உரிமம் 2.0</string>
     <string name="contribute">பங்களிப்பு</string>
     <string name="no_flashlight">ஒளிரும் விளக்கு இல்லை</string>
     <string name="use_screen">திரையைப் பயன்படுத்தவும்</string>

@@ -6,7 +6,7 @@
     <string name="cannot_access_camera">Nije moguće pristupiti kameri. Koristi li ju jedna druga aplikacija?</string>
     <string name="light">Svijetla</string>
     <string name="about">Informacije o</string>
-    <string name="version_license">Verzija %s · Apache licenca 2.0</string>
+    <string name="version_license">Apache licenca 2.0</string>
     <string name="source_code">Izvorni kod</string>
     <string name="translate">Prevedi</string>
     <string name="dev">Programer</string>

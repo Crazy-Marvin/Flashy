@@ -43,7 +43,7 @@
     <string name="report_problem">Relatar um problema</string>
     <string name="no_flashlight">Sem lanterna</string>
     <string name="sos">SOS</string>
-    <string name="version_license">Versão %s · Licença Apache 2.0</string>
+    <string name="version_license">Licença Apache 2.0</string>
     <string name="java">Java</string>
     <string name="dark">Escuro</string>
     <string name="system_settings_permission_granted">Permissão garantida. Você pode sair desta tela agora.</string>

@@ -4,10 +4,10 @@ android {
     compileSdk 36
     defaultConfig {
         applicationId "rocks.poopjournal.flashy"
-        minSdk 19
+        minSdk 21
         targetSdk 36
-        versionCode 30
-        versionName "3.0"
+        versionCode 31
+        versionName "3.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
         resConfigs "en", "cs", "de", "es", "hr", "lt", "nb-rNO", "pt", "pt-rBR", "ru", "sat", "tr", "zh-rCN"
@@ -41,6 +41,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.7.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.2.1'
     implementation 'androidx.preference:preference:1.2.1'
+    implementation 'androidx.activity:activity:1.10.1'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
@@ -51,6 +52,6 @@ dependencies {
 
     implementation 'me.tankery.lib:circularSeekBar:1.4.2'
     //to resolve dependency conflicts
-    implementation 'androidx.lifecycle:lifecycle-viewmodel:2.6.2'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel:2.9.1'
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.1"
 }

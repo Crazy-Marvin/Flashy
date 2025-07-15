@@ -18,7 +18,7 @@
     <string name="dev">Vývojář</string>
     <string name="report_problem">Nahlásit problém</string>
     <string name="sos">SOS</string>
-    <string name="version_license">Verze %s · Apache Licence 2.0</string>
+    <string name="version_license">Apache Licence 2.0</string>
     <string name="java">Java</string>
     <string name="dark">Tmavý</string>
     <string name="general">Obecné</string>
