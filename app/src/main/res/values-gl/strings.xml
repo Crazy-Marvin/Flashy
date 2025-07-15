@@ -20,7 +20,7 @@
     <string name="appearance">Aparencia</string>
     <string name="theme">Tema</string>
     <string name="about">Acerca de</string>
-    <string name="version_license">Versión %s · Licenza Apache 2.0</string>
+    <string name="version_license">Licenza Apache 2.0</string>
     <string name="source_code">Código fonte</string>
     <string name="report_problem">Informar dun problema</string>
     <string name="translate">Traducir</string>

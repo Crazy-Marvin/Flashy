@@ -30,7 +30,7 @@
     <string name="follow_system">跟随系统</string>
     <string name="no_flash_when_screen">在屏幕模式下关闭手电筒</string>
     <string name="about">关于</string>
-    <string name="version_license">版本 %s · Apache License 2.0</string>
+    <string name="version_license">Apache License 2.0</string>
     <string name="contribute">贡献</string>
     <string name="source_code">源代码</string>
     <string name="report_problem">报告问题</string>

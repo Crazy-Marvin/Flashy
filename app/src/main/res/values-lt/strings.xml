@@ -45,7 +45,7 @@
     <string name="report_problem">Pranešti apie problemą</string>
     <string name="oss_licenses">Atvirojo kodo licencijos</string>
     <string name="apache2">Apache licencija 2.0</string>
-    <string name="version_license">Versija %s · Apache licencija 2.0</string>
+    <string name="version_license">Apache licencija 2.0</string>
     <string name="circular_seekbar">CircularSeekBar</string>
     <string name="use_screen">Naudoti ekraną</string>
     <string name="sos">SOS</string>

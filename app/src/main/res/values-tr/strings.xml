@@ -32,7 +32,7 @@
     <string name="sos">SOS</string>
     <string name="stroboscope_interval">Stroboskop aralığı</string>
     <string name="about">Hakkında</string>
-    <string name="version_license">Sürüm %s - Apache Lisansı 2.0</string>
+    <string name="version_license">Apache Lisansı 2.0</string>
     <string name="contribute">Katkıda bulun</string>
     <string name="source_code">Kaynak kodu</string>
     <string name="report_problem">Sorun bildir</string>

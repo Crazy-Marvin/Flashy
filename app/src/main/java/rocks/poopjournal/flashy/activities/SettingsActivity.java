@@ -4,12 +4,15 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.text.InputType;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.EditTextPreference;
 import androidx.preference.ListPreference;
@@ -17,6 +20,8 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
 import androidx.preference.SwitchPreferenceCompat;
+
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import rocks.poopjournal.flashy.R;
 import rocks.poopjournal.flashy.databinding.SettingsActivityBinding;
@@ -37,9 +42,11 @@ public class SettingsActivity extends AppCompatActivity {
                     .replace(R.id.settings, new SettingsFragment())
                     .commit();
         }
-        setSupportActionBar(binding.toolbarSettings);
         if (getSupportActionBar() != null)
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        binding.backIcon.setOnClickListener(v ->{
+            finish();
+        });
     }
 
     public static class SettingsFragment extends PreferenceFragmentCompat {
@@ -81,6 +88,31 @@ public class SettingsActivity extends AppCompatActivity {
                 requireActivity().recreate();
                 return true;
             });
+
+            Preference setAssistantPref = findPreference("set_as_digital_assistant");
+            if (setAssistantPref != null) {
+                setAssistantPref.setOnPreferenceClickListener(preference -> {
+                    MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(requireContext())
+                            .setTitle(getString(R.string.assistant_dialog_title))
+                            .setMessage(getString(R.string.assistant_dialog_message))
+                            .setPositiveButton(getString(R.string.positive_dialog_button), (dialog, which) -> {
+                                try {
+                                    startActivity(new Intent(Settings.ACTION_VOICE_INPUT_SETTINGS));
+                                } catch (ActivityNotFoundException e) {
+                                    Toast.makeText(requireContext(), "Settings not available on this device.", Toast.LENGTH_SHORT).show();
+                                }
+                            })
+                            .setNegativeButton(getString(R.string.negative_dialog_button), null);
+
+                    AlertDialog dialog = builder.show();
+
+                    // Fix: Set text color manually to ensure visibility
+                    dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.BLACK);
+                    dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.BLACK);
+
+                    return true;
+                });
+            }
 
             EditTextPreference wordsPerMin = findPreference("words_per_min");
             assert wordsPerMin != null;

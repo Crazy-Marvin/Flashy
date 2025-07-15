@@ -16,7 +16,7 @@
     <string name="dark">Темна</string>
     <string name="follow_system">Системна</string>
     <string name="about">Про програму</string>
-    <string name="version_license">Версія %s · Ліцензія Apache 2.0</string>
+    <string name="version_license">Ліцензія Apache 2.0</string>
     <string name="contribute">Внести внесок</string>
     <string name="source_code">Джерельний код</string>
     <string name="report_problem">Повідомити про проблему</string>

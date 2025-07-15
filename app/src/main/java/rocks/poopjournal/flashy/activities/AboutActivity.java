@@ -23,28 +23,14 @@ public class AboutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         ActivityAboutBinding binding = ActivityAboutBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        setSupportActionBar(binding.toolbarAbout);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null)
             actionBar.setDisplayHomeAsUpEnabled(true);
-        binding.appVersion.setText(getString(R.string.version_license, BuildConfig.VERSION_NAME));
+        binding.appVersion.setText(getString(R.string.version_text, BuildConfig.VERSION_NAME));
+        binding.appacheVersion.setText(getString(R.string.version_license));
+        binding.backIcon.setOnClickListener(v -> finish());
         setupClickToGoToWebsite(binding.appVersion, "https://github.com/Crazy-Marvin/Flashy/blob/development/LICENSE");
         setupClickToGoToWebsite(binding.appIcon, "https://crazymarvin.com/flashy/");
-        setupClickToGoToWebsite(binding.fahadsaleemGithub, "https://github.com/FahadSaleem/");
-        setupClickToGoToWebsite(binding.crazymarvinGithub, "https://github.com/CrazyMarvin/");
-        binding.crazymarvinEmail.setOnClickListener(v -> {
-            try {
-                Intent intent = new Intent(Intent.ACTION_SENDTO)
-                        .setData(Uri.parse("mailto:"))
-                        .putExtra(Intent.EXTRA_EMAIL, new String[]{"marvin@poopjournal.rocks"})
-                        .putExtra(Intent.EXTRA_SUBJECT, "crazymarvin.com Contact")
-                        .putExtra(Intent.EXTRA_TEXT, "Hello Marvin,\n...\n");
-                startActivity(intent);
-            } catch (ActivityNotFoundException e) {
-                Toast.makeText(this, R.string.no_app_can_handle, Toast.LENGTH_SHORT).show();
-            }
-        });
-        setupClickToGoToWebsite(binding.crazymarvinTwitter, "https://twitter.com/CrazyMarvinApps");
         setupClickToGoToWebsite(binding.sourceCode, "https://github.com/Crazy-Marvin/Flashy");
         setupClickToGoToWebsite(binding.reportProblem, "https://github.com/Crazy-Marvin/Flashy/issues");
         setupClickToGoToWebsite(binding.translate, "https://hosted.weblate.org/engage/flashy/");

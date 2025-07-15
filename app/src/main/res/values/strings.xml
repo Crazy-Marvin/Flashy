@@ -17,9 +17,20 @@
     <string name="follow_system">Follow system</string>
     <string name="no_flash_when_screen">Turn off flashlight on screen mode</string>
     <string name="about">About</string>
-    <string name="version_license">Version %s · Apache License 2.0</string>
+    <string name="version_license">Apache License 2.0</string>
+    <string name="version_text">Version %s</string>
+    <string name="assitant_title">Set as Digital Assistant</string>
+    <string name="assitant_summary">Long-press Home to toggle flashlight instantly</string>
+    <string name="assistant_dialog_title">Enable Assistant Shortcut</string>
+    <string name="assistant_dialog_message">To quickly toggle the flashlight using a long-press on the Home button, you can set this app as your default assistant.</string>
+    <string name="positive_dialog_button">Open Settings</string>
+    <string name="negative_dialog_button">Cancel</string>
     <string name="fahadsaleem" translatable="false">FahadSaleem</string>
     <string name="crazymarvin" translatable="false">Crazy Marvin</string>
+    <string name="mubeen" translatable="false">Mubeen Ali</string>
+    <string name="unbiaseduser" translatable="false">unbiaseduser</string>
+    <string name="awais" translatable="false">Awais Karim</string>
+    <string name="felipe" translatable="false">Felipe Teixeira</string>
     <string name="contribute">Contribute</string>
     <string name="source_code">Source code</string>
     <string name="report_problem">Report a problem</string>
