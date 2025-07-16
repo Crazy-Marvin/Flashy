@@ -43,4 +43,11 @@
     <string name="md3_subtext">Використовувати вигляд та стиль Android 12</string>
     <string name="no_flash_on_device_screen_off">Вимкнути ліхтарик при вимкненні екрану пристрою</string>
     <string name="no_flash_on_device_screen_off_subtext">Працює лише тоді, коли додаток відкритий</string>
+    <string name="version_text">Версія %s</string>
+    <string name="assitant_title">Встановити як цифрового помічника</string>
+    <string name="assitant_summary">Тривале натискання кнопки «Додому» для миттєвого ввімкнення/вимкнення ліхтарика</string>
+    <string name="assistant_dialog_title">Увімкнути швидкий доступ до Асистента</string>
+    <string name="assistant_dialog_message">Щоб швидко ввімкнути ліхтарик довгим натисканням кнопки «Додому», ви можете встановити цю програму як помічника за замовчуванням.</string>
+    <string name="positive_dialog_button">Відкрити налаштування</string>
+    <string name="negative_dialog_button">Скасувати</string>
 </resources>
