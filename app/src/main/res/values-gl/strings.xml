@@ -43,4 +43,10 @@
     <string name="learn_more_morse_timing">Máis información acerca da sincronización do código Morse</string>
     <string name="farnsworth_unit_length_explanation">A sincronización Farnsworth facilita o recoñecemento dos patróns de son aumentando os espazos entre os caracteres e as palabras para dar máis tempo de recoñecemento.\nUnha unidade Farnsworth é máis longa que unha unidade básica.\nIntroduce a continuación a lonxitude desexada dunha unidade Farnsworth (debe ser maior que unha unidade básica: %d milisegundos).\nDéixao en branco para utilizar a lonxitude da unidade básica máis un 25% adicional da mesma.</string>
     <string name="no_flash_on_device_screen_off">Apagar a lanterna ao apagar a pantalla do dispositivo</string>
+    <string name="version_text">Versión %s</string>
+    <string name="assitant_title">Establecer como asistente dixital</string>
+    <string name="assitant_summary">Preme durante un tempo o botón de inicio para encender ou apagar a luz da lanterna instantaneamente</string>
+    <string name="assistant_dialog_title">Habilitar atallo de asistente</string>
+    <string name="positive_dialog_button">Abrir configuración</string>
+    <string name="negative_dialog_button">Cancelar</string>
 </resources>
