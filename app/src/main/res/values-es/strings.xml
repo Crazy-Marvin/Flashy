@@ -59,4 +59,6 @@
 \nUna unidad Farnsworth es más larga que una unidad básica.
 \nIntroduzca a continuación la longitud deseada de una unidad Farnsworth (debe ser mayor que una unidad básica: %d milisegundos).
 \nDéjelo en blanco para utilizar la longitud de la unidad básica más un 25 por ciento adicional de la misma.</string>
+    <string name="version_text">Versión %s</string>
+    <string name="assitant_title">Establecer como asistente digital</string>
 </resources>
