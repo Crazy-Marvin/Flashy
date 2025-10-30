@@ -3,9 +3,9 @@
     <string name="app_name">Flashy</string>
     <string name="flashlight">Senter</string>
     <string name="no_camera">Tidak ada kamera</string>
-    <string name="cannot_access_camera">Tidak dapat mengakses kamera, apakah sedang digunakan oleh aplikasi lain?</string>
+    <string name="cannot_access_camera">Tidak dapat mengakses kamera. Apakah kamera sedang digunakan oleh aplikasi lain?</string>
     <string name="maximize_screen_brightness">Memaksimalkan kecerahan layar</string>
-    <string name="grant_permission">Beri izin</string>
+    <string name="grant_permission">Berikan izin</string>
     <string name="system_settings_permission_notice">Untuk mengubah kecerahan layar melalui widget, izin khusus harus diberikan kepada aplikasi. Tekan tombol di bawah ini untuk melakukannya.
 \n
 \nKeluar tanpa memberikan izin akan menyebabkan widget tidak ditambahkan.</string>
@@ -17,4 +17,39 @@
     <string name="light">Terang</string>
     <string name="dark">Gelap</string>
     <string name="follow_system">Ikuti Sistem</string>
+    <string name="no_flash_when_screen">Matikan lampu senter pada mode layar</string>
+    <string name="about">Tentang</string>
+    <string name="version_license">Lisensi Apache 2.0</string>
+    <string name="version_text">Versi %s</string>
+    <string name="assitant_title">Atur sebagai Asisten Digital</string>
+    <string name="assitant_summary">Tekan dan tahan tombol Home untuk mengaktifkan atau menonaktifkan senter secara instan</string>
+    <string name="assistant_dialog_title">Aktifkan Pintasan Asisten</string>
+    <string name="assistant_dialog_message">Untuk mengaktifkan atau menonaktifkan senter dengan cepat menggunakan tekan lama pada tombol Home, Anda dapat mengatur aplikasi ini sebagai asisten default Anda.</string>
+    <string name="positive_dialog_button">Buka Pengaturan</string>
+    <string name="negative_dialog_button">Batalkan</string>
+    <string name="contribute">Berpartisipasi</string>
+    <string name="source_code">Kode sumber</string>
+    <string name="report_problem">Laporkan masalah</string>
+    <string name="translate">Terjemahkan</string>
+    <string name="dev">Pengembang</string>
+    <string name="oss_licenses">Lisensi sumber terbuka</string>
+    <string name="md_icons">Ikon Desain Material</string>
+    <string name="feather_icons">Ikon Feather</string>
+    <string name="no_app_can_handle">Tidak ada aplikasi yang dapat menangani tindakan ini.</string>
+    <string name="no_flashlight">Tidak ada senter</string>
+    <string name="use_screen">Gunakan layar</string>
+    <string name="sos">SOS</string>
+    <string name="stroboscope_interval">Interval stroboskop</string>
+    <string name="words_per_min">Kata per menit</string>
+    <string name="words_per_min_error">Jumlah kata tidak valid</string>
+    <string name="words_per_min_explanation">Jumlah kata per menit adalah berapa kali kata standar “PARIS” dapat dikirim per menit.\nSemakin tinggi nilainya, semakin pendek panjang setiap “dit”.\nPerhatikan bahwa pengaturan ini tidak memperhitungkan timing Farnsworth.\nMasukkan angka yang diinginkan di bawah ini.</string>
+    <string name="use_farnsworth">Gunakan pengaturan waktu Farnsworth</string>
+    <string name="turn_on_sos_now">Aktifkan SOS sekarang</string>
+    <string name="farnsworth_unit_length">Panjang satuan Farnsworth</string>
+    <string name="farnsworth_unit_length_error">Durasi unit Farnsworth harus lebih lama dari unit normal</string>
+    <string name="farnsworth_unit_length_explanation">Teknik Farnsworth memudahkan pengenalan pola suara dengan memperluas jarak antara karakter dan kata untuk memberikan waktu pengenalan yang lebih lama.\nSatuan Farnsworth lebih panjang daripada satuan dasar.\nMasukkan panjang satuan Farnsworth yang diinginkan di bawah ini (harus lebih panjang dari satuan dasar: %d milidetik).\nBiarkan kosong untuk menggunakan panjang satuan dasar ditambah 25 persen dari panjang tersebut.</string>
+    <string name="learn_more_morse_timing">Pelajari lebih lanjut tentang timing kode Morse</string>
+    <string name="md3_subtext">Gunakan tampilan dan nuansa Android 12</string>
+    <string name="no_flash_on_device_screen_off">Matikan senter saat mematikan layar perangkat</string>
+    <string name="no_flash_on_device_screen_off_subtext">Hanya berfungsi saat aplikasi terbuka</string>
 </resources>
