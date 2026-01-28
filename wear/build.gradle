@@ -3,9 +3,9 @@ plugins {
 }
 
 android {
-    namespace 'rocks.poopjournal.flashy'
+    namespace = 'rocks.poopjournal.flashy'
 
-    compileSdk 33
+    compileSdk  33
 
     defaultConfig {
         applicationId "rocks.poopjournal.flashy"
@@ -27,7 +27,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     buildFeatures {
-        viewBinding true
+        viewBinding  = true
     }
 }
 
