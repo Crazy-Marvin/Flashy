@@ -1,17 +1,22 @@
-apply plugin: 'com.android.application'
+plugins {
+    id 'com.android.application'
+}
 
 android {
     compileSdk 36
     defaultConfig {
         applicationId "rocks.poopjournal.flashy"
-        minSdk 21
+        minSdk 23
         targetSdk 36
         versionCode 31
         versionName "3.1"
-        setProperty("archivesBaseName", "Flashy-$versionName")
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
         resConfigs "en", "cs", "de", "es", "hr", "lt", "nb-rNO", "pt", "pt-rBR", "ru", "sat", "tr", "zh-rCN"
+
+    }
+    base {
+        archivesName = "Flashy-${android.defaultConfig.versionName}"
     }
     buildTypes {
         release {
@@ -20,8 +25,8 @@ android {
         }
     }
     buildFeatures {
-        viewBinding true
-        buildConfig true
+        viewBinding = true
+        buildConfig = true
     }
     compileOptions {
         // Flag to enable support for the new language APIs
@@ -30,14 +35,11 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    namespace 'rocks.poopjournal.flashy'
+    namespace  = 'rocks.poopjournal.flashy'
 }
 
-dependencies {
 
-    configurations.all {
-        exclude([group: "org.jetbrains.kotlin", module: "kotlin-stdlib-jdk8"])
-    }
+dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.7.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.2.1'
