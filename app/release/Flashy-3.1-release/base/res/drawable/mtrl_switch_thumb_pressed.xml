@@ -1,0 +1,25 @@
+
+Ø
+;
+android*http://schemas.android.com/apk/res/androidvector"£
+*http://schemas.android.com/apk/res/androidviewportWidth(@integer/mtrl_switch_thumb_viewport_size"(‚ˆ„23
+1¾€¬ø'integer/mtrl_switch_thumb_viewport_size0 "¤
+*http://schemas.android.com/apk/res/androidviewportHeight(@integer/mtrl_switch_thumb_viewport_size"(ƒˆ„23
+1¾€¬ø'integer/mtrl_switch_thumb_viewport_size0 "†
+*http://schemas.android.com/apk/res/androidheight@dimen/mtrl_switch_thumb_size"(Õ‚„2(
+&İ‡œødimen/mtrl_switch_thumb_size0@"…
+*http://schemas.android.com/apk/res/androidwidth@dimen/mtrl_switch_thumb_size"(Ù‚„2(
+&İ‡œødimen/mtrl_switch_thumb_size0@*²
+©group"’
+*http://schemas.android.com/apk/res/androidname$@string/mtrl_switch_thumb_group_name"(ƒ€„2/
+-ºÈø#string/mtrl_switch_thumb_group_name0"·
+*http://schemas.android.com/apk/res/androidpivotY5@integer/mtrl_switch_thumb_viewport_center_coordinate"(¶ƒ„2A
+?½€¬ø4integer/mtrl_switch_thumb_viewport_center_coordinate0 "·
+*http://schemas.android.com/apk/res/androidpivotX5@integer/mtrl_switch_thumb_viewport_center_coordinate"(µƒ„2A
+?½€¬ø4integer/mtrl_switch_thumb_viewport_center_coordinate0 *–
+path"U
+*http://schemas.android.com/apk/res/android	fillColor	#ffffffff" („ˆ„2:Hÿÿÿÿ"š
+*http://schemas.android.com/apk/res/androidpathData&@string/mtrl_switch_thumb_path_pressed" (…ˆ„21
+/¾Èø%string/mtrl_switch_thumb_path_pressed0"
+*http://schemas.android.com/apk/res/androidname#@string/mtrl_switch_thumb_path_name" (ƒ€„2.
+,½Èø"string/mtrl_switch_thumb_path_name0 CL
