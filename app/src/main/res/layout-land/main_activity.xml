@@ -7,6 +7,7 @@
     android:orientation="vertical">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
@@ -26,11 +27,10 @@
     <me.tankery.lib.circularseekbar.CircularSeekBar
         android:id="@+id/progress_circular"
         android:layout_width="270dp"
-        android:layout_height="400dp"
-        android:layout_marginTop="30dp"
-        android:layout_centerInParent="true"
+        android:layout_height="230dp"
+        android:layout_below="@id/app_bar"
+        android:layout_centerHorizontal="true"
         app:cs_circle_color="#F3F3F7"
-        app:cs_circle_progress_color="#FFB137"
         app:cs_circle_stroke_width="3dp"
         app:cs_end_angle="40"
         app:cs_maintain_equal_circle="true"
@@ -39,14 +39,17 @@
         app:cs_pointer_halo_color="#FFFFFF"
         app:cs_pointer_halo_color_ontouch="#FFFFFF"
         app:cs_pointer_halo_width="4dp"
-        app:cs_pointer_stroke_width="8dp"
+        app:cs_pointer_stroke_width="15dp"
         app:cs_start_angle="140" />
 
     <ImageView
         android:id="@+id/power_center"
         android:layout_width="72dp"
         android:layout_height="72dp"
-        android:layout_centerInParent="true"
+        android:layout_centerInParent="false"
+        android:layout_centerHorizontal="true"
+        android:layout_alignTop="@id/progress_circular"
+        android:layout_alignBottom="@id/progress_circular"
         android:background="@drawable/ripple_effect"
         android:src="@drawable/ic_power_center" />
 
@@ -54,7 +57,9 @@
         android:id="@+id/power_icon"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_alignTop="@id/power_center"
+        android:layout_alignBottom="@id/power_center"
         android:src="@drawable/power" />
 
     <LinearLayout
@@ -84,7 +89,7 @@
                 android:layout_height="24dp"
                 android:layout_marginStart="8dp"
                 android:layout_centerVertical="true"
-                android:src="@drawable/flash_icon" />
+                android:src="@drawable/flash" />
 
             <ImageView
                 android:id="@+id/screen_icon"
@@ -93,7 +98,7 @@
                 android:layout_marginEnd="12dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:src="@drawable/screen_icon" />
+                android:src="@drawable/smartphone" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -118,7 +123,7 @@
                 android:layout_marginEnd="12dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:src="@drawable/loader" />
+                android:src="@drawable/flare" />
         </RelativeLayout>
 
     </LinearLayout>
@@ -127,7 +132,7 @@
         android:id="@+id/stroboscope_interval"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/colorPickerView"
+        android:layout_below="@id/flashlight_options"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
         android:text="@string/stroboscope_interval" />
@@ -143,11 +148,68 @@
         android:valueFrom="0.1"
         android:valueTo="1" />
 
+    <LinearLayout
+        android:id="@+id/color_option_row"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/flashlight_options"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:visibility="gone"
+        android:orientation="horizontal"
+        android:background="@drawable/ic_rectangle_bg_options"
+        android:padding="8dp"
+        android:gravity="center_vertical">
+
+        <!-- Color 1 -->
+        <View
+            android:id="@+id/color_white"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_circle_white" />
+
+        <!-- Color 2 -->
+        <View
+            android:id="@+id/color_red"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_circle_red" />
+
+        <!-- Color 3 -->
+        <View
+            android:id="@+id/color_green"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_circle_green" />
+
+        <!-- Color 4 -->
+        <View
+            android:id="@+id/color_blue"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_circle_blue" />
+
+        <!-- Palette Icon -->
+        <ImageView
+            android:id="@+id/show_palette_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/palette"
+            android:contentDescription="@string/md_icons"
+            />
+    </LinearLayout>
+
     <com.skydoves.colorpickerview.ColorPickerView
         android:id="@+id/colorPickerView"
         android:layout_margin="10dp"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:visibility="gone"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true" />
 

@@ -1,0 +1,13 @@
+
+ë
+;
+android*http://schemas.android.com/apk/res/android
+-
+aapthttp://schemas.android.com/aaptanimated-vector"”
+*http://schemas.android.com/apk/res/androiddrawable#@drawable/mtrl_switch_thumb_checked"(™ƒ„2.
+,ó ø"drawable/mtrl_switch_thumb_checked0*Ô
+Ëtarget"
+*http://schemas.android.com/apk/res/androidname#@string/mtrl_switch_thumb_path_name"(ƒ€„2.
+,½Èø"string/mtrl_switch_thumb_path_name0"­
+*http://schemas.android.com/apk/res/android	animation/@drawable/$mtrl_switch_thumb_checked_pressed__0"(Íƒ„2:
+8¢€ ø.drawable/$mtrl_switch_thumb_checked_pressed__00>

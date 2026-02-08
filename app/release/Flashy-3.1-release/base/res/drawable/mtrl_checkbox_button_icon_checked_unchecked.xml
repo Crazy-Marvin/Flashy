@@ -1,0 +1,23 @@
+
+
+;
+android*http://schemas.android.com/apk/res/android
+-
+aapthttp://schemas.android.com/aaptanimated-vector"†
+*http://schemas.android.com/apk/res/androiddrawable@drawable/mtrl_ic_check_mark"(™ƒ„2'
+%ê ødrawable/mtrl_ic_check_mark0*„
+ûtarget"¬
+*http://schemas.android.com/apk/res/androidname1@string/mtrl_checkbox_button_icon_path_group_name"(ƒ€„2<
+:†Èø0string/mtrl_checkbox_button_icon_path_group_name0"Á
+*http://schemas.android.com/apk/res/android	animation9@drawable/$mtrl_checkbox_button_icon_checked_unchecked__0"(Íƒ„2D
+B’€ ø8drawable/$mtrl_checkbox_button_icon_checked_unchecked__00L*„
+ûtarget"¬
+*http://schemas.android.com/apk/res/androidname1@string/mtrl_checkbox_button_icon_path_group_name"!(ƒ€„2<
+:†Èø0string/mtrl_checkbox_button_icon_path_group_name0"Á
+*http://schemas.android.com/apk/res/android	animation9@drawable/$mtrl_checkbox_button_icon_checked_unchecked__1"!(Íƒ„2D
+B“€ ø8drawable/$mtrl_checkbox_button_icon_checked_unchecked__10!L*ø
+ïtarget" 
+*http://schemas.android.com/apk/res/androidname+@string/mtrl_checkbox_button_icon_path_name",(ƒ€„26
+4ˆÈø*string/mtrl_checkbox_button_icon_path_name0"Á
+*http://schemas.android.com/apk/res/android	animation9@drawable/$mtrl_checkbox_button_icon_checked_unchecked__2",(Íƒ„2D
+B”€ ø8drawable/$mtrl_checkbox_button_icon_checked_unchecked__20,F

@@ -1,0 +1,22 @@
+
+à	
+;
+android*http://schemas.android.com/apk/res/android
+-
+aapthttp://schemas.android.com/aaptanimated-vector"”
+*http://schemas.android.com/apk/res/androiddrawable#@drawable/mtrl_switch_thumb_checked"(™ƒ„2.
+,ó ø"drawable/mtrl_switch_thumb_checked0*É
+Àset"¬
+*http://schemas.android.com/apk/res/androidinterpolator-@interpolator/m3_sys_motion_easing_emphasized"(Á‚„28
+6‡€°ø,interpolator/m3_sys_motion_easing_emphasized0"T
+*http://schemas.android.com/apk/res/androidshareInterpolatortrue"(»ƒ„2:@*Ø
+Ïtarget"
+*http://schemas.android.com/apk/res/androidname#@string/mtrl_switch_thumb_path_name"(ƒ€„2.
+,½Èø"string/mtrl_switch_thumb_path_name0"±
+*http://schemas.android.com/apk/res/android	animation1@drawable/$mtrl_switch_thumb_checked_unchecked__0"(Íƒ„2<
+:£€ ø0drawable/$mtrl_switch_thumb_checked_unchecked__00@*Ø
+Ïtarget"
+*http://schemas.android.com/apk/res/androidname#@string/mtrl_switch_thumb_path_name"$(ƒ€„2.
+,½Èø"string/mtrl_switch_thumb_path_name0"±
+*http://schemas.android.com/apk/res/android	animation1@drawable/$mtrl_switch_thumb_checked_unchecked__1"$(Íƒ„2<
+:¤€ ø0drawable/$mtrl_switch_thumb_checked_unchecked__10$@&

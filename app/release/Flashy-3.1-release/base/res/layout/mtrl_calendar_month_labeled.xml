@@ -1,0 +1,18 @@
+
+Ç
+;
+android*http://schemas.android.com/apk/res/android"LinearLayout"`
+*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent"(ô„2:0ÿÿÿÿÿÿÿÿÿ"a
+*http://schemas.android.com/apk/res/androidlayout_heightwrap_content"(õ„2:0şÿÿÿÿÿÿÿÿ"R
+*http://schemas.android.com/apk/res/androidorientationvertical"(Ä„2:0*ø
+ïTextView"^
+*http://schemas.android.com/apk/res/androidgravitycenter_vertical|start"(¯„2:8“€€"`
+*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent"(ô„2:0ÿÿÿÿÿÿÿÿÿ"“
+*http://schemas.android.com/apk/res/androidlayout_height@dimen/mtrl_calendar_day_height"(õ„2,
+*Ü†œødimen/mtrl_calendar_day_height0À€"Tstyle?attr/materialCalendarMonth"2*
+(û†øattr/materialCalendarMonth0ÿÿ"L
+*http://schemas.android.com/apk/res/android	focusabletrue"(Ú„2:@"g
+*http://schemas.android.com/apk/res/androidid@+id/month_title"(Ğ„2
+Ø‚¨øid/month_title0.*f
+^include"Slayout@layout/mtrl_calendar_month"2(
+&×€´ølayout/mtrl_calendar_month0ÿÿ2"
