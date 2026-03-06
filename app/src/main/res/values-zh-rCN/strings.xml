@@ -59,4 +59,11 @@
     <string name="words_per_min">每分钟词数</string>
     <string name="stroboscope_interval">频闪间隔</string>
     <string name="md3">Material Design 3</string>
+    <string name="version_text">版本 %s</string>
+    <string name="assitant_title">设置为数字助理</string>
+    <string name="assitant_summary">长按Home键可立即切换手电筒模式</string>
+    <string name="assistant_dialog_title">启用助手快捷方式</string>
+    <string name="assistant_dialog_message">要通过长按主屏幕按钮快速切换手电筒，您可以将此应用设置为默认助手。</string>
+    <string name="positive_dialog_button">打开设置</string>
+    <string name="negative_dialog_button">取消</string>
 </resources>
