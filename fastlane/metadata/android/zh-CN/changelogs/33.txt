@@ -1,0 +1,7 @@
+- 修复横屏显示错误 🐛
+- 更新翻译 🌎
+- 更新依赖项 ⚙️
+
+非常感谢所有贡献者和翻译人员！😘
+
+欢迎在 https://github.com/Crazy-Marvin/Flashy/ 提交问题报告和修复，或在 https://hosted.weblate.org/engage/flashy/ 提交翻译。🚀
