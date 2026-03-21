@@ -59,4 +59,5 @@
     <string name="md3">Material Design 3</string>
     <string name="no_flash_on_device_screen_off_subtext">Работает только тогда, когда приложение открыто</string>
     <string name="no_flash_on_device_screen_off">Выключение фонарика при отключении экрана устройства</string>
+    <string name="version_text">Версия %s</string>
 </resources>
