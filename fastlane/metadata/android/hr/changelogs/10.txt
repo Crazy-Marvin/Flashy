@@ -1,0 +1,9 @@
+- Mogućnost odabira boje zaslona svjetiljke 🌈
+- Podržava Wear OS by Google pametne satove ⌚
+- Ciljajte na Android 14 🤖
+- Ispravci grešaka 🐛
+- Ažuriranja prijevoda 🌎
+- Ažuriranja ovisnosti ⚙️
+
+Hvala puno svim korisnicima i suradnicima! 😍
+Osjećajte se dobrodošli dodati ili ažurirati prijevode na https://hosted.weblate.org/engage/flashy/. 🗣️
