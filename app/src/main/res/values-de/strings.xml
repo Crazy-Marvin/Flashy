@@ -59,4 +59,6 @@
     <string name="md3_subtext">Verwenden Sie das Aussehen und Verhalten von Android 12</string>
     <string name="no_flash_on_device_screen_off_subtext">Funktioniert nur, wenn die App geöffnet ist</string>
     <string name="no_flash_on_device_screen_off">Taschenlampe automatisch abschalten, wenn der Geräte-Bildschirm abgeschaltet wird</string>
+    <string name="version_text">Version %s</string>
+    <string name="negative_dialog_button">Abbrechen</string>
 </resources>
