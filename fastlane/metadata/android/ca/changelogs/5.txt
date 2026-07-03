@@ -1,0 +1,3 @@
+- Afegeix el tema fosc 🧛 (#60)
+Nota: L'aplicació canvia de manera forçada al tema clar quan s'utilitza la llum de la pantalla. Això és per disseny, ja que no té sentit utilitzar un fons fosc per il·luminar la pantalla.
+Moltes gràcies a @unbiaseduser per aquesta funció.

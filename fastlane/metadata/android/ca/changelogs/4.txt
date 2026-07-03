@@ -1,0 +1,7 @@
+- 📷 Evita el permís de càmera (#41)
+- 🎨 Afegeix una fitxa ràpida de configuració (#10)
+- 🎨 Permet icona amb tema a l'Android 13+ (#53)
+- 💁🏽 Afegeix un giny bàsic (#27)
+- 👍 Actualitza les dependències i les traduccions
+
+Moltes gràcies a @unbiaseduser, @FahadSaleem i tots els traductors! 😘

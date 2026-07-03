@@ -1,0 +1,6 @@
+- Corregeix un error en mode apaïsat 🐛
+- Actualització de traduccions 🌎
+- Actualitzacions de dependències ⚙️
+
+Moltes gràcies a tots els usuaris i col·laboradors! 😘
+Agraïm que informeu els errors i envieu correccions a https://github.com/Crazy-Marvin/Flashy/ o les traduccions a https://hosted.weblate.org/engage/flashy/. 🚀

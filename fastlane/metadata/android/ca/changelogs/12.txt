@@ -1,0 +1,9 @@
+- Opció per triar el color de la pantalla de la llanterna 🌈
+- Admet Wear OS per als rellotges intel·ligents de Google ⌚
+- Incorpora l'Android 14 🤖
+- Correcció d'errors 🐛
+- Actualització de traduccions 🌎
+- Actualitzacions de dependències ⚙️
+
+Moltes gràcies a tots els usuaris i col·laboradors! 😍
+Agraïm que afegiu o actualitzeu les traduccions a https://hosted.weblate.org/engage/flashy/. 🗣️

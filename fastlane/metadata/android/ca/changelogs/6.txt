@@ -1,0 +1,8 @@
+- Implementació de Material 3 🎨
+- Implementació de ginys 🎨
+- Implementació del canvi de color de pantalla 🎨
+- Permet el control de la lluminositat de la llanterna en dispositius Android 13+ admesos 📸
+- Afegeix l'opció SOS 🆘
+- Afegeix l'opció estroboscopi 🚨
+- Correcció d'errors 🐛
+- Actualització de traduccions 🗺️

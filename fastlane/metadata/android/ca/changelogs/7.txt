@@ -1,0 +1,4 @@
+Actualització de traduccions 🌎
+Actualitzacions de dependències ⚙️
+Afegeix una opció per apagar la llanterna quan s'apagui la pantalla 🛋️
+Correcció d'errors 🐛
