@@ -1,0 +1,2 @@
+Millores menors sota el capó
+Corregeix la configuració de «fastlane»
