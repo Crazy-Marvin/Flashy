@@ -2,25 +2,28 @@ plugins {
     id 'com.android.application'
 }
 
-android {
-    compileSdk 36
-    defaultConfig {
-        applicationId "rocks.poopjournal.flashy"
-        minSdk 23
-        targetSdk 36
-        versionCode 33
-        versionName "3.3"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        multiDexEnabled true
-        resConfigs "en", "cs", "de", "es", "hr", "lt", "nb-rNO", "pt", "pt-rBR", "ru", "sat", "tr", "zh-rCN"
+def appVersionName = '3.4'
 
+android {
+    namespace = 'rocks.poopjournal.flashy'
+    compileSdk = 37
+
+    defaultConfig {
+        applicationId = "rocks.poopjournal.flashy"
+        minSdk = 23
+        targetSdk = 37
+        versionCode = 34
+        versionName = appVersionName
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled = true
     }
-    base {
-        archivesName = "Flashy-${android.defaultConfig.versionName}"
+    androidResources {
+        // Replaces the removed defaultConfig.resConfigs
+        localeFilters += ["en", "cs", "de", "es", "hr", "lt", "nb-rNO", "pt", "pt-rBR", "ru", "sat", "tr", "zh-rCN"]
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled = false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -30,14 +33,16 @@ android {
     }
     compileOptions {
         // Flag to enable support for the new language APIs
-        coreLibraryDesugaringEnabled true
+        coreLibraryDesugaringEnabled = true
         // Sets Java compatibility to Java 8
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
-    namespace  = 'rocks.poopjournal.flashy'
 }
 
+base {
+    archivesName = "Flashy-$appVersionName"
+}
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -50,11 +55,11 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.7.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.google.android.material:material:1.14.0'
-    coreLibraryDesugaring ('com.android.tools:desugar_jdk_libs:2.1.5')
-    implementation "com.github.skydoves:colorpickerview:2.4.0"
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.5'
+    implementation 'com.github.skydoves:colorpickerview:2.4.0'
 
     implementation 'me.tankery.lib:circularSeekBar:1.4.2'
     //to resolve dependency conflicts
     implementation 'androidx.lifecycle:lifecycle-viewmodel:2.11.0'
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.11.0"
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.11.0'
 }

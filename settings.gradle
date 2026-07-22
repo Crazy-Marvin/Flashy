@@ -1,3 +1,24 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode = RepositoriesMode.FAIL_ON_PROJECT_REPOS
+    repositories {
+        google()
+        mavenCentral()
+
+//        maven {
+//            url = uri('https://oss.sonatype.org/content/repositories/snapshots/')
+//        }
+    }
+}
+
+rootProject.name = 'Flashy'
+
 include ':app'
-rootProject.name='Flashy'
 include ':wear'

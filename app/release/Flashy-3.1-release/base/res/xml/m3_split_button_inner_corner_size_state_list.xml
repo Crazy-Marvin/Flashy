@@ -1,18 +1,0 @@
-
-”
-;
-android*http://schemas.android.com/apk/res/android9
-4
-app'http://schemas.android.com/apk/res-auto9selector*ƒ
-úitem"P
-*http://schemas.android.com/apk/res/androidstate_pressedtrue"(§„2:@"L
-'http://schemas.android.com/apk/res-auto
-cornerSize12dp"(ı‚ø2:h"R
-*http://schemas.android.com/apk/res/androidstate_checkabletrue"(Ÿ„2:@ *±
-¨item"N
-'http://schemas.android.com/apk/res-auto
-cornerSize50%"(ı‚ø2:p°€€€"P
-*http://schemas.android.com/apk/res/androidstate_checkedtrue"( „2:@<*[
-Sitem"K
-'http://schemas.android.com/apk/res-auto
-cornerSize4dp"(ı‚ø2:h9

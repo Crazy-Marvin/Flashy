@@ -1,17 +1,0 @@
-
-£
-;
-android*http://schemas.android.com/apk/res/androidBmenu*ó
-êitem"k
-*http://schemas.android.com/apk/res/androidtitle@string/settings"(áƒ„2
-ÜÈøstring/settings0"u
-*http://schemas.android.com/apk/res/androidid@+id/settings_menu_item"(Ğ„2!
-åƒ¨øid/settings_menu_item0+*ç
-Şitem"e
-*http://schemas.android.com/apk/res/androidtitle@string/about"
-(áƒ„2
-›€Èøstring/about0"o
-*http://schemas.android.com/apk/res/androidid@+id/about_menu_item"
-(Ğ„2
-€¨øid/about_menu_item0
-(B

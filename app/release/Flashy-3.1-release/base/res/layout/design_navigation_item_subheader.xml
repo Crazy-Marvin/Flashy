@@ -1,19 +1,0 @@
-
-«	
-;
-android*http://schemas.android.com/apk/res/android6TextView"”
-*http://schemas.android.com/apk/res/android
-paddingEnd!?attr/listPreferredItemPaddingEnd"(´‡„2.
-,×†ø attr/listPreferredItemPaddingEnd0@"^
-*http://schemas.android.com/apk/res/androidgravitycenter_vertical|start"(¯„2:8“€€"U
-*http://schemas.android.com/apk/res/androidtextAlignment	viewStart"(±‡„2:0"
-*http://schemas.android.com/apk/res/androidtextAppearance%@style/TextAppearance.AppCompat.Body2"(´€„20
-.ãƒÌø$style/TextAppearance.AppCompat.Body20"`
-*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent"(ô„2:0ÿÿÿÿÿÿÿÿÿ"›
-*http://schemas.android.com/apk/res/androidlayout_height"?attr/listPreferredItemHeightSmall"(õ„21
-/Ö†ø!attr/listPreferredItemHeightSmall0À€"‹
-*http://schemas.android.com/apk/res/android	textColor?android:textColorSecondary"(˜„2,
-*¸€„android:attr/textColorSecondary0"š
-*http://schemas.android.com/apk/res/androidpaddingStart#?attr/listPreferredItemPaddingStart"(³‡„20
-.Ú†ø"attr/listPreferredItemPaddingStart0@"H
-*http://schemas.android.com/apk/res/androidmaxLines1"(Ó‚„2:06

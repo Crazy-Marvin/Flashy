@@ -8,4 +8,16 @@
     <color name="black">#000000</color>
 
     <color name="colorDialogTransclucent">#8f000000</color>
+
+    <!-- Neutral shades used when the screen shows the theme background instead of a user
+         picked color. Which set applies follows the color actually painted, not the night
+         mode: in dark mode the screen turns white while a light is on, and then the light
+         shades are the readable ones. -->
+    <color name="neutral_surface_light">#EFEFF1</color>
+    <color name="neutral_surface_raised_light">#FFFFFF</color>
+    <color name="neutral_track_light">#F3F3F7</color>
+
+    <color name="neutral_surface_dark">#2A2A2E</color>
+    <color name="neutral_surface_raised_dark">#3A3A40</color>
+    <color name="neutral_track_dark">#2E2E33</color>
 </resources>
