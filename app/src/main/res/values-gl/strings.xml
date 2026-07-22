@@ -49,4 +49,5 @@
     <string name="assistant_dialog_title">Habilitar atallo de asistente</string>
     <string name="positive_dialog_button">Abrir configuración</string>
     <string name="negative_dialog_button">Cancelar</string>
+    <string name="assistant_dialog_message">Para acender ou apagar rapidamente a lanterna premendo durante un intre o botón Inicio, podes configurar esta aplicación como o teu asistente predeterminado.</string>
 </resources>
