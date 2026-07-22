@@ -1,0 +1,9 @@
+- Refine Dark Mode 🕶️
+- Improve layout for devices with notch 🎨
+- Bugfixes 🐛
+- Target Android 17 🤖
+- Translation updates 🌎
+- Dependency updates ⚙️
+
+A huge thank you to all contributors and translators. 😘
+Feel welcome to report issues and submit fixes on https://github.com/Crazy-Marvin/Flashy/ or translations on https://hosted.weblate.org/engage/flashy/. 🚀
