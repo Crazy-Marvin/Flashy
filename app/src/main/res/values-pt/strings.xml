@@ -59,4 +59,11 @@
     <string name="no_flashlight">Sem flash</string>
     <string name="no_flash_on_device_screen_off">Desligar o flash ao desligar ao ecrã do dispositivo</string>
     <string name="no_flash_on_device_screen_off_subtext">Só funciona quando a app está aberta</string>
+    <string name="version_text">Versão %s</string>
+    <string name="assitant_title">Definir como Assistente Digital</string>
+    <string name="assitant_summary">Mantenha premido o botão «Home» para ativar ou desativar a lanterna instantaneamente</string>
+    <string name="assistant_dialog_title">Ativar o atalho do Assistente</string>
+    <string name="assistant_dialog_message">Para ativar e desativar rapidamente a lanterna premindo longamente o botão Início, pode definir esta aplicação como o seu assistente predefinido.</string>
+    <string name="positive_dialog_button">Abrir Definições</string>
+    <string name="negative_dialog_button">Cancelar</string>
 </resources>
