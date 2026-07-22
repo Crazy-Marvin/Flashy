@@ -59,4 +59,11 @@
 \nᱢᱤᱫ ᱯᱷᱟᱨᱱᱥᱣᱚᱨᱛ ᱭᱩᱱᱤᱴ ᱢᱤᱫ ᱢᱩᱞ ᱭᱩᱱᱤᱴ ᱠᱷᱚᱱ ᱡᱤᱞᱤᱧ ᱜᱮᱭᱟ ᱾
 \nᱞᱟᱛᱟᱨ ᱨᱮ ᱢᱤᱫ ᱯᱷᱟᱨᱱᱥᱣᱚᱨᱛᱷ ᱭᱩᱱᱤᱴ ᱨᱮᱱᱟᱜ ᱟᱢᱟᱜ ᱞᱟᱹᱠᱛᱤᱭᱟᱱ ᱡᱤᱞᱤᱧ ᱟᱫᱮᱨ ᱢᱮ (ᱡᱟᱦᱟᱸ ᱫᱚ ᱢᱤᱫ ᱢᱩᱞ ᱭᱩᱱᱤᱴ ᱠᱷᱚᱱ ᱡᱤᱞᱤᱧ ᱟ ᱺ %d ᱢᱤᱞᱤᱴᱤᱡ) ᱾
 \nᱵᱮᱥᱤᱠ ᱭᱩᱱᱤᱴ ᱵᱮᱵᱷᱟᱨ ᱞᱟᱹᱜᱤᱫ ᱛᱮ ᱡᱟᱭᱜᱟ ᱟᱲᱟᱜ ᱢᱮ ᱥᱟᱶᱛᱮ ᱵᱟᱹᱲᱛᱤ 25 ᱥᱟᱭᱟᱠ ᱾</string>
+    <string name="version_text">ᱵᱷᱟᱨᱥᱚᱱ %s</string>
+    <string name="assitant_title">ᱰᱤᱡᱤᱴᱟᱞ ᱜᱚᱲᱚᱭᱤᱡ ᱞᱮᱠᱟᱛᱮ ᱥᱮᱴ ᱢᱮ</string>
+    <string name="assitant_summary">ᱯᱷᱞᱟᱥ ᱞᱟᱹᱭᱤᱴ ᱨᱚᱠᱟ ᱜᱮ ᱴᱚᱜᱽᱞ ᱞᱟᱹᱜᱤᱫ ᱚᱲᱟᱜ ᱨᱮ ᱡᱷᱟᱹᱞ ᱫᱟᱵᱟᱣ ᱢᱮ</string>
+    <string name="assistant_dialog_title">ᱜᱚᱲᱚᱭᱤᱡ ᱥᱚᱴᱠᱟᱴ ᱪᱟᱹᱞᱩᱭ ᱢᱮ</string>
+    <string name="assistant_dialog_message">ᱦᱚᱢ ᱵᱩᱛᱟᱢ ᱨᱮ ᱞᱚᱝᱜᱽ ᱞᱤᱱ ᱵᱮᱵᱷᱟᱨ ᱠᱟᱛᱮ ᱯᱷᱞᱟᱥ ᱞᱟᱹᱭᱤᱴ ᱩᱥᱟᱹᱨᱟ ᱴᱚᱜᱽᱞ ᱞᱟᱹᱜᱤᱫ, ᱟᱢ ᱱᱚᱶᱟ ᱮᱯ ᱟᱢᱟᱜ ᱰᱤᱯᱷᱚᱞᱴ ᱜᱚᱲᱚᱭᱤᱡ ᱞᱮᱠᱟᱛᱮ ᱥᱮᱴ ᱫᱟᱲᱮᱭᱟᱜᱼᱟᱢ᱾</string>
+    <string name="positive_dialog_button">ᱥᱮᱴᱤᱝ ᱠᱚ ᱡᱷᱤᱡᱽ ᱢᱮ</string>
+    <string name="negative_dialog_button">ᱵᱟᱛᱤᱞ</string>
 </resources>
