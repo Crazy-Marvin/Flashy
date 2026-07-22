@@ -1,29 +1,0 @@
-
-™
-;
-android*http://schemas.android.com/apk/res/androidTextView"^
-*http://schemas.android.com/apk/res/androidgravitycenter_vertical|start"(¯„2:8“€€"³
-*http://schemas.android.com/apk/res/androidpaddingVertical/@dimen/m3_navigation_subheader_vertical_padding"(¾Š„2:
-8¢…œø.dimen/m3_navigation_subheader_vertical_padding0@"®
-*http://schemas.android.com/apk/res/android
-paddingTop/@dimen/m3_navigation_subheader_vertical_padding"(×„2:
-8¢…œø.dimen/m3_navigation_subheader_vertical_padding0@"±
-*http://schemas.android.com/apk/res/androidpaddingBottom/@dimen/m3_navigation_subheader_vertical_padding"(Ù„2:
-8¢…œø.dimen/m3_navigation_subheader_vertical_padding0@"K
-*http://schemas.android.com/apk/res/android	ellipsizeend"(«„2:0"`
-*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent"(ô„2:0ÿÿÿÿÿÿÿÿÿ"a
-*http://schemas.android.com/apk/res/androidlayout_heightwrap_content"(õ„2:0şÿÿÿÿÿÿÿÿ"¨
-*http://schemas.android.com/apk/res/androidlayout_marginTop)@dimen/m3_navigation_subheader_top_margin"(ø„24
-2¡…œø(dimen/m3_navigation_subheader_top_margin0@"´
-*http://schemas.android.com/apk/res/androidlayout_marginStart.@dimen/m3_navigation_content_horizontal_margin"(µ‡„29
-7ı„œø-dimen/m3_navigation_content_horizontal_margin0@"¹
-*http://schemas.android.com/apk/res/androidpaddingHorizontal1@dimen/m3_navigation_subheader_horizontal_padding"(½Š„2<
-: …œø0dimen/m3_navigation_subheader_horizontal_padding0@"³
-*http://schemas.android.com/apk/res/androidpaddingLeft1@dimen/m3_navigation_subheader_horizontal_padding"(Ö„2<
-: …œø0dimen/m3_navigation_subheader_horizontal_padding0@"´
-*http://schemas.android.com/apk/res/androidpaddingRight1@dimen/m3_navigation_subheader_horizontal_padding"(Ø„2<
-: …œø0dimen/m3_navigation_subheader_horizontal_padding0@"H
-*http://schemas.android.com/apk/res/androidmaxLines1"(Ó‚„2:0"
-*http://schemas.android.com/apk/res/androidid$@+id/navigation_menu_subheader_label"(Ğ„2.
-,ü‚¨ø"id/navigation_menu_subheader_label0"\
-*http://schemas.android.com/apk/res/androidfilterTouchesWhenObscuredtrue"(Ä…„2:@

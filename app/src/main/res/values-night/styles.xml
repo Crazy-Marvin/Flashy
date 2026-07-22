@@ -8,7 +8,9 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="colorOnPrimary">@color/black</item>
         <item name="android:textColor">@android:color/white</item>
-        <item name="android:statusBarColor" tools:targetApi="lollipop">?attr/colorOnPrimary</item>
+        <!-- Let the system bars match the screen instead of falling back to the platform black -->
+        <item name="android:statusBarColor" tools:targetApi="lollipop">?android:attr/colorBackground</item>
+        <item name="android:navigationBarColor">?android:attr/colorBackground</item>
         <item name="android:windowLightStatusBar" tools:targetApi="lollipop">false</item>
         <item name="android:windowLightNavigationBar" tools:targetApi="27">false</item>
         <item name="bottomSheetDialogTheme">@style/RoundedCornersBottomSheetTheme</item>
@@ -16,6 +18,8 @@
 
     <style name="AppTheme.Material3" parent="Theme.Material3.DynamicColors.DayNight">
         <item name="android:textColor">@android:color/white</item>
+        <item name="android:statusBarColor" tools:targetApi="lollipop">?android:attr/colorBackground</item>
+        <item name="android:navigationBarColor">?android:attr/colorBackground</item>
         <item name="android:windowLightStatusBar" tools:targetApi="lollipop">false</item>
         <item name="android:windowLightNavigationBar" tools:targetApi="27">false</item>
         <item name="windowActionBar">false</item>

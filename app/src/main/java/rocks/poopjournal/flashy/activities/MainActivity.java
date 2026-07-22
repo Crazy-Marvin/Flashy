@@ -7,6 +7,8 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,6 +22,13 @@ import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.ColorUtils;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.preference.PreferenceManager;
 
 import com.google.android.material.color.MaterialColors;
@@ -50,7 +59,14 @@ public class MainActivity extends AppCompatActivity {
 
     private View[] colorViews;
     private View selectedColorView = null;
-    private int selectedScreenColor = Color.WHITE; // default
+    /** Background of the current day/night theme, i.e. the colour the other screens use. */
+    private int themeDefaultColor = Color.WHITE;
+    private int selectedScreenColor = themeDefaultColor; // default
+    /** True while the screen shows the theme background rather than a colour the user picked. */
+    private boolean usingThemeBackground = true;
+    /** State the UI is currently painted for, so redundant repaints can be skipped. */
+    private int appliedBackgroundColor = Color.TRANSPARENT;
+    private boolean appliedThemeBackground = true;
 
     private enum FlashlightMode {
         NORMAL, SOS, STROBOSCOPE
@@ -90,6 +106,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = MainActivityBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        applyWindowInsets();
+        // The theme is already resolved for the active night mode here, so this picks up the
+        // same background the settings/about screens draw.
+        themeDefaultColor = MaterialColors.getColor(this, android.R.attr.colorBackground, Color.WHITE);
+        selectedScreenColor = themeDefaultColor;
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         helper = CameraHelper.getInstance(this);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
@@ -118,12 +139,19 @@ public class MainActivity extends AppCompatActivity {
             binding.stroboscopeInterval.setVisibility(View.GONE);
             binding.stroboscopeIntervalSlider.setVisibility(View.GONE);
         } else {
-            helper.getNormalFlashStatus().observe(this, (isOn -> changeButtonColors(FlashlightMode.NORMAL, isOn)));
-            helper.getSosStatus().observe(this, (isOn -> changeButtonColors(FlashlightMode.SOS, isOn)));
+            helper.getNormalFlashStatus().observe(this, (isOn -> {
+                changeButtonColors(FlashlightMode.NORMAL, isOn);
+                refreshBackground();
+            }));
+            helper.getSosStatus().observe(this, (isOn -> {
+                changeButtonColors(FlashlightMode.SOS, isOn);
+                refreshBackground();
+            }));
             helper.getStroboscopeStatus().observe(this, (isOn -> {
                 changeButtonColors(FlashlightMode.STROBOSCOPE, isOn);
                 binding.stroboscopeInterval.setVisibility(isOn ? View.VISIBLE : View.GONE);
                 binding.stroboscopeIntervalSlider.setVisibility(isOn ? View.VISIBLE : View.GONE);
+                refreshBackground();
             }));
             binding.sosIcon.setOnClickListener(v -> helper.toggleSos(this));
             binding.stroboscopeIcon.setOnClickListener(v -> helper.toggleStroboscope(this));
@@ -141,23 +169,26 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
-        View colorWhite = findViewById(R.id.color_white);
+        View colorDefault = findViewById(R.id.color_white);
         View colorRed = findViewById(R.id.color_red);
         View colorGreen = findViewById(R.id.color_green);
         View colorBlue = findViewById(R.id.color_blue);
 
-        colorWhite.setTag(Color.parseColor("#ffffff"));
+        // The first swatch follows the theme: white in light mode, the dark background in dark
+        // mode while every light is off, white again as soon as one is on.
+        colorDefault.setTag(themeDefaultColor);
+        applySwatchColor(colorDefault, neutralBackgroundColor());
         colorRed.setTag(Color.parseColor("#EF4444"));
         colorGreen.setTag(Color.parseColor("#23C760"));
         colorBlue.setTag(Color.parseColor("#3A86F7"));
 
-        colorViews = new View[]{colorWhite, colorRed, colorGreen, colorBlue};
+        colorViews = new View[]{colorDefault, colorRed, colorGreen, colorBlue};
 
         for (View colorView : colorViews) {
             colorView.setOnClickListener(v -> onColorCircleSelected(colorView));
         }
 
-        binding.rootLayout.post(() -> onColorCircleSelected(colorWhite));
+        binding.rootLayout.post(() -> onColorCircleSelected(colorDefault));
         findViewById(R.id.show_palette_icon).setOnClickListener(v -> {
             binding.colorPickerView.setVisibility(View.VISIBLE);
             if (selectedColorView != null) {
@@ -171,12 +202,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         ColorPickerView colorPickerView = findViewById(R.id.colorPickerView);
-        colorPickerView.setColorListener(new ColorListener() {
-            @Override
-            public void onColorSelected(int color, boolean fromUser) {
-                selectedScreenColor = color;
-                updateUIColors(color);
-            }
+        colorPickerView.setColorListener((ColorListener) (color, fromUser) -> {
+            // The picker fires once from its own layout pass with the colour under the centre of a
+            // palette it has never drawn (it starts out GONE, so it is never sized). Reacting to
+            // that would overwrite the selection made above with a junk colour.
+            if (!fromUser) return;
+            usingThemeBackground = false;
+            selectedScreenColor = color;
+            refreshBackground();
         });
     }
 
@@ -190,6 +223,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         turnOffFlashlightOnScreenOffReceiver.unregisterWith(this);
+    }
+
+    /**
+     * From Android 15 on the app always draws edge to edge, so the toolbar title would end up
+     * underneath the status bar and the display cutout. Inset the content by the system bars: the
+     * background still fills the whole window, only the views move out from under them.
+     */
+    private void applyWindowInsets() {
+        ViewCompat.setOnApplyWindowInsetsListener(binding.rootLayout, (view, windowInsets) -> {
+            Insets insets = windowInsets.getInsets(
+                    WindowInsetsCompat.Type.systemBars() | WindowInsetsCompat.Type.displayCutout());
+            view.setPadding(insets.left, insets.top, insets.right, insets.bottom);
+            return WindowInsetsCompat.CONSUMED;
+        });
     }
 
     void applyListeners() {
@@ -216,12 +263,12 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void changeButtonColors(FlashlightMode mode, boolean isTurnedOn) {
-        boolean isWhiteBackground = selectedScreenColor == Color.WHITE;
+        boolean isNeutralBackground = isNeutralBackground();
 
-        int onIconColor = isWhiteBackground ? Color.parseColor("#FFB137") : Color.WHITE;
+        int onIconColor = isNeutralBackground ? Color.parseColor("#FFB137") : Color.WHITE;
         int offIconColor = Color.parseColor("#AAAABB");
-        int centerOnColor = isWhiteBackground ? Color.parseColor("#28FFB137") : Color.WHITE; // for powerCenter
-        int overlayColor = isWhiteBackground
+        int centerOnColor = isNeutralBackground ? Color.parseColor("#28FFB137") : Color.WHITE; // for powerCenter
+        int overlayColor = isNeutralBackground
                 ? Color.parseColor("#FFB137")
                 : withAlpha(selectedScreenColor, 0.75f);
 
@@ -246,25 +293,32 @@ public class MainActivity extends AppCompatActivity {
 
 
     void updateOptionsUI(boolean isFlash) {
-        boolean isWhite = selectedScreenColor == Color.WHITE;
         if (isFlash) {
             //Change UI for options
             RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) binding.bgOptionCircle.getLayoutParams();
             params.removeRule(RelativeLayout.ALIGN_PARENT_END);
             binding.bgOptionCircle.setLayoutParams(params);
-            binding.flashIcon.setColorFilter(isWhite ? Color.parseColor("#FFB137") : selectedScreenColor);
-            binding.screenIcon.setColorFilter(isWhite ? Color.parseColor("#AAAABB") : Color.WHITE);
             binding.progressCircular.setProgress(0f);
         } else {
             binding.bgOptionCircle.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
             RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) binding.bgOptionCircle.getLayoutParams();
             params.addRule(RelativeLayout.ALIGN_PARENT_END);
             binding.bgOptionCircle.setLayoutParams(params);
-            binding.flashIcon.setColorFilter(isWhite ? Color.parseColor("#AAAABB") : Color.WHITE);
-            binding.screenIcon.setColorFilter(isWhite ? Color.parseColor("#FFB137") : selectedScreenColor);
         }
+        updateOptionsIconColors(isFlash);
     }
+
+    /** Tints the flash/screen switch, highlighting whichever of the two is active. */
+    private void updateOptionsIconColors(boolean isFlash) {
+        boolean isNeutral = isNeutralBackground();
+        int activeColor = isNeutral ? Color.parseColor("#FFB137") : selectedScreenColor;
+        int inactiveColor = isNeutral ? Color.parseColor("#AAAABB") : Color.WHITE;
+        binding.flashIcon.setColorFilter(isFlash ? activeColor : inactiveColor);
+        binding.screenIcon.setColorFilter(isFlash ? inactiveColor : activeColor);
+    }
+
     void refreshActivityForFlashLight() {
+        applyRingColors();
         if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH))
             new NoFlashlightDialog().show(getSupportFragmentManager(), null);
         else if (getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH) &&
@@ -305,18 +359,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
     void refreshActivityForScreenLight() {
-        boolean isWhiteBackground = selectedScreenColor == Color.WHITE;
-        int inactiveProgressColor = isWhiteBackground
-                ? Color.parseColor("#F3F3F7") // light gray for white
-                : dimColor(selectedScreenColor, 0.9f); // simulate alpha by dimming
-
-        int activeProgressColor = isWhiteBackground
-                ? Color.parseColor("#FFB137") // yellow
-                : Color.WHITE; // white on colored background
-        int pointerColor = isWhiteBackground ? Color.parseColor("#FFB137") : Color.WHITE;
-        binding.progressCircular.setPointerColor(pointerColor);
-        binding.progressCircular.setCircleProgressColor(activeProgressColor);
-        binding.progressCircular.setCircleColor(inactiveProgressColor);
+        applyRingColors();
         binding.progressCircular.setEnabled(true);
         if (defaultPreferences.getBoolean("no_flash_when_screen", true) && getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH))
             helper.turnOffAll(this);
@@ -337,6 +380,8 @@ public class MainActivity extends AppCompatActivity {
                 WindowManager.LayoutParams layoutpars = window.getAttributes();
                 layoutpars.screenBrightness = (float) brightness / 100;
                 window.setAttributes(layoutpars);
+                // The screen light just went on or off, so the background may have to follow.
+                refreshBackground();
             }
 
             @Override
@@ -350,36 +395,53 @@ public class MainActivity extends AppCompatActivity {
         binding.powerCenter.setOnClickListener(view -> binding.progressCircular.setProgress(brightness != 100 ? 100 : 0));
     }
 
-    void updateUIColors(int backgroundColor) {
-        selectedScreenColor = backgroundColor;
+    private void updateUIColors(int backgroundColor) {
+        appliedBackgroundColor = backgroundColor;
+        appliedThemeBackground = usingThemeBackground;
 
-        boolean isWhite = selectedScreenColor == Color.WHITE;
+        boolean isNeutral = isNeutralBackground();
 
-        // Fallback color for white background
-        int overlayColor = isWhite
-                ? Color.parseColor("#EFEFF1")
+        // Slightly offset shade of the background, so the pills stay visible in both modes
+        int overlayColor = isNeutral
+                ? neutralColor(R.color.neutral_surface_light, R.color.neutral_surface_dark)
                 : withAlpha(selectedScreenColor, 0.75f); // Apply alpha for other colors
 
         // Use contrast for text/icons
-
-
-        invertedBackgroundColor = isWhite ? Color.BLACK : Color.WHITE;
+        invertedBackgroundColor = contrastColorFor(backgroundColor);
 
         PorterDuffColorFilter colorFilter = new PorterDuffColorFilter(overlayColor, PorterDuff.Mode.SRC_ATOP);
+        PorterDuffColorFilter selectorFilter = new PorterDuffColorFilter(
+                isNeutral
+                        ? neutralColor(R.color.neutral_surface_raised_light, R.color.neutral_surface_raised_dark)
+                        : Color.WHITE,
+                PorterDuff.Mode.SRC_ATOP);
 
         // Apply filters
         binding.toolbar.setTitleTextColor(invertedBackgroundColor);
         binding.bgOptions.getBackground().setColorFilter(colorFilter);
         binding.bgFlashlightMode.getBackground().setColorFilter(colorFilter);
-        binding.aboutIcon.setColorFilter(invertedBackgroundColor);
-        binding.settingsIcon.setColorFilter(invertedBackgroundColor);
+        binding.colorOptionRow.getBackground().mutate().setColorFilter(colorFilter);
+        binding.bgOptionCircle.getBackground().mutate().setColorFilter(selectorFilter);
+        // Muted grey reads on both the light and the dark theme background; on a picked colour the
+        // background is saturated enough that plain white works better.
+        int bottomIconColor = isNeutral ? Color.parseColor("#AAAABB") : Color.WHITE;
+        binding.aboutIcon.setColorFilter(bottomIconColor);
+        binding.settingsIcon.setColorFilter(bottomIconColor);
+        binding.stroboscopeInterval.setTextColor(invertedBackgroundColor);
+        // Without a flash the power icon never gets a state driven tint, so its translucent black
+        // stroke would disappear on a dark background.
+        if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH))
+            binding.powerIcon.setColorFilter(Color.parseColor("#AAAABB"));
 
         // Set background and system bars
         binding.rootLayout.setBackgroundColor(backgroundColor);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            window.setStatusBarColor(backgroundColor);
-            window.setNavigationBarColor(backgroundColor);
-        }
+        window.setStatusBarColor(backgroundColor);
+        window.setNavigationBarColor(backgroundColor);
+        // Keep the status/navigation bar icons readable against whatever is behind them
+        WindowInsetsControllerCompat barIcons = WindowCompat.getInsetsController(window, binding.getRoot());
+        boolean lightBackground = invertedBackgroundColor == Color.BLACK;
+        barIcons.setAppearanceLightStatusBars(lightBackground);
+        barIcons.setAppearanceLightNavigationBars(lightBackground);
     }
 
 
@@ -418,8 +480,9 @@ public class MainActivity extends AppCompatActivity {
 
         // Get background color from tag or fallback
         int color = getViewColor(selectedView);
+        usingThemeBackground = color == themeDefaultColor;
         selectedScreenColor = color;
-        updateUIColors(color);
+        refreshBackground();
 
         if (!isFlashOption()) {
             refreshActivityForScreenLight();
@@ -433,7 +496,92 @@ public class MainActivity extends AppCompatActivity {
 
     int getViewColor(View view) {
         Object tag = view.getTag();
-        return (tag instanceof Integer) ? (Integer) tag : Color.WHITE;
+        return (tag instanceof Integer) ? (Integer) tag : themeDefaultColor;
+    }
+
+    /**
+     * True while the screen shows the theme background rather than one of the colours the user
+     * picked. That background is white in light mode, and dark in dark mode until a light is on.
+     */
+    private boolean isNeutralBackground() {
+        return usingThemeBackground;
+    }
+
+    /** True while any of the flashlight modes has the LED lit. */
+    private boolean isFlashOn() {
+        return Boolean.TRUE.equals(helper.getNormalFlashStatus().getValue())
+                || Boolean.TRUE.equals(helper.getSosStatus().getValue())
+                || Boolean.TRUE.equals(helper.getStroboscopeStatus().getValue());
+    }
+
+    /** True while the screen light itself is turned up. */
+    private boolean isScreenLightOn() {
+        return brightness > 0;
+    }
+
+    /**
+     * The background used when no colour is picked. It follows the theme while everything is off,
+     * but a lit screen has to be white to be of any use, so in dark mode it only stays dark until
+     * a light comes on.
+     */
+    private int neutralBackgroundColor() {
+        return isFlashOn() || isScreenLightOn() ? Color.WHITE : themeDefaultColor;
+    }
+
+    /** The colour the screen should be painted with right now. */
+    private int currentBackgroundColor() {
+        return usingThemeBackground ? neutralBackgroundColor() : selectedScreenColor;
+    }
+
+    /** Repaints the screen whenever the light state or the picked colour changed the background. */
+    private void refreshBackground() {
+        // The default swatch previews the background picking it would give.
+        if (colorViews != null) applySwatchColor(colorViews[0], neutralBackgroundColor());
+        int background = currentBackgroundColor();
+        if (background == appliedBackgroundColor && usingThemeBackground == appliedThemeBackground)
+            return;
+        updateUIColors(background);
+        applyRingColors();
+        updateOptionsIconColors(isFlashOption());
+    }
+
+    /** Colours the seek bar ring for the current background. */
+    private void applyRingColors() {
+        boolean isNeutral = isNeutralBackground();
+        binding.progressCircular.setCircleColor(isNeutral
+                ? neutralColor(R.color.neutral_track_light, R.color.neutral_track_dark)
+                : dimColor(selectedScreenColor, 0.9f)); // simulate alpha by dimming
+        if (isFlashOption()) return; // the flash ring keeps the pointer it was set up with
+        int accentColor = isNeutral ? Color.parseColor("#FFB137") : Color.WHITE;
+        binding.progressCircular.setPointerColor(accentColor);
+        binding.progressCircular.setCircleProgressColor(accentColor);
+    }
+
+    /** Picks the neutral shade that reads on the background currently painted. */
+    private int neutralColor(int lightColorRes, int darkColorRes) {
+        boolean onLightBackground = contrastColorFor(currentBackgroundColor()) == Color.BLACK;
+        return ContextCompat.getColor(this, onLightBackground ? lightColorRes : darkColorRes);
+    }
+
+    /** Black or white, whichever stays readable on top of {@code background}. */
+    private int contrastColorFor(int background) {
+        return ColorUtils.calculateLuminance(background) > 0.5 ? Color.BLACK : Color.WHITE;
+    }
+
+    /** Repaints a colour circle in the picker row, keeping it visible against the row behind it. */
+    private void applySwatchColor(View swatch, int color) {
+        Drawable background = swatch.getBackground();
+        if (background == null) return;
+        Drawable mutated = background.mutate();
+        if (mutated instanceof GradientDrawable) {
+            GradientDrawable circle = (GradientDrawable) mutated;
+            circle.setColor(color);
+            circle.setStroke(Math.round(getResources().getDisplayMetrics().density),
+                    withAlpha(contrastColorFor(color), 0.35f));
+        } else {
+            mutated.setColorFilter(new PorterDuffColorFilter(color, PorterDuff.Mode.SRC_IN));
+        }
+        swatch.setBackground(mutated);
     }
 
     private int withAlpha(int color, float alpha) {

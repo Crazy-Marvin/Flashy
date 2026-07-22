@@ -18,6 +18,7 @@ import androidx.preference.EditTextPreference;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.PreferenceGroup;
 import androidx.preference.PreferenceManager;
 import androidx.preference.SwitchPreferenceCompat;
 
@@ -51,6 +52,20 @@ public class SettingsActivity extends AppCompatActivity {
 
     public static class SettingsFragment extends PreferenceFragmentCompat {
         private CameraHelper helper;
+
+        /**
+         * The preference layout keeps titles on a single line, which cuts the longer ones off.
+         * Let them wrap onto another line instead, so the whole title stays readable.
+         */
+        private static void allowMultiLineTitles(PreferenceGroup group) {
+            for (int i = 0; i < group.getPreferenceCount(); i++) {
+                Preference preference = group.getPreference(i);
+                preference.setSingleLineTitle(false);
+                if (preference instanceof PreferenceGroup)
+                    allowMultiLineTitles((PreferenceGroup) preference);
+            }
+        }
+
         private final SharedPreferences.OnSharedPreferenceChangeListener listener = (sharedPreferences, key) -> {
             if (key.equals("words_per_min") && Integer.parseInt(sharedPreferences.getString("farnsworth_unit", "0")) <= helper.getCurrentDitLength(sharedPreferences) ||
                     key.equals("farnsworth_unit") && sharedPreferences.getString("farnsworth_unit", "").isEmpty()) {
@@ -66,6 +81,7 @@ public class SettingsActivity extends AppCompatActivity {
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             setPreferencesFromResource(R.xml.root_preferences, rootKey);
+            allowMultiLineTitles(getPreferenceScreen());
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
             preferences.registerOnSharedPreferenceChangeListener(listener);
             helper = CameraHelper.getInstance(requireContext());

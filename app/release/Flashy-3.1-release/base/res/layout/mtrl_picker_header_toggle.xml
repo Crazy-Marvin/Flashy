@@ -1,15 +1,0 @@
-
-
-;
-android*http://schemas.android.com/apk/res/androidO9com.google.android.material.internal.CheckableImageButton"¹
-*http://schemas.android.com/apk/res/androidlayout_marginBottom0@dimen/mtrl_calendar_header_toggle_margin_bottom"(ú„2;
-9ê†œø/dimen/mtrl_calendar_header_toggle_margin_bottom0@"–
-*http://schemas.android.com/apk/res/androidlayout_width!@dimen/mtrl_min_touch_target_size"(ô„2.
-,¦‡œø dimen/mtrl_min_touch_target_size0À€"—
-*http://schemas.android.com/apk/res/androidlayout_height!@dimen/mtrl_min_touch_target_size"(õ„2.
-,¦‡œø dimen/mtrl_min_touch_target_size0À€"nstyle(?attr/materialCalendarHeaderToggleButton"27
-5ú†ø'attr/materialCalendarHeaderToggleButton0ÿÿ"°
-*http://schemas.android.com/apk/res/androidlayout_marginTop-@dimen/mtrl_calendar_header_toggle_margin_top"(ø„28
-6ë†œø,dimen/mtrl_calendar_header_toggle_margin_top0@"ƒ
-*http://schemas.android.com/apk/res/androidid@+id/mtrl_picker_header_toggle"(Ğ„2(
-&ê‚¨øid/mtrl_picker_header_toggle0O
