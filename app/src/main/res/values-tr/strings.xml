@@ -59,4 +59,11 @@
     <string name="dark">Koyu</string>
     <string name="no_flash_on_device_screen_off_subtext">Yalnızca uygulama açıkken çalışır</string>
     <string name="no_flash_on_device_screen_off">Aygıt ekranını kapatırken el fenerini kapat</string>
+    <string name="version_text">Sürüm %s</string>
+    <string name="assitant_title">Dijital Asistan Olarak Ayarla</string>
+    <string name="assitant_summary">Ana Ekran tuşuna uzun basarak el fenerini anında açıp kapatabilirsiniz</string>
+    <string name="assistant_dialog_title">Asistan Kısayolunu Etkinleştir</string>
+    <string name="assistant_dialog_message">Ana Ekran düğmesine uzun basarak el fenerini hızla açıp kapatmak için bu uygulamayı varsayılan yardımcınız olarak ayarlayabilirsiniz.</string>
+    <string name="positive_dialog_button">Ayarlar\'ı aç</string>
+    <string name="negative_dialog_button">İptal et</string>
 </resources>
