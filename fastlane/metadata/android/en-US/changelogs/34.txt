@@ -1,3 +1,4 @@
+- Support Glyph Interface of Nothing smartphones 💠
 - Volume buttons may be used for adjusting brightness 💡
 - Refine Dark Mode 🕶️
 - Improve layout for devices with notch 🎨
