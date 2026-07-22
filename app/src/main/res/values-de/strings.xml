@@ -61,4 +61,9 @@
     <string name="no_flash_on_device_screen_off">Taschenlampe automatisch abschalten, wenn der Geräte-Bildschirm abgeschaltet wird</string>
     <string name="version_text">Version %s</string>
     <string name="negative_dialog_button">Abbrechen</string>
+    <string name="assitant_title">Als digitalen Assistenten einrichten</string>
+    <string name="assitant_summary">Halte die Home-Taste gedrückt, um die Taschenlampe sofort ein- oder auszuschalten</string>
+    <string name="assistant_dialog_title">Schnellzugriff im Assistenten aktivieren</string>
+    <string name="assistant_dialog_message">Um die Taschenlampe durch langes Drücken der Home-Taste schnell ein- und auszuschalten, kannst du diese App als Standard-Assistenten festlegen.</string>
+    <string name="positive_dialog_button">Einstellungen öffnen</string>
 </resources>
