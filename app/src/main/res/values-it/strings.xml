@@ -44,4 +44,10 @@
     <string name="use_farnsworth">Usa la temporizzazione Farnsworth</string>
     <string name="turn_on_sos_now">Attiva SOS ora</string>
     <string name="farnsworth_unit_length">Unità di lunghezza Farnsworth</string>
+    <string name="farnsworth_unit_length_error">La durata dell\'unità Farnsworth deve essere superiore a quella di un\'unità normale</string>
+    <string name="farnsworth_unit_length_explanation">La temporizzazione di Farnsworth facilita il riconoscimento dei pattern sonori aumentando gli intervalli tra caratteri e parole, offrendo così più tempo per il riconoscimento.\nUn\'unità Farnsworth è più lunga di un\'unità base.\nInserisci qui sotto la durata desiderata per un\'unità Farnsworth (deve essere maggiore di un\'unità base: %d millisecondi).\nLascia vuoto per utilizzare la durata dell\'unità base più un ulteriore 25%.</string>
+    <string name="learn_more_morse_timing">Scopri di più sulla temporizzazione del codice Morse</string>
+    <string name="md3_subtext">Usa l\'aspetto e lo stile di Android 12</string>
+    <string name="no_flash_on_device_screen_off">Spegni la torcia quando spegni lo schermo del dispositivo</string>
+    <string name="no_flash_on_device_screen_off_subtext">Funziona solo quando l\'app è aperta</string>
 </resources>
