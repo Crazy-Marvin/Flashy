@@ -27,7 +27,9 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import rocks.poopjournal.flashy.R;
 import rocks.poopjournal.flashy.databinding.SettingsActivityBinding;
 import rocks.poopjournal.flashy.utils.CameraHelper;
+import rocks.poopjournal.flashy.utils.GlyphHelper;
 import rocks.poopjournal.flashy.utils.Utils;
+import rocks.poopjournal.flashy.utils.showcase.Showcase;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -105,6 +107,10 @@ public class SettingsActivity extends AppCompatActivity {
                 return true;
             });
 
+            // Only a Nothing phone has a Glyph to light up, so nobody else is offered the switch.
+            SwitchPreferenceCompat glyphPref = findPreference(GlyphHelper.PREFERENCE_KEY);
+            if (glyphPref != null) glyphPref.setVisible(GlyphHelper.isSupported());
+
             Preference setAssistantPref = findPreference("set_as_digital_assistant");
             if (setAssistantPref != null) {
                 setAssistantPref.setOnPreferenceClickListener(preference -> {
@@ -126,6 +132,17 @@ public class SettingsActivity extends AppCompatActivity {
                     dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.BLACK);
                     dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.BLACK);
 
+                    return true;
+                });
+            }
+
+            Preference replayShowcase = findPreference("replay_showcase");
+            if (replayShowcase != null) {
+                replayShowcase.setOnPreferenceClickListener(preference -> {
+                    // The home screen picks the cleared flag up in its onResume, so the tour opens
+                    // as soon as this screen is left.
+                    Showcase.reset(PreferenceManager.getDefaultSharedPreferences(requireContext()));
+                    Toast.makeText(requireContext(), R.string.showcase_replay_done, Toast.LENGTH_SHORT).show();
                     return true;
                 });
             }

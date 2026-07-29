@@ -1,6 +1,8 @@
 # Built application files
 *.apk
 *.aar
+# except the Glyph SDK, which the app is built against and comes as a prebuilt library
+!app/libs/*.aar
 *.ap_
 *.aab
 app/release/output-metadata.json

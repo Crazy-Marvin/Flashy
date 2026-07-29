@@ -38,6 +38,24 @@ public class CameraHelper {
     @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
     private final AtomicInteger flashlightStrength = new AtomicInteger(1);
     private boolean isStroboscopeFlashOn = false;
+    private volatile FlashPulseListener flashPulseListener;
+
+    /**
+     * Told about every single blink of the SOS and stroboscope modes, so something else can blink
+     * along with the flashlight. Called from the thread doing the blinking, not the main one.
+     */
+    public interface FlashPulseListener {
+        void onFlashPulse(boolean isOn);
+    }
+
+    public void setFlashPulseListener(FlashPulseListener listener) {
+        flashPulseListener = listener;
+    }
+
+    private void notifyFlashPulse() {
+        FlashPulseListener listener = flashPulseListener;
+        if (listener != null) listener.onFlashPulse(isStroboscopeFlashOn);
+    }
 
     public LiveData<Boolean> getNormalFlashStatus() {
         return isNormalFlashOn;
@@ -412,12 +430,14 @@ public class CameraHelper {
             isStroboscopeFlashOn = true;
         } catch (IOException ignored) {
         }
+        notifyFlashPulse();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     private void toggleStroboscopeFlashMarshmallow() throws CameraAccessException {
         manager.setTorchMode(manager.getCameraIdList()[0], !isStroboscopeFlashOn);
         isStroboscopeFlashOn = !isStroboscopeFlashOn;
+        notifyFlashPulse();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
@@ -428,6 +448,7 @@ public class CameraHelper {
             turnOnFlashAndroid13(context);
         }
         isStroboscopeFlashOn = !isStroboscopeFlashOn;
+        notifyFlashPulse();
     }
 
     private void applySosLengthsFromSettings(Context context) {

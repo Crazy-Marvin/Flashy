@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+    The text of one tour step. It is drawn straight onto the scrim rather than on a card of its
+    own, so the highlight stays the only thing standing out. Everything here is plain cream text
+    with a soft shadow, which keeps it readable both on the scrim and on the undimmed screen the
+    opening step shows.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/showcase_caption"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/showcase_body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="6dp"
+        android:shadowColor="#73000000"
+        android:shadowDx="0"
+        android:shadowDy="1"
+        android:shadowRadius="6"
+        android:textColor="@color/showcase_on_scrim"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/showcase_skip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:paddingStart="12dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="12dp"
+            android:paddingBottom="10dp"
+            android:shadowColor="#73000000"
+            android:shadowDx="0"
+            android:shadowDy="1"
+            android:shadowRadius="6"
+            android:text="@string/showcase_skip"
+            android:textColor="@color/showcase_on_scrim_muted"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/showcase_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:paddingStart="12dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="12dp"
+            android:paddingBottom="10dp"
+            android:shadowColor="#73000000"
+            android:shadowDx="0"
+            android:shadowDy="1"
+            android:shadowRadius="6"
+            android:text="@string/showcase_next"
+            android:textColor="@color/showcase_on_scrim"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</LinearLayout>

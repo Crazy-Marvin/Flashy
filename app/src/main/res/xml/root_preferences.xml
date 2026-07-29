@@ -37,10 +37,30 @@
             app:iconSpaceReserved="false"
             app:defaultValue="false"/>
 
+        <SwitchPreferenceCompat
+            app:key="volume_keys_brightness"
+            app:title="@string/volume_keys_brightness"
+            app:summary="@string/volume_keys_brightness_subtext"
+            app:iconSpaceReserved="false"
+            app:defaultValue="true"/>
+
+        <SwitchPreferenceCompat
+            app:key="glyph_interface"
+            app:title="@string/glyph_interface"
+            app:summary="@string/glyph_interface_subtext"
+            app:iconSpaceReserved="false"
+            app:defaultValue="true"/>
+
         <Preference
             app:key="set_as_digital_assistant"
             app:title="@string/assitant_title"
             app:summary="@string/assitant_summary"
+            app:iconSpaceReserved="false" />
+
+        <Preference
+            app:key="replay_showcase"
+            app:title="@string/showcase_replay"
+            app:summary="@string/showcase_replay_subtext"
             app:iconSpaceReserved="false" />
 
     </PreferenceCategory>
