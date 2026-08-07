@@ -13,6 +13,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.TypedValue;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -38,13 +39,19 @@ import com.skydoves.colorpickerview.listeners.ColorListener;
 
 import me.tankery.lib.circularseekbar.CircularSeekBar;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import rocks.poopjournal.flashy.NoFlashlightDialog;
 import rocks.poopjournal.flashy.R;
 import rocks.poopjournal.flashy.databinding.MainActivityBinding;
 import rocks.poopjournal.flashy.receivers.ScreenOffBroadcastReceiver;
 import rocks.poopjournal.flashy.utils.CameraHelper;
+import rocks.poopjournal.flashy.utils.GlyphHelper;
 import rocks.poopjournal.flashy.utils.Shortcuts;
 import rocks.poopjournal.flashy.utils.Utils;
+import rocks.poopjournal.flashy.utils.showcase.Showcase;
+import rocks.poopjournal.flashy.utils.showcase.ShowcaseStep;
 
 public class MainActivity extends AppCompatActivity {
     //Fields
@@ -54,7 +61,12 @@ public class MainActivity extends AppCompatActivity {
     private SharedPreferences legacyPreferences; //kept for legacy reasons
     private SharedPreferences defaultPreferences;
     private CameraHelper helper;
+    private GlyphHelper glyph;
+    /** Level the Glyph was last told to show, read by the thread blinking SOS and the stroboscope. */
+    private volatile int glyphLevel;
     private MainActivityBinding binding;
+    /** The guided tour of this screen, alive only while it is running. */
+    private Showcase showcase;
     private final ScreenOffBroadcastReceiver turnOffFlashlightOnScreenOffReceiver = new ScreenOffBroadcastReceiver();
 
     private View[] colorViews;
@@ -113,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
         selectedScreenColor = themeDefaultColor;
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         helper = CameraHelper.getInstance(this);
+        if (GlyphHelper.isSupported()) glyph = GlyphHelper.getInstance(this);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
                 helper.getFlashlightStrengthLevel(this) > 1 &&
                 defaultPreferences.getInt("flashlight_strength", -1) == -1) { //if flash brightness is not saved into preferences
@@ -135,23 +148,31 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)) {
-            getSupportFragmentManager().setFragmentResultListener(NoFlashlightDialog.NO_FLASH_DIALOG_DISMISSED, this, ((requestKey, result) -> binding.bgOptions.callOnClick()));
+            getSupportFragmentManager().setFragmentResultListener(NoFlashlightDialog.NO_FLASH_DIALOG_DISMISSED, this, ((requestKey, result) -> {
+                binding.bgOptions.callOnClick();
+                // The tour holds off while this dialog is up, so this is its cue on a device
+                // without a flashlight.
+                maybeStartShowcase();
+            }));
             binding.stroboscopeInterval.setVisibility(View.GONE);
             binding.stroboscopeIntervalSlider.setVisibility(View.GONE);
         } else {
             helper.getNormalFlashStatus().observe(this, (isOn -> {
                 changeButtonColors(FlashlightMode.NORMAL, isOn);
                 refreshBackground();
+                updateGlyph();
             }));
             helper.getSosStatus().observe(this, (isOn -> {
                 changeButtonColors(FlashlightMode.SOS, isOn);
                 refreshBackground();
+                updateGlyph();
             }));
             helper.getStroboscopeStatus().observe(this, (isOn -> {
                 changeButtonColors(FlashlightMode.STROBOSCOPE, isOn);
                 binding.stroboscopeInterval.setVisibility(isOn ? View.VISIBLE : View.GONE);
                 binding.stroboscopeIntervalSlider.setVisibility(isOn ? View.VISIBLE : View.GONE);
                 refreshBackground();
+                updateGlyph();
             }));
             binding.sosIcon.setOnClickListener(v -> helper.toggleSos(this));
             binding.stroboscopeIcon.setOnClickListener(v -> helper.toggleStroboscope(this));
@@ -214,6 +235,121 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        maybeStartShowcase();
+    }
+
+    /**
+     * Walks a first time user through the home screen. Checked on every resume rather than only on
+     * creation, so clearing the flag from the settings starts the tour on the way back here.
+     */
+    private void maybeStartShowcase() {
+        if (showcase != null && showcase.isRunning()) return;
+        if (Showcase.hasBeenSeen(defaultPreferences)) return;
+        // A device without a flashlight opens on the "no flashlight" dialog, which sits in a window
+        // of its own above anything the tour could draw. Wait for it to be dismissed.
+        if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH) && isFlashOption())
+            return;
+        // Two posts deep: the first gets behind the default colour selection init() queued during
+        // creation, the second gives the layout that selection triggers a chance to settle before
+        // any target is measured.
+        binding.rootLayout.post(() -> binding.rootLayout.post(this::startShowcase));
+    }
+
+    /** Builds and starts the home screen tour, remembering what to put back once it is over. */
+    private void startShowcase() {
+        if (isFinishing() || isDestroyed()) return;
+        if (showcase != null && showcase.isRunning()) return;
+
+        // The tour shows off the screen light, so the mode and colour the user arrived in are kept
+        // aside and restored the moment it ends, however it ends.
+        final boolean wasFlashOption = isFlashOption();
+        final View previousColor = selectedColorView != null ? selectedColorView : colorViews[0];
+
+        List<ShowcaseStep> steps = new ArrayList<>();
+        steps.add(ShowcaseStep
+                .intro()
+                .before(() -> {
+                    selectScreenLightMode();
+                    onColorCircleSelected(colorViews[3]); // blue
+                }));
+        steps.add(ShowcaseStep
+                .spotlight(R.string.showcase_source_body, R.id.bg_options)
+                .padding(8f));
+        steps.add(ShowcaseStep
+                .spotlight(R.string.showcase_colors_body,
+                        R.id.flashlight_options, R.id.color_option_row)
+                .asOneHole()
+                .padding(12f));
+        steps.add(ShowcaseStep
+                .spotlight(R.string.showcase_power_body, R.id.power_center)
+                .asCircle()
+                .padding(14f)
+                .captionAbove());
+        if (getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)) {
+            steps.add(ShowcaseStep
+                    .spotlight(R.string.showcase_sos_body, R.id.sos_icon)
+                    .asCircle()
+                    .padding(10f));
+            steps.add(ShowcaseStep
+                    .spotlight(R.string.showcase_strobe_body, R.id.stroboscope_icon)
+                    .asCircle()
+                    .padding(10f));
+        }
+        steps.add(ShowcaseStep
+                .spotlight(R.string.showcase_more_body, R.id.about_icon, R.id.settings_icon)
+                .asCircle()
+                .padding(12f));
+
+        showcase = new Showcase(this, defaultPreferences, steps, () -> {
+            // The colour goes back first: in the flash mode its row is hidden, so a colour left
+            // picked there would keep painting the background with nothing to change it.
+            onColorCircleSelected(previousColor);
+            if (wasFlashOption) selectFlashMode();
+        });
+        showcase.start();
+    }
+
+    /** Switches to the screen light without going through the toggle the user would tap. */
+    private void selectScreenLightMode() {
+        if (!isFlashOption()) return;
+        legacyPreferences.edit().putInt("default_option", 2).apply();
+        init();
+    }
+
+    private void selectFlashMode() {
+        if (isFlashOption()) return;
+        legacyPreferences.edit().putInt("default_option", 1).apply();
+        init();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (glyph == null) return;
+        if (defaultPreferences.getBoolean(GlyphHelper.PREFERENCE_KEY, true)) {
+            glyph.connect();
+            // SOS and the stroboscope blink far too fast to go through the flashlight state, so
+            // the Glyph is told about every single blink instead.
+            helper.setFlashPulseListener(isOn -> glyph.setLevel(isOn ? glyphLevel : 0));
+            updateGlyph();
+        } else {
+            helper.setFlashPulseListener(null);
+            glyph.disconnect();
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (glyph == null) return;
+        helper.setFlashPulseListener(null);
+        // The Glyph belongs to whatever is in front now, so hand it back on the way out.
+        glyph.disconnect();
+    }
+
+    @Override
     protected void onPause() {
         super.onPause();
         defaultPreferences.edit().putFloat("stroboscope_interval", binding.stroboscopeIntervalSlider.getValue()).apply();
@@ -222,6 +358,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        if (showcase != null) showcase.cancel();
         turnOffFlashlightOnScreenOffReceiver.unregisterWith(this);
     }
 
@@ -258,6 +395,7 @@ public class MainActivity extends AppCompatActivity {
             updateOptionsUI(false);
             refreshActivityForScreenLight();
         }
+        updateGlyph();
     }
 
 
@@ -332,6 +470,7 @@ public class MainActivity extends AppCompatActivity {
                     helper.setFlashlightStrength(Math.round(v + 1));
                     if (Boolean.TRUE.equals(helper.getNormalFlashStatus().getValue()))
                         helper.turnOnFlashWithStrength(MainActivity.this);
+                    updateGlyph();
                 }
 
                 @Override
@@ -382,6 +521,7 @@ public class MainActivity extends AppCompatActivity {
                 window.setAttributes(layoutpars);
                 // The screen light just went on or off, so the background may have to follow.
                 refreshBackground();
+                updateGlyph();
             }
 
             @Override
@@ -447,6 +587,74 @@ public class MainActivity extends AppCompatActivity {
 
     boolean isFlashOption() {
         return legacyPreferences.getInt("default_option", 1) == 1;
+    }
+
+    /** Puts the light the app is giving right now onto the Glyph of a Nothing phone. */
+    private void updateGlyph() {
+        if (glyph == null) return;
+        glyphLevel = currentLightLevel();
+        glyph.setLevel(glyphLevel);
+    }
+
+    /**
+     * How far up the light of the active mode is turned, 0 to 100, and 0 whenever that light is
+     * off. The ring keeps showing the flashlight strength while the flashlight is off, which is
+     * why the two are not the same thing.
+     */
+    private int currentLightLevel() {
+        if (!isFlashOption()) return Math.max(0, brightness);
+        if (!isFlashOn()) return 0;
+        float max = binding.progressCircular.getMax();
+        // A flashlight without adjustable strength leaves the ring at zero, so it is simply full.
+        if (max <= 0) return 100;
+        // The ring counts from zero while the lowest strength the flashlight takes is one.
+        return Math.round((binding.progressCircular.getProgress() + 1) / (max + 1) * 100);
+    }
+
+    /**
+     * True while the volume keys should move the brightness ring instead of the device volume.
+     * A ring that cannot be dragged, i.e. a flashlight without adjustable strength, is left alone
+     * so the keys keep doing what they normally do.
+     */
+    private boolean volumeKeysAdjustBrightness() {
+        return defaultPreferences.getBoolean("volume_keys_brightness", true)
+                && binding.progressCircular.isEnabled();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, @NonNull KeyEvent event) {
+        if (isVolumeKey(keyCode) && volumeKeysAdjustBrightness()) {
+            stepBrightness(keyCode == KeyEvent.KEYCODE_VOLUME_UP);
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    public boolean onKeyUp(int keyCode, @NonNull KeyEvent event) {
+        // Swallowing the press alone still leaves the release to the system, which shows its
+        // volume panel over the app, so the whole key has to be taken.
+        if (isVolumeKey(keyCode) && volumeKeysAdjustBrightness()) return true;
+        return super.onKeyUp(keyCode, event);
+    }
+
+    private boolean isVolumeKey(int keyCode) {
+        return keyCode == KeyEvent.KEYCODE_VOLUME_UP || keyCode == KeyEvent.KEYCODE_VOLUME_DOWN;
+    }
+
+    /** Moves the ring one step, taking the same path a drag on it takes. */
+    private void stepBrightness(boolean up) {
+        float max = binding.progressCircular.getMax();
+        // Twenty steps over the whole ring on the screen light, and single steps on the much
+        // shorter flashlight strength scale.
+        float step = max > 20 ? Math.round(max / 20f) : 1f;
+        float current = binding.progressCircular.getProgress();
+        float progress = Math.max(0f, Math.min(max, current + (up ? step : -step)));
+        if (progress == current) return;
+        binding.progressCircular.setProgress(progress);
+        // A drag stores the flashlight strength once the finger lifts; the keys have no such moment.
+        if (isFlashOption())
+            defaultPreferences.edit().putInt("flashlight_strength", Math.round(progress + 1)).apply();
     }
 
     @Override

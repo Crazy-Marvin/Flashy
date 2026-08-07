@@ -8,6 +8,12 @@
     <uses-permission
         android:name="android.permission.CAMERA"
         android:maxSdkVersion="23" />
+    <!-- Lets the app drive the Glyph lights on a Nothing phone. Ignored everywhere else. -->
+    <uses-permission android:name="com.nothing.ketchum.permission.ENABLE" />
+
+    <!-- The Glyph SDK declares minSdk 33. The app keeps its own minimum and only calls into the
+         SDK on Nothing phones, so the higher minimum of the library is overridden here. -->
+    <uses-sdk tools:overrideLibrary="com.nothing.thirdparty" />
 
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
@@ -21,6 +27,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+
+        <!-- Authorises the Glyph strips of Phone (1)/(2)/(2a)/(3a). The key is issued by Nothing's
+             developer programme; until one is filled in below those phones simply refuse to hand
+             out the Glyph and the feature stays off there. The Glyph Matrix of Phone (3) is
+             authorised by the permission above instead and needs no key. The entry itself has to
+             exist either way, because the SDK reads it unconditionally. -->
+        <meta-data
+            android:name="NothingKey"
+            android:value="@string/nothing_glyph_key" />
+
         <activity
             android:name=".activities.AssistToggleActivity"
             android:exported="true"

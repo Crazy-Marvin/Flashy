@@ -20,4 +20,13 @@
     <color name="neutral_surface_dark">#2A2A2E</color>
     <color name="neutral_surface_raised_dark">#3A3A40</color>
     <color name="neutral_track_dark">#2E2E33</color>
+
+    <!-- The guided tour. The scrim is the app accent turned almost opaque, so it reads the same
+         way in either theme and only the highlight cut out of it shows the screen behind. The
+         caption and its buttons are plain cream text on top of it, with a white ring drawn around
+         the cut out so the highlighted control stands apart from the screen showing through. -->
+    <color name="showcase_scrim">#F5FFB137</color>
+    <color name="showcase_on_scrim">#FFF8EC</color>
+    <color name="showcase_on_scrim_muted">#CCFFF8EC</color>
+    <color name="showcase_highlight_ring">#FFFFFFFF</color>
 </resources>
