@@ -61,4 +61,9 @@
 \nDéjelo en blanco para utilizar la longitud de la unidad básica más un 25 por ciento adicional de la misma.</string>
     <string name="version_text">Versión %s</string>
     <string name="assitant_title">Establecer como asistente digital</string>
+    <string name="assitant_summary">Mantén pulsado el botón de inicio para activar o desactivar la linterna al instante</string>
+    <string name="assistant_dialog_title">Activar el acceso directo al Asistente</string>
+    <string name="assistant_dialog_message">Para activar o desactivar rápidamente la linterna manteniendo pulsado el botón de inicio, puedes configurar esta aplicación como tu asistente predeterminado.</string>
+    <string name="positive_dialog_button">Abrir «Configuración»</string>
+    <string name="negative_dialog_button">Cancelar</string>
 </resources>

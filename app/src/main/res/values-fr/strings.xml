@@ -56,4 +56,11 @@
 \nUne unité Farnsworth est plus longue qu\'une unité de base.
 \nÉcrivez ci-contre la longueur voulue pour votre unité Farnsworth (plus longue qu\'une unité de base : %d millisecondes).
 \nLaissez vide pour utiliser la longueur d\'une unité de base augmentée de 25%.</string>
+    <string name="version_text">Version %s</string>
+    <string name="assitant_title">Définir comme assistant numérique</string>
+    <string name="assitant_summary">Appuyez longuement sur le bouton « Accueil » pour activer ou désactiver instantanément la lampe de poche</string>
+    <string name="assistant_dialog_title">Activer le raccourci de l\'Assistant</string>
+    <string name="assistant_dialog_message">Pour activer ou désactiver rapidement la lampe de poche en appuyant longuement sur le bouton d\'accueil, vous pouvez définir cette application comme assistant par défaut.</string>
+    <string name="positive_dialog_button">Ouvrir les paramètres</string>
+    <string name="negative_dialog_button">Annuler</string>
 </resources>

@@ -60,4 +60,10 @@
     <string name="no_flash_on_device_screen_off_subtext">Работает только тогда, когда приложение открыто</string>
     <string name="no_flash_on_device_screen_off">Выключение фонарика при отключении экрана устройства</string>
     <string name="version_text">Версия %s</string>
+    <string name="assitant_title">Установить в качестве цифрового помощника</string>
+    <string name="assitant_summary">Длительно нажмите кнопку «Домой», чтобы мгновенно включить или выключить фонарик</string>
+    <string name="assistant_dialog_title">Включить ярлык «Помощник»</string>
+    <string name="assistant_dialog_message">Чтобы быстро включать и выключать фонарик длительным нажатием на кнопку «Домой», вы можете установить это приложение в качестве помощника по умолчанию.</string>
+    <string name="positive_dialog_button">Открыть настройки</string>
+    <string name="negative_dialog_button">Отменить</string>
 </resources>

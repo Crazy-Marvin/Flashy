@@ -1,2 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">Flashy</string>
+    <string name="flashlight">Torcia elettrica</string>
+    <string name="no_camera">Nessuna fotocamera</string>
+    <string name="cannot_access_camera">Impossibile accedere alla fotocamera. È in uso da parte di un\'altra app?</string>
+    <string name="grant_permission">Concedi il permesso</string>
+    <string name="maximize_screen_brightness">Massimizza la luminosità dello schermo</string>
+    <string name="system_settings_permission_notice">Per modificare la luminosità dello schermo tramite il widget, è necessario concedere un\'autorizzazione speciale all\'app. Premi il pulsante qui sotto per farlo.\n\nUscendo dall\'app senza concedere l\'autorizzazione, il widget non verrà aggiunto.</string>
+    <string name="system_settings_permission_granted">Autorizzazione concessa. Ora puoi uscire da questa schermata.</string>
+    <string name="settings">Impostazioni</string>
+    <string name="general">Generale</string>
+    <string name="appearance">Aspetto</string>
+    <string name="theme">Tema</string>
+    <string name="light">Leggera</string>
+    <string name="dark">Buia</string>
+    <string name="follow_system">Segui il sistema</string>
+    <string name="no_flash_when_screen">Disattiva la torcia in modalità schermo</string>
+    <string name="about">Di</string>
+    <string name="version_license">Apache License 2.0</string>
+    <string name="version_text">Versione %s</string>
+    <string name="assitant_title">Imposta come assistente digitale</string>
+    <string name="assitant_summary">Tieni premuto il tasto Home per attivare o disattivare istantaneamente la torcia</string>
+    <string name="assistant_dialog_title">Abilita scorciatoia dell\'Assistente</string>
+    <string name="assistant_dialog_message">Per attivare o disattivare rapidamente la torcia tenendo premuto il tasto Home, puoi impostare questa app come assistente predefinito.</string>
+    <string name="positive_dialog_button">Apri Impostazioni</string>
+    <string name="negative_dialog_button">Cancellare</string>
+    <string name="contribute">Contribuire</string>
+    <string name="source_code">Codice sorgente</string>
+    <string name="report_problem">Segnala un problema</string>
+    <string name="translate">Tradurre</string>
+    <string name="dev">Sviluppatrice</string>
+    <string name="oss_licenses">Licenze open source</string>
+    <string name="md_icons">Icone Material Design</string>
+    <string name="feather_icons">Feather Icons</string>
+    <string name="no_app_can_handle">Nessuna app è in grado di gestire questa azione.</string>
+    <string name="no_flashlight">Niente torcia</string>
+    <string name="use_screen">Usa lo schermo</string>
+    <string name="sos">SOS</string>
+    <string name="stroboscope_interval">Intervallo dello stroboscopio</string>
+    <string name="words_per_min">Parole al minuto</string>
+    <string name="words_per_min_error">Numero di parole non valido</string>
+    <string name="words_per_min_explanation">Parole al minuto indica quante volte la parola standard \"PARIS\" può essere trasmessa al minuto.\nMaggiore è il valore, minore sarà la durata di ogni \"punto\".\nSi noti che questa impostazione non tiene conto della temporizzazione Farnsworth.\nInserire il valore desiderato qui sotto.</string>
+    <string name="use_farnsworth">Usa la temporizzazione Farnsworth</string>
+    <string name="turn_on_sos_now">Attiva SOS ora</string>
+    <string name="farnsworth_unit_length">Unità di lunghezza Farnsworth</string>
+    <string name="farnsworth_unit_length_error">La durata dell\'unità Farnsworth deve essere superiore a quella di un\'unità normale</string>
+    <string name="farnsworth_unit_length_explanation">La temporizzazione di Farnsworth facilita il riconoscimento dei pattern sonori aumentando gli intervalli tra caratteri e parole, offrendo così più tempo per il riconoscimento.\nUn\'unità Farnsworth è più lunga di un\'unità base.\nInserisci qui sotto la durata desiderata per un\'unità Farnsworth (deve essere maggiore di un\'unità base: %d millisecondi).\nLascia vuoto per utilizzare la durata dell\'unità base più un ulteriore 25%.</string>
+    <string name="learn_more_morse_timing">Scopri di più sulla temporizzazione del codice Morse</string>
+    <string name="md3_subtext">Usa l\'aspetto e lo stile di Android 12</string>
+    <string name="no_flash_on_device_screen_off">Spegni la torcia quando spegni lo schermo del dispositivo</string>
+    <string name="no_flash_on_device_screen_off_subtext">Funziona solo quando l\'app è aperta</string>
+</resources>

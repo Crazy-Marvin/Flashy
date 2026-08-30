@@ -43,4 +43,11 @@
     <string name="md3_subtext">ஆண்ட்ராய்டு 12 தோற்றத்தையும் உணர்வையும் பயன்படுத்தவும்</string>
     <string name="no_flash_on_device_screen_off">சாதனத் திரையை அணைக்கும்போது ஒளிரும் விளக்கை அணைக்கவும்</string>
     <string name="no_flash_on_device_screen_off_subtext">பயன்பாடு திறந்திருக்கும் போது மட்டுமே செயல்படும்</string>
+    <string name="version_text">பதிப்பு %s</string>
+    <string name="assitant_title">டிஜிட்டல் உதவியாளராக அமை</string>
+    <string name="assitant_summary">ஃபிளாஷ்லைட்டை உடனடியாக ஆன் செய்ய ஹோம் பட்டனை நீண்ட நேரம் அழுத்தவும்</string>
+    <string name="assistant_dialog_title">உதவியாளர் குறுக்குவழியை இயக்கவும்</string>
+    <string name="assistant_dialog_message">முகப்புப் பொத்தானை நீண்ட நேரம் அழுத்தி விளக்கை விரைவாக ஆன்/ஆஃப் செய்ய, இந்தச் செயலியை உங்கள் இயல்புநிலை உதவியாளராக அமைக்கலாம்.</string>
+    <string name="positive_dialog_button">அமைப்புகளைத் திற</string>
+    <string name="negative_dialog_button">ரத்து செய்</string>
 </resources>

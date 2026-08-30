@@ -8,7 +8,7 @@
     <string name="maximize_screen_brightness">Maximitza la lluminositat de la pantalla</string>
     <string name="system_settings_permission_notice">Per canviar la lluminositat de la pantalla mitjançant el giny, cal concedir un permís especial a l\'aplicació. Premeu el botó de sota per fer-ho.\n\nSortir sense concedir el permís farà que no s\'afegeixi el giny.</string>
     <string name="system_settings_permission_granted">S\'ha atorgat el permís. Ara podeu sortir d\'aquesta pantalla.</string>
-    <string name="settings">Confuguració</string>
+    <string name="settings">Configuració</string>
     <string name="general">General</string>
     <string name="appearance">Aspecte</string>
     <string name="theme">Tema</string>
@@ -50,4 +50,20 @@
     <string name="md3_subtext">Fes servir l\'aspecte i comportament de l\'Android 12</string>
     <string name="no_flash_on_device_screen_off">Apaga la llanterna en apagar la pantalla del dispositiu</string>
     <string name="no_flash_on_device_screen_off_subtext">Només funciona quan l\'aplicació està oberta</string>
+    <string name="showcase_next">Següent</string>
+    <string name="showcase_done">Fet</string>
+    <string name="showcase_skip">Omet</string>
+    <string name="showcase_source_body">Canvieu entre utilitzar la llum de flaix del telèfon i utilitzar la pantalla com a font de llum.</string>
+    <string name="showcase_colors_body">En el mode pantalla, trieu un color predefinit; o premeu el botó de la paleta per a triar-ne un de personalitzat.</string>
+    <string name="showcase_power_body">Toqueu el botó central per a encendre o apagar el llum.</string>
+    <string name="showcase_sos_body">Feu el flaix d\'un senyal de socors SOS: tres curts, tres llargs, tres curts.</string>
+    <string name="showcase_strobe_body">Activeu l\'estroboscopi per a un efecte ràpid i rítmic de flaix.</string>
+    <string name="showcase_more_body">Obriu quant a i la configuració des d\'aquests botons a les cantonades inferiors.</string>
+    <string name="volume_keys_brightness">Ajusteu la lluminositat amb les tecles de volum</string>
+    <string name="volume_keys_brightness_subtext">Pujar o baixar el volum mou l\'anell de lluminositat mentre l\'aplicació està oberta</string>
+    <string name="glyph_interface">Interfície Glyph</string>
+    <string name="glyph_interface_subtext">Encén el Glyph a la part posterior del telèfon juntament amb la llanterna</string>
+    <string name="showcase_replay">Mostra la guia de nou</string>
+    <string name="showcase_replay_subtext">Torna a la pantalla d\'inici una vegada més</string>
+    <string name="showcase_replay_done">La guia començarà quan torneu enrere</string>
 </resources>
