@@ -1,0 +1,9 @@
+- Destaca les característiques de l'aplicació en el primer inici ℹ️
+- Admet la Glyph Interface dels telèfons intel·ligents Nothing 💠
+- Els botons de volum es poden fer servir per ajustar la lluminositat 💡
+- Refina el mode fosc 🕶️
+- Millora la disposició en els dispositius amb osca a la pantalla 🎨
+- Correccions d'errors 🐛
+- Apunta l'Android 17 🤖
+- Actualitzacions de traduccions 🌎
+- Actualitzacions de dependències ⚙️
