@@ -1,0 +1,20 @@
+
+Æ
+;
+android*http://schemas.android.com/apk/res/androidH
+layer-list*š
+‘item"L
+*http://schemas.android.com/apk/res/androidgravitycenter"(¯„2:8"”
+*http://schemas.android.com/apk/res/androidheight$@dimen/m3_toolbar_button_circle_size"(Õ‚„2/
+-Ñ†œø#dimen/m3_toolbar_button_circle_size0@"“
+*http://schemas.android.com/apk/res/androidwidth$@dimen/m3_toolbar_button_circle_size"(Ù‚„2/
+-Ñ†œø#dimen/m3_toolbar_button_circle_size0@*
+„shape"H
+*http://schemas.android.com/apk/res/androidshapeoval"(šƒ„2:0*°
+§solid"
+*http://schemas.android.com/apk/res/androidcolor(?attr/toolbarNavigationButtonCircleColor"(¥ƒ„25
+3Æ‹ø'attr/toolbarNavigationButtonCircleColor0I!*İ
+Ôitem"L
+*http://schemas.android.com/apk/res/androidgravitycenter" (¯„2:8"~
+*http://schemas.android.com/apk/res/androiddrawable?attr/controlBackground" (™ƒ„2$
+"ù‚øattr/controlBackground0  H
