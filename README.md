@@ -65,6 +65,15 @@ Please make sure to update tests as appropriate.
 
 Check out the [contribution guidelines](https://github.com/Crazy-Marvin/Flashy/blob/trunk/.github/CONTRIBUTING.md) for details please.
 
+## Build flavours
+
+The app comes in two flavours, so that it can be built with and without the proprietary Nothing Glyph SDK:
+
+* `full` - ships `app/libs/glyph-matrix-sdk-2.0.aar` and drives the Glyph lights on Nothing phones. This is the Google Play build: `./gradlew assembleFullRelease`.
+* `fdroid` - built without that SDK, which is neither Free Software nor published to a public Maven repository and therefore cannot be shipped by F-Droid. The Glyph feature is compiled out. This is what F-Droid should build: `./gradlew assembleFdroidRelease` (or `./gradlew assembleFdroidDebug` for a quick check).
+
+The code both flavours share only talks to the Glyph through `GlyphHelper`, and each flavour brings its own implementation of it, in `app/src/full/...` and `app/src/fdroid/...`.
+
 # 📜 License
 
 [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)

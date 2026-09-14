@@ -27,6 +27,20 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    flavorDimensions += "distribution"
+    productFlavors {
+        // Free Software builds (F-Droid, IzzyOnDroid, ...). These must not depend on the
+        // proprietary Nothing Glyph SDK, which is neither Free Software nor published to a
+        // public Maven repository, so this flavour leaves app/libs out and uses the stub
+        // GlyphHelper in src/fdroid instead.
+        fdroid {
+            dimension "distribution"
+        }
+        // Everything that may ship the Glyph SDK, i.e. the Google Play build.
+        full {
+            dimension "distribution"
+        }
+    }
     buildFeatures {
         viewBinding = true
         buildConfig = true
@@ -45,8 +59,10 @@ base {
 }
 
 dependencies {
-    // Includes libs/glyph-matrix-sdk-2.0.aar, the Nothing Glyph SDK
-    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+    // Includes libs/glyph-matrix-sdk-2.0.aar, the Nothing Glyph SDK. Only the `full` flavour
+    // gets it: the Glyph SDK is proprietary and not on any public Maven repository, so the
+    // `fdroid` flavour has to build without it (see src/fdroid/.../GlyphHelper.java).
+    fullImplementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
     implementation 'androidx.appcompat:appcompat:1.8.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.2.2'
     implementation 'androidx.preference:preference:1.2.1'
