@@ -40,6 +40,7 @@ public class AboutActivity extends AppCompatActivity {
         setupClickToGoToWebsite(binding.circularSeekbar, "https://github.com/tankery/CircularSeekBar");
         setupClickToGoToWebsite(binding.kotlin, "https://github.com/JetBrains/kotlin/blob/master/license/LICENSE.txt");
         setupClickToGoToWebsite(binding.java, "http://openjdk.java.net/legal/gplv2+ce.html");
+        setupClickToGoToWebsite(binding.glyph, "https://github.com/Nothing-Developer-Programme/Glyph-Developer-Kit");
     }
 
     private void setupClickToGoToWebsite(View view, String url) {

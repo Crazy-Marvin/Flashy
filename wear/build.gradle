@@ -5,12 +5,12 @@ plugins {
 android {
     namespace = 'rocks.poopjournal.flashy'
 
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "rocks.poopjournal.flashy"
         minSdk = 26
-        targetSdk = 33
+        targetSdk = 37
         versionCode = 30
         versionName = "3.0"
     }
@@ -31,9 +31,9 @@ android {
 }
 
 dependencies {
-    implementation 'com.google.android.gms:play-services-wearable:18.0.0'
+    implementation 'com.google.android.gms:play-services-wearable:20.0.1'
     implementation 'androidx.percentlayout:percentlayout:1.0.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.recyclerview:recyclerview:1.3.1'
+    implementation 'androidx.recyclerview:recyclerview:1.4.0'
     implementation 'androidx.wear:wear:1.4.0'
 }
