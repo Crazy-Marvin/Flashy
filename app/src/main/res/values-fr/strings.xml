@@ -63,4 +63,20 @@
     <string name="assistant_dialog_message">Pour activer ou désactiver rapidement la lampe de poche en appuyant longuement sur le bouton d\'accueil, vous pouvez définir cette application comme assistant par défaut.</string>
     <string name="positive_dialog_button">Ouvrir les paramètres</string>
     <string name="negative_dialog_button">Annuler</string>
+    <string name="showcase_next">Suivant</string>
+    <string name="showcase_done">D\'accord</string>
+    <string name="showcase_skip">Passer</string>
+    <string name="showcase_source_body">Vous pouvez choisir entre utiliser la lampe torche du téléphone et utiliser l\'écran comme source de lumière puissante.</string>
+    <string name="showcase_colors_body">En mode écran, sélectionnez une couleur prédéfinie ou appuyez sur le bouton « palette » pour en choisir une personnalisée.</string>
+    <string name="showcase_power_body">Appuyez sur le bouton central pour allumer ou éteindre la lumière.</string>
+    <string name="showcase_sos_body">Envoyez un signal de détresse SOS à l\'aide de feux : trois courtes, trois longues, trois courtes.</string>
+    <string name="showcase_strobe_body">Déclenchez le stroboscope pour obtenir un effet de clignotement rapide et rythmé.</string>
+    <string name="showcase_more_body">Ouvrez les menus « À propos » et « Paramètres » à l\'aide de ces boutons situés dans les coins inférieurs.</string>
+    <string name="volume_keys_brightness">Régler la luminosité à l\'aide des touches de volume</string>
+    <string name="volume_keys_brightness_subtext">Pour augmenter ou réduire le volume, faites tourner la bague de réglage de la luminosité lorsque l\'application est ouverte</string>
+    <string name="glyph_interface">Glyph Interface</string>
+    <string name="showcase_replay">Afficher à nouveau la visite guidée</string>
+    <string name="showcase_replay_subtext">Parcourez à nouveau l\'écran d\'accueil</string>
+    <string name="showcase_replay_done">La visite commencera dès votre retour</string>
+    <string name="glyph_interface_subtext">Allumez le Glyph situé à l\'arrière du téléphone en même temps que la lampe torche</string>
 </resources>
