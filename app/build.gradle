@@ -2,7 +2,7 @@ plugins {
     id 'com.android.application'
 }
 
-def appVersionName = '3.4'
+def appVersionName = '3.5'
 
 android {
     namespace = 'rocks.poopjournal.flashy'
@@ -12,7 +12,7 @@ android {
         applicationId = "rocks.poopjournal.flashy"
         minSdk = 23
         targetSdk = 37
-        versionCode = 34
+        versionCode = 35
         versionName = appVersionName
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled = true

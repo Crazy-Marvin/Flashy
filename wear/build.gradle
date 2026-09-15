@@ -11,8 +11,8 @@ android {
         applicationId = "rocks.poopjournal.flashy"
         minSdk = 26
         targetSdk = 37
-        versionCode = 30
-        versionName = "3.0"
+        versionCode = 36
+        versionName = "3.6"
     }
 
     buildTypes {
