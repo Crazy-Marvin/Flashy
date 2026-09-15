@@ -66,4 +66,20 @@
     <string name="assistant_dialog_title">Schnellzugriff im Assistenten aktivieren</string>
     <string name="assistant_dialog_message">Um die Taschenlampe durch langes Drücken der Home-Taste schnell ein- und auszuschalten, kannst du diese App als Standard-Assistenten festlegen.</string>
     <string name="positive_dialog_button">Einstellungen öffnen</string>
+    <string name="showcase_done">Verstanden</string>
+    <string name="showcase_skip">Überspringen</string>
+    <string name="showcase_source_body">Wechsle zwischen der Taschenlampe des Telefons und der Verwendung des Bildschirms als helles Licht.</string>
+    <string name="showcase_colors_body">Wähle im Bildschirmmodus eine voreingestellte Farbe aus – oder tippe auf die Paletten-Schaltfläche, um eine benutzerdefinierte Farbe auszuwählen.</string>
+    <string name="showcase_power_body">Tippe auf die mittlere Schaltfläche, um das Licht ein- oder auszuschalten.</string>
+    <string name="showcase_next">Weiter</string>
+    <string name="showcase_sos_body">Sende ein SOS-Notsignal – drei kurz, drei lang, drei kurz.</string>
+    <string name="showcase_strobe_body">Löse das Stroboskop aus, um einen schnellen, rhythmischen Blitzeffekt zu erzielen.</string>
+    <string name="showcase_more_body">Öffne über diese Schaltflächen in den unteren Ecken die Menüs „Info“ und „Einstellungen“.</string>
+    <string name="volume_keys_brightness">Helligkeit mit den Lautstärketasten einstellen</string>
+    <string name="volume_keys_brightness_subtext">Lautstärke erhöhen und verringern: Bewege den Helligkeitsring, während die App geöffnet ist</string>
+    <string name="glyph_interface">Glyph Interface</string>
+    <string name="glyph_interface_subtext">Glyphen auf der Rückseite des Handys zusammen mit der Taschenlampe aufleuchten lassen</string>
+    <string name="showcase_replay">Tour erneut anzeigen</string>
+    <string name="showcase_replay_subtext">Schaue dir noch einmal die Funktionen an</string>
+    <string name="showcase_replay_done">Die Tour beginnt, sobald du zurückkehrst</string>
 </resources>
