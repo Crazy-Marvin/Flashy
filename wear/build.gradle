@@ -2,6 +2,8 @@ plugins {
     id 'com.android.application'
 }
 
+def appVersionName = '3.6'
+
 android {
     namespace = 'rocks.poopjournal.flashy'
 
@@ -12,7 +14,7 @@ android {
         minSdk = 26
         targetSdk = 37
         versionCode = 36
-        versionName = "3.6"
+        versionName = appVersionName
     }
 
     buildTypes {
@@ -28,6 +30,10 @@ android {
     buildFeatures {
         viewBinding = true
     }
+}
+
+base {
+    archivesName = "Flashy-Wear-$appVersionName"
 }
 
 dependencies {
