@@ -50,4 +50,21 @@
     <string name="assistant_dialog_message">முகப்புப் பொத்தானை நீண்ட நேரம் அழுத்தி விளக்கை விரைவாக ஆன்/ஆஃப் செய்ய, இந்தச் செயலியை உங்கள் இயல்புநிலை உதவியாளராக அமைக்கலாம்.</string>
     <string name="positive_dialog_button">அமைப்புகளைத் திற</string>
     <string name="negative_dialog_button">ரத்து செய்</string>
+    <string name="showcase_next">அடுத்து</string>
+    <string name="showcase_done">முடிந்தது</string>
+    <string name="showcase_skip">விடுப</string>
+    <string name="showcase_source_body">தொலைபேசியின் ஃபிளாஷ்லைட்டைப் பயன்படுத்துவதற்கும், திரையை ஒரு பிரகாசமான ஒளியாகப் பயன்படுத்துவதற்கும் இடையில் மாற்றுங்கள்.</string>
+    <string name="showcase_colors_body">திரை பயன்முறையில், ஒரு முன்வரையறுக்கப்பட்ட நிறத்தைத் தேர்ந்தெடுக்கவும் — அல்லது தனிப்பயனாக்கப்பட்ட ஒன்றைத் தேர்ந்தெடுக்க, வண்ணத்தட்டு பொத்தானைத் தட்டவும்.</string>
+    <string name="showcase_power_body">விளக்கை ஆன் அல்லது ஆஃப் செய்ய மையப் பொத்தானைத் தட்டவும்.</string>
+    <string name="showcase_sos_body">ஒரு SOS அவசரகால சிக்னலை ஒளிரச் செய்யுங்கள் — மூன்று குறுகிய, மூன்று நீண்ட, மூன்று குறுகிய.</string>
+    <string name="showcase_strobe_body">வேகமான, தாளத்தோடும் ஒளிரும் விளைவிற்காக ஸ்டிரோபோஸ்கோப்பைத் தூண்டவும்.</string>
+    <string name="showcase_more_body">கீழ் மூலையில் உள்ள இந்தப் பொத்தான்களிலிருந்து பற்றி மற்றும் அமைப்புகளைத் திறக்கவும்.</string>
+    <string name="volume_keys_brightness">ஒலி அளவு விசைகளைக் கொண்டு பிரகாசத்தை சரிசெய்யவும்</string>
+    <string name="volume_keys_brightness_subtext">செயலி திறந்திருக்கும்போது, ஒலி அளவை கூட்டவும் குறைக்கவும் பிரகாச வளையத்தை நகர்த்தவும்</string>
+    <string name="glyph_interface">Glyph Interface</string>
+    <string name="glyph_interface_subtext">ஃபோனின் பின்புறத்தில் உள்ள குறியீட்டை ஃபிளாஷ்லைட்டுடன் ஒளிரச் செய்யவும்</string>
+    <string name="showcase_replay">சுற்றுப்பயணத்தை மீண்டும் காட்டு</string>
+    <string name="showcase_replay_subtext">முகப்புத் திரையை மீண்டும் ஒருமுறை கடந்து செல்லவும்</string>
+    <string name="showcase_replay_done">நீங்கள் திரும்பிச் சென்றதும் சுற்றுப்பயணம் தொடங்கும்</string>
+    <string name="glyph_license">தனிப்பயன்</string>
 </resources>

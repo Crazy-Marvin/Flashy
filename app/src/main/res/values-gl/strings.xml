@@ -50,4 +50,20 @@
     <string name="positive_dialog_button">Abrir configuración</string>
     <string name="negative_dialog_button">Cancelar</string>
     <string name="assistant_dialog_message">Para acender ou apagar rapidamente a lanterna premendo durante un intre o botón Inicio, podes configurar esta aplicación como o teu asistente predeterminado.</string>
+    <string name="showcase_next">Seguinte</string>
+    <string name="showcase_done">Rematado</string>
+    <string name="showcase_skip">Omitir</string>
+    <string name="showcase_source_body">Cambia entre usar a lanterna do teléfono e usar a pantalla como luz brillante.</string>
+    <string name="showcase_colors_body">En modo de pantalla, escolle unha cor predefinida — ou pulsa o botón da paleta para escoller unha personalizada.</string>
+    <string name="showcase_power_body">Toca o botón central para acender ou apagar a luz.</string>
+    <string name="showcase_sos_body">Envia un sinal de socorro SOS — tres curtas, tres longas, tres curtas.</string>
+    <string name="showcase_strobe_body">Activa o estroboscopio para un efecto de parpadeo rápido e rítmico.</string>
+    <string name="showcase_more_body">Abre Acerca de e Achegamentos con estes botóns nas esquinas inferiores.</string>
+    <string name="volume_keys_brightness">Axusta o brillo cos botóns de volume</string>
+    <string name="volume_keys_brightness_subtext">Mover o anel de brillo cara arriba e abaixo mentres a aplicación está aberta</string>
+    <string name="glyph_interface">Glyph Interface</string>
+    <string name="glyph_interface_subtext">Ilumina o glifo na parte traseira do teléfono xunto coa lanterna</string>
+    <string name="showcase_replay">Mostrar de novo a visita guiada</string>
+    <string name="showcase_replay_subtext">Volve percorrer a pantalla de inicio unha vez máis</string>
+    <string name="showcase_replay_done">A visita comezará cando volvas</string>
 </resources>
