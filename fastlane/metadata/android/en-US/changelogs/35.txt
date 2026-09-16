@@ -1,0 +1,9 @@
+- Highlight the features of the app at first startup ℹ️
+- Support Glyph Interface of Nothing smartphones 💠
+- Volume buttons may be used for adjusting brightness 💡
+- Refine Dark Mode 🕶️
+- Improve layout for devices with notch 🎨
+- Bugfixes 🐛
+- Target Android 17 🤖
+- Translation updates 🌎
+- Dependency updates ⚙️
