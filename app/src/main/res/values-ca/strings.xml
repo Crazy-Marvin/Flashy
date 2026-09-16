@@ -66,4 +66,5 @@
     <string name="showcase_replay">Mostra la guia de nou</string>
     <string name="showcase_replay_subtext">Torna a la pantalla d\'inici una vegada més</string>
     <string name="showcase_replay_done">La guia començarà quan torneu enrere</string>
+    <string name="glyph_license">Personalitzada</string>
 </resources>
