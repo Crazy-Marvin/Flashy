@@ -4,6 +4,6 @@
 - Refina el mode fosc 🕶️
 - Millora la disposició en els dispositius amb osca a la pantalla 🎨
 - Correccions d'errors 🐛
-- Apunta l'Android 17 🤖
+- Apunta a l'Android 17 🤖
 - Actualitzacions de traduccions 🌎
 - Actualitzacions de dependències ⚙️

@@ -1,6 +1,6 @@
 - Opció per triar el color de la pantalla de la llanterna 🌈
 - Admet Wear OS per als rellotges intel·ligents de Google ⌚
-- Incorpora l'Android 14 🤖
+- Apunta a l'Android 14 🤖
 - Correcció d'errors 🐛
 - Actualització de traduccions 🌎
 - Actualitzacions de dependències ⚙️
