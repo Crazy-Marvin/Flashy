@@ -209,7 +209,7 @@ public class MainActivity extends AppCompatActivity {
             colorView.setOnClickListener(v -> onColorCircleSelected(colorView));
         }
 
-        binding.rootLayout.post(() -> onColorCircleSelected(colorDefault));
+        binding.rootLayout.post(() -> restoreColorSelection(savedInstanceState));
         findViewById(R.id.show_palette_icon).setOnClickListener(v -> {
             binding.colorPickerView.setVisibility(View.VISIBLE);
             if (selectedColorView != null) {
@@ -662,6 +662,37 @@ public class MainActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
         if (!isFlashOption()) {
             outState.putInt("brightness", brightness);
+        }
+        // Rotating recreates the activity, so the colour has to survive it. The tour paints its
+        // own colour and puts the user's back once over, so that one is not worth keeping.
+        if (colorViews != null && (showcase == null || !showcase.isRunning())) {
+            int swatch = -1;
+            for (int i = 0; i < colorViews.length; i++) {
+                if (colorViews[i] == selectedColorView) swatch = i;
+            }
+            outState.putInt("color_swatch", swatch);
+            outState.putInt("screen_color", selectedScreenColor);
+        }
+    }
+
+    /** Selects the colour saved before the activity was recreated, or the default one. */
+    private void restoreColorSelection(@Nullable Bundle savedInstanceState) {
+        if (savedInstanceState == null || !savedInstanceState.containsKey("color_swatch")) {
+            onColorCircleSelected(colorViews[0]);
+            return;
+        }
+        int swatch = savedInstanceState.getInt("color_swatch");
+        if (swatch >= 0 && swatch < colorViews.length) {
+            onColorCircleSelected(colorViews[swatch]);
+            return;
+        }
+        // A colour from the palette rather than one of the circles.
+        usingThemeBackground = false;
+        selectedScreenColor = savedInstanceState.getInt("screen_color", themeDefaultColor);
+        refreshBackground();
+        if (!isFlashOption()) {
+            refreshActivityForScreenLight();
+            updateOptionsUI(false);
         }
     }
 
