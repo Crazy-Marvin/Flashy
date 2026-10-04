@@ -2,7 +2,7 @@ plugins {
     id 'com.android.application'
 }
 
-def appVersionName = '3.6'
+def appVersionName = '3.8'
 
 android {
     namespace = 'rocks.poopjournal.flashy'
@@ -13,7 +13,7 @@ android {
         applicationId = "rocks.poopjournal.flashy"
         minSdk = 26
         targetSdk = 37
-        versionCode = 36
+        versionCode = 38
         versionName = appVersionName
     }
 
