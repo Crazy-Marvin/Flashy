@@ -1,0 +1,3 @@
+- Correcció d'errors 🐛
+- Actualitzacions de traduccions 🌎
+- Actualitzacions de dependències ⚙️
