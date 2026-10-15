@@ -52,10 +52,7 @@
     <string name="farnsworth_unit_length_error">La durée d\'une unité Farnsworth doit être plus longue qu\'une unité normale.</string>
     <string name="learn_more_morse_timing">En savoir plus sur les délais dans le code Morse</string>
     <string name="md3_subtext">Utiliser l\'apparence et les interactions conçues pour Android 12</string>
-    <string name="farnsworth_unit_length_explanation">La méthode Farnsworth permet de reconnaître les motifs sonores plus facilement en augmentant le délai entre les lettres et entre les mots, ce qui laisse plus de temps pour les identifier.
-\nUne unité Farnsworth est plus longue qu\'une unité de base.
-\nÉcrivez ci-contre la longueur voulue pour votre unité Farnsworth (plus longue qu\'une unité de base : %d millisecondes).
-\nLaissez vide pour utiliser la longueur d\'une unité de base augmentée de 25%.</string>
+    <string name="farnsworth_unit_length_explanation">La méthode Farnsworth permet de reconnaître les motifs sonores plus facilement en augmentant le délai entre les lettres et entre les mots, ce qui laisse plus de temps pour les identifier. \nUne unité Farnsworth est plus longue qu\'une unité de base. \nÉcrivez ci-contre la longueur voulue pour votre unité Farnsworth (plus longue qu\'une unité de base : %d millisecondes). \nLaissez vide pour utiliser la longueur d\'une unité de base augmentée de 25%%.</string>
     <string name="version_text">Version %s</string>
     <string name="assitant_title">Définir comme assistant numérique</string>
     <string name="assitant_summary">Appuyez longuement sur le bouton « Accueil » pour activer ou désactiver instantanément la lampe de poche</string>
