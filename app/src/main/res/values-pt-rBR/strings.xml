@@ -8,10 +8,7 @@
     <string name="grant_permission">Conceder permissão</string>
     <string name="android_jetpack">Android Jetpack</string>
     <string name="circular_seekbar">Barra de Busca Circular</string>
-    <string name="farnsworth_unit_length_explanation">O tempo Farnsworth facilita o reconhecimento dos padrões sonoros, aumentando os espaços entre os caracteres e as palavras para proporcionar mais tempo de reconhecimento.
-\nUma unidade Farnsworth é mais longa que uma unidade básica.
-\nInsira abaixo o comprimento desejado de uma unidade Farnsworth (deve ser maior que uma unidade básica: %d milissegundos).
-\nDeixe em branco para usar o comprimento da unidade básica mais 25% adicionais.</string>
+    <string name="farnsworth_unit_length_explanation">O tempo Farnsworth facilita o reconhecimento dos padrões sonoros, aumentando os espaços entre os caracteres e as palavras para proporcionar mais tempo de reconhecimento. \nUma unidade Farnsworth é mais longa que uma unidade básica. \nInsira abaixo o comprimento desejado de uma unidade Farnsworth (deve ser maior que uma unidade básica: %d milissegundos). \nDeixe em branco para usar o comprimento da unidade básica mais 25%% adicionais.</string>
     <string name="translate">Traduzir</string>
     <string name="use_farnsworth">Use o tempo Farnsworth</string>
     <string name="theme">Tema</string>
