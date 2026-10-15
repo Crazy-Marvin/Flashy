@@ -10,10 +10,7 @@
     <string name="turn_on_sos_now">Ativar o SOS agora</string>
     <string name="farnsworth_unit_length">Comprimento da unidade Farnsworth</string>
     <string name="farnsworth_unit_length_error">A duração da unidade Farnsworth deve ser maior que uma unidade normal</string>
-    <string name="farnsworth_unit_length_explanation">O tempo Farnsworth facilita o reconhecimento dos padrões sonoros, aumentando os espaços entre os caracteres e as palavras para proporcionar mais tempo de reconhecimento.
-\nUma unidade Farnsworth é mais longa que uma unidade básica.
-\nInsira abaixo o comprimento desejado de uma unidade Farnsworth (deve ser maior que uma unidade básica: %d milissegundos).
-\nDeixe em branco para usar o comprimento da unidade básica mais 25% adicionais.</string>
+    <string name="farnsworth_unit_length_explanation">O tempo Farnsworth facilita o reconhecimento dos padrões sonoros, aumentando os espaços entre os caracteres e as palavras para proporcionar mais tempo de reconhecimento. \nUma unidade Farnsworth é mais longa que uma unidade básica. \nInsira abaixo o comprimento desejado de uma unidade Farnsworth (deve ser maior que uma unidade básica: %d milissegundos). \nDeixe em branco para usar o comprimento da unidade básica mais 25%% adicionais.</string>
     <string name="learn_more_morse_timing">Saiba mais sobre o tempo do código Morse</string>
     <string name="md3_subtext">Usar a aparência do Android 12</string>
     <string name="settings">Configurações</string>
