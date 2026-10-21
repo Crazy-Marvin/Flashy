@@ -52,4 +52,21 @@
     <string name="md3_subtext">Gunakan tampilan dan nuansa Android 12</string>
     <string name="no_flash_on_device_screen_off">Matikan senter saat mematikan layar perangkat</string>
     <string name="no_flash_on_device_screen_off_subtext">Hanya berfungsi saat aplikasi terbuka</string>
+    <string name="showcase_next">Berikutnya</string>
+    <string name="showcase_done">Selesai</string>
+    <string name="showcase_skip">Lewati</string>
+    <string name="showcase_source_body">Beralih antara menggunakan senter ponsel dan menggunakan layar sebagai sumber cahaya terang.</string>
+    <string name="showcase_colors_body">Dalam mode layar, pilih warna prasetel — atau ketuk tombol palet untuk memilih warna khusus.</string>
+    <string name="showcase_power_body">Ketuk tombol tengah untuk menyalakan atau mematikan lampu.</string>
+    <string name="showcase_sos_body">Pancarkan sinyal darurat SOS — tiga kedipan pendek, tiga kedipan panjang, tiga kedipan pendek.</string>
+    <string name="showcase_strobe_body">Aktifkan stroboskop untuk menghasilkan kedipan cepat dan berirama.</string>
+    <string name="showcase_more_body">Buka Tentang dan Pengaturan melalui tombol di kedua sudut bawah ini.</string>
+    <string name="volume_keys_brightness">Sesuaikan kecerahan dengan tombol volume</string>
+    <string name="volume_keys_brightness_subtext">Tombol volume naik dan turun menggerakkan cincin kecerahan saat aplikasi terbuka</string>
+    <string name="glyph_interface">Antarmuka Glyph</string>
+    <string name="glyph_interface_subtext">Nyalakan Glyph di bagian belakang ponsel bersamaan dengan senter</string>
+    <string name="showcase_replay">Tampilkan kembali panduan</string>
+    <string name="showcase_replay_subtext">Jelajahi layar utama sekali lagi</string>
+    <string name="showcase_replay_done">Panduan akan dimulai saat Anda kembali</string>
+    <string name="glyph_license">Khusus</string>
 </resources>
