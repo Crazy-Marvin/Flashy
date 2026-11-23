@@ -1,0 +1,6 @@
+- Corrección de error de paisaje 🐛
+- Actualizaciones de traducción 🌎
+- Actualizaciones de dependencias ⚙️
+
+Muchísimas gracias a todos los colaboradores y traductores. 😘
+Pueden reportar problemas y enviar correcciones en https://github.com/Crazy-Marvin/Flashy/ o traducciones en https://hosted.weblate.org/engage/flashy/. 🚀
