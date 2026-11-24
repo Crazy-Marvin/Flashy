@@ -66,4 +66,21 @@
     <string name="assistant_dialog_message">Para activar o desactivar rápidamente la linterna manteniendo pulsado el botón de inicio, puedes configurar esta aplicación como tu asistente predeterminado.</string>
     <string name="positive_dialog_button">Abrir «Configuración»</string>
     <string name="negative_dialog_button">Cancelar</string>
+    <string name="showcase_next">Siguente</string>
+    <string name="showcase_done">Hecho</string>
+    <string name="showcase_skip">Omitir</string>
+    <string name="showcase_source_body">Alterna entre usar la linterna del teléfono y usar la pantalla como luz brillante.</string>
+    <string name="showcase_colors_body">En modo pantalla, toma un color preestablecido; o pulsa el botón de paleta para elegir una personalizada.</string>
+    <string name="showcase_more_body">Abre la sección \"Acerca de\" y \"Ajustes\" desde los botones situados en las esquinas inferiores.</string>
+    <string name="showcase_sos_body">Envía una señal de socorro SOS: tres destellos cortos, tres largos, tres cortos.</string>
+    <string name="showcase_strobe_body">Desencadena el estroboscopio para obtener un efecto de destello rápido y rítmico.</string>
+    <string name="volume_keys_brightness">Ajusta el brillo con las teclas de volumen</string>
+    <string name="volume_keys_brightness_subtext">Los botones de subir y bajar volumen mueven el anillo de brillo mientras la aplicación está abierta</string>
+    <string name="glyph_interface_subtext">Ilumina el glifo en la parte posterior del teléfono junto con la linterna</string>
+    <string name="glyph_interface">Interfaz de Glifo</string>
+    <string name="showcase_replay">Mostrar el recorrido de nuevo</string>
+    <string name="showcase_replay_subtext">Recorre la pantalla de inicio una vez más</string>
+    <string name="showcase_replay_done">El recorrido comenzará cuando regreses</string>
+    <string name="showcase_power_body">Pulsa el botón central para encender o apagar la luz.</string>
+    <string name="glyph_license">Personalización</string>
 </resources>
