@@ -1,0 +1,9 @@
+- Resalta las funciones de la app al iniciarla por primera vez ℹ️
+- Compatible con la interfaz Glyph de los smartphones Nothing 💠
+- Los botones de volumen se pueden usar para ajustar el brillo 💡
+- Modo oscuro mejorado 🕶️
+- Diseño optimizado para dispositivos con notch 🎨
+- Corrección de errores 🐛
+- Compatible con Android 17 🤖
+- Actualizaciones de traducción 🌎
+- Actualizaciones de dependencias ⚙️

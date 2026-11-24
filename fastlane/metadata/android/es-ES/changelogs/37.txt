@@ -1,0 +1,3 @@
+- Corrección de errores 🐛
+- Actualizaciones de traducción 🌎
+- Actualizaciones de dependencias ⚙️
